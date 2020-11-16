@@ -44,12 +44,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -132,7 +138,24 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Modelos\AseguradoraBDModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AseguradoraBDModel.Context.cs</LastGenOutput>
+      <DependentUpon>AseguradoraBDModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Modelos\AseguradoraBDModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AseguradoraBDModel.edmx</DependentUpon>
+      <LastGenOutput>AseguradoraBDModel.cs</LastGenOutput>
+    </Content>
     <Content Include="PaginaMaestra\AseguradoraPagMaestra.Master" />
+    <EntityDeploy Include="Modelos\AseguradoraBDModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AseguradoraBDModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Modelos\AseguradoraBDModel.edmx.diagram">
+      <DependentUpon>AseguradoraBDModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -236,6 +259,63 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Adicciones.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\AseguradoraBDModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AseguradoraBDModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\AseguradoraBDModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\AseguradoraBDModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AseguradoraBDModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\CategoriaAdicciones.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Cliente.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\CoberturaPoliza.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Empleado.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\MantAddicionxCliente.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\pa_AdiccionesxClienteSelect_Result.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\pa_EmpleadoSelect_Result.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\RegistroPoliza.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Sucursal.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Telefono.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\TipoPoliza.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\TipoUsuario.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\Usuario.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="PaginaMaestra\AseguradoraPagMaestra.Master.cs">
       <DependentUpon>AseguradoraPagMaestra.Master</DependentUpon>
