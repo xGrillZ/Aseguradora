@@ -117,6 +117,10 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="formularios\frmClienteElimina.aspx" />
+    <Content Include="formularios\frmClienteInserta.aspx" />
+    <Content Include="formularios\frmClienteLista.aspx" />
+    <Content Include="formularios\frmClienteModifica.aspx" />
     <Content Include="formularios\frmMaestraTest.aspx" />
     <Content Include="formularios\frmPruebas.aspx" />
     <Content Include="Global.asax" />
@@ -174,6 +178,9 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BL\BLCliente.cs" />
+    <Compile Include="BL\BLPaisProcedencia.cs" />
+    <Compile Include="BL\BLTipoCliente.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -187,6 +194,34 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\frmClienteElimina.aspx.cs">
+      <DependentUpon>frmClienteElimina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\frmClienteElimina.aspx.designer.cs">
+      <DependentUpon>frmClienteElimina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\frmClienteInserta.aspx.cs">
+      <DependentUpon>frmClienteInserta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\frmClienteInserta.aspx.designer.cs">
+      <DependentUpon>frmClienteInserta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\frmClienteLista.aspx.cs">
+      <DependentUpon>frmClienteLista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\frmClienteLista.aspx.designer.cs">
+      <DependentUpon>frmClienteLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\frmClienteModifica.aspx.cs">
+      <DependentUpon>frmClienteModifica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\frmClienteModifica.aspx.designer.cs">
+      <DependentUpon>frmClienteModifica.aspx</DependentUpon>
     </Compile>
     <Compile Include="formularios\frmMaestraTest.aspx.cs">
       <DependentUpon>frmMaestraTest.aspx</DependentUpon>
@@ -237,6 +272,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Modelos\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
