@@ -1,0 +1,55 @@
+﻿/* Estilos NavBar */
+.navbar-nav a {
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.navbar-light .navbar-brand {
+    color: #fff;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show > .nav-link {
+    color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.navbar-nav {
+    text-align: center;
+}
+
+.nav-link {
+    padding: .2rem 1rem;
+}
+
+.nav-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: #fff !important;
+}
+
+.bg-light {
+    /*background: rgba(0, 0, 0, 0.2);*/
+    transition: 500ms ease;
+    background: transparent !important;
+}
+
+    .bg-light.scrolled {
+        background: #000 !important;
+    }
+
+.w-100 {
+    height: 100vh;
+}
+
+.logo:hover {
+    animation-duration: 3s;
+    animation-delay: 0s;
+    animation-name: heartBeat;
+}
+/* Fin Estilos NavBar */

@@ -1,0 +1,149 @@
+﻿/*Estilos de Fuentes*/
+@import url("https://fonts.googleapis.com/css?family=Courgette&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+/*Fin de Estilos de Fuentes*/
+.segmento-uno p {
+    color: #999;
+    line-height: 25px;
+}
+
+.segmento-dos p {
+    color: #999;
+    line-height: 25px;
+}
+
+.segmento-tres p {
+    color: #999;
+    line-height: 25px;
+}
+
+.segmento-cuatro p {
+    color: #999;
+    line-height: 25px;
+}
+
+.footer-top {
+    background: #111;
+    padding: 1px 0px;
+}
+
+.segmento-uno h3 {
+    font-family: Courgette;
+    color: #fff;
+    letter-spacing: 3px;
+    margin: 10px 0;
+}
+
+.segmento-dos h2 {
+    color: #fff;
+    font-family: Poppins;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+    .segmento-dos h2:before {
+        content: '|';
+        color: #0F88E3;
+        padding-right: 10px;
+    }
+
+.segmento-dos ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    .segmento-dos ul li {
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+        line-height: 40px;
+    }
+
+        .segmento-dos ul li a {
+            color: #999;
+            text-decoration: none;
+        }
+
+.segmento-tres h2 {
+    color: #fff;
+    font-family: Poppins;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+    .segmento-tres h2:before {
+        content: '|';
+        color: #0F88E3;
+        padding-right: 10px;
+    }
+
+.segmento-tres a {
+    background: #494848;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    border-radius: 50%;
+}
+
+    .segmento-tres a i {
+        font-size: 20px;
+        color: #fff;
+        padding: 10px 12px;
+    }
+
+.segmento-cuatro h2 {
+    color: #fff;
+    font-family: Poppins;
+    text-transform: uppercase;
+    font-size: 18px;
+}
+
+    .segmento-cuatro h2:before {
+        content: '|';
+        color: #0F88E3;
+        padding-right: 10px;
+        position: relative;
+    }
+
+.texto-footer {
+    text-align: center;
+    background: #000;
+    line-height: 85px;
+}
+
+    .texto-footer p {
+        color: #999;
+    }
+
+.segmento-dos a:hover {
+    color: #0F88E3;
+}
+
+.segmento-tres i:hover {
+    color: #0F88E3;
+    animation-duration: 3s;
+    animation-delay: 0s;
+    animation-name: rotateIn;
+}
+
+.segmento-uno h3:hover {
+    color: #0F88E3;
+}
+
+
+/* Adaptacion a tamaños*/
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .md-mb-30 {
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .sm-mb-30 {
+        margin-bottom: 30px;
+    }
+
+    .footer-top {
+        padding: 50px 0;
+    }
+}
+/*Fin de Adaptacion a tamaños*/
