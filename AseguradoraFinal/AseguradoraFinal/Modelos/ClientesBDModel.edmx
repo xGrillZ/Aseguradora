@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ClientesBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="id_Cliente" />
+          </Key>
+          <Property Name="id_Cliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_TipoCliente" Type="int" Nullable="false" />
+          <Property Name="primerApellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="segundoApellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_PaisProcedencia" Type="int" Nullable="false" />
+          <Property Name="telefono1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono2" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PaisProcedencia">
+          <Key>
+            <PropertyRef Name="id_PaisProcedencia" />
+          </Key>
+          <Property Name="id_PaisProcedencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tblUsuario">
+          <Key>
+            <PropertyRef Name="id_Usuario" />
+          </Key>
+          <Property Name="id_Usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreCompleto" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="correoElectronico" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="contrasena" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="tipoUsuario" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipoCliente">
+          <Key>
+            <PropertyRef Name="id_TipoCliente" />
+          </Key>
+          <Property Name="id_TipoCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="codigo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cliente_PaisProcedencia">
+          <End Role="PaisProcedencia" Type="Self.PaisProcedencia" Multiplicity="1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaisProcedencia">
+              <PropertyRef Name="id_PaisProcedencia" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="id_PaisProcedencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cliente_TipoCliente">
+          <End Role="TipoCliente" Type="Self.TipoCliente" Multiplicity="1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCliente">
+              <PropertyRef Name="id_TipoCliente" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="id_TipoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="sp_EliminaCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_Cliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_EliminaPaisProcedencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_PaisProcedencia" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_EliminaTipoCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_TipoCliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_InsertaCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_TipoCliente" Type="int" Mode="In" />
+          <Parameter Name="primerApellido" Type="varchar" Mode="In" />
+          <Parameter Name="segundoApellido" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="id_PaisProcedencia" Type="int" Mode="In" />
+          <Parameter Name="telefono1" Type="varchar" Mode="In" />
+          <Parameter Name="telefono2" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_InsertaPaisProcedencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_InsertaTipoCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="codigo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_ModificaCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_Cliente" Type="int" Mode="In" />
+          <Parameter Name="id_TipoCliente" Type="int" Mode="In" />
+          <Parameter Name="primerApellido" Type="varchar" Mode="In" />
+          <Parameter Name="segundoApellido" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="id_PaisProcedencia" Type="int" Mode="In" />
+          <Parameter Name="telefono1" Type="varchar" Mode="In" />
+          <Parameter Name="telefono2" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_ModificaPaisProcedencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_PaisProcedencia" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_ModificaTipoCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_TipoCliente" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="codigo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="primerApellido" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaClienteID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_Cliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaPaisProcedencia" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaPaisProcedenciaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_PaisProcedencia" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaTipoCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="codigo" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaTipoClienteID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_TipoCliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="correoElectronico" Type="varchar" Mode="In" />
+          <Parameter Name="nombreCompleto" Type="varchar" Mode="In" />
+          <Parameter Name="id_Usuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaUsuarioCorreoPwd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="correoElectronico" Type="varchar" Mode="In" />
+          <Parameter Name="contrasena" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_RetornaUsuarioID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_Usuario" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="ClientesBDModelStoreContainer">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PaisProcedencia" EntityType="Self.PaisProcedencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUsuario" EntityType="Self.tblUsuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoCliente" EntityType="Self.TipoCliente" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cliente_PaisProcedencia" Association="Self.FK_Cliente_PaisProcedencia">
+            <End Role="PaisProcedencia" EntitySet="PaisProcedencia" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cliente_TipoCliente" Association="Self.FK_Cliente_TipoCliente">
+            <End Role="TipoCliente" EntitySet="TipoCliente" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ClientesBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="id_Cliente" />
+          </Key>
+          <Property Name="id_Cliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_TipoCliente" Type="Int32" Nullable="false" />
+          <Property Name="primerApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="segundoApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_PaisProcedencia" Type="Int32" Nullable="false" />
+          <Property Name="telefono1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PaisProcedencia" Relationship="Self.FK_Cliente_PaisProcedencia" FromRole="Cliente" ToRole="PaisProcedencia" />
+          <NavigationProperty Name="TipoCliente" Relationship="Self.FK_Cliente_TipoCliente" FromRole="Cliente" ToRole="TipoCliente" />
+        </EntityType>
+        <EntityType Name="PaisProcedencia">
+          <Key>
+            <PropertyRef Name="id_PaisProcedencia" />
+          </Key>
+          <Property Name="id_PaisProcedencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK_Cliente_PaisProcedencia" FromRole="PaisProcedencia" ToRole="Cliente" />
+        </EntityType>
+        <EntityType Name="TipoCliente">
+          <Key>
+            <PropertyRef Name="id_TipoCliente" />
+          </Key>
+          <Property Name="id_TipoCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK_Cliente_TipoCliente" FromRole="TipoCliente" ToRole="Cliente" />
+        </EntityType>
+        <Association Name="FK_Cliente_PaisProcedencia">
+          <End Role="PaisProcedencia" Type="Self.PaisProcedencia" Multiplicity="1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PaisProcedencia">
+              <PropertyRef Name="id_PaisProcedencia" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="id_PaisProcedencia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Cliente_TipoCliente">
+          <End Role="TipoCliente" Type="Self.TipoCliente" Multiplicity="1" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoCliente">
+              <PropertyRef Name="id_TipoCliente" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="id_TipoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ClientesBDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="PaisProcedencia" EntityType="Self.PaisProcedencia" />
+          <EntitySet Name="TipoCliente" EntityType="Self.TipoCliente" />
+          <AssociationSet Name="FK_Cliente_PaisProcedencia" Association="Self.FK_Cliente_PaisProcedencia">
+            <End Role="PaisProcedencia" EntitySet="PaisProcedencia" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cliente_TipoCliente" Association="Self.FK_Cliente_TipoCliente">
+            <End Role="TipoCliente" EntitySet="TipoCliente" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <FunctionImport Name="sp_EliminaCliente">
+          <Parameter Name="id_Cliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_EliminaPaisProcedencia">
+          <Parameter Name="id_PaisProcedencia" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_EliminaTipoCliente">
+          <Parameter Name="id_TipoCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsertaCliente">
+            <Parameter Name="id_TipoCliente" Mode="In" Type="Int32" />
+            <Parameter Name="primerApellido" Mode="In" Type="String" />
+            <Parameter Name="segundoApellido" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="id_PaisProcedencia" Mode="In" Type="Int32" />
+            <Parameter Name="telefono1" Mode="In" Type="String" />
+            <Parameter Name="telefono2" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsertaPaisProcedencia">
+          <Parameter Name="nombre" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_InsertaTipoCliente">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="codigo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ModificaCliente">
+            <Parameter Name="id_Cliente" Mode="In" Type="Int32" />
+            <Parameter Name="id_TipoCliente" Mode="In" Type="Int32" />
+            <Parameter Name="primerApellido" Mode="In" Type="String" />
+            <Parameter Name="segundoApellido" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="id_PaisProcedencia" Mode="In" Type="Int32" />
+            <Parameter Name="telefono1" Mode="In" Type="String" />
+            <Parameter Name="telefono2" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ModificaPaisProcedencia">
+            <Parameter Name="id_PaisProcedencia" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_ModificaTipoCliente">
+            <Parameter Name="id_TipoCliente" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="codigo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaCliente" ReturnType="Collection(ClientesBDModel.sp_RetornaCliente_Result)">
+            <Parameter Name="primerApellido" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaClienteID" ReturnType="Collection(ClientesBDModel.sp_RetornaClienteID_Result)">
+          <Parameter Name="id_Cliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaPaisProcedencia" ReturnType="Collection(ClientesBDModel.sp_RetornaPaisProcedencia_Result)">
+          <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaPaisProcedenciaID" ReturnType="Collection(ClientesBDModel.sp_RetornaPaisProcedenciaID_Result)">
+          <Parameter Name="id_PaisProcedencia" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaTipoCliente" ReturnType="Collection(ClientesBDModel.sp_RetornaTipoCliente_Result)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="codigo" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaTipoClienteID" ReturnType="Collection(ClientesBDModel.sp_RetornaTipoClienteID_Result)">
+          <Parameter Name="id_TipoCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="tblUsuario" EntityType="ClientesBDModel.tblUsuario" />
+          <FunctionImport Name="sp_RetornaUsuario" ReturnType="Collection(ClientesBDModel.sp_RetornaUsuario_Result)">
+            <Parameter Name="correoElectronico" Mode="In" Type="String" />
+            <Parameter Name="nombreCompleto" Mode="In" Type="String" />
+            <Parameter Name="id_Usuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaUsuarioCorreoPwd" ReturnType="Collection(ClientesBDModel.sp_RetornaUsuarioCorreoPwd_Result)">
+            <Parameter Name="correoElectronico" Mode="In" Type="String" />
+            <Parameter Name="contrasena" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_RetornaUsuarioID" ReturnType="Collection(ClientesBDModel.sp_RetornaUsuarioID_Result)">
+            <Parameter Name="id_Usuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_RetornaCliente_Result">
+          <Property Type="Int32" Name="id_Cliente" Nullable="false" />
+          <Property Type="String" Name="primerApellido" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="segundoApellido" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="id_PaisProcedencia" Nullable="false" />
+          <Property Type="String" Name="nombrePaisProcedencia" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="telefono1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="telefono2" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaClienteID_Result">
+          <Property Type="Int32" Name="id_Cliente" Nullable="false" />
+          <Property Type="String" Name="primerApellido" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="segundoApellido" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="id_PaisProcedencia" Nullable="false" />
+          <Property Type="String" Name="nombrePaisProcedencia" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="telefono1" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="telefono2" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="id_TipoCliente" Nullable="false" />
+          <Property Type="String" Name="nombreTipoCliente" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaPaisProcedencia_Result">
+          <Property Type="Int32" Name="id_PaisProcedencia" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaPaisProcedenciaID_Result">
+          <Property Type="Int32" Name="id_PaisProcedencia" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaTipoCliente_Result">
+          <Property Type="Int32" Name="id_TipoCliente" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="codigo" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaTipoClienteID_Result">
+          <Property Type="Int32" Name="id_TipoCliente" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="codigo" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="tblUsuario">
+          <Key>
+            <PropertyRef Name="id_Usuario" />
+          </Key>
+          <Property Name="id_Usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCompleto" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="correoElectronico" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="contrasena" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tipoUsuario" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <ComplexType Name="sp_RetornaUsuario_Result">
+          <Property Type="Int32" Name="id_Usuario" Nullable="false" />
+          <Property Type="String" Name="nombreCompleto" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="contrasena" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="tipoUsuario" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaUsuarioCorreoPwd_Result">
+          <Property Type="Int32" Name="id_Usuario" Nullable="false" />
+          <Property Type="String" Name="nombreCompleto" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="contrasena" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="tipoUsuario" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_RetornaUsuarioID_Result">
+          <Property Type="Int32" Name="id_Usuario" Nullable="false" />
+          <Property Type="String" Name="nombreCompleto" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="150" />
+          <Property Type="String" Name="contrasena" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="tipoUsuario" Nullable="false" MaxLength="100" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ClientesBDModelStoreContainer" CdmEntityContainer="ClientesBDEntities">
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="ClientesBDModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="id_Cliente" ColumnName="id_Cliente" />
+                <ScalarProperty Name="id_TipoCliente" ColumnName="id_TipoCliente" />
+                <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
+                <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_PaisProcedencia" ColumnName="id_PaisProcedencia" />
+                <ScalarProperty Name="telefono1" ColumnName="telefono1" />
+                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PaisProcedencia">
+            <EntityTypeMapping TypeName="ClientesBDModel.PaisProcedencia">
+              <MappingFragment StoreEntitySet="PaisProcedencia">
+                <ScalarProperty Name="id_PaisProcedencia" ColumnName="id_PaisProcedencia" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoCliente">
+            <EntityTypeMapping TypeName="ClientesBDModel.TipoCliente">
+              <MappingFragment StoreEntitySet="TipoCliente">
+                <ScalarProperty Name="id_TipoCliente" ColumnName="id_TipoCliente" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_EliminaCliente" FunctionName="ClientesBDModel.Store.sp_EliminaCliente" />
+          <FunctionImportMapping FunctionImportName="sp_EliminaPaisProcedencia" FunctionName="ClientesBDModel.Store.sp_EliminaPaisProcedencia" />
+          <FunctionImportMapping FunctionImportName="sp_EliminaTipoCliente" FunctionName="ClientesBDModel.Store.sp_EliminaTipoCliente" />
+          <FunctionImportMapping FunctionImportName="sp_InsertaCliente" FunctionName="ClientesBDModel.Store.sp_InsertaCliente" />
+          <FunctionImportMapping FunctionImportName="sp_InsertaPaisProcedencia" FunctionName="ClientesBDModel.Store.sp_InsertaPaisProcedencia" />
+          <FunctionImportMapping FunctionImportName="sp_InsertaTipoCliente" FunctionName="ClientesBDModel.Store.sp_InsertaTipoCliente" />
+          <FunctionImportMapping FunctionImportName="sp_ModificaCliente" FunctionName="ClientesBDModel.Store.sp_ModificaCliente" />
+          <FunctionImportMapping FunctionImportName="sp_ModificaPaisProcedencia" FunctionName="ClientesBDModel.Store.sp_ModificaPaisProcedencia" />
+          <FunctionImportMapping FunctionImportName="sp_ModificaTipoCliente" FunctionName="ClientesBDModel.Store.sp_ModificaTipoCliente" />
+          <FunctionImportMapping FunctionImportName="sp_RetornaCliente" FunctionName="ClientesBDModel.Store.sp_RetornaCliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ClientesBDModel.sp_RetornaCliente_Result">
+                <ScalarProperty Name="id_Cliente" ColumnName="id_Cliente" />
+                <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
+                <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_PaisProcedencia" ColumnName="id_PaisProcedencia" />
+                <ScalarProperty Name="nombrePaisProcedencia" ColumnName="nombrePaisProcedencia" />
+                <ScalarProperty Name="telefono1" ColumnName="telefono1" />
+                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaClienteID" FunctionName="ClientesBDModel.Store.sp_RetornaClienteID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ClientesBDModel.sp_RetornaClienteID_Result">
+                <ScalarProperty Name="id_Cliente" ColumnName="id_Cliente" />
+                <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
+                <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id_PaisProcedencia" ColumnName="id_PaisProcedencia" />
+                <ScalarProperty Name="nombrePaisProcedencia" ColumnName="nombrePaisProcedencia" />
+                <ScalarProperty Name="telefono1" ColumnName="telefono1" />
+                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+                <ScalarProperty Name="id_TipoCliente" ColumnName="id_TipoCliente" />
+                <ScalarProperty Name="nombreTipoCliente" ColumnName="nombreTipoCliente" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaPaisProcedencia" FunctionName="ClientesBDModel.Store.sp_RetornaPaisProcedencia">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ClientesBDModel.sp_RetornaPaisProcedencia_Result">
+                <ScalarProperty Name="id_PaisProcedencia" ColumnName="id_PaisProcedencia" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaPaisProcedenciaID" FunctionName="ClientesBDModel.Store.sp_RetornaPaisProcedenciaID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ClientesBDModel.sp_RetornaPaisProcedenciaID_Result">
+                <ScalarProperty Name="id_PaisProcedencia" ColumnName="id_PaisProcedencia" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaTipoCliente" FunctionName="ClientesBDModel.Store.sp_RetornaTipoCliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ClientesBDModel.sp_RetornaTipoCliente_Result">
+                <ScalarProperty Name="id_TipoCliente" ColumnName="id_TipoCliente" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaTipoClienteID" FunctionName="ClientesBDModel.Store.sp_RetornaTipoClienteID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ClientesBDModel.sp_RetornaTipoClienteID_Result">
+                <ScalarProperty Name="id_TipoCliente" ColumnName="id_TipoCliente" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="tblUsuario">
+            <EntityTypeMapping TypeName="ClientesBDModel.tblUsuario">
+              <MappingFragment StoreEntitySet="tblUsuario">
+                <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="nombreCompleto" ColumnName="nombreCompleto" />
+                <ScalarProperty Name="id_Usuario" ColumnName="id_Usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaUsuario" FunctionName="ClientesBDModel.Store.sp_RetornaUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ClientesBDModel.sp_RetornaUsuario_Result">
+                <ScalarProperty Name="id_Usuario" ColumnName="id_Usuario" />
+                <ScalarProperty Name="nombreCompleto" ColumnName="nombreCompleto" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaUsuarioCorreoPwd" FunctionName="ClientesBDModel.Store.sp_RetornaUsuarioCorreoPwd">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ClientesBDModel.sp_RetornaUsuarioCorreoPwd_Result">
+                <ScalarProperty Name="id_Usuario" ColumnName="id_Usuario" />
+                <ScalarProperty Name="nombreCompleto" ColumnName="nombreCompleto" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_RetornaUsuarioID" FunctionName="ClientesBDModel.Store.sp_RetornaUsuarioID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ClientesBDModel.sp_RetornaUsuarioID_Result">
+                <ScalarProperty Name="id_Usuario" ColumnName="id_Usuario" />
+                <ScalarProperty Name="nombreCompleto" ColumnName="nombreCompleto" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="tipoUsuario" ColumnName="tipoUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
