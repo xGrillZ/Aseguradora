@@ -5,16 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace AseguradoraFinal.formularios
+namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClientes
 {
-    public partial class frmClienteElimina : System.Web.UI.Page
+    public partial class frmClientesLista : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btAceptar_Click(object sender, EventArgs e)
         {
 
         }

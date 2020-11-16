@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AseguradoraFinal.formularios
+namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdiccionesPorClientes
 {
 
 
-    public partial class frmClienteLista
+    public partial class frmAdiccionesPorClientesLista
     {
 
         /// <summary>

@@ -7,12 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AseguradoraFinal.formularios
+namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdiccionesPorClientes
 {
 
 
-    public partial class frmClienteModifica
+    public partial class frmAdiccionesPorClientesModifica
     {
+
+        /// <summary>
+        /// frmClienteModifica control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmClienteModifica;
 
         /// <summary>
         /// Label3 control.

@@ -123,12 +123,19 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="formularios\frmClienteElimina.aspx" />
-    <Content Include="formularios\frmClienteInserta.aspx" />
-    <Content Include="formularios\frmClienteLista.aspx" />
-    <Content Include="formularios\frmClienteModifica.aspx" />
     <Content Include="formularios\frmMaestraTest.aspx" />
-    <Content Include="formularios\frmPruebas.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesElimina.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesInserta.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesLista.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesModifica.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesElimina.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesInserta.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesLista.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesModifica.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesElimina.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesInserta.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesLista.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesModifica.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -215,34 +222,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="formularios\frmClienteElimina.aspx.cs">
-      <DependentUpon>frmClienteElimina.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="formularios\frmClienteElimina.aspx.designer.cs">
-      <DependentUpon>frmClienteElimina.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="formularios\frmClienteInserta.aspx.cs">
-      <DependentUpon>frmClienteInserta.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="formularios\frmClienteInserta.aspx.designer.cs">
-      <DependentUpon>frmClienteInserta.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="formularios\frmClienteLista.aspx.cs">
-      <DependentUpon>frmClienteLista.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="formularios\frmClienteLista.aspx.designer.cs">
-      <DependentUpon>frmClienteLista.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="formularios\frmClienteModifica.aspx.cs">
-      <DependentUpon>frmClienteModifica.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="formularios\frmClienteModifica.aspx.designer.cs">
-      <DependentUpon>frmClienteModifica.aspx</DependentUpon>
-    </Compile>
     <Compile Include="formularios\frmMaestraTest.aspx.cs">
       <DependentUpon>frmMaestraTest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -250,12 +229,89 @@
     <Compile Include="formularios\frmMaestraTest.aspx.designer.cs">
       <DependentUpon>frmMaestraTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="formularios\frmPruebas.aspx.cs">
-      <DependentUpon>frmPruebas.aspx</DependentUpon>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesElimina.aspx.cs">
+      <DependentUpon>frmAdiccionesPorClientesElimina.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="formularios\frmPruebas.aspx.designer.cs">
-      <DependentUpon>frmPruebas.aspx</DependentUpon>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesElimina.aspx.designer.cs">
+      <DependentUpon>frmAdiccionesPorClientesElimina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesInserta.aspx.cs">
+      <DependentUpon>frmAdiccionesPorClientesInserta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesInserta.aspx.designer.cs">
+      <DependentUpon>frmAdiccionesPorClientesInserta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesLista.aspx.cs">
+      <DependentUpon>frmAdiccionesPorClientesLista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesLista.aspx.designer.cs">
+      <DependentUpon>frmAdiccionesPorClientesLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesModifica.aspx.cs">
+      <DependentUpon>frmAdiccionesPorClientesModifica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesModifica.aspx.designer.cs">
+      <DependentUpon>frmAdiccionesPorClientesModifica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesElimina.aspx.cs">
+      <DependentUpon>frmAdiccionesElimina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesElimina.aspx.designer.cs">
+      <DependentUpon>frmAdiccionesElimina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesInserta.aspx.cs">
+      <DependentUpon>frmAdiccionesInserta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesInserta.aspx.designer.cs">
+      <DependentUpon>frmAdiccionesInserta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesLista.aspx.cs">
+      <DependentUpon>frmAdiccionesLista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesLista.aspx.designer.cs">
+      <DependentUpon>frmAdiccionesLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesModifica.aspx.cs">
+      <DependentUpon>frmAdiccionesModifica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesModifica.aspx.designer.cs">
+      <DependentUpon>frmAdiccionesModifica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesElimina.aspx.cs">
+      <DependentUpon>frmClientesElimina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesElimina.aspx.designer.cs">
+      <DependentUpon>frmClientesElimina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesInserta.aspx.cs">
+      <DependentUpon>frmClientesInserta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesInserta.aspx.designer.cs">
+      <DependentUpon>frmClientesInserta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesLista.aspx.cs">
+      <DependentUpon>frmClientesLista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesLista.aspx.designer.cs">
+      <DependentUpon>frmClientesLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesModifica.aspx.cs">
+      <DependentUpon>frmClientesModifica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesModifica.aspx.designer.cs">
+      <DependentUpon>frmClientesModifica.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

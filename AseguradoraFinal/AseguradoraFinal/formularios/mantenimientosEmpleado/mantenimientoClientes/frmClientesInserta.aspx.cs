@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace AseguradoraFinal.formularios
+namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClientes
 {
-    public partial class frmClienteModifica : System.Web.UI.Page
+    public partial class frmClientesInserta : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
