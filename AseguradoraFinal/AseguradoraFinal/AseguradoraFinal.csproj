@@ -133,13 +133,6 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="PaginaMaestra\AseguradoraPagMaestra.Master" />
-    <EntityDeploy Include="Modelos\ClientesBDModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ClientesBDModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Modelos\ClientesBDModel.edmx.diagram">
-      <DependentUpon>ClientesBDModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -247,12 +240,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Modelos\ClientesBDModel.cs" />
-    <Compile Include="Modelos\ClientesBDModel.Designer.cs">
-      <DependentUpon>ClientesBDModel.edmx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="PaginaMaestra\AseguradoraPagMaestra.Master.cs">
       <DependentUpon>AseguradoraPagMaestra.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -298,6 +285,9 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
