@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WFApplication.Modelos
+namespace AseguradoraFinal.Modelos
 {
     using System;
     using System.Collections.Generic;
