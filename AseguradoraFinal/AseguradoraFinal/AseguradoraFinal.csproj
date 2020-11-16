@@ -272,7 +272,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="clases\" />
     <Folder Include="Modelos\" />
+    <Folder Include="reportes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
