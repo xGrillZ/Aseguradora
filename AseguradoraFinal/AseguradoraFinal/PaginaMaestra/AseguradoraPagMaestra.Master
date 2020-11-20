@@ -9,9 +9,9 @@
     <%-- Definicion de hojas de estilo para todas las páginas --%>
     <link href="../css/navbar.css" rel="stylesheet" />
     <link href="../css/footer.css" rel="stylesheet" />
-    <link href="../Content/bootstrap-theme.min.css" rel="stylesheet" />
-    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link href="../lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="../lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <%-- Content Place Holder para que las páginas que utilicen la plantilla incluyan hojas de estilos propias--%>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -24,27 +24,28 @@
                 <a class="navbar-brand logo" href="principal.php">
                   <img src="../img/company1.png" width="100" height="80" alt="">
                 </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-  
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item active dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" id="navbarDropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-folder-plus"></i> Agregar <span class="sr-only">(current)</span></a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href=""><i class="fas fa-drumstick-bite"></i>  Agregar Producto</a>
-                    <a class="dropdown-item" href=""><i class="fas fa-address-card"></i>  Agregar Empresa</a>
+
+              <button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="collapse_target">
+              <ul class="navbar-nav ml-auto drop">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" data-target="dropdown_target" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-folder-plus"></i> Opción 1 <span class="sr-only">(current)</span></a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown-target">
+                    <a class="dropdown-item" href="#"><i class="fas fa-drumstick-bite"></i>  Drop 1</a>
+                    <a class="dropdown-item" href="#"><i class="fas fa-address-card"></i>  Drop 2</a>
                   </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href=""><i class="fas fa-utensils"></i> Comidas</a>
+                    <a class="nav-link" href="#"><i class="fas fa-utensils"></i> Opción2</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href=""><i class="fas fa-align-left"></i> Cerrar Sesión</a>
+                    <a class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
                 </li>
               </ul>
-            </div>
+              </div>
             </div>
         </nav>
     </header>
@@ -55,52 +56,10 @@
 
     <%-- Scripts para todas las páginas--%>
     <script src="../Scripts/jquery-3.4.1.min.js"></script>
-    <script src="../Scripts/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/07570749ac.js" crossorigin="anonymous"></script>
+    <script src="../lib/twitter-bootstrap/js/bootstrap.min.js"></script>
 
     <%-- Content Place Holder para que las páginas que utilicen la plantilla incluyan scripts propios--%>
             <asp:ContentPlaceHolder ID="scriptsPersonalizados" runat="server">
             </asp:ContentPlaceHolder>
-
-    <footer>
-        <div class="footer-top">
-            <div class="container">
-              <div class="row">
-                <div class="col-md-3 col-sm-6 col-xs-12 segmento-uno md-mb-30 sm-mb-30">
-                    <h3>Aseguradora RJS</h3>
-                    <p>La mejor opción para tu protección contra la salud y accidentes.</p>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12 segmento-dos md-mb-30 sm-mb-30">
-                    <p></p>
-                    <h2>Enlaces Directos</h2>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-info-circle"></i> Nosotros</a></li>
-                        <li><a href="#"><i class="fas fa-utensils"></i> Comidas</a></li>
-                        <li><a href="#"><i class="fas fa-address-book"></i> Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12 segmento-tres sm-mb-30">
-                    <p></p>
-                    <h2>Síguenos</h2>
-                    <p>No te pierdas de todas las novedades, solo aquí</p>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fas fa-globe"></i></a>
-                </div>
-                <div class="col-md-3 col-sm-6 col-xs-12 segmento-cuatro sm-mb-30">
-                    <p></p>
-                    <h2>Ubicación</h2>
-                    <p>Localizanos facilmente aquí</p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d245.62553102865036!2d-84.07577563798702!3d9.933249808257596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0e366b31e1825%3A0xc7e80bd4f3a1e96e!2sUniversidad%20Castro%20Carazo%2C%20Edificio%20Biblioteca!5e0!3m2!1ses!2scr!4v1576036938514!5m2!1ses!2scr" width="300" height="200" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-                    <p></p>
-                </div>
-            </div>
-        </div>
-            <div class="texto-footer">
-                <p>Derechos Reservados Aseguradora RJS</p>
-            </div>
-        </div>
-    </footer>
 </body>
 </html>

@@ -21,8 +21,8 @@
     color: #fff;
 }
 
-.navbar-nav {
-    text-align: center;
+.navbar-nav .drop {
+    text-align: right !important;
 }
 
 .nav-link {
@@ -52,4 +52,6 @@
     animation-delay: 0s;
     animation-name: heartBeat;
 }
+
+
 /* Fin Estilos NavBar */
