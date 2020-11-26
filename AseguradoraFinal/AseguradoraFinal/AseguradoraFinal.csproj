@@ -124,10 +124,10 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="formularios\frmMaestraTest.aspx" />
-    <Content Include="formularios\mantenimientoCliente\matenimientoCliente\frmCilenteElimina.aspx" />
-    <Content Include="formularios\mantenimientoCliente\matenimientoCliente\frmClienteInserta.aspx" />
-    <Content Include="formularios\mantenimientoCliente\matenimientoCliente\frmClienteLista.aspx" />
-    <Content Include="formularios\mantenimientoCliente\matenimientoCliente\frmClienteModifica.aspx" />
+    <Content Include="formularios\mantenimientoCliente\mantenimientoCliente\frmCilenteElimina.aspx" />
+    <Content Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteInserta.aspx" />
+    <Content Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteLista.aspx" />
+    <Content Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteModifica.aspx" />
     <Content Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteInserta.aspx" />
     <Content Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteElimina.aspx" />
     <Content Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteLista.aspx" />
@@ -399,32 +399,32 @@
     <Compile Include="formularios\frmMaestraTest.aspx.designer.cs">
       <DependentUpon>frmMaestraTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="formularios\mantenimientoCliente\matenimientoCliente\frmCilenteElimina.aspx.cs">
+    <Compile Include="formularios\mantenimientoCliente\mantenimientoCliente\frmCilenteElimina.aspx.cs">
       <DependentUpon>frmCilenteElimina.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="formularios\mantenimientoCliente\matenimientoCliente\frmCilenteElimina.aspx.designer.cs">
+    <Compile Include="formularios\mantenimientoCliente\mantenimientoCliente\frmCilenteElimina.aspx.designer.cs">
       <DependentUpon>frmCilenteElimina.aspx</DependentUpon>
     </Compile>
-    <Compile Include="formularios\mantenimientoCliente\matenimientoCliente\frmClienteInserta.aspx.cs">
+    <Compile Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteInserta.aspx.cs">
       <DependentUpon>frmClienteInserta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="formularios\mantenimientoCliente\matenimientoCliente\frmClienteInserta.aspx.designer.cs">
+    <Compile Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteInserta.aspx.designer.cs">
       <DependentUpon>frmClienteInserta.aspx</DependentUpon>
     </Compile>
-    <Compile Include="formularios\mantenimientoCliente\matenimientoCliente\frmClienteLista.aspx.cs">
+    <Compile Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteLista.aspx.cs">
       <DependentUpon>frmClienteLista.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="formularios\mantenimientoCliente\matenimientoCliente\frmClienteLista.aspx.designer.cs">
+    <Compile Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteLista.aspx.designer.cs">
       <DependentUpon>frmClienteLista.aspx</DependentUpon>
     </Compile>
-    <Compile Include="formularios\mantenimientoCliente\matenimientoCliente\frmClienteModifica.aspx.cs">
+    <Compile Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteModifica.aspx.cs">
       <DependentUpon>frmClienteModifica.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="formularios\mantenimientoCliente\matenimientoCliente\frmClienteModifica.aspx.designer.cs">
+    <Compile Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteModifica.aspx.designer.cs">
       <DependentUpon>frmClienteModifica.aspx</DependentUpon>
     </Compile>
     <Compile Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteInserta.aspx.cs">
