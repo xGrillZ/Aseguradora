@@ -6,13 +6,21 @@
 
     <h1>Busqueda de Adicciones</h1>
      <div class="form-group">
-           <asp:Label ID="Label1" runat="server" Text="Primer Apellido:"></asp:Label>
-           <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="form-control" ></asp:TextBox>            
+          <asp:Label ID="Label1" runat="server" Text="Identificador Adicción"></asp:Label>
+             <asp:DropDownList ID="ddlIdAdiccion" runat="server" CssClass="form-control" DataValueField="id_Adiccion" DataTextField="id" Enabled="False"  ></asp:DropDownList>        
+       </div>
+      
+
+       <div class="form-group">
+            <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label>
+           <asp:DropDownList ID="ddlNombreAdiccion" runat="server" CssClass="form-control" DataValueField="id_Adiccion" DataTextField="nombre" Enabled="False"  ></asp:DropDownList>        
+       </div>           
+       
+        <div class="form-group">
+          <asp:Label ID="Label3" runat="server" Text="Código"></asp:Label>
+          <asp:DropDownList ID="ddlCodigoAdiccion" runat="server" CssClass="form-control" DataValueField="id_CodigoAdiccion" DataTextField="codigo" Enabled="False"  ></asp:DropDownList>
         </div>
-         <div class="form-group">
-           <asp:Label ID="Label2" runat="server" Text="Nombre:"></asp:Label>
-           <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" ></asp:TextBox>            
-        </div>
+
         <div class="form-group">
              <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" CssClass="btn-success" OnClick="btnMostrarDatos_Click"  />  
             <asp:HyperLink ID="hpNuevoRegistro" runat="server" CssClass="text-info" NavigateUrl="~/formularios/frmClienteInserta.aspx">Nuevo Registro</asp:HyperLink>
