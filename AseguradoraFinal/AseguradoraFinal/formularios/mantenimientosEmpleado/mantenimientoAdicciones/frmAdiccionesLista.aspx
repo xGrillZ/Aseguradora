@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoPrincipal" runat="server">
      <form runat="server" class="form-inline">
 
-    <h1>Busqueda de Asegurados</h1>
+    <h1>Busqueda de Adicciones</h1>
      <div class="form-group">
            <asp:Label ID="Label1" runat="server" Text="Primer Apellido:"></asp:Label>
            <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="form-control" ></asp:TextBox>            

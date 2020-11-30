@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoPrincipal" runat="server">
     <form id="frmClienteInserta" runat="server" class="form-inline">      
-      <h1 class="auto-style1">Ingreso de nuevos asegurados</h1>       
+      <h1 class="auto-style1">Ingreso de adicciones</h1>       
 
        <div class="form-group">
           <asp:Label ID="Label3" runat="server" Text="Primer Apellido"></asp:Label>      
