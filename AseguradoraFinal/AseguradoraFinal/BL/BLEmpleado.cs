@@ -15,12 +15,12 @@ namespace AseguradoraFinal.BL
         /// </summary>
         aseguradorarjsEntities modeloBD = new aseguradorarjsEntities();
 
-        public List<sp_Retorna_Catalogo_Categorias_Result> Retorna_Catalogo_Categorias(string pDescripcionCategoria = null)
+        public List<pa_AdiccionesxClienteSelect_Result> Retorna_AdiccionesxClienteSelect(string pAdiccion = null,  string pNombreCliente = null, string pNumCedula = null, string pGenero = null)
         {
             ///Crea variable que retornara
-            List<sp_Retorna_Catalogo_Categorias_Result> resultado = new List<sp_Retorna_Catalogo_Categorias_Result>();
+            List<pa_AdiccionesxClienteSelect_Result> resultado = new List<pa_AdiccionesxClienteSelect_Result>();
             ///Asignar a la variable el resultado del llamado del PA
-            resultado = this.modeloBD.sp_Retorna_Catalogo_Categorias(pDescripcionCategoria).ToList();
+            resultado = this.modeloBD.pa_AdiccionesxClienteSelect(pAdiccion, pNombreCliente, pNumCedula, pGenero).ToList();
             ///Retornar el valor
             return resultado;
         }

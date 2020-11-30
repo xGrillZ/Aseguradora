@@ -36,8 +36,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             ///indicarle al dropdownlist la fuente de datos
             this.ddlAdicciones.DataSource = oAdicciones.ReturnGastoCatalogo(null);
 
-
-
             ///indicarle al dropdownlist que se muestre
             this.ddlAdicciones.DataBind();
         }
@@ -78,7 +76,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             {
                 int id_Gasto_Categoria = Convert.ToInt16(parametro);
 
-                BLGastoCategoria oBLGastoCategoria = new BLGastoCategoria();
+                BLEmpleado oBLGastoCategoria = new BLEmpleado();
 
                 sp_Retorna_Gasto_Categoria_ID_Result resultDataGastoCategoria = new sp_Retorna_Gasto_Categoria_ID_Result();
 
