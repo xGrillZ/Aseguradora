@@ -14,13 +14,15 @@
 
        <div class="form-group">
             <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label>
-           <asp:DropDownList ID="ddlNombreAdiccion" runat="server" CssClass="form-control" DataValueField="id_Adiccion" DataTextField="nombre" Enabled="False"  ></asp:DropDownList>        
-       </div>           
+           <asp:DropDownList ID="ddlNombreAdiccion" runat="server" CssClass="form-control" DataValueField="nombre" DataTextField="nombre" Enabled="False"  ></asp:DropDownList>        
+      <asp:RequiredFieldValidator ID="rqvNombre" runat="server"  ControlToValidate="ddlNombreAdiccion" ErrorMessage="Debe ingresar el nombre" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+           </div>           
        
         <div class="form-group">
           <asp:Label ID="Label4" runat="server" Text="Código"></asp:Label>
           <asp:DropDownList ID="ddlCodigoAdiccion" runat="server" CssClass="form-control" DataValueField="id_CodigoAdiccion" DataTextField="codigo" Enabled="False"  ></asp:DropDownList>
-        </div>
+       <asp:RequiredFieldValidator ID="rqvCodigoAdiccion" runat="server"  ControlToValidate="ddlCodigoAdiccion" ErrorMessage="Debe ingresar el código" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+            </div>
 
        
 
