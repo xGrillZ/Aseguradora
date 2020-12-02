@@ -33,8 +33,8 @@ namespace AseguradoraFinal.Modelos
         public string correoElectronico { get; set; }
         public System.DateTime ultimoIngreso { get; set; }
     
-        public virtual Usuario Usuario { get; set; }
         public virtual ICollection<MantAddicionxCliente> MantAddicionxCliente { get; set; }
         public virtual ICollection<RegistroPoliza> RegistroPoliza { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }

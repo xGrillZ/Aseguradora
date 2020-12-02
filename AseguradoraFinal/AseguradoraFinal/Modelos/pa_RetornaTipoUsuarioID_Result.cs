@@ -10,23 +10,10 @@
 namespace AseguradoraFinal.Modelos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Usuario
+    public partial class pa_RetornaTipoUsuarioID_Result
     {
-        public Usuario()
-        {
-            this.Cliente = new HashSet<Cliente>();
-            this.Empleado = new HashSet<Empleado>();
-        }
-    
-        public int idUsuario { get; set; }
-        public string contrasena { get; set; }
         public int idTipoUsuario { get; set; }
-        public string correoElectronico { get; set; }
-    
-        public virtual ICollection<Cliente> Cliente { get; set; }
-        public virtual ICollection<Empleado> Empleado { get; set; }
-        public virtual TipoUsuario TipoUsuario { get; set; }
+        public string rol { get; set; }
     }
 }

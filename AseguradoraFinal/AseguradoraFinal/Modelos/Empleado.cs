@@ -29,7 +29,7 @@ namespace AseguradoraFinal.Modelos
         public System.DateTime ultimoIngreso { get; set; }
     
         public virtual Sucursal Sucursal { get; set; }
-        public virtual Usuario Usuario { get; set; }
         public virtual ICollection<RegistroPoliza> RegistroPoliza { get; set; }
+        public virtual Usuario Usuario { get; set; }
     }
 }
