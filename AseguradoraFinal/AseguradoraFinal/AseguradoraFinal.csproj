@@ -124,6 +124,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="formularios\frmMaestraTest.aspx" />
+    <Content Include="formularios\Logeo\frmLogin.aspx" />
     <Content Include="formularios\mantenimientoCliente\mantenimientoCliente\frmCilenteElimina.aspx" />
     <Content Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteInserta.aspx" />
     <Content Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteLista.aspx" />
@@ -400,6 +401,13 @@
     </Compile>
     <Compile Include="formularios\frmMaestraTest.aspx.designer.cs">
       <DependentUpon>frmMaestraTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\Logeo\frmLogin.aspx.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\Logeo\frmLogin.aspx.designer.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="formularios\mantenimientoCliente\mantenimientoCliente\frmCilenteElimina.aspx.cs">
       <DependentUpon>frmCilenteElimina.aspx</DependentUpon>
