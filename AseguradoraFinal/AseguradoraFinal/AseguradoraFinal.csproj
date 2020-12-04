@@ -124,7 +124,8 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="formularios\frmMaestraTest.aspx" />
-    <Content Include="formularios\Logeo\frmLogin.aspx" />
+    <Content Include="formularios\frmLogin.aspx" />
+    <Content Include="formularios\frmPrincipal.aspx" />
     <Content Include="formularios\mantenimientoCliente\mantenimientoCliente\frmCilenteElimina.aspx" />
     <Content Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteInserta.aspx" />
     <Content Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteLista.aspx" />
@@ -402,12 +403,19 @@
     <Compile Include="formularios\frmMaestraTest.aspx.designer.cs">
       <DependentUpon>frmMaestraTest.aspx</DependentUpon>
     </Compile>
-    <Compile Include="formularios\Logeo\frmLogin.aspx.cs">
+    <Compile Include="formularios\frmLogin.aspx.cs">
       <DependentUpon>frmLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="formularios\Logeo\frmLogin.aspx.designer.cs">
+    <Compile Include="formularios\frmLogin.aspx.designer.cs">
       <DependentUpon>frmLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\frmPrincipal.aspx.cs">
+      <DependentUpon>frmPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\frmPrincipal.aspx.designer.cs">
+      <DependentUpon>frmPrincipal.aspx</DependentUpon>
     </Compile>
     <Compile Include="formularios\mantenimientoCliente\mantenimientoCliente\frmCilenteElimina.aspx.cs">
       <DependentUpon>frmCilenteElimina.aspx</DependentUpon>
@@ -622,6 +630,9 @@
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\pa_RetornaUsuarioCorreoPwd_Result.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\pa_RetornaUsuarioCorreoPwd_Result1.cs">
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\pa_RetornaUsuarioEmpleado_Result.cs">

@@ -10,26 +10,15 @@
 namespace AseguradoraFinal.Modelos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Empleado
+    public partial class pa_RetornaUsuarioCorreoPwd_Result1
     {
-        public Empleado()
-        {
-            this.RegistroPoliza = new HashSet<RegistroPoliza>();
-        }
-    
-        public int idEmpleado { get; set; }
         public int idUsuario { get; set; }
+        public string contrasena { get; set; }
+        public int idTipoUsuario { get; set; }
+        public string correoElectronico { get; set; }
         public string nomEmpleado { get; set; }
         public string ape1Empleado { get; set; }
         public string ape2Empleado { get; set; }
-        public string numCedula { get; set; }
-        public int idSucursal { get; set; }
-        public System.DateTime ultimoIngreso { get; set; }
-    
-        public virtual Sucursal Sucursal { get; set; }
-        public virtual Usuario Usuario { get; set; }
-        public virtual ICollection<RegistroPoliza> RegistroPoliza { get; set; }
     }
 }

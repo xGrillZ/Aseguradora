@@ -16,8 +16,8 @@ namespace AseguradoraFinal.Modelos
     {
         public Sucursal()
         {
-            this.Empleado = new HashSet<Empleado>();
             this.RegistroPoliza = new HashSet<RegistroPoliza>();
+            this.Empleado = new HashSet<Empleado>();
         }
     
         public int idSucursal { get; set; }
@@ -25,8 +25,8 @@ namespace AseguradoraFinal.Modelos
         public string direccion { get; set; }
         public int idTelefono { get; set; }
     
-        public virtual ICollection<Empleado> Empleado { get; set; }
         public virtual ICollection<RegistroPoliza> RegistroPoliza { get; set; }
         public virtual Telefono Telefono { get; set; }
+        public virtual ICollection<Empleado> Empleado { get; set; }
     }
 }

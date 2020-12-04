@@ -32,12 +32,13 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         /// </summary>
         void cargaListaAdicciones()
         {
+            /*
             BLEmpleado oAdicciones = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
             this.ddlAdicciones.DataSource = oAdicciones.ReturnGastoCatalogo(null);
 
             ///indicarle al dropdownlist que se muestre
-            this.ddlAdicciones.DataBind();
+            this.ddlAdicciones.DataBind();*/
         }
 
         /// <summary>
@@ -45,15 +46,18 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         /// </summary>
         void cargaListaClientes()
         {
+            /*
             BLEmpleado oClientes = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
             this.ddlClientes.DataSource = oClientes.Retorna_Catalogo_Categorias(null);
             ///indicarle al dropdownlist que se muestre
             this.ddlClientes.DataBind();
+            */
         }
 
         void cargaListaAddicionesCliente()
         {
+            /*
             BLEmpleado oAdiccionesCliente = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
             this.ddlAdiccionesCliente.DataSource = oAdiccionesCliente.ReturnaAdiccionesxCliente(null);
@@ -62,19 +66,21 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
             ///indicarle al dropdownlist que se muestre
             this.ddlAdiccionesCliente.DataBind();
+            */
         }
 
         void cargaDatosRegistro()
         {
+            
             String parametro = this.Request.QueryString["id_Gasto_Categoria"];
 
             if (String.IsNullOrEmpty(parametro))
             {
-                this.lblMensaje.Text = "Parámetro nulo";
+               /* this.lblMensaje.Text = "Parámetro nulo";*/
             }
             else
             {
-                int id_Gasto_Categoria = Convert.ToInt16(parametro);
+              /*  int id_Gasto_Categoria = Convert.ToInt16(parametro);
 
                 BLEmpleado oBLGastoCategoria = new BLEmpleado();
 
@@ -95,6 +101,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                     ///Asignar al hidden field el valor de llave primaria
                     this.hdGastos.Value = resultDataGastoCategoria.id_Gasto_Categoria.ToString();
                 }
+            */
             }
 
         }
@@ -107,6 +114,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         {
             if (this.IsValid)
             {
+                /*
                 BLGastoCategoria oBLGastoCategoria = new BLGastoCategoria();
                 bool resultado = false;
                 string mensaje = "";
@@ -134,6 +142,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 }
                 ///mostrar el mensaje
                 this.lblMensaje.Text = mensaje;
+                */
             }
         }
 

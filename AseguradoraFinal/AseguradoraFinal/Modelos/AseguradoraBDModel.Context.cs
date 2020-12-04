@@ -30,15 +30,15 @@ namespace AseguradoraFinal.Modelos
     
         public DbSet<Adicciones> Adicciones { get; set; }
         public DbSet<CategoriaAdicciones> CategoriaAdicciones { get; set; }
-        public DbSet<Cliente> Cliente { get; set; }
         public DbSet<CoberturaPoliza> CoberturaPoliza { get; set; }
-        public DbSet<Empleado> Empleado { get; set; }
         public DbSet<MantAddicionxCliente> MantAddicionxCliente { get; set; }
         public DbSet<RegistroPoliza> RegistroPoliza { get; set; }
         public DbSet<Sucursal> Sucursal { get; set; }
         public DbSet<Telefono> Telefono { get; set; }
         public DbSet<TipoPoliza> TipoPoliza { get; set; }
         public DbSet<TipoUsuario> TipoUsuario { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Empleado> Empleado { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
     
         public virtual ObjectResult<pa_AdiccionesxClienteSelect_Result> pa_AdiccionesxClienteSelect(string adiccion, string nombreCliente, string numCedula, string genero)
@@ -252,19 +252,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioCliente_Result>("pa_RetornaUsuarioCliente", idUsuarioParameter, correoElectronicoParameter, nombreClienteParameter, primerApellidoClienteParameter, segundoApellidoClienteParameter);
         }
     
-        public virtual ObjectResult<pa_RetornaUsuarioCorreoPwd_Result> pa_RetornaUsuarioCorreoPwd(string contrasena, string correoElectronico)
-        {
-            var contrasenaParameter = contrasena != null ?
-                new ObjectParameter("contrasena", contrasena) :
-                new ObjectParameter("contrasena", typeof(string));
-    
-            var correoElectronicoParameter = correoElectronico != null ?
-                new ObjectParameter("correoElectronico", correoElectronico) :
-                new ObjectParameter("correoElectronico", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioCorreoPwd_Result>("pa_RetornaUsuarioCorreoPwd", contrasenaParameter, correoElectronicoParameter);
-        }
-    
         public virtual ObjectResult<pa_RetornaUsuarioEmpleado_Result> pa_RetornaUsuarioEmpleado(Nullable<int> idUsuario, string correoElectronico, string nombreEmpleado, string primerApellidoEmpleado, string segundoApellidoEmpleado)
         {
             var idUsuarioParameter = idUsuario.HasValue ?
@@ -297,6 +284,19 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("idUsuario", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioID_Result>("pa_RetornaUsuarioID", idUsuarioParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaUsuarioCorreoPwd_Result1> pa_RetornaUsuarioCorreoPwd(string contrasena, string correoElectronico)
+        {
+            var contrasenaParameter = contrasena != null ?
+                new ObjectParameter("contrasena", contrasena) :
+                new ObjectParameter("contrasena", typeof(string));
+    
+            var correoElectronicoParameter = correoElectronico != null ?
+                new ObjectParameter("correoElectronico", correoElectronico) :
+                new ObjectParameter("correoElectronico", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioCorreoPwd_Result1>("pa_RetornaUsuarioCorreoPwd", contrasenaParameter, correoElectronicoParameter);
         }
     }
 }

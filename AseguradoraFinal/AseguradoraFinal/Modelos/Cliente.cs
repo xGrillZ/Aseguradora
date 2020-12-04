@@ -30,11 +30,10 @@ namespace AseguradoraFinal.Modelos
         public string direccionFisica { get; set; }
         public string pTelefono { get; set; }
         public string sTelefono { get; set; }
-        public string correoElectronico { get; set; }
         public System.DateTime ultimoIngreso { get; set; }
     
+        public virtual Usuario Usuario { get; set; }
         public virtual ICollection<MantAddicionxCliente> MantAddicionxCliente { get; set; }
         public virtual ICollection<RegistroPoliza> RegistroPoliza { get; set; }
-        public virtual Usuario Usuario { get; set; }
     }
 }
