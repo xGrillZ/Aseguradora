@@ -126,6 +126,7 @@
     <Content Include="formularios\frmMaestraTest.aspx" />
     <Content Include="formularios\frmLogin.aspx" />
     <Content Include="formularios\frmPrincipal.aspx" />
+    <Content Include="formularios\frmSalir.aspx" />
     <Content Include="formularios\mantenimientoCliente\mantenimientoCliente\frmCilenteElimina.aspx" />
     <Content Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteInserta.aspx" />
     <Content Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteLista.aspx" />
@@ -417,6 +418,13 @@
     <Compile Include="formularios\frmPrincipal.aspx.designer.cs">
       <DependentUpon>frmPrincipal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="formularios\frmSalir.aspx.cs">
+      <DependentUpon>frmSalir.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\frmSalir.aspx.designer.cs">
+      <DependentUpon>frmSalir.aspx</DependentUpon>
+    </Compile>
     <Compile Include="formularios\mantenimientoCliente\mantenimientoCliente\frmCilenteElimina.aspx.cs">
       <DependentUpon>frmCilenteElimina.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -630,9 +638,6 @@
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\pa_RetornaUsuarioCorreoPwd_Result.cs">
-      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Modelos\pa_RetornaUsuarioCorreoPwd_Result1.cs">
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\pa_RetornaUsuarioEmpleado_Result.cs">

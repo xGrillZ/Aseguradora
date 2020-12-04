@@ -286,7 +286,7 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioID_Result>("pa_RetornaUsuarioID", idUsuarioParameter);
         }
     
-        public virtual ObjectResult<pa_RetornaUsuarioCorreoPwd_Result1> pa_RetornaUsuarioCorreoPwd(string contrasena, string correoElectronico)
+        public virtual ObjectResult<pa_RetornaUsuarioCorreoPwd_Result> pa_RetornaUsuarioCorreoPwd(string contrasena, string correoElectronico)
         {
             var contrasenaParameter = contrasena != null ?
                 new ObjectParameter("contrasena", contrasena) :
@@ -296,7 +296,7 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("correoElectronico", correoElectronico) :
                 new ObjectParameter("correoElectronico", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioCorreoPwd_Result1>("pa_RetornaUsuarioCorreoPwd", contrasenaParameter, correoElectronicoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioCorreoPwd_Result>("pa_RetornaUsuarioCorreoPwd", contrasenaParameter, correoElectronicoParameter);
         }
     }
 }

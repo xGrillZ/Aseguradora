@@ -28,6 +28,26 @@ namespace AseguradoraFinal.formularios.Logeo
 
         void RealizarAutenticacion()
         {
+            pa_RetornaUsuarioCorreoPwd_Result resultadoSp = this.modeloBD.pa_RetornaUsuarioCorreoPwd(this.txtContrasena.Text, this.txtCorreo.Text).FirstOrDefault();
+
+            ///Verificación si el objeto es nulo
+            if (resultadoSp == null)
+            {
+                this.lblResultado.Text = "Datos inválidos";
+                this.Session.Add("idusuario", null);
+                this.Session.Add("tipousuario", null);
+                this.Session.Add("usuariologueado", null);
+            }
+            else
+            {
+                ///Variables de sesión
+                this.Session.Add("idusuario", resultadoSp.idUsuario);
+                this.Session.Add("tipousuario", resultadoSp.idTipoUsuario);
+                this.Session.Add("usuariologueado", true);
+
+                ///Redireccionamiento a la página principal
+                this.Response.Redirect("~/formularios/frmPrincipal.aspx");
+            }
 
         }
     }
