@@ -11,7 +11,41 @@ namespace AseguradoraFinal.PaginaMaestra
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            if (Convert.ToBoolean(this.Session["usuariologueado"]) != true)
+            {
+                this.Response.Redirect("~/formularios/frmLogin.aspx");
+            }
+            else
+            {
+                this.VerificaPermisosTipoUsuario();
+            }
+            
+        }
 
+        /// <summary>
+        /// Verificador de permisos por tipo de usuario
+        /// </summary>
+        void VerificaPermisosTipoUsuario()
+        {
+            if (Convert.ToInt16(this.Session["tipousuario"]) == 2)
+            {
+                this.navbarEmpleado.Visible = true;
+                this.navbarCliente.Visible = false;
+                this.navbarDefault.Visible = false;
+            }
+            else if (Convert.ToInt16(this.Session["tipousuario"]) == 1)
+            {
+                this.navbarEmpleado.Visible = false;
+                this.navbarCliente.Visible = true;
+                this.navbarDefault.Visible = false;
+            }
+            else
+            {
+                this.navbarCliente.Visible = false;
+                this.navbarEmpleado.Visible = false;
+                this.navbarDefault.Visible = true;
+            }
         }
     }
 }

@@ -32,12 +32,17 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         /// </summary>
         void cargaListaAdicciones()
         {
+            /*
             BLEmpleado oAdicciones = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
             this.ddlAdiccion.DataSource = oAdicciones.Retorna_AdiccionesxClienteSelect(null);
 
             ///indicarle al dropdownlist que se muestre
+<<<<<<< HEAD
             this.ddlAdiccion.DataBind();
+=======
+            this.ddlAdicciones.DataBind();*/
+>>>>>>> 6ee11bc8db2c1c13f4a35075fdca3f3b5d94cd5a
         }
 
         /// <summary>
@@ -45,15 +50,22 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         /// </summary>
         void cargaListaClientes()
         {
+            /*
             BLEmpleado oClientes = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
             this.ddlAdiccion.DataSource = oClientes.Retorna_AdiccionesxClienteSelect(null);
             ///indicarle al dropdownlist que se muestre
+<<<<<<< HEAD
             this.ddlAdiccion.DataBind();
+=======
+            this.ddlClientes.DataBind();
+            */
+>>>>>>> 6ee11bc8db2c1c13f4a35075fdca3f3b5d94cd5a
         }
 
         void cargaListaAddicionesCliente()
         {
+            /*
             BLEmpleado oAdiccionesCliente = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
             this.ddlAdiccion.DataSource = oAdiccionesCliente.Retorna_AdiccionesxClienteSelect(null);
@@ -61,20 +73,26 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
 
             ///indicarle al dropdownlist que se muestre
+<<<<<<< HEAD
             this.ddlAdiccion.DataBind();
+=======
+            this.ddlAdiccionesCliente.DataBind();
+            */
+>>>>>>> 6ee11bc8db2c1c13f4a35075fdca3f3b5d94cd5a
         }
 
         void cargaDatosRegistro()
         {
+            
             String parametro = this.Request.QueryString["id_Gasto_Categoria"];
 
             if (String.IsNullOrEmpty(parametro))
             {
-                this.lblMensaje.Text = "Parámetro nulo";
+               /* this.lblMensaje.Text = "Parámetro nulo";*/
             }
             else
             {
-                int id_Gasto_Categoria = Convert.ToInt16(parametro);
+              /*  int id_Gasto_Categoria = Convert.ToInt16(parametro);
 
                 BLEmpleado oBLGastoCategoria = new BLEmpleado();
 
@@ -95,6 +113,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                     ///Asignar al hidden field el valor de llave primaria
                     //this.hdGastos.Value = resultDataGastoCategoria.id_Gasto_Categoria.ToString();
                 }
+            */
             }
 
         }
@@ -107,7 +126,12 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         {
             if (this.IsValid)
             {
+<<<<<<< HEAD
                 BLEmpleado oBLGastoCategoria = new BLEmpleado();
+=======
+                /*
+                BLGastoCategoria oBLGastoCategoria = new BLGastoCategoria();
+>>>>>>> 6ee11bc8db2c1c13f4a35075fdca3f3b5d94cd5a
                 bool resultado = false;
                 string mensaje = "";
                 try
@@ -134,6 +158,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 }
                 ///mostrar el mensaje
                 this.lblMensaje.Text = mensaje;
+                */
             }
         }
 

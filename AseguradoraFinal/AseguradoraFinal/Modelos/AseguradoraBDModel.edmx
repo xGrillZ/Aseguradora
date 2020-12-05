@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="aseguradorarjsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="aseguradorarjsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Adicciones">
           <Key>
             <PropertyRef Name="idAdiccion" />
@@ -36,7 +36,6 @@
           <Property Name="direccionFisica" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="pTelefono" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="sTelefono" Type="nvarchar" MaxLength="50" />
-          <Property Name="correoElectronico" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ultimoIngreso" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="CoberturaPoliza">
@@ -54,7 +53,7 @@
             <PropertyRef Name="idEmpleado" />
           </Key>
           <Property Name="idEmpleado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="idUsuario" Type="int" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
           <Property Name="nomEmpleado" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ape1Empleado" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ape2Empleado" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -126,8 +125,9 @@
             <PropertyRef Name="idUsuario" />
           </Key>
           <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="contraseña" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="contrasena" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="idTipoUsuario" Type="int" Nullable="false" />
+          <Property Name="correoElectronico" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_Adicciones_CategoriaAdicciones">
           <End Role="CategoriaAdicciones" Type="Self.CategoriaAdicciones" Multiplicity="1" />
@@ -178,7 +178,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Empleado_Usuario">
-          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuario">
@@ -340,6 +340,33 @@
         <Function Name="pa_RegistroPolizaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NumPoliza" Type="int" Mode="In" />
         </Function>
+        <Function Name="pa_RetornaTipoUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rol" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pa_RetornaTipoUsuarioID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idTipoUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="pa_RetornaUsuarioCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+          <Parameter Name="correoElectronico" Type="nvarchar" Mode="In" />
+          <Parameter Name="nombreCliente" Type="nvarchar" Mode="In" />
+          <Parameter Name="primerApellidoCliente" Type="nvarchar" Mode="In" />
+          <Parameter Name="segundoApellidoCliente" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pa_RetornaUsuarioCorreoPwd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contrasena" Type="varchar" Mode="In" />
+          <Parameter Name="correoElectronico" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="pa_RetornaUsuarioEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+          <Parameter Name="correoElectronico" Type="nvarchar" Mode="In" />
+          <Parameter Name="nombreEmpleado" Type="nvarchar" Mode="In" />
+          <Parameter Name="primerApellidoEmpleado" Type="nvarchar" Mode="In" />
+          <Parameter Name="segundoApellidoEmpleado" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pa_RetornaUsuarioID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+        </Function>
         <Function Name="pa_TipoPolizaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idTipoPoliza" Type="int" Mode="In" />
           <Parameter Name="nombre" Type="nvarchar" Mode="In" />
@@ -415,8 +442,7 @@
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="aseguradorarjsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -441,26 +467,6 @@
           <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Adicciones" Relationship="Self.FK_Adicciones_CategoriaAdicciones" FromRole="CategoriaAdicciones" ToRole="Adicciones" />
         </EntityType>
-        <EntityType Name="Cliente">
-          <Key>
-            <PropertyRef Name="idCliente" />
-          </Key>
-          <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idUsuario" Type="Int32" Nullable="false" />
-          <Property Name="nomCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ape1Cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ape2Cliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="numCedula" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="genero" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="direccionFisica" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="pTelefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="sTelefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="correoElectronico" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ultimoIngreso" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Usuario" Relationship="Self.FK_Cliente_Usuario" FromRole="Cliente" ToRole="Usuario" />
-          <NavigationProperty Name="MantAddicionxCliente" Relationship="Self.FK_MantAddicionxCliente_Cliente" FromRole="Cliente" ToRole="MantAddicionxCliente" />
-          <NavigationProperty Name="RegistroPoliza" Relationship="Self.FK_RegistroPoliza_Cliente" FromRole="Cliente" ToRole="RegistroPoliza" />
-        </EntityType>
         <EntityType Name="CoberturaPoliza">
           <Key>
             <PropertyRef Name="idCoberturaPoliza" />
@@ -473,22 +479,6 @@
           <NavigationProperty Name="TipoPoliza" Relationship="Self.FK_CoberturaPoliza_TipoPoliza" FromRole="CoberturaPoliza" ToRole="TipoPoliza" />
           <NavigationProperty Name="RegistroPoliza" Relationship="Self.FK_RegistroPoliza_CoberturaPoliza" FromRole="CoberturaPoliza" ToRole="RegistroPoliza" />
         </EntityType>
-        <EntityType Name="Empleado">
-          <Key>
-            <PropertyRef Name="idEmpleado" />
-          </Key>
-          <Property Name="idEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idUsuario" Type="Int32" />
-          <Property Name="nomEmpleado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ape1Empleado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ape2Empleado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="numCedula" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="idSucursal" Type="Int32" Nullable="false" />
-          <Property Name="ultimoIngreso" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Sucursal" Relationship="Self.FK_Empleado_Sucursal" FromRole="Empleado" ToRole="Sucursal" />
-          <NavigationProperty Name="Usuario" Relationship="Self.FK_Empleado_Usuario" FromRole="Empleado" ToRole="Usuario" />
-          <NavigationProperty Name="RegistroPoliza" Relationship="Self.FK_RegistroPoliza_Empleado" FromRole="Empleado" ToRole="RegistroPoliza" />
-        </EntityType>
         <EntityType Name="MantAddicionxCliente">
           <Key>
             <PropertyRef Name="idMantAdiccionxCliente" />
@@ -497,7 +487,7 @@
           <Property Name="idAdiccion" Type="Int32" Nullable="false" />
           <Property Name="idCliente" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Adicciones" Relationship="Self.FK_MantAddicionxCliente_Adicciones" FromRole="MantAddicionxCliente" ToRole="Adicciones" />
-          <NavigationProperty Name="Cliente" Relationship="Self.FK_MantAddicionxCliente_Cliente" FromRole="MantAddicionxCliente" ToRole="Cliente" />
+          <NavigationProperty Name="Cliente" Relationship="aseguradorarjsModel.FK_MantAddicionxCliente_Cliente" FromRole="MantAddicionxCliente" ToRole="Cliente" />
         </EntityType>
         <EntityType Name="RegistroPoliza">
           <Key>
@@ -518,10 +508,10 @@
           <Property Name="idSucursal" Type="Int32" Nullable="false" />
           <Property Name="porcentajePrima" Type="Double" Nullable="false" />
           <NavigationProperty Name="Adicciones" Relationship="Self.FK_RegistroPoliza_Adicciones" FromRole="RegistroPoliza" ToRole="Adicciones" />
-          <NavigationProperty Name="Cliente" Relationship="Self.FK_RegistroPoliza_Cliente" FromRole="RegistroPoliza" ToRole="Cliente" />
           <NavigationProperty Name="CoberturaPoliza" Relationship="Self.FK_RegistroPoliza_CoberturaPoliza" FromRole="RegistroPoliza" ToRole="CoberturaPoliza" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK_RegistroPoliza_Empleado" FromRole="RegistroPoliza" ToRole="Empleado" />
           <NavigationProperty Name="Sucursal" Relationship="Self.FK_RegistroPoliza_Sucursal" FromRole="RegistroPoliza" ToRole="Sucursal" />
+          <NavigationProperty Name="Cliente" Relationship="aseguradorarjsModel.FK_RegistroPoliza_Cliente" FromRole="RegistroPoliza" ToRole="Cliente" />
+          <NavigationProperty Name="Empleado" Relationship="aseguradorarjsModel.FK_RegistroPoliza_Empleado" FromRole="RegistroPoliza" ToRole="Empleado" />
         </EntityType>
         <EntityType Name="Sucursal">
           <Key>
@@ -531,9 +521,9 @@
           <Property Name="nomSucursal" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="idTelefono" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK_Empleado_Sucursal" FromRole="Sucursal" ToRole="Empleado" />
           <NavigationProperty Name="RegistroPoliza" Relationship="Self.FK_RegistroPoliza_Sucursal" FromRole="Sucursal" ToRole="RegistroPoliza" />
           <NavigationProperty Name="Telefono" Relationship="Self.FK_Sucursal_Telefono" FromRole="Sucursal" ToRole="Telefono" />
+          <NavigationProperty Name="Empleado" Relationship="aseguradorarjsModel.FK_Empleado_Sucursal" FromRole="Sucursal" ToRole="Empleado" />
         </EntityType>
         <EntityType Name="Telefono">
           <Key>
@@ -559,18 +549,7 @@
           </Key>
           <Property Name="idTipoUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="rol" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_TipoUsuario" FromRole="TipoUsuario" ToRole="Usuario" />
-        </EntityType>
-        <EntityType Name="Usuario">
-          <Key>
-            <PropertyRef Name="idUsuario" />
-          </Key>
-          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="contraseña" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="idTipoUsuario" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cliente" Relationship="Self.FK_Cliente_Usuario" FromRole="Usuario" ToRole="Cliente" />
-          <NavigationProperty Name="Empleado" Relationship="Self.FK_Empleado_Usuario" FromRole="Usuario" ToRole="Empleado" />
-          <NavigationProperty Name="TipoUsuario" Relationship="Self.FK_Usuario_TipoUsuario" FromRole="Usuario" ToRole="TipoUsuario" />
+          <NavigationProperty Name="Usuario" Relationship="aseguradorarjsModel.FK_Usuario_TipoUsuario" FromRole="TipoUsuario" ToRole="Usuario" />
         </EntityType>
         <Association Name="FK_Adicciones_CategoriaAdicciones">
           <End Role="CategoriaAdicciones" Type="Self.CategoriaAdicciones" Multiplicity="1" />
@@ -608,42 +587,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Cliente_Usuario">
-          <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuario">
-              <PropertyRef Name="idUsuario" />
-            </Principal>
-            <Dependent Role="Cliente">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MantAddicionxCliente_Cliente">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="MantAddicionxCliente" Type="Self.MantAddicionxCliente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cliente">
-              <PropertyRef Name="idCliente" />
-            </Principal>
-            <Dependent Role="MantAddicionxCliente">
-              <PropertyRef Name="idCliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RegistroPoliza_Cliente">
-          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
-          <End Role="RegistroPoliza" Type="Self.RegistroPoliza" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cliente">
-              <PropertyRef Name="idCliente" />
-            </Principal>
-            <Dependent Role="RegistroPoliza">
-              <PropertyRef Name="idCliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CoberturaPoliza_TipoPoliza">
           <End Role="TipoPoliza" Type="Self.TipoPoliza" Multiplicity="1" />
           <End Role="CoberturaPoliza" Type="Self.CoberturaPoliza" Multiplicity="*" />
@@ -665,42 +608,6 @@
             </Principal>
             <Dependent Role="RegistroPoliza">
               <PropertyRef Name="idCoberturaPoliza" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Empleado_Sucursal">
-          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
-          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Sucursal">
-              <PropertyRef Name="idSucursal" />
-            </Principal>
-            <Dependent Role="Empleado">
-              <PropertyRef Name="idSucursal" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Empleado_Usuario">
-          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
-          <End Role="Empleado" Type="Self.Empleado" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Usuario">
-              <PropertyRef Name="idUsuario" />
-            </Principal>
-            <Dependent Role="Empleado">
-              <PropertyRef Name="idUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RegistroPoliza_Empleado">
-          <End Role="Empleado" Type="Self.Empleado" Multiplicity="1" />
-          <End Role="RegistroPoliza" Type="Self.RegistroPoliza" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Empleado">
-              <PropertyRef Name="idEmpleado" />
-            </Principal>
-            <Dependent Role="RegistroPoliza">
-              <PropertyRef Name="idEmpleado" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -728,31 +635,16 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Usuario_TipoUsuario">
-          <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
-          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipoUsuario">
-              <PropertyRef Name="idTipoUsuario" />
-            </Principal>
-            <Dependent Role="Usuario">
-              <PropertyRef Name="idTipoUsuario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="aseguradorarjsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Adicciones" EntityType="Self.Adicciones" />
           <EntitySet Name="CategoriaAdicciones" EntityType="Self.CategoriaAdicciones" />
-          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="CoberturaPoliza" EntityType="Self.CoberturaPoliza" />
-          <EntitySet Name="Empleado" EntityType="Self.Empleado" />
           <EntitySet Name="MantAddicionxCliente" EntityType="Self.MantAddicionxCliente" />
           <EntitySet Name="RegistroPoliza" EntityType="Self.RegistroPoliza" />
           <EntitySet Name="Sucursal" EntityType="Self.Sucursal" />
           <EntitySet Name="Telefono" EntityType="Self.Telefono" />
           <EntitySet Name="TipoPoliza" EntityType="Self.TipoPoliza" />
           <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" />
-          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
           <AssociationSet Name="FK_Adicciones_CategoriaAdicciones" Association="Self.FK_Adicciones_CategoriaAdicciones">
             <End Role="CategoriaAdicciones" EntitySet="CategoriaAdicciones" />
             <End Role="Adicciones" EntitySet="Adicciones" />
@@ -765,36 +657,12 @@
             <End Role="Adicciones" EntitySet="Adicciones" />
             <End Role="RegistroPoliza" EntitySet="RegistroPoliza" />
           </AssociationSet>
-          <AssociationSet Name="FK_Cliente_Usuario" Association="Self.FK_Cliente_Usuario">
-            <End Role="Usuario" EntitySet="Usuario" />
-            <End Role="Cliente" EntitySet="Cliente" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MantAddicionxCliente_Cliente" Association="Self.FK_MantAddicionxCliente_Cliente">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="MantAddicionxCliente" EntitySet="MantAddicionxCliente" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RegistroPoliza_Cliente" Association="Self.FK_RegistroPoliza_Cliente">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="RegistroPoliza" EntitySet="RegistroPoliza" />
-          </AssociationSet>
           <AssociationSet Name="FK_CoberturaPoliza_TipoPoliza" Association="Self.FK_CoberturaPoliza_TipoPoliza">
             <End Role="TipoPoliza" EntitySet="TipoPoliza" />
             <End Role="CoberturaPoliza" EntitySet="CoberturaPoliza" />
           </AssociationSet>
           <AssociationSet Name="FK_RegistroPoliza_CoberturaPoliza" Association="Self.FK_RegistroPoliza_CoberturaPoliza">
             <End Role="CoberturaPoliza" EntitySet="CoberturaPoliza" />
-            <End Role="RegistroPoliza" EntitySet="RegistroPoliza" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Empleado_Sucursal" Association="Self.FK_Empleado_Sucursal">
-            <End Role="Sucursal" EntitySet="Sucursal" />
-            <End Role="Empleado" EntitySet="Empleado" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Empleado_Usuario" Association="Self.FK_Empleado_Usuario">
-            <End Role="Usuario" EntitySet="Usuario" />
-            <End Role="Empleado" EntitySet="Empleado" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RegistroPoliza_Empleado" Association="Self.FK_RegistroPoliza_Empleado">
-            <End Role="Empleado" EntitySet="Empleado" />
             <End Role="RegistroPoliza" EntitySet="RegistroPoliza" />
           </AssociationSet>
           <AssociationSet Name="FK_RegistroPoliza_Sucursal" Association="Self.FK_RegistroPoliza_Sucursal">
@@ -805,10 +673,6 @@
             <End Role="Telefono" EntitySet="Telefono" />
             <End Role="Sucursal" EntitySet="Sucursal" />
           </AssociationSet>
-          <AssociationSet Name="FK_Usuario_TipoUsuario" Association="Self.FK_Usuario_TipoUsuario">
-            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
-            <End Role="Usuario" EntitySet="Usuario" />
-          </AssociationSet>
           <FunctionImport Name="pa_AdiccionesxClienteSelect" ReturnType="Collection(aseguradorarjsModel.pa_AdiccionesxClienteSelect_Result)">
             <Parameter Name="Adiccion" Mode="In" Type="String" />
             <Parameter Name="NombreCliente" Mode="In" Type="String" />
@@ -816,7 +680,7 @@
             <Parameter Name="Genero" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_ClienteDelete">
-            <Parameter Name="NumCedula" Mode="In" Type="String" />
+          <Parameter Name="NumCedula" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_ClienteInsert">
             <Parameter Name="idUsuario" Mode="In" Type="Int32" />
@@ -847,17 +711,75 @@
             <Parameter Name="ultimoIngreso" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="pa_EmpleadoSelect" ReturnType="Collection(aseguradorarjsModel.pa_EmpleadoSelect_Result)">
-            <Parameter Name="NumCedula" Mode="In" Type="String" />
+          <Parameter Name="NumCedula" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_RegistroPolizaDelete">
-            <Parameter Name="NumPoliza" Mode="In" Type="Int32" />
+          <Parameter Name="NumPoliza" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="pa_TipoPolizaUpdate">
             <Parameter Name="idTipoPoliza" Mode="In" Type="Int32" />
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="detalles" Mode="In" Type="String" />
           </FunctionImport>
-        </EntityContainer>
+          <FunctionImport Name="pa_RetornaTipoUsuario" ReturnType="Collection(aseguradorarjsModel.pa_RetornaTipoUsuario_Result)">
+          <Parameter Name="rol" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaTipoUsuarioID" ReturnType="Collection(aseguradorarjsModel.pa_RetornaTipoUsuarioID_Result)">
+          <Parameter Name="idTipoUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaUsuarioCliente" ReturnType="Collection(aseguradorarjsModel.pa_RetornaUsuarioCliente_Result)">
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="correoElectronico" Mode="In" Type="String" />
+            <Parameter Name="nombreCliente" Mode="In" Type="String" />
+            <Parameter Name="primerApellidoCliente" Mode="In" Type="String" />
+            <Parameter Name="segundoApellidoCliente" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaUsuarioEmpleado" ReturnType="Collection(aseguradorarjsModel.pa_RetornaUsuarioEmpleado_Result)">
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="correoElectronico" Mode="In" Type="String" />
+            <Parameter Name="nombreEmpleado" Mode="In" Type="String" />
+            <Parameter Name="primerApellidoEmpleado" Mode="In" Type="String" />
+            <Parameter Name="segundoApellidoEmpleado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaUsuarioID" ReturnType="Collection(aseguradorarjsModel.pa_RetornaUsuarioID_Result)">
+          <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Cliente" EntityType="aseguradorarjsModel.Cliente" />
+          <EntitySet Name="Empleado" EntityType="aseguradorarjsModel.Empleado" />
+          <EntitySet Name="Usuario" EntityType="aseguradorarjsModel.Usuario" />
+          <AssociationSet Name="FK_Cliente_Usuario" Association="aseguradorarjsModel.FK_Cliente_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Cliente" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MantAddicionxCliente_Cliente" Association="aseguradorarjsModel.FK_MantAddicionxCliente_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="MantAddicionxCliente" EntitySet="MantAddicionxCliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegistroPoliza_Cliente" Association="aseguradorarjsModel.FK_RegistroPoliza_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="RegistroPoliza" EntitySet="RegistroPoliza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empleado_Sucursal" Association="aseguradorarjsModel.FK_Empleado_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Empleado_Usuario" Association="aseguradorarjsModel.FK_Empleado_Usuario">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Empleado" EntitySet="Empleado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegistroPoliza_Empleado" Association="aseguradorarjsModel.FK_RegistroPoliza_Empleado">
+            <End Role="Empleado" EntitySet="Empleado" />
+            <End Role="RegistroPoliza" EntitySet="RegistroPoliza" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuario_TipoUsuario" Association="aseguradorarjsModel.FK_Usuario_TipoUsuario">
+            <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <FunctionImport Name="pa_RetornaUsuarioCorreoPwd" ReturnType="Collection(aseguradorarjsModel.pa_RetornaUsuarioCorreoPwd_Result)">
+            <Parameter Name="contrasena" Mode="In" Type="String" />
+            <Parameter Name="correoElectronico" Mode="In" Type="String" />
+          </FunctionImport>
+          </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
           <Property Type="String" Name="Column1" Nullable="false" MaxLength="152" />
           <Property Type="String" Name="numCedula" Nullable="false" MaxLength="20" />
@@ -876,7 +798,173 @@
           <Property Type="Int32" Name="extension" Nullable="true" />
           <Property Type="DateTime" Name="ultimoIngreso" Nullable="false" Precision="23" />
         </ComplexType>
-      </Schema>
+        <ComplexType Name="pa_RetornaTipoUsuario_Result">
+          <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
+          <Property Type="String" Name="rol" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaTipoUsuarioID_Result">
+          <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
+          <Property Type="String" Name="rol" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaUsuarioCliente_Result">
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="String" Name="Column1" Nullable="false" MaxLength="152" />
+          <Property Type="String" Name="correoElectronico" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="contrasena" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaUsuarioEmpleado_Result">
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="String" Name="Column1" Nullable="false" MaxLength="152" />
+          <Property Type="String" Name="correoElectronico" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="contrasena" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaUsuarioID_Result">
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="String" Name="Column1" Nullable="false" MaxLength="152" />
+          <Property Type="String" Name="correoElectronico" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="contrasena" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="nomCliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ape1Cliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ape2Cliente" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="numCedula" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="genero" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="direccionFisica" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="pTelefono" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sTelefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ultimoIngreso" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Usuario" Relationship="aseguradorarjsModel.FK_Cliente_Usuario" FromRole="Cliente" ToRole="Usuario" />
+          <NavigationProperty Name="MantAddicionxCliente" Relationship="aseguradorarjsModel.FK_MantAddicionxCliente_Cliente" FromRole="Cliente" ToRole="MantAddicionxCliente" />
+          <NavigationProperty Name="RegistroPoliza" Relationship="aseguradorarjsModel.FK_RegistroPoliza_Cliente" FromRole="Cliente" ToRole="RegistroPoliza" />
+        </EntityType>
+        <EntityType Name="Empleado">
+          <Key>
+            <PropertyRef Name="idEmpleado" />
+          </Key>
+          <Property Name="idEmpleado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <Property Name="nomEmpleado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ape1Empleado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ape2Empleado" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="numCedula" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="idSucursal" Type="Int32" Nullable="false" />
+          <Property Name="ultimoIngreso" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Sucursal" Relationship="aseguradorarjsModel.FK_Empleado_Sucursal" FromRole="Empleado" ToRole="Sucursal" />
+          <NavigationProperty Name="Usuario" Relationship="aseguradorarjsModel.FK_Empleado_Usuario" FromRole="Empleado" ToRole="Usuario" />
+          <NavigationProperty Name="RegistroPoliza" Relationship="aseguradorarjsModel.FK_RegistroPoliza_Empleado" FromRole="Empleado" ToRole="RegistroPoliza" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="contrasena" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="idTipoUsuario" Type="Int32" Nullable="false" />
+          <Property Name="correoElectronico" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cliente" Relationship="aseguradorarjsModel.FK_Cliente_Usuario" FromRole="Usuario" ToRole="Cliente" />
+          <NavigationProperty Name="Empleado" Relationship="aseguradorarjsModel.FK_Empleado_Usuario" FromRole="Usuario" ToRole="Empleado" />
+          <NavigationProperty Name="TipoUsuario" Relationship="aseguradorarjsModel.FK_Usuario_TipoUsuario" FromRole="Usuario" ToRole="TipoUsuario" />
+        </EntityType>
+        <Association Name="FK_Cliente_Usuario">
+          <End Type="aseguradorarjsModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="aseguradorarjsModel.Cliente" Role="Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Cliente">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MantAddicionxCliente_Cliente">
+          <End Type="aseguradorarjsModel.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="aseguradorarjsModel.MantAddicionxCliente" Role="MantAddicionxCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="MantAddicionxCliente">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegistroPoliza_Cliente">
+          <End Type="aseguradorarjsModel.Cliente" Role="Cliente" Multiplicity="1" />
+          <End Type="aseguradorarjsModel.RegistroPoliza" Role="RegistroPoliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="RegistroPoliza">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empleado_Sucursal">
+          <End Type="aseguradorarjsModel.Sucursal" Role="Sucursal" Multiplicity="1" />
+          <End Type="aseguradorarjsModel.Empleado" Role="Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="idSucursal" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idSucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Empleado_Usuario">
+          <End Type="aseguradorarjsModel.Usuario" Role="Usuario" Multiplicity="1" />
+          <End Type="aseguradorarjsModel.Empleado" Role="Empleado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Empleado">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegistroPoliza_Empleado">
+          <End Type="aseguradorarjsModel.Empleado" Role="Empleado" Multiplicity="1" />
+          <End Type="aseguradorarjsModel.RegistroPoliza" Role="RegistroPoliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Empleado">
+              <PropertyRef Name="idEmpleado" />
+            </Principal>
+            <Dependent Role="RegistroPoliza">
+              <PropertyRef Name="idEmpleado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuario_TipoUsuario">
+          <End Type="aseguradorarjsModel.TipoUsuario" Role="TipoUsuario" Multiplicity="1" />
+          <End Type="aseguradorarjsModel.Usuario" Role="Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoUsuario">
+              <PropertyRef Name="idTipoUsuario" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="idTipoUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="pa_RetornaUsuarioCorreoPwd_Result">
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="String" Name="contrasena" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
+          <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -901,24 +989,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Cliente">
-            <EntityTypeMapping TypeName="aseguradorarjsModel.Cliente">
-              <MappingFragment StoreEntitySet="Cliente">
-                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="nomCliente" ColumnName="nomCliente" />
-                <ScalarProperty Name="ape1Cliente" ColumnName="ape1Cliente" />
-                <ScalarProperty Name="ape2Cliente" ColumnName="ape2Cliente" />
-                <ScalarProperty Name="numCedula" ColumnName="numCedula" />
-                <ScalarProperty Name="genero" ColumnName="genero" />
-                <ScalarProperty Name="direccionFisica" ColumnName="direccionFisica" />
-                <ScalarProperty Name="pTelefono" ColumnName="pTelefono" />
-                <ScalarProperty Name="sTelefono" ColumnName="sTelefono" />
-                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
-                <ScalarProperty Name="ultimoIngreso" ColumnName="ultimoIngreso" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CoberturaPoliza">
             <EntityTypeMapping TypeName="aseguradorarjsModel.CoberturaPoliza">
               <MappingFragment StoreEntitySet="CoberturaPoliza">
@@ -927,20 +997,6 @@
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
                 <ScalarProperty Name="idTipoPoliza" ColumnName="idTipoPoliza" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Empleado">
-            <EntityTypeMapping TypeName="aseguradorarjsModel.Empleado">
-              <MappingFragment StoreEntitySet="Empleado">
-                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="nomEmpleado" ColumnName="nomEmpleado" />
-                <ScalarProperty Name="ape1Empleado" ColumnName="ape1Empleado" />
-                <ScalarProperty Name="ape2Empleado" ColumnName="ape2Empleado" />
-                <ScalarProperty Name="numCedula" ColumnName="numCedula" />
-                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
-                <ScalarProperty Name="ultimoIngreso" ColumnName="ultimoIngreso" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1009,15 +1065,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="aseguradorarjsModel.Usuario">
-              <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
-                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="pa_AdiccionesxClienteSelect" FunctionName="aseguradorarjsModel.Store.pa_AdiccionesxClienteSelect">
             <ResultMapping>
               <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_AdiccionesxClienteSelect_Result">
@@ -1050,6 +1097,106 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_RegistroPolizaDelete" FunctionName="aseguradorarjsModel.Store.pa_RegistroPolizaDelete" />
           <FunctionImportMapping FunctionImportName="pa_TipoPolizaUpdate" FunctionName="aseguradorarjsModel.Store.pa_TipoPolizaUpdate" />
+          <FunctionImportMapping FunctionImportName="pa_RetornaTipoUsuario" FunctionName="aseguradorarjsModel.Store.pa_RetornaTipoUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaTipoUsuario_Result">
+                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaTipoUsuarioID" FunctionName="aseguradorarjsModel.Store.pa_RetornaTipoUsuarioID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaTipoUsuarioID_Result">
+                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaUsuarioCliente" FunctionName="aseguradorarjsModel.Store.pa_RetornaUsuarioCliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaUsuarioCliente_Result">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaUsuarioEmpleado" FunctionName="aseguradorarjsModel.Store.pa_RetornaUsuarioEmpleado">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaUsuarioEmpleado_Result">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaUsuarioID" FunctionName="aseguradorarjsModel.Store.pa_RetornaUsuarioID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaUsuarioID_Result">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="aseguradorarjsModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="ultimoIngreso" ColumnName="ultimoIngreso" />
+                <ScalarProperty Name="sTelefono" ColumnName="sTelefono" />
+                <ScalarProperty Name="pTelefono" ColumnName="pTelefono" />
+                <ScalarProperty Name="direccionFisica" ColumnName="direccionFisica" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="numCedula" ColumnName="numCedula" />
+                <ScalarProperty Name="ape2Cliente" ColumnName="ape2Cliente" />
+                <ScalarProperty Name="ape1Cliente" ColumnName="ape1Cliente" />
+                <ScalarProperty Name="nomCliente" ColumnName="nomCliente" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Empleado">
+            <EntityTypeMapping TypeName="aseguradorarjsModel.Empleado">
+              <MappingFragment StoreEntitySet="Empleado">
+                <ScalarProperty Name="ultimoIngreso" ColumnName="ultimoIngreso" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+                <ScalarProperty Name="numCedula" ColumnName="numCedula" />
+                <ScalarProperty Name="ape2Empleado" ColumnName="ape2Empleado" />
+                <ScalarProperty Name="ape1Empleado" ColumnName="ape1Empleado" />
+                <ScalarProperty Name="nomEmpleado" ColumnName="nomEmpleado" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="aseguradorarjsModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaUsuarioCorreoPwd" FunctionName="aseguradorarjsModel.Store.pa_RetornaUsuarioCorreoPwd">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaUsuarioCorreoPwd_Result">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -20,7 +20,7 @@ namespace AseguradoraFinal.Modelos
         }
     
         public int idEmpleado { get; set; }
-        public Nullable<int> idUsuario { get; set; }
+        public int idUsuario { get; set; }
         public string nomEmpleado { get; set; }
         public string ape1Empleado { get; set; }
         public string ape2Empleado { get; set; }
