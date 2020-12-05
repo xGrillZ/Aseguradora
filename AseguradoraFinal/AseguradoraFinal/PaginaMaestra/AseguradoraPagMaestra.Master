@@ -19,6 +19,7 @@
 </head>
 <body>
     <header>
+        <%-- NavBar Rol Empleado --%>
         <div id="navbarEmpleado" runat="server">
             <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top navbar-toggleable-sm">
                 <div class="container">
@@ -50,6 +51,7 @@
                 </div>
             </nav>
         </div>
+        <%-- NavBar Rol Cliente --%>
         <div id="navbarCliente" runat="server">
             <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top navbar-toggleable-sm">
                 <div class="container">
@@ -81,6 +83,7 @@
                 </div>
             </nav>
         </div>
+        <%-- NavBar Rol Default --%>
         <div id="navbarDefault" runat="server">
             <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top navbar-toggleable-sm">
                 <div class="container">

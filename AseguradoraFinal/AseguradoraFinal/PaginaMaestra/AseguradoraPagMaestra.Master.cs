@@ -11,7 +11,7 @@ namespace AseguradoraFinal.PaginaMaestra
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            ///Filtro para verificar el usuario logeado
             if (Convert.ToBoolean(this.Session["usuariologueado"]) != true)
             {
                 this.Response.Redirect("~/formularios/frmLogin.aspx");
