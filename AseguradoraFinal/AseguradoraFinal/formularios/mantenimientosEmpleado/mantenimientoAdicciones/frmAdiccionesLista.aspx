@@ -24,7 +24,7 @@
         <div class="form-group">
              <br />
              <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" CssClass="btn-success" OnClick="btnMostrarDatos_Click"  />  
-            <asp:HyperLink ID="hpNuevoRegistro" runat="server" CssClass="text-info" NavigateUrl="~/formularios/frmAdiccionesInserta.aspx">Nuevo Registro</asp:HyperLink>
+            <asp:HyperLink ID="hpNuevoRegistro" runat="server" CssClass="text-info" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoAddicciones/frmAdiccionesInserta.aspx">Nuevo Registro</asp:HyperLink>
         </div>
         
     
