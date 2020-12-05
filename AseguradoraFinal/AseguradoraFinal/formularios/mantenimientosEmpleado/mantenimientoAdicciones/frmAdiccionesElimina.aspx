@@ -7,7 +7,7 @@
            <asp:HiddenField ID="hdIdCliente" runat="server" />
          <div class="form-group">
           <asp:Label ID="Label1" runat="server" Text="Identificador Adicción"></asp:Label>
-             <asp:DropDownList ID="ddlIdAdiccion" runat="server" CssClass="form-control" DataValueField="id_Adiccion" DataTextField="id" Enabled="False"  ></asp:DropDownList>        
+             <asp:DropDownList ID="ddlAdiccion" runat="server" CssClass="form-control" DataValueField="id_Adiccion" DataTextField="a.nombre" Enabled="False"  ></asp:DropDownList>        
        </div>
       
 
@@ -27,7 +27,7 @@
        </div>             
                                                                   
       <br />      
-        
+         <asp:Label ID="lblMensaje" runat="server"></asp:Label> 
     </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">

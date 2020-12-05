@@ -6,24 +6,25 @@
 
     <h1>Busqueda de Adicciones</h1>
      <div class="form-group">
-          <asp:Label ID="Label1" runat="server" Text="Identificador Adicción"></asp:Label>
-             <asp:DropDownList ID="ddlIdAdiccion" runat="server" CssClass="form-control" DataValueField="id_Adiccion" DataTextField="id" Enabled="False"  ></asp:DropDownList>        
+          <asp:Label ID="Label1" runat="server" Text=" Cédula de Identificación"></asp:Label>
+         <asp:TextBox ID="txtnumCedula" runat="server" CssClass="form-control" OnTextChanged="txtnumCedula_TextChanged" ></asp:TextBox>         
        </div>
       
 
        <div class="form-group">
             <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label>
-           <asp:DropDownList ID="ddlNombreAdiccion" runat="server" CssClass="form-control" DataValueField="id_Adiccion" DataTextField="nombre" Enabled="False"  ></asp:DropDownList>        
+          <asp:TextBox ID="txtNombreCliente" runat="server" CssClass="form-control" OnTextChanged="txtNombreCliente_TextChanged" ></asp:TextBox>       
        </div>           
        
         <div class="form-group">
-          <asp:Label ID="Label3" runat="server" Text="Código"></asp:Label>
-          <asp:DropDownList ID="ddlCodigoAdiccion" runat="server" CssClass="form-control" DataValueField="id_CodigoAdiccion" DataTextField="codigo" Enabled="False"  ></asp:DropDownList>
+          <asp:Label ID="Label3" runat="server" Text="Adicción"></asp:Label>
+          <asp:TextBox ID="txtAdiccion" runat="server" CssClass="form-control" OnTextChanged="txtAdiccion_TextChanged" ></asp:TextBox> 
         </div>
 
         <div class="form-group">
+             <br />
              <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" CssClass="btn-success" OnClick="btnMostrarDatos_Click"  />  
-            <asp:HyperLink ID="hpNuevoRegistro" runat="server" CssClass="text-info" NavigateUrl="~/formularios/frmClienteInserta.aspx">Nuevo Registro</asp:HyperLink>
+            <asp:HyperLink ID="hpNuevoRegistro" runat="server" CssClass="text-info" NavigateUrl="~/formularios/frmAdiccionesInserta.aspx">Nuevo Registro</asp:HyperLink>
         </div>
         
     
@@ -32,16 +33,19 @@
     
     <br />
     
-    <asp:GridView ID="grdListaClientes" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowPaging="True" PageSize="20" OnPageIndexChanging="grdListaClientes_PageIndexChanging" OnSelectedIndexChanged="grdListaClientes_SelectedIndexChanged">
+    <asp:GridView ID="grdListaAdicciones" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowPaging="True" PageSize="20" OnPageIndexChanging="grdListaAdicciones_PageIndexChanging" OnSelectedIndexChanged="grdListaAdicciones_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
-            <asp:BoundField DataField="primerApellido" HeaderText="Apellido 1" />
-            <asp:BoundField DataField="segundoApellido" HeaderText="Apellido 2" />
-            <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+            <asp:BoundField DataField="numCedula" HeaderText="Cedula" />
+            <asp:BoundField DataField="ape1Cliente" HeaderText="Apellido 1" />
+            <asp:BoundField DataField="ape2Cliente" HeaderText="Apellido 2" />
+            <asp:BoundField DataField="nomCliente" HeaderText="Nombre" />
+            <asp:BoundField DataField="Adiccion" HeaderText="Adicción" />
+            <asp:BoundField DataField="correoElectronico" HeaderText="Correo Electrónico" />
             <asp:BoundField />
-            <asp:BoundField DataField="nombrePaisProcedencia" HeaderText="Nacionalidad" />
-            <asp:HyperLinkField DataNavigateUrlFields="id_Cliente" DataNavigateUrlFormatString="frmClienteModifica.aspx?id_Cliente{0}" Text="Modificar" />
-            <asp:HyperLinkField DataNavigateUrlFields="id_Cliente" DataNavigateUrlFormatString="frmClienteElimina.aspx?id_Cliente={0}" Text="Eliminar" />
+            <asp:BoundField DataField="categoriaAdiccion" HeaderText="Categoria Adiccion" />
+            <asp:HyperLinkField DataNavigateUrlFields="id_Cliente" DataNavigateUrlFormatString="frmAdiccionesModifica.aspx?id_Cliente{0}" Text="Modificar" />
+            <asp:HyperLinkField DataNavigateUrlFields="id_Cliente" DataNavigateUrlFormatString="frmAdiccionesElimina.aspx?id_Cliente={0}" Text="Eliminar" />
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -54,7 +58,7 @@
         <SortedDescendingCellStyle BackColor="#FFFDF8" />
         <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
     </asp:GridView>
-    
+   
 </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">

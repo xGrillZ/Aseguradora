@@ -24,13 +24,13 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// ddlIdAdiccion control.
+        /// txtnumCedula control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlIdAdiccion;
+        protected global::System.Web.UI.WebControls.TextBox txtnumCedula;
 
         /// <summary>
         /// Label2 control.
@@ -42,13 +42,13 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// ddlNombreAdiccion control.
+        /// txtNombreCliente control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNombreAdiccion;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreCliente;
 
         /// <summary>
         /// Label3 control.
@@ -60,13 +60,13 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// ddlCodigoAdiccion control.
+        /// txtAdiccion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCodigoAdiccion;
+        protected global::System.Web.UI.WebControls.TextBox txtAdiccion;
 
         /// <summary>
         /// btnMostrarDatos control.
@@ -87,12 +87,12 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         protected global::System.Web.UI.WebControls.HyperLink hpNuevoRegistro;
 
         /// <summary>
-        /// grdListaClientes control.
+        /// grdListaAdicciones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdListaClientes;
+        protected global::System.Web.UI.WebControls.GridView grdListaAdicciones;
     }
 }

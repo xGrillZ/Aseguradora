@@ -42,13 +42,13 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// ddlIdAdiccion control.
+        /// ddlAdiccion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlIdAdiccion;
+        protected global::System.Web.UI.WebControls.DropDownList ddlAdiccion;
 
         /// <summary>
         /// Label2 control.
@@ -103,5 +103,14 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hpRegresar;
+
+        /// <summary>
+        /// lblMensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
     }
 }
