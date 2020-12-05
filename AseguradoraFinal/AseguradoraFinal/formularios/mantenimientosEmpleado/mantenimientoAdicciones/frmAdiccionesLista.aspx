@@ -21,6 +21,11 @@
           <asp:TextBox ID="txtAdiccion" runat="server" CssClass="form-control" OnTextChanged="txtAdiccion_TextChanged" ></asp:TextBox> 
         </div>
 
+         <div class="form-group">
+          <asp:Label ID="Label4" runat="server" Text="Genero"></asp:Label>
+          <asp:TextBox ID="txtGenero" runat="server" CssClass="form-control" OnTextChanged="txtGenero_TextChanged" ></asp:TextBox> 
+        </div>
+
         <div class="form-group">
              <br />
              <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" CssClass="btn-success" OnClick="btnMostrarDatos_Click"  />  
@@ -37,15 +42,15 @@
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField DataField="numCedula" HeaderText="Cedula" />
+            <asp:BoundField DataField="correoElectronico" HeaderText="Correo Electrónico" />
             <asp:BoundField DataField="ape1Cliente" HeaderText="Apellido 1" />
             <asp:BoundField DataField="ape2Cliente" HeaderText="Apellido 2" />
             <asp:BoundField DataField="nomCliente" HeaderText="Nombre" />
-            <asp:BoundField DataField="Adiccion" HeaderText="Adicción" />
-            <asp:BoundField DataField="correoElectronico" HeaderText="Correo Electrónico" />
+            <asp:BoundField DataField="nombre" HeaderText="Adicción" />                     
             <asp:BoundField />
-            <asp:BoundField DataField="categoriaAdiccion" HeaderText="Categoria Adiccion" />
-            <asp:HyperLinkField DataNavigateUrlFields="id_Cliente" DataNavigateUrlFormatString="frmAdiccionesModifica.aspx?id_Cliente{0}" Text="Modificar" />
-            <asp:HyperLinkField DataNavigateUrlFields="id_Cliente" DataNavigateUrlFormatString="frmAdiccionesElimina.aspx?id_Cliente={0}" Text="Eliminar" />
+            <asp:BoundField DataField="nombreCategoria" HeaderText="Categoria Adiccion" />   
+            <asp:HyperLinkField DataNavigateUrlFields="idCliente" DataNavigateUrlFormatString="formularios/mantenimientoAdicciones/frmAdiccionesModifica.aspx?idCliente{0}" Text="Modificar" />
+            <asp:HyperLinkField DataNavigateUrlFields="idCliente" DataNavigateUrlFormatString="formularios/mantenimientoAdicciones/frmAdiccionesElimina.aspx?idCliente={0}" Text="Eliminar" />
         </Columns>
         <EditRowStyle BackColor="#999999" />
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

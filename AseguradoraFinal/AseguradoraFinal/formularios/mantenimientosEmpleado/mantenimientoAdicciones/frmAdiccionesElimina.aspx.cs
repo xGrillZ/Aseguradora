@@ -42,7 +42,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             this.ddlAdiccion.DataBind();
 =======
             this.ddlAdicciones.DataBind();*/
->>>>>>> 6ee11bc8db2c1c13f4a35075fdca3f3b5d94cd5a
+
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 =======
             this.ddlClientes.DataBind();
             */
->>>>>>> 6ee11bc8db2c1c13f4a35075fdca3f3b5d94cd5a
+
         }
 
         void cargaListaAddicionesCliente()
@@ -78,7 +78,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 =======
             this.ddlAdiccionesCliente.DataBind();
             */
->>>>>>> 6ee11bc8db2c1c13f4a35075fdca3f3b5d94cd5a
+
         }
 
         void cargaDatosRegistro()
@@ -126,12 +126,12 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         {
             if (this.IsValid)
             {
-<<<<<<< HEAD
+
                 BLEmpleado oBLGastoCategoria = new BLEmpleado();
-=======
+
                 /*
                 BLGastoCategoria oBLGastoCategoria = new BLGastoCategoria();
->>>>>>> 6ee11bc8db2c1c13f4a35075fdca3f3b5d94cd5a
+
                 bool resultado = false;
                 string mensaje = "";
                 try

@@ -30,7 +30,8 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 blAddiciones.Retorna_AdiccionesxClienteSelect(
                     this.txtnumCedula.Text,
                     this.txtNombreCliente.Text,
-                    this.txtAdiccion.Text);
+                    this.txtAdiccion.Text,
+                    this.txtGenero.Text);
 
 
 

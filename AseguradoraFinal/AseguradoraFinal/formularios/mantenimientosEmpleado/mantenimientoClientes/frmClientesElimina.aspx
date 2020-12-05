@@ -43,7 +43,7 @@
         </div>
        <div class="form-group">
            <asp:Button ID="btAceptar" runat="server"  Text="Guardar" CssClass="btn-success" OnClick="btAceptar_Click" />
-           <asp:HyperLink ID="hpRegresar" runat="server" CssClass="text-info" NavigateUrl="~/formularios/frmClienteLista.aspx">Regresar a la lista</asp:HyperLink>
+           <asp:HyperLink ID="hpRegresar" runat="server" CssClass="text-info" NavigateUrl="~/formularios/mantenimientoClientes/frmClientesLista.aspx">Regresar a la lista</asp:HyperLink>
        </div>             
                                                                   
       <br />      

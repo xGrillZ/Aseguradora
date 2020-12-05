@@ -24,7 +24,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         /// </summary>
         void cargaListaTipoCliente()
         {
-            BLTipoCliente oTipoCliente = new BLTipoCliente();
+            BLEmpleado blAddiciones = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
             this.ddlTipoCliente.DataSource = oTipoCliente.RetornaTipoCliente();
             ///indicarle al dropdownlist que se muestre
@@ -41,6 +41,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             this.lstPaisProcedencia.DataSource = oPaisProcedencia.RetornaPaisProcedencia();
             ///indicarle al dropdownlist que se muestre
             this.lstPaisProcedencia.DataBind();
+
         }
 
         void cargaDatosRegistro()
@@ -111,4 +112,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 ///mostrar el mensaje
                 Response.Write("<script>alert('" + mensaje + "')</script>"); ;
             }
+
         }
+    }
