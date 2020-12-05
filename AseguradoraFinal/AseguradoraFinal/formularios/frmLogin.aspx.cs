@@ -10,6 +10,9 @@ namespace AseguradoraFinal.formularios.Logeo
 {
     public partial class frmLogin : System.Web.UI.Page
     {
+        /// <summary>
+        /// Creación del modeloBD con la entidad de la base de datos
+        /// </summary>
         aseguradorarjsEntities modeloBD = new aseguradorarjsEntities();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -22,18 +25,23 @@ namespace AseguradoraFinal.formularios.Logeo
             ///Validación correcta del formulario
             if (this.Page.IsValid)
             {
+                ///Llamado del método
                 this.RealizarAutenticacion();
             }
         }
 
         void RealizarAutenticacion()
         {
+            ///Objeto con el procedimiento almacenado retornando valores.
             pa_RetornaUsuarioCorreoPwd_Result resultadoSp = this.modeloBD.pa_RetornaUsuarioCorreoPwd(this.txtContrasena.Text, this.txtCorreo.Text).FirstOrDefault();
 
             ///Verificación si el objeto es nulo
             if (resultadoSp == null)
             {
+                ///Mensaje de error
                 this.lblResultado.Text = "Datos inválidos";
+
+                ///Variables de Sesión en nulo
                 this.Session.Add("idusuario", null);
                 this.Session.Add("tipousuario", null);
                 this.Session.Add("usuariologueado", null);
