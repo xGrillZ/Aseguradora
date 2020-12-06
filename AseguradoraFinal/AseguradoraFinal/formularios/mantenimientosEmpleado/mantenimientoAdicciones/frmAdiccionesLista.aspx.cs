@@ -28,31 +28,26 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             //crear la variable que contiene los datos
             List<pa_AdiccionesxClienteSelect_Result> fuenteDatos =
                 blAddiciones.Retorna_AdiccionesxClienteSelect(
-                    this.txtnumCedula.Text,
-                    this.txtNombreCliente.Text,
-                    this.txtAdiccion.Text,
-                    this.txtGenero.Text);
-
-
+                     this.txtAdiccion.Text,
+                     this.txtNombreCliente.Text,
+                     this.txtnumCedula.Text,                  
+                     this.txtGenero.Text);  
 
 
             ///Agregar al grid la fuente de datos
-            this.grdListaAdicciones.DataSource = fuenteDatos;
+            this.grdAdicciones.DataSource = fuenteDatos;
 
             //Indicarle al grid que se muestre
-            this.grdListaAdicciones.DataBind();
+            this.grdAdicciones.DataBind();
 
         }
 
 
-        protected void grdListaAdicciones_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void grdAdicciones_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            ///Indicarle al grid la nueva pagina utilizando el parametro e
-            this.grdListaAdicciones.PageIndex = e.NewPageIndex;
-            ///Cargar de nuevo el grid e indicarle que se muestre
-            this.CargaDatosGrid();
+           
         }
 
- 
+        
     }   
 }

@@ -114,12 +114,12 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         protected global::System.Web.UI.WebControls.HyperLink hpRegresaPrincial;
 
         /// <summary>
-        /// grdListaAdicciones control.
+        /// grdAdicciones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdListaAdicciones;
+        protected global::System.Web.UI.WebControls.GridView grdAdicciones;
     }
 }
