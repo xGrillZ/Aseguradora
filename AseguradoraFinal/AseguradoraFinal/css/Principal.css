@@ -1,0 +1,131 @@
+﻿body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.container-principal {
+    background: #BE5FEE;
+    background: -webkit-linear-gradient(to right, #9838D3, #BE5FEE);
+    background: linear-gradient(to right, #9838D3, #BE5FEE);
+    height: auto;
+    padding: 48px;
+    width: 100%;
+}
+
+.container{
+    width: 95%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+}
+
+.imgPrincipal{
+    display: block;
+    height: 450px;
+    object-fit: cover;
+    width: auto;
+}
+
+.texto{
+    width: 50%;
+    color: #fff;
+}
+
+.texto h1{
+    font-size: 60px;
+}
+
+.texto h2{
+    font-size: 30px;
+}
+
+.contactoAseguradora{
+    display: inline-block;
+    color: #fff;
+    font-weight: 300;
+    text-decoration: none;
+    margin-top: 30px;
+    border: 1px solid #fff;
+    width: 150px;
+    border-radius: 3px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.wave {
+    height: 100px;
+    width: 100%;
+    background: #BE5FEE;
+    background: -webkit-linear-gradient(to right, #9838D3, #BE5FEE);
+    background: linear-gradient(to right, #9838D3, #BE5FEE);
+}
+
+@media screen and (max-width:1000px) {
+    .imgPrincipal {
+        height: 400px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .imgPrincipal {
+        height: 370px;
+    }
+
+    .texto h1 {
+        font-size: 70px;
+    }
+
+    .texto h2 {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .imgPrincipal {
+        height: 250px;
+    }
+
+    .texto h1 {
+        font-size: 40px;
+    }
+
+    .texto h2 {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .container {
+        width: 100%;
+        flex-wrap: wrap-reverse;
+        justify-content: center;
+    }
+
+    .texto {
+        width: 100%;
+        text-align: center;
+    }
+
+        .texto h1 {
+            font-size: 60px;
+        }
+}
+
+@media screen and (max-width:340px) {
+    .imgPrincipal {
+        height: 160px;
+    }
+
+    .texto h1 {
+        font-size: 35px;
+    }
+
+    .contactoAseguradora {
+        width: 120px;
+    }
+
+    .texto h2 {
+        font-size: 15px;
+    }
+}

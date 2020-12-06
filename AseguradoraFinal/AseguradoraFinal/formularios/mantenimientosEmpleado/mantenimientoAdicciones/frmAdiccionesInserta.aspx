@@ -21,7 +21,7 @@
           <asp:DropDownList ID="ddlCodigoAdiccion" runat="server" CssClass="form-control" DataValueField="id_CodigoAdiccion" DataTextField="codigo" Enabled="False"  ></asp:DropDownList>
         </div>
        <div class="form-group">
-           <asp:Button ID="btIsertar" runat="server"  Text="Insertar" CssClass="btn-success" OnClick="btInsertar_Click" /> 
+           <asp:Button ID="btInsertar" runat="server"  Text="Insertar" CssClass="btn-success" OnClick="btInsertar_Click" /> 
             <asp:HyperLink ID="hpRegresarLista" runat="server" CssClass="text-info" NavigateUrl="~/formularios/frmClienteLista.aspx">Regresar a la Lista</asp:HyperLink>
        </div>             
                                                                   

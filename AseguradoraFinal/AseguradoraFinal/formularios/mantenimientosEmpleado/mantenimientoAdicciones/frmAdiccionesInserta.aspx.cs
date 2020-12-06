@@ -40,7 +40,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
         }
 
-        protected void btAceptar_Click(object sender, EventArgs e)
+        protected void btInsertar_Click(object sender, EventArgs e)
         {
             this.AlmacenarDatos();
         }
@@ -59,5 +59,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             }
         }
 
+        
     }
 }

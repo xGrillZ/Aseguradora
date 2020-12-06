@@ -53,18 +53,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             this.CargaDatosGrid();
         }
 
-        protected void txtnumCedula_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        protected void txtNombreCliente_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        protected void txtAdiccion_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+ 
     }   
 }

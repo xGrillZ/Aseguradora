@@ -121,6 +121,7 @@
     <Content Include="css\footer.css" />
     <Content Include="css\Logeo.css" />
     <Content Include="css\navbar.css" />
+    <Content Include="css\Principal.css" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -164,6 +165,7 @@
     <Content Include="img\aseguradoradibujo.svg" />
     <Content Include="img\avatar.svg" />
     <Content Include="img\company1.png" />
+    <Content Include="img\imgPrincipal.png" />
     <Content Include="img\wave.png" />
     <Content Include="lib\font-awesome\css\all.css" />
     <Content Include="lib\font-awesome\css\all.min.css" />

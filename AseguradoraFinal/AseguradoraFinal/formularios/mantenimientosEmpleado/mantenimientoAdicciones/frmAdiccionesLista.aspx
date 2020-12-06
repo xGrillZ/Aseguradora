@@ -7,29 +7,31 @@
     <h1>Busqueda de Adicciones</h1>
      <div class="form-group">
           <asp:Label ID="Label1" runat="server" Text=" Cédula de Identificación"></asp:Label>
-         <asp:TextBox ID="txtnumCedula" runat="server" CssClass="form-control" OnTextChanged="txtnumCedula_TextChanged" ></asp:TextBox>         
+         <asp:TextBox ID="txtnumCedula" runat="server" CssClass="form-control" ></asp:TextBox>         
        </div>
       
 
        <div class="form-group">
             <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label>
-          <asp:TextBox ID="txtNombreCliente" runat="server" CssClass="form-control" OnTextChanged="txtNombreCliente_TextChanged" ></asp:TextBox>       
+          <asp:TextBox ID="txtNombreCliente" runat="server" CssClass="form-control" ></asp:TextBox>       
        </div>           
        
         <div class="form-group">
           <asp:Label ID="Label3" runat="server" Text="Adicción"></asp:Label>
-          <asp:TextBox ID="txtAdiccion" runat="server" CssClass="form-control" OnTextChanged="txtAdiccion_TextChanged" ></asp:TextBox> 
+          <asp:TextBox ID="txtAdiccion" runat="server" CssClass="form-control"  ></asp:TextBox> 
         </div>
 
          <div class="form-group">
-          <asp:Label ID="Label4" runat="server" Text="Genero"></asp:Label>
-          <asp:TextBox ID="txtGenero" runat="server" CssClass="form-control" OnTextChanged="txtGenero_TextChanged" ></asp:TextBox> 
+          <asp:Label ID="Label4" runat="server" Text="Género"></asp:Label>
+          <asp:TextBox ID="txtGenero" runat="server" CssClass="form-control"  ></asp:TextBox> 
         </div>
 
         <div class="form-group">
              <br />
              <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" CssClass="btn-success" OnClick="btnMostrarDatos_Click"  />  
-            <asp:HyperLink ID="hpNuevoRegistro" runat="server" CssClass="text-info" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoAddicciones/frmAdiccionesInserta.aspx">Nuevo Registro</asp:HyperLink>
+            &nbsp;<asp:HyperLink ID="hpNuevoRegistro" runat="server" CssClass="text-info" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoAdicciones/frmAdiccionesInserta.aspx">Nuevo Registro</asp:HyperLink>
+        &nbsp;
+             <asp:HyperLink ID="hpRegresaPrincial" runat="server" CssClass="text-info" NavigateUrl="~/formularios/frmPrincipal.aspx">Regresar a Página Principal</asp:HyperLink>
         </div>
         
     
@@ -38,7 +40,7 @@
     
     <br />
     
-    <asp:GridView ID="grdListaAdicciones" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowPaging="True" PageSize="20" OnPageIndexChanging="grdListaAdicciones_PageIndexChanging" OnSelectedIndexChanged="grdListaAdicciones_SelectedIndexChanged">
+    <asp:GridView ID="grdListaAdicciones" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowPaging="True" PageSize="20" >
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField DataField="numCedula" HeaderText="Cedula" />
