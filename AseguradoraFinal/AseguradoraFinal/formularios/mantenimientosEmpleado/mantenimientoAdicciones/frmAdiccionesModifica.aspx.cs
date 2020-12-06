@@ -24,11 +24,12 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         /// </summary>
         void cargaListaTipoCliente()
         {
+            /*
             BLEmpleado blAddiciones = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
             this.ddlTipoCliente.DataSource = oTipoCliente.RetornaTipoCliente();
             ///indicarle al dropdownlist que se muestre
-            this.ddlTipoCliente.DataBind();
+            this.ddlTipoCliente.DataBind();*/
         }
 
         /// <summary>
@@ -36,11 +37,11 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         /// </summary>
         void cargaListaPaisProcedencia()
         {
-            BLPaisProcedencia oPaisProcedencia = new BLPaisProcedencia();
-            ///indicarle al dropdownlist la fuente de datos
-            this.lstPaisProcedencia.DataSource = oPaisProcedencia.RetornaPaisProcedencia();
-            ///indicarle al dropdownlist que se muestre
-            this.lstPaisProcedencia.DataBind();
+            /* BLPaisProcedencia oPaisProcedencia = new BLPaisProcedencia();
+             ///indicarle al dropdownlist la fuente de datos
+             this.lstPaisProcedencia.DataSource = oPaisProcedencia.RetornaPaisProcedencia();
+             ///indicarle al dropdownlist que se muestre
+             this.lstPaisProcedencia.DataBind();*/
 
         }
 
@@ -67,51 +68,52 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         {
             if (this.IsValid)
             {
-                BLCliente oCliente = new BLCliente();
-                bool resultado = false;
-                string mensaje = "";
-                try
-                {
-                    ///obtener los valores seleccionados por el usuario
-                    ///se toman de la propiedad datavaluefield
-                    ///tanto del dropdownlist como del listbox
-                    int id_TipoCliente = Convert.ToInt16(this.ddlTipoCliente.SelectedValue);
-                    int id_PaisProcedencia = Convert.ToInt16(this.lstPaisProcedencia.SelectedValue);
-                    //obtener el valor del hidden field 
-                    int id_Cliente = 0;
-                    ///asignar a la variable el resultado de 
-                    ///invocar el procedimiento almacenado
-                    resultado = oCliente.ModificaCliente(
-                        id_Cliente,
-                        id_TipoCliente,
-                        this.txtPrimerApellido.Text,
-                        this.txtSegundoApellido.Text,
-                        this.txtNombre.Text,
-                        id_PaisProcedencia,
-                        this.txtTelefono1.Text,
-                        this.txtTelefono2.Text
-                        );
+                /* BLCliente oCliente = new BLCliente();
+                 bool resultado = false;
+                 string mensaje = "";
+                 try
+                 {
+                     ///obtener los valores seleccionados por el usuario
+                     ///se toman de la propiedad datavaluefield
+                     ///tanto del dropdownlist como del listbox
+                     int id_TipoCliente = Convert.ToInt16(this.ddlTipoCliente.SelectedValue);
+                     int id_PaisProcedencia = Convert.ToInt16(this.lstPaisProcedencia.SelectedValue);
+                     //obtener el valor del hidden field 
+                     int id_Cliente = 0;
+                     ///asignar a la variable el resultado de 
+                     ///invocar el procedimiento almacenado
+                     resultado = oCliente.ModificaCliente(
+                         id_Cliente,
+                         id_TipoCliente,
+                         this.txtPrimerApellido.Text,
+                         this.txtSegundoApellido.Text,
+                         this.txtNombre.Text,
+                         id_PaisProcedencia,
+                         this.txtTelefono1.Text,
+                         this.txtTelefono2.Text
+                         );
 
-                }
-                ///catch: se ejecuta en el caso de que haya una excepcion
-                ///excepcionCapturada: posee los datos de la excepción
-                catch (Exception excepcionCapturada)
-                {
-                    mensaje += $"Ocurrió un error: {excepcionCapturada.Message}";
-                }
-                ///finally: siempre se ejecuta (se atrape o no la excepción)
-                finally
-                {
-                    ///si el resultado de la variable es verdadera implica que
-                    ///el procedimiento no retornó errores
-                    if (resultado)
-                    {
-                        mensaje += "El registro fue modificado";
-                    }
-                }
-                ///mostrar el mensaje
-                Response.Write("<script>alert('" + mensaje + "')</script>"); ;
+                 }
+                 ///catch: se ejecuta en el caso de que haya una excepcion
+                 ///excepcionCapturada: posee los datos de la excepción
+                 catch (Exception excepcionCapturada)
+                 {
+                     mensaje += $"Ocurrió un error: {excepcionCapturada.Message}";
+                 }
+                 ///finally: siempre se ejecuta (se atrape o no la excepción)
+                 finally
+                 {
+                     ///si el resultado de la variable es verdadera implica que
+                     ///el procedimiento no retornó errores
+                     if (resultado)
+                     {
+                         mensaje += "El registro fue modificado";
+                     }
+                 }
+                 ///mostrar el mensaje
+                 Response.Write("<script>alert('" + mensaje + "')</script>"); ;*/
             }
 
         }
     }
+}
