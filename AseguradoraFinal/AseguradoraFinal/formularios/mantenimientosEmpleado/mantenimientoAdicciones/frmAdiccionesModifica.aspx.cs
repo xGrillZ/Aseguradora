@@ -24,12 +24,12 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         /// </summary>
         void cargaListaTipoCliente()
         {
-            /*
+            
             BLEmpleado blAddiciones = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
             this.ddlTipoCliente.DataSource = oTipoCliente.RetornaTipoCliente();
             ///indicarle al dropdownlist que se muestre
-            this.ddlTipoCliente.DataBind();*/
+            this.ddlTipoCliente.DataBind();
         }
 
         /// <summary>
@@ -37,11 +37,11 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         /// </summary>
         void cargaListaPaisProcedencia()
         {
-            /* BLPaisProcedencia oPaisProcedencia = new BLPaisProcedencia();
+            BLPaisProcedencia oPaisProcedencia = new BLPaisProcedencia();
              ///indicarle al dropdownlist la fuente de datos
              this.lstPaisProcedencia.DataSource = oPaisProcedencia.RetornaPaisProcedencia();
              ///indicarle al dropdownlist que se muestre
-             this.lstPaisProcedencia.DataBind();*/
+             this.lstPaisProcedencia.DataBind();
 
         }
 
@@ -68,7 +68,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         {
             if (this.IsValid)
             {
-                /* BLCliente oCliente = new BLCliente();
+                BLCliente oCliente = new BLCliente();
                  bool resultado = false;
                  string mensaje = "";
                  try
@@ -111,13 +111,10 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                      }
                  }
                  ///mostrar el mensaje
-                 Response.Write("<script>alert('" + mensaje + "')</script>"); ;*/
+                 Response.Write("<script>alert('" + mensaje + "')</script>"); ;
             }
 
         }
-<<<<<<< HEAD
-    }*/
-=======
     }
-}
->>>>>>> 24ac19d02534a61daf3a1bdecc4da6e243998c50
+    }
+}*/
