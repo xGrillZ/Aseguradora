@@ -16,8 +16,8 @@ namespace AseguradoraFinal.Modelos
     {
         public Adicciones()
         {
-            this.MantAddicionxCliente = new HashSet<MantAddicionxCliente>();
             this.RegistroPoliza = new HashSet<RegistroPoliza>();
+            this.MantAddicionxCliente = new HashSet<MantAddicionxCliente>();
         }
     
         public int idAdiccion { get; set; }
@@ -26,7 +26,7 @@ namespace AseguradoraFinal.Modelos
         public int idCategoriaAdiccion { get; set; }
     
         public virtual CategoriaAdicciones CategoriaAdicciones { get; set; }
-        public virtual ICollection<MantAddicionxCliente> MantAddicionxCliente { get; set; }
         public virtual ICollection<RegistroPoliza> RegistroPoliza { get; set; }
+        public virtual ICollection<MantAddicionxCliente> MantAddicionxCliente { get; set; }
     }
 }

@@ -31,7 +31,6 @@ namespace AseguradoraFinal.Modelos
         public DbSet<Adicciones> Adicciones { get; set; }
         public DbSet<CategoriaAdicciones> CategoriaAdicciones { get; set; }
         public DbSet<CoberturaPoliza> CoberturaPoliza { get; set; }
-        public DbSet<MantAddicionxCliente> MantAddicionxCliente { get; set; }
         public DbSet<RegistroPoliza> RegistroPoliza { get; set; }
         public DbSet<Sucursal> Sucursal { get; set; }
         public DbSet<Telefono> Telefono { get; set; }
@@ -40,6 +39,7 @@ namespace AseguradoraFinal.Modelos
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Empleado> Empleado { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<MantAddicionxCliente> MantAddicionxCliente { get; set; }
     
         public virtual int pa_ClienteDelete(string numCedula)
         {

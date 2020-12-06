@@ -15,7 +15,7 @@ namespace AseguradoraFinal.BL
         /// </summary>
         aseguradorarjsEntities modeloBD = new aseguradorarjsEntities();
 
-        public List<pa_AdiccionesxClienteSelect_Result> Retorna_AdiccionesxClienteSelect(string pAdiccion = null,  string pNombreCliente = null, string pNumCedula = null, string pGenero = null)
+        public List<pa_AdiccionesxClienteSelect_Result> Retorna_AdiccionesxClienteSelect(string pAdiccion , string pNombreCliente , string pNumCedula , string pGenero )
         {
             ///Crea variable que retornara
             List<pa_AdiccionesxClienteSelect_Result> resultado = new List<pa_AdiccionesxClienteSelect_Result>();
