@@ -17,7 +17,6 @@ namespace AseguradoraFinal.Modelos
         public string numCedula { get; set; }
         public string genero { get; set; }
         public string pTelefono { get; set; }
-        public string correoElectronico { get; set; }
         public string nombreCategoria { get; set; }
         public string descripcion { get; set; }
         public string nombre { get; set; }

@@ -41,27 +41,6 @@ namespace AseguradoraFinal.Modelos
         public DbSet<Empleado> Empleado { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
     
-        public virtual ObjectResult<pa_AdiccionesxClienteSelect_Result> pa_AdiccionesxClienteSelect(string adiccion, string nombreCliente, string numCedula, string genero)
-        {
-            var adiccionParameter = adiccion != null ?
-                new ObjectParameter("Adiccion", adiccion) :
-                new ObjectParameter("Adiccion", typeof(string));
-    
-            var nombreClienteParameter = nombreCliente != null ?
-                new ObjectParameter("NombreCliente", nombreCliente) :
-                new ObjectParameter("NombreCliente", typeof(string));
-    
-            var numCedulaParameter = numCedula != null ?
-                new ObjectParameter("NumCedula", numCedula) :
-                new ObjectParameter("NumCedula", typeof(string));
-    
-            var generoParameter = genero != null ?
-                new ObjectParameter("Genero", genero) :
-                new ObjectParameter("Genero", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_AdiccionesxClienteSelect_Result>("pa_AdiccionesxClienteSelect", adiccionParameter, nombreClienteParameter, numCedulaParameter, generoParameter);
-        }
-    
         public virtual int pa_ClienteDelete(string numCedula)
         {
             var numCedulaParameter = numCedula != null ?
@@ -297,6 +276,27 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("correoElectronico", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioCorreoPwd_Result>("pa_RetornaUsuarioCorreoPwd", contrasenaParameter, correoElectronicoParameter);
+        }
+    
+        public virtual ObjectResult<pa_AdiccionesxClienteSelect_Result> pa_AdiccionesxClienteSelect(string adiccion, string nombreCliente, string numCedula, string genero)
+        {
+            var adiccionParameter = adiccion != null ?
+                new ObjectParameter("Adiccion", adiccion) :
+                new ObjectParameter("Adiccion", typeof(string));
+    
+            var nombreClienteParameter = nombreCliente != null ?
+                new ObjectParameter("NombreCliente", nombreCliente) :
+                new ObjectParameter("NombreCliente", typeof(string));
+    
+            var numCedulaParameter = numCedula != null ?
+                new ObjectParameter("NumCedula", numCedula) :
+                new ObjectParameter("NumCedula", typeof(string));
+    
+            var generoParameter = genero != null ?
+                new ObjectParameter("Genero", genero) :
+                new ObjectParameter("Genero", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_AdiccionesxClienteSelect_Result>("pa_AdiccionesxClienteSelect", adiccionParameter, nombreClienteParameter, numCedulaParameter, generoParameter);
         }
     }
 }

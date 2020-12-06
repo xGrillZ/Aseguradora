@@ -673,12 +673,6 @@
             <End Role="Telefono" EntitySet="Telefono" />
             <End Role="Sucursal" EntitySet="Sucursal" />
           </AssociationSet>
-          <FunctionImport Name="pa_AdiccionesxClienteSelect" ReturnType="Collection(aseguradorarjsModel.pa_AdiccionesxClienteSelect_Result)">
-            <Parameter Name="Adiccion" Mode="In" Type="String" />
-            <Parameter Name="NombreCliente" Mode="In" Type="String" />
-            <Parameter Name="NumCedula" Mode="In" Type="String" />
-            <Parameter Name="Genero" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="pa_ClienteDelete">
           <Parameter Name="NumCedula" Mode="In" Type="String" />
           </FunctionImport>
@@ -779,17 +773,13 @@
             <Parameter Name="contrasena" Mode="In" Type="String" />
             <Parameter Name="correoElectronico" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="pa_AdiccionesxClienteSelect" ReturnType="Collection(aseguradorarjsModel.pa_AdiccionesxClienteSelect_Result)">
+            <Parameter Name="Adiccion" Mode="In" Type="String" />
+            <Parameter Name="NombreCliente" Mode="In" Type="String" />
+            <Parameter Name="NumCedula" Mode="In" Type="String" />
+            <Parameter Name="Genero" Mode="In" Type="String" />
+          </FunctionImport>
           </EntityContainer>
-        <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
-          <Property Type="String" Name="Column1" Nullable="false" MaxLength="152" />
-          <Property Type="String" Name="numCedula" Nullable="false" MaxLength="20" />
-          <Property Type="String" Name="genero" Nullable="false" MaxLength="1" />
-          <Property Type="String" Name="pTelefono" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="nombreCategoria" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
-          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
-        </ComplexType>
         <ComplexType Name="pa_EmpleadoSelect_Result">
           <Property Type="String" Name="Column1" Nullable="false" MaxLength="152" />
           <Property Type="String" Name="numCedula" Nullable="false" MaxLength="20" />
@@ -964,6 +954,15 @@
           <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
           <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="50" />
         </ComplexType>
+        <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
+          <Property Type="String" Name="Column1" Nullable="false" MaxLength="152" />
+          <Property Type="String" Name="numCedula" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="genero" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="pTelefono" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombreCategoria" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1065,20 +1064,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="pa_AdiccionesxClienteSelect" FunctionName="aseguradorarjsModel.Store.pa_AdiccionesxClienteSelect">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_AdiccionesxClienteSelect_Result">
-                <ScalarProperty Name="Column1" ColumnName="Column1" />
-                <ScalarProperty Name="numCedula" ColumnName="numCedula" />
-                <ScalarProperty Name="genero" ColumnName="genero" />
-                <ScalarProperty Name="pTelefono" ColumnName="pTelefono" />
-                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
-                <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_ClienteDelete" FunctionName="aseguradorarjsModel.Store.pa_ClienteDelete" />
           <FunctionImportMapping FunctionImportName="pa_ClienteInsert" FunctionName="aseguradorarjsModel.Store.pa_ClienteInsert" />
           <FunctionImportMapping FunctionImportName="pa_CoberturaPolizaUpdate" FunctionName="aseguradorarjsModel.Store.pa_CoberturaPolizaUpdate" />
@@ -1194,6 +1179,19 @@
                 <ScalarProperty Name="contrasena" ColumnName="contrasena" />
                 <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
                 <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_AdiccionesxClienteSelect" FunctionName="aseguradorarjsModel.Store.pa_AdiccionesxClienteSelect">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_AdiccionesxClienteSelect_Result">
+                <ScalarProperty Name="Column1" ColumnName="Column1" />
+                <ScalarProperty Name="numCedula" ColumnName="numCedula" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="pTelefono" ColumnName="pTelefono" />
+                <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
