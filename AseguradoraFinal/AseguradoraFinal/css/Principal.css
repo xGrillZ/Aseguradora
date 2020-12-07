@@ -61,6 +61,60 @@
     background: linear-gradient(to right, #9838D3, #BE5FEE);
 }
 
+/*NUEVO*/
+.info-seguros {
+    width: 90%;
+    max-width: 1500px;
+    margin: auto;
+    overflow: hidden;
+    padding: 60px 0;
+}
+
+.contenedor-infoseguros{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.polizaArticulo {
+    width: 23%;
+    background: #fff;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    padding: 45px 30px 60px 30px;
+    transition: 0.5s;
+}
+
+.polizaArticulo:hover{
+    box-shadow: 0 4px 10px rgba(17, 29, 48, .26);
+}
+
+.polizaArticulo>img{
+    display: inline-block;
+    text-align: center;
+    padding-top: 20px;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+.polizaArticulo>h2{
+    font-size: 24px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.polizaArticulo > p {
+    font-weight: 100;
+    color: #5D6678;
+    margin-top: 15px;
+    padding-bottom: 20px;
+}
+
+.contenedor-infoseguros>h5{
+    padding-bottom: 1em;
+}
+
 @media screen and (max-width:1000px) {
     .imgPrincipal {
         height: 400px;

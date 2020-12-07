@@ -166,6 +166,10 @@
     <Content Include="img\avatar.svg" />
     <Content Include="img\company1.png" />
     <Content Include="img\imgPrincipal.png" />
+    <Content Include="img\seguroPropiedad.png" />
+    <Content Include="img\seguroVehiculo.png" />
+    <Content Include="img\seguroViajes.png" />
+    <Content Include="img\seguroVida.png" />
     <Content Include="img\wave.png" />
     <Content Include="lib\font-awesome\css\all.css" />
     <Content Include="lib\font-awesome\css\all.min.css" />

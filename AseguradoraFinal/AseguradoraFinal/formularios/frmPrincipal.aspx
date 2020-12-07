@@ -25,12 +25,30 @@
     </div>
     <section class="info-seguros">
         <div class="contenedor-infoseguros">
-            <h2>PRUEBA</h2>
+            <h1>Tipos seguros</h1>
+            <h3>Contamos con una gran variedad de polizas con un precio accesible para mejorar tu calidad de vida</h3>
+            <div class="polizaArticulo">
+                <img src="../img/seguroVehiculo.png" class="imgPoliza"/>
+                <h2>Auto</h2>
+                <p>Adquiere diferentes beneficios por tu poliza vehicular, haz click para obtener más información</p>
+            </div>
+            <div class="polizaArticulo">
+                <img src="../img/seguroVida.png" class="imgPoliza"/>
+                <h2>Vida</h2>
+                <p>asdasd</p>
+            </div>
+            <div class="polizaArticulo">
+                <img src="../img/seguroPropiedad.png" class="imgPoliza"/>
+                <h2>Propiedad</h2>
+                <p>asdasd</p>
+            </div>
+            <div class="polizaArticulo">
+                <img src="../img/seguroViajes.png" class="imgPoliza"/>
+                <h2>Viajes</h2>
+                <p>asdasd</p>
+            </div>
         </div>
     </section>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">
-    <form id="form1" runat="server">
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoAdicciones/frmAdiccionesLista.aspx">Mantenimiento Adicciones</asp:HyperLink>
-    </form>
 </asp:Content>
