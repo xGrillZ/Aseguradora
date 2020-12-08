@@ -32,19 +32,16 @@ namespace AseguradoraFinal.PaginaMaestra
             {
                 this.navbarEmpleado.Visible = true;
                 this.navbarCliente.Visible = false;
-                this.navbarDefault.Visible = false;
             }
             else if (Convert.ToInt16(this.Session["tipousuario"]) == 1)
             {
                 this.navbarEmpleado.Visible = false;
                 this.navbarCliente.Visible = true;
-                this.navbarDefault.Visible = false;
             }
             else
             {
                 this.navbarCliente.Visible = false;
                 this.navbarEmpleado.Visible = false;
-                this.navbarDefault.Visible = true;
             }
         }
     }

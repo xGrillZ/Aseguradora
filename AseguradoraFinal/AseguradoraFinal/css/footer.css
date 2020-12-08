@@ -41,11 +41,11 @@
     font-size: 18px;
 }
 
-    .segmento-dos h2:before {
-        content: '|';
-        color: #0F88E3;
-        padding-right: 10px;
-    }
+.segmento-dos h2:before {
+    content: '|';
+    color: #BA5BEB;
+    padding-right: 10px;
+}
 
 .segmento-dos ul {
     margin: 0;
@@ -53,15 +53,15 @@
     list-style: none;
 }
 
-    .segmento-dos ul li {
-        border-bottom: 1px solid rgba(255,255,255,0.3);
-        line-height: 40px;
-    }
+.segmento-dos ul li {
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    line-height: 40px;
+}
 
-        .segmento-dos ul li a {
-            color: #999;
-            text-decoration: none;
-        }
+.segmento-dos ul li a {
+    color: #999;
+    text-decoration: none;
+}
 
 .segmento-tres h2 {
     color: #fff;
@@ -70,11 +70,11 @@
     font-size: 18px;
 }
 
-    .segmento-tres h2:before {
-        content: '|';
-        color: #0F88E3;
-        padding-right: 10px;
-    }
+.segmento-tres h2:before {
+   content: '|';
+   color: #BA5BEB;
+   padding-right: 10px;
+}
 
 .segmento-tres a {
     background: #494848;
@@ -84,11 +84,11 @@
     border-radius: 50%;
 }
 
-    .segmento-tres a i {
-        font-size: 20px;
-        color: #fff;
-        padding: 10px 12px;
-    }
+.segmento-tres a i {
+    font-size: 20px;
+    color: #fff;
+    padding: 10px 12px;
+}
 
 .segmento-cuatro h2 {
     color: #fff;
@@ -97,12 +97,12 @@
     font-size: 18px;
 }
 
-    .segmento-cuatro h2:before {
-        content: '|';
-        color: #0F88E3;
-        padding-right: 10px;
-        position: relative;
-    }
+.segmento-cuatro h2:before {
+    content: '|';
+    color: #BA5BEB;
+    padding-right: 10px;
+    position: relative;
+}
 
 .texto-footer {
     text-align: center;
@@ -110,23 +110,23 @@
     line-height: 85px;
 }
 
-    .texto-footer p {
-        color: #999;
-    }
+.texto-footer p {
+    color: #999;
+}
 
 .segmento-dos a:hover {
-    color: #0F88E3;
+    color: #BA5BEB;
 }
 
 .segmento-tres i:hover {
-    color: #0F88E3;
+    color: #BA5BEB;
     animation-duration: 3s;
     animation-delay: 0s;
     animation-name: rotateIn;
 }
 
 .segmento-uno h3:hover {
-    color: #0F88E3;
+    color: #BA5BEB;
 }
 
 
