@@ -394,6 +394,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BL\BLCliente.cs" />
     <Compile Include="BL\BLEmpleado.cs" />
+    <Compile Include="BL\blUsuario.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

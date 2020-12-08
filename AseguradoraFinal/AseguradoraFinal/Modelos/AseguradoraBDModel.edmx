@@ -691,9 +691,6 @@
           <FunctionImport Name="pa_RetornaTipoUsuario" ReturnType="Collection(aseguradorarjsModel.pa_RetornaTipoUsuario_Result)">
           <Parameter Name="rol" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="pa_RetornaTipoUsuarioID" ReturnType="Collection(aseguradorarjsModel.pa_RetornaTipoUsuarioID_Result)">
-          <Parameter Name="idTipoUsuario" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="pa_RetornaUsuarioCliente" ReturnType="Collection(aseguradorarjsModel.pa_RetornaUsuarioCliente_Result)">
             <Parameter Name="idUsuario" Mode="In" Type="Int32" />
             <Parameter Name="correoElectronico" Mode="In" Type="String" />
@@ -707,9 +704,6 @@
             <Parameter Name="nombreEmpleado" Mode="In" Type="String" />
             <Parameter Name="primerApellidoEmpleado" Mode="In" Type="String" />
             <Parameter Name="segundoApellidoEmpleado" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pa_RetornaUsuarioID" ReturnType="Collection(aseguradorarjsModel.pa_RetornaUsuarioID_Result)">
-          <Parameter Name="idUsuario" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="Cliente" EntityType="aseguradorarjsModel.Cliente" />
           <EntitySet Name="Empleado" EntityType="aseguradorarjsModel.Empleado" />
@@ -757,6 +751,9 @@
             <Parameter Name="NumCedula" Mode="In" Type="String" />
             <Parameter Name="Genero" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="pa_RetornaUsuarioID" ReturnType="Collection(aseguradorarjsModel.pa_RetornaUsuarioID_Result)">
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
           </EntityContainer>
         <ComplexType Name="pa_EmpleadoSelect_Result">
           <Property Type="String" Name="Column1" Nullable="false" MaxLength="152" />
@@ -782,13 +779,6 @@
           <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
         </ComplexType>
         <ComplexType Name="pa_RetornaUsuarioEmpleado_Result">
-          <Property Type="Int32" Name="idUsuario" Nullable="false" />
-          <Property Type="String" Name="Column1" Nullable="false" MaxLength="152" />
-          <Property Type="String" Name="correoElectronico" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="contrasena" Nullable="false" MaxLength="15" />
-          <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
-        </ComplexType>
-        <ComplexType Name="pa_RetornaUsuarioID_Result">
           <Property Type="Int32" Name="idUsuario" Nullable="false" />
           <Property Type="String" Name="Column1" Nullable="false" MaxLength="152" />
           <Property Type="String" Name="correoElectronico" Nullable="true" MaxLength="50" />
@@ -965,6 +955,18 @@
           <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
         </ComplexType>
+        <ComplexType Name="pa_RetornaUsuarioID_Result">
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape1Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape2Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nomEmpleado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape1Empleado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape2Empleado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="contrasena" Nullable="false" MaxLength="15" />
+          <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1083,14 +1085,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_RetornaTipoUsuarioID" FunctionName="aseguradorarjsModel.Store.pa_RetornaTipoUsuarioID">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaTipoUsuarioID_Result">
-                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
-                <ScalarProperty Name="rol" ColumnName="rol" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_RetornaUsuarioCliente" FunctionName="aseguradorarjsModel.Store.pa_RetornaUsuarioCliente">
             <ResultMapping>
               <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaUsuarioCliente_Result">
@@ -1105,17 +1099,6 @@
           <FunctionImportMapping FunctionImportName="pa_RetornaUsuarioEmpleado" FunctionName="aseguradorarjsModel.Store.pa_RetornaUsuarioEmpleado">
             <ResultMapping>
               <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaUsuarioEmpleado_Result">
-                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
-                <ScalarProperty Name="Column1" ColumnName="Column1" />
-                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
-                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
-                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_RetornaUsuarioID" FunctionName="aseguradorarjsModel.Store.pa_RetornaUsuarioID">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaUsuarioID_Result">
                 <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
                 <ScalarProperty Name="Column1" ColumnName="Column1" />
                 <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
@@ -1196,6 +1179,22 @@
                 <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaUsuarioID" FunctionName="aseguradorarjsModel.Store.pa_RetornaUsuarioID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaUsuarioID_Result">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="nomCliente" ColumnName="nomCliente" />
+                <ScalarProperty Name="ape1Cliente" ColumnName="ape1Cliente" />
+                <ScalarProperty Name="ape2Cliente" ColumnName="ape2Cliente" />
+                <ScalarProperty Name="nomEmpleado" ColumnName="nomEmpleado" />
+                <ScalarProperty Name="ape1Empleado" ColumnName="ape1Empleado" />
+                <ScalarProperty Name="ape2Empleado" ColumnName="ape2Empleado" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
