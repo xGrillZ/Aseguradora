@@ -41,13 +41,6 @@
                         <a class="dropdown-item" href="../formularios/mantenimientosEmpleado/mantenimientoAdiccionesPorClientes/frmAdiccionesPorClientesLista.aspx"><i class="fas fa-folder-plus    "></i>  Mantenimiento de Adicciones por Clientes</a>
                       </div>
                     </li>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" data-target="dropdown_target" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-folder-plus"></i> Mantenimientos de Cliente Jose<span class="sr-only">(current)</span></a>
-                      <div class="dropdown-menu" aria-labelledby="dropdown-target">
-                        <a class="dropdown-item" href="#"><i class="fas fa-folder-plus"></i>  Mantenimiento de Adicciones</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-folder-plus"></i>  Mantenimiento de Clientes</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-folder-plus    "></i>  Mantenimiento de Adicciones por Clientes</a>
-                      </div>
                     <li class="nav-item">
                         <a class="nav-link" href="../formularios/frmSalir.aspx"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
                     </li>
