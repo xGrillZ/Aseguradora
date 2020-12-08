@@ -23,7 +23,11 @@
           <asp:DropDownList ID="ddlCodigoAdiccion" runat="server" CssClass="form-control" DataValueField="id_CodigoAdiccion" DataTextField="codigo" Enabled="False"  ></asp:DropDownList>
        <asp:RequiredFieldValidator ID="rqvCodigoAdiccion" runat="server"  ControlToValidate="ddlCodigoAdiccion" ErrorMessage="Debe ingresar el código" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
             </div>
-
+        <div class="form-group">
+          <asp:Label ID="Label3" runat="server" Text="Identificador Categoría"></asp:Label>
+          <asp:DropDownList ID="ddlIdCategoria" runat="server" CssClass="form-control" DataValueField="id_Categoria" DataTextField="categoria" Enabled="False"  ></asp:DropDownList>
+        <asp:RequiredFieldValidator ID="rqvIdCategoria" runat="server"  ControlToValidate="ddlIdCategoria" ErrorMessage="Debe ingresar el identificador de categoría" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+        </div>
        
 
        
