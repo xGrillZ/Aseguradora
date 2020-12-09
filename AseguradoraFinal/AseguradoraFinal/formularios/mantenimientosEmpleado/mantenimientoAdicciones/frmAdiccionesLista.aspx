@@ -6,25 +6,17 @@
 
     <h1>Busqueda de Adicciones</h1>
      <div class="form-group">
-          <asp:Label ID="Label1" runat="server" Text=" Cédula de Identificación"></asp:Label>
-         <asp:TextBox ID="txtnumCedula" runat="server" CssClass="form-control" ></asp:TextBox>         
+          <asp:Label ID="Label1" runat="server" Text=" Código"></asp:Label>
+         <asp:TextBox ID="txtCodigo" runat="server" CssClass="form-control" ></asp:TextBox>         
        </div>
-      
+       
+                   
 
        <div class="form-group">
-            <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label>
-          <asp:TextBox ID="txtNombreCliente" runat="server" CssClass="form-control" ></asp:TextBox>       
+            <asp:Label ID="Label2" runat="server" Text="Categoria Adiccion"></asp:Label>
+          <asp:TextBox ID="txtIdCategoriaAdiccion" runat="server" CssClass="form-control" ></asp:TextBox>       
        </div>           
        
-        <div class="form-group">
-          <asp:Label ID="Label3" runat="server" Text="Adicción"></asp:Label>
-          <asp:TextBox ID="txtAdiccion" runat="server" CssClass="form-control"  ></asp:TextBox> 
-        </div>
-
-         <div class="form-group">
-          <asp:Label ID="Label4" runat="server" Text="Género"></asp:Label>
-          <asp:TextBox ID="txtGenero" runat="server" CssClass="form-control"  ></asp:TextBox> 
-        </div>
 
         <div class="form-group">
              <br />
@@ -41,12 +33,9 @@
          <asp:GridView ID="grdAdicciones" runat="server" AutoGenerateColumns="False"  PageIndex="50" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
              <AlternatingRowStyle BackColor="#F7F7F7" />
              <Columns>
-                 <asp:BoundField DataField="numCedula" HeaderText="Cédula" />
-                 <asp:BoundField DataField="nomCliente" HeaderText="Nombre" />
-                 <asp:BoundField DataField="ape1Cliente" HeaderText="Primer Apellido" />
-                 <asp:BoundField DataField="ape2Cliente" HeaderText="Segundo Apellido" />
-                 <asp:BoundField DataField="nombre" HeaderText="Adicción" />
-                 <asp:BoundField DataField="genero" HeaderText="Género" />
+                 <asp:BoundField DataField="nombre" HeaderText="Nombre" />
+                 <asp:BoundField DataField="codigo" HeaderText="Código" />
+                 <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
              </Columns>
              <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
              <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
