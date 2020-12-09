@@ -504,5 +504,14 @@ namespace AseguradoraFinal.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCoberturaPoliza_Result>("pa_RetornaCoberturaPoliza", nombreCoberturaParameter, nombreTipoPolizaParameter);
         }
+    
+        public virtual ObjectResult<pa_RetornaTipoPoliza_Result> pa_RetornaTipoPoliza(string nombre)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaTipoPoliza_Result>("pa_RetornaTipoPoliza", nombreParameter);
+        }
     }
 }

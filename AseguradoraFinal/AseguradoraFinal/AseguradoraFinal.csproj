@@ -153,6 +153,7 @@
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesInserta.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesLista.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesModifica.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaInserta.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaLista.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -397,6 +398,7 @@
     <Compile Include="BL\BLCoberturaPoliza.cs" />
     <Compile Include="BL\BLEmpleado.cs" />
     <Compile Include="BL\BLPoliza.cs" />
+    <Compile Include="BL\BLTipoPoliza.cs" />
     <Compile Include="BL\blUsuario.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -601,6 +603,13 @@
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesModifica.aspx.designer.cs">
       <DependentUpon>frmClientesModifica.aspx</DependentUpon>
     </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaInserta.aspx.cs">
+      <DependentUpon>frmCoberturaPolizaInserta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaInserta.aspx.designer.cs">
+      <DependentUpon>frmCoberturaPolizaInserta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaLista.aspx.cs">
       <DependentUpon>frmCoberturaPolizaLista.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -663,6 +672,9 @@
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\pa_RetornaCoberturaPoliza_Result.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\pa_RetornaTipoPoliza_Result.cs">
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\pa_RetornaTipoUsuarioID_Result.cs">
