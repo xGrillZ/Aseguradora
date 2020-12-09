@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AseguradoraFinal.BL;
+using AseguradoraFinal.Modelos;
 
 namespace AseguradoraFinal.formularios
 {
@@ -16,6 +18,8 @@ namespace AseguradoraFinal.formularios
 
         protected void btnSi_Click(object sender, EventArgs e)
         {
+            this.actualizaUltimaSesion();
+
             ///Variables de sesión
             this.Session.Add("idusuario", null);
             this.Session.Add("tipousuario", null);
@@ -37,6 +41,37 @@ namespace AseguradoraFinal.formularios
             int dataUser = int.Parse(Session["idusuario"].ToString());
 
             string fechaActual = DateTime.Now.ToString();
+
+            if (fechaActual != null)
+            {
+                BLEmpleado oEmpleado = new BLEmpleado();
+                BLCliente oCliente = new BLCliente();
+                bool resultado = false;
+                string mensaje = "";
+
+                try
+                {
+                    ///Verificador de tipos de usuarios, el cual enviará el dato según el rol
+                    if (Convert.ToInt16(this.Session["tipousuario"]) == 2)
+                    {
+                        resultado = oEmpleado.ModificaSesionEmpleado(dataUser, DateTime.Parse(fechaActual));
+                    }
+                    else
+                    {
+                        resultado = oCliente.ModificaSesionCliente(dataUser, DateTime.Parse(fechaActual));
+                    }
+                }
+                catch (Exception capturaExcepcion)
+                {
+                    mensaje += $"Ocurrió un error: {capturaExcepcion}";
+                    ///Mensaje de excepcion
+                    Response.Write("<script>alert('" + mensaje + "')</script>");
+                }
+                finally
+                {
+
+                }
+            }
         }
     }
 }

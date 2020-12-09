@@ -325,6 +325,15 @@
           <Parameter Name="porcentaje" Type="float" Mode="In" />
           <Parameter Name="idTipoPoliza" Type="int" Mode="In" />
         </Function>
+        <Function Name="pa_EliminaAdiccionesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="codigo" Type="int" Mode="In" />
+          <Parameter Name="idCategoriaAdicion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="pa_EliminaAdiccionesxCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idAdiccion" Type="int" Mode="In" />
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+        </Function>
         <Function Name="pa_EmpleadoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idUsuario" Type="int" Mode="In" />
           <Parameter Name="nomEmpleado" Type="nvarchar" Mode="In" />
@@ -337,8 +346,57 @@
         <Function Name="pa_EmpleadoSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NumCedula" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="pa_InsertaAdicciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="codigo" Type="int" Mode="In" />
+          <Parameter Name="idCategoriaAdiccion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="pa_InsertaAdiccionesxCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idAdiccion" Type="int" Mode="In" />
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="pa_ModificaAdicciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="codigo" Type="int" Mode="In" />
+          <Parameter Name="idCategoriaAdicion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="pa_ModificaAdiccionesxCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idAdiccion" Type="int" Mode="In" />
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="pa_ModificaCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="nomCliente" Type="varchar" Mode="In" />
+          <Parameter Name="ape1Cliente" Type="varchar" Mode="In" />
+          <Parameter Name="ape2Cliente" Type="varchar" Mode="In" />
+          <Parameter Name="numCedula" Type="varchar" Mode="In" />
+          <Parameter Name="genero" Type="varchar" Mode="In" />
+          <Parameter Name="direccionFisica" Type="varchar" Mode="In" />
+          <Parameter Name="pTelefono" Type="varchar" Mode="In" />
+          <Parameter Name="sTelefono" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="pa_ModificaUltimaSesionCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+          <Parameter Name="ultimoIngreso" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="pa_ModificaUltimaSesionEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+          <Parameter Name="ultimoIngreso" Type="datetime" Mode="In" />
+        </Function>
         <Function Name="pa_RegistroPolizaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="NumPoliza" Type="int" Mode="In" />
+        </Function>
+        <Function Name="pa_RetornaAdicciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="codigo" Type="int" Mode="In" />
+          <Parameter Name="idCategoriaAdiccion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="pa_RetornaAdiccionesxCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idMantAdiccionxCliente" Type="int" Mode="In" />
+          <Parameter Name="idAdiccion" Type="int" Mode="In" />
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+        </Function>
+        <Function Name="pa_RetornaCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCliente" Type="int" Mode="In" />
         </Function>
         <Function Name="pa_RetornaTipoUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="rol" Type="nvarchar" Mode="In" />
@@ -377,14 +435,6 @@
           <Parameter Name="idTipoPoliza" Type="int" Mode="In" />
           <Parameter Name="nombre" Type="nvarchar" Mode="In" />
           <Parameter Name="detalles" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_ModificaUltimaSesionCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="idCliente" Type="int" Mode="In" />
-          <Parameter Name="ultimoIngreso" Type="datetime" Mode="In" />
-        </Function>
-        <Function Name="sp_ModificaUltimaSesionEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="idEmpleado" Type="int" Mode="In" />
-          <Parameter Name="ultimoIngreso" Type="datetime" Mode="In" />
         </Function>
         <EntityContainer Name="aseguradorarjsModelStoreContainer">
           <EntitySet Name="Adicciones" EntityType="Self.Adicciones" Schema="dbo" store:Type="Tables" />
@@ -774,13 +824,63 @@
           <FunctionImport Name="pa_RetornaUsuarioEmpleadoID" ReturnType="Collection(aseguradorarjsModel.pa_RetornaUsuarioEmpleadoID_Result)">
           <Parameter Name="idUsuario" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="sp_ModificaUltimaSesionCliente">
-            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+          <FunctionImport Name="pa_ModificaUltimaSesionCliente">
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
             <Parameter Name="ultimoIngreso" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="sp_ModificaUltimaSesionEmpleado">
-            <Parameter Name="idEmpleado" Mode="In" Type="Int32" />
+          <FunctionImport Name="pa_ModificaUltimaSesionEmpleado">
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
             <Parameter Name="ultimoIngreso" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="pa_EliminaAdiccionesDelete">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="codigo" Mode="In" Type="Int32" />
+            <Parameter Name="idCategoriaAdicion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_EliminaAdiccionesxCliente">
+            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_InsertaAdicciones">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="codigo" Mode="In" Type="Int32" />
+            <Parameter Name="idCategoriaAdiccion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_InsertaAdiccionesxCliente">
+            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_ModificaAdicciones">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="codigo" Mode="In" Type="Int32" />
+            <Parameter Name="idCategoriaAdicion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_ModificaAdiccionesxCliente">
+            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_ModificaCliente">
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="nomCliente" Mode="In" Type="String" />
+            <Parameter Name="ape1Cliente" Mode="In" Type="String" />
+            <Parameter Name="ape2Cliente" Mode="In" Type="String" />
+            <Parameter Name="numCedula" Mode="In" Type="String" />
+            <Parameter Name="genero" Mode="In" Type="String" />
+            <Parameter Name="direccionFisica" Mode="In" Type="String" />
+            <Parameter Name="pTelefono" Mode="In" Type="String" />
+            <Parameter Name="sTelefono" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaAdicciones" ReturnType="Collection(aseguradorarjsModel.pa_RetornaAdicciones_Result)">
+            <Parameter Name="codigo" Mode="In" Type="Int32" />
+            <Parameter Name="idCategoriaAdiccion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaAdiccionesxCliente" ReturnType="Collection(aseguradorarjsModel.pa_RetornaAdiccionesxCliente_Result)">
+            <Parameter Name="idMantAdiccionxCliente" Mode="In" Type="Int32" />
+            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaCliente" ReturnType="Collection(aseguradorarjsModel.pa_RetornaCliente_Result)">
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="pa_EmpleadoSelect_Result">
@@ -1005,6 +1105,29 @@
           <Property Type="String" Name="ape1Empleado" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="ape2Empleado" Nullable="false" MaxLength="50" />
           <Property Type="DateTime" Name="ultimoIngreso" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaAdicciones_Result">
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="codigo" Nullable="false" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaAdiccionesxCliente_Result">
+          <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape1Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape2Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="numCedula" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="nombreCategoria" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaCliente_Result">
+          <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape1Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape2Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="numCedula" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="genero" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="direccionFisica" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="pTelefono" Nullable="false" MaxLength="50" />
         </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1256,8 +1379,50 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_ModificaUltimaSesionCliente" FunctionName="aseguradorarjsModel.Store.sp_ModificaUltimaSesionCliente" />
-          <FunctionImportMapping FunctionImportName="sp_ModificaUltimaSesionEmpleado" FunctionName="aseguradorarjsModel.Store.sp_ModificaUltimaSesionEmpleado" />
+          <FunctionImportMapping FunctionImportName="pa_ModificaUltimaSesionCliente" FunctionName="aseguradorarjsModel.Store.pa_ModificaUltimaSesionCliente" />
+          <FunctionImportMapping FunctionImportName="pa_ModificaUltimaSesionEmpleado" FunctionName="aseguradorarjsModel.Store.pa_ModificaUltimaSesionEmpleado" />
+          <FunctionImportMapping FunctionImportName="pa_EliminaAdiccionesDelete" FunctionName="aseguradorarjsModel.Store.pa_EliminaAdiccionesDelete" />
+          <FunctionImportMapping FunctionImportName="pa_EliminaAdiccionesxCliente" FunctionName="aseguradorarjsModel.Store.pa_EliminaAdiccionesxCliente" />
+          <FunctionImportMapping FunctionImportName="pa_InsertaAdicciones" FunctionName="aseguradorarjsModel.Store.pa_InsertaAdicciones" />
+          <FunctionImportMapping FunctionImportName="pa_InsertaAdiccionesxCliente" FunctionName="aseguradorarjsModel.Store.pa_InsertaAdiccionesxCliente" />
+          <FunctionImportMapping FunctionImportName="pa_ModificaAdicciones" FunctionName="aseguradorarjsModel.Store.pa_ModificaAdicciones" />
+          <FunctionImportMapping FunctionImportName="pa_ModificaAdiccionesxCliente" FunctionName="aseguradorarjsModel.Store.pa_ModificaAdiccionesxCliente" />
+          <FunctionImportMapping FunctionImportName="pa_ModificaCliente" FunctionName="aseguradorarjsModel.Store.pa_ModificaCliente" />
+          <FunctionImportMapping FunctionImportName="pa_RetornaAdicciones" FunctionName="aseguradorarjsModel.Store.pa_RetornaAdicciones">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaAdicciones_Result">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaAdiccionesxCliente" FunctionName="aseguradorarjsModel.Store.pa_RetornaAdiccionesxCliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaAdiccionesxCliente_Result">
+                <ScalarProperty Name="nomCliente" ColumnName="nomCliente" />
+                <ScalarProperty Name="ape1Cliente" ColumnName="ape1Cliente" />
+                <ScalarProperty Name="ape2Cliente" ColumnName="ape2Cliente" />
+                <ScalarProperty Name="numCedula" ColumnName="numCedula" />
+                <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaCliente" FunctionName="aseguradorarjsModel.Store.pa_RetornaCliente">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaCliente_Result">
+                <ScalarProperty Name="nomCliente" ColumnName="nomCliente" />
+                <ScalarProperty Name="ape1Cliente" ColumnName="ape1Cliente" />
+                <ScalarProperty Name="ape2Cliente" ColumnName="ape2Cliente" />
+                <ScalarProperty Name="numCedula" ColumnName="numCedula" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="direccionFisica" ColumnName="direccionFisica" />
+                <ScalarProperty Name="pTelefono" ColumnName="pTelefono" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
