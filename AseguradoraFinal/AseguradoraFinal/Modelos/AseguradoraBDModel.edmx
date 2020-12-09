@@ -353,6 +353,9 @@
           <Parameter Name="primerApellidoCliente" Type="nvarchar" Mode="In" />
           <Parameter Name="segundoApellidoCliente" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="pa_RetornaUsuarioClienteID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+        </Function>
         <Function Name="pa_RetornaUsuarioCorreoPwd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="contrasena" Type="varchar" Mode="In" />
           <Parameter Name="correoElectronico" Type="varchar" Mode="In" />
@@ -363,6 +366,9 @@
           <Parameter Name="nombreEmpleado" Type="nvarchar" Mode="In" />
           <Parameter Name="primerApellidoEmpleado" Type="nvarchar" Mode="In" />
           <Parameter Name="segundoApellidoEmpleado" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="pa_RetornaUsuarioEmpleadoID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
         </Function>
         <Function Name="pa_RetornaUsuarioID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idUsuario" Type="int" Mode="In" />
@@ -752,6 +758,12 @@
             <Parameter Name="Genero" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_RetornaUsuarioID" ReturnType="Collection(aseguradorarjsModel.pa_RetornaUsuarioID_Result)">
+          <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaUsuarioClienteID" ReturnType="Collection(aseguradorarjsModel.pa_RetornaUsuarioClienteID_Result)">
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaUsuarioEmpleadoID" ReturnType="Collection(aseguradorarjsModel.pa_RetornaUsuarioEmpleadoID_Result)">
             <Parameter Name="idUsuario" Mode="In" Type="Int32" />
           </FunctionImport>
           </EntityContainer>
@@ -963,9 +975,20 @@
           <Property Type="String" Name="nomEmpleado" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="ape1Empleado" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="ape2Empleado" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="contrasena" Nullable="false" MaxLength="15" />
-          <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaUsuarioClienteID_Result">
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape1Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape2Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="ultimoIngreso" Nullable="false" Precision="23" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaUsuarioEmpleadoID_Result">
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="String" Name="nomEmpleado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape1Empleado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape2Empleado" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="ultimoIngreso" Nullable="false" Precision="23" />
         </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
@@ -1192,9 +1215,28 @@
                 <ScalarProperty Name="nomEmpleado" ColumnName="nomEmpleado" />
                 <ScalarProperty Name="ape1Empleado" ColumnName="ape1Empleado" />
                 <ScalarProperty Name="ape2Empleado" ColumnName="ape2Empleado" />
-                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
-                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
-                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaUsuarioClienteID" FunctionName="aseguradorarjsModel.Store.pa_RetornaUsuarioClienteID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaUsuarioClienteID_Result">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="nomCliente" ColumnName="nomCliente" />
+                <ScalarProperty Name="ape1Cliente" ColumnName="ape1Cliente" />
+                <ScalarProperty Name="ape2Cliente" ColumnName="ape2Cliente" />
+                <ScalarProperty Name="ultimoIngreso" ColumnName="ultimoIngreso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaUsuarioEmpleadoID" FunctionName="aseguradorarjsModel.Store.pa_RetornaUsuarioEmpleadoID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaUsuarioEmpleadoID_Result">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="nomEmpleado" ColumnName="nomEmpleado" />
+                <ScalarProperty Name="ape1Empleado" ColumnName="ape1Empleado" />
+                <ScalarProperty Name="ape2Empleado" ColumnName="ape2Empleado" />
+                <ScalarProperty Name="ultimoIngreso" ColumnName="ultimoIngreso" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

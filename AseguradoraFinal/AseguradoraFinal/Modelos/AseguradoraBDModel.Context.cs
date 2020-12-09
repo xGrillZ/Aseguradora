@@ -289,5 +289,23 @@ namespace AseguradoraFinal.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioID_Result>("pa_RetornaUsuarioID", idUsuarioParameter);
         }
+    
+        public virtual ObjectResult<pa_RetornaUsuarioClienteID_Result> pa_RetornaUsuarioClienteID(Nullable<int> idUsuario)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioClienteID_Result>("pa_RetornaUsuarioClienteID", idUsuarioParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaUsuarioEmpleadoID_Result> pa_RetornaUsuarioEmpleadoID(Nullable<int> idUsuario)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioEmpleadoID_Result>("pa_RetornaUsuarioEmpleadoID", idUsuarioParameter);
+        }
     }
 }

@@ -11,14 +11,12 @@ namespace AseguradoraFinal.Modelos
 {
     using System;
     
-    public partial class pa_RetornaUsuarioID_Result
+    public partial class pa_RetornaUsuarioClienteID_Result
     {
         public int idUsuario { get; set; }
         public string nomCliente { get; set; }
         public string ape1Cliente { get; set; }
         public string ape2Cliente { get; set; }
-        public string nomEmpleado { get; set; }
-        public string ape1Empleado { get; set; }
-        public string ape2Empleado { get; set; }
+        public System.DateTime ultimoIngreso { get; set; }
     }
 }
