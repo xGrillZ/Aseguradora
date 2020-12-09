@@ -398,6 +398,13 @@
         <Function Name="pa_RetornaCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCliente" Type="int" Mode="In" />
         </Function>
+        <Function Name="pa_RetornaCoberturaPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombreCobertura" Type="varchar" Mode="In" />
+          <Parameter Name="nombreTipoPoliza" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="pa_RetornaCoberturaPolizaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_CoberturaPoliza" Type="int" Mode="In" />
+        </Function>
         <Function Name="pa_RetornaTipoUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="rol" Type="nvarchar" Mode="In" />
         </Function>
@@ -726,12 +733,6 @@
             <Parameter Name="correoElectronico" Mode="In" Type="String" />
             <Parameter Name="ultimoIngreso" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="pa_CoberturaPolizaUpdate">
-            <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="descripcion" Mode="In" Type="String" />
-            <Parameter Name="porcentaje" Mode="In" Type="Double" />
-            <Parameter Name="idTipoPoliza" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="pa_EmpleadoInsert">
             <Parameter Name="idUsuario" Mode="In" Type="Int32" />
             <Parameter Name="nomEmpleado" Mode="In" Type="String" />
@@ -880,7 +881,14 @@
             <Parameter Name="idCliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="pa_RetornaCliente" ReturnType="Collection(aseguradorarjsModel.pa_RetornaCliente_Result)">
-            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+          <Parameter Name="idCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaCoberturaPolizaID" ReturnType="Collection(aseguradorarjsModel.pa_RetornaCoberturaPolizaID_Result)">
+          <Parameter Name="id_CoberturaPoliza" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaCoberturaPoliza" ReturnType="Collection(aseguradorarjsModel.pa_RetornaCoberturaPoliza_Result)">
+            <Parameter Name="nombreCobertura" Mode="In" Type="String" />
+            <Parameter Name="nombreTipoPoliza" Mode="In" Type="String" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="pa_EmpleadoSelect_Result">
@@ -1129,6 +1137,21 @@
           <Property Type="String" Name="direccionFisica" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="pTelefono" Nullable="false" MaxLength="50" />
         </ComplexType>
+        <ComplexType Name="pa_RetornaCoberturaPolizaID_Result">
+          <Property Type="Int32" Name="idCoberturaPoliza" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
+          <Property Type="Double" Name="porcentaje" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaCoberturaPoliza_Result">
+          <Property Type="Int32" Name="idCoberturaPoliza" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
+          <Property Type="Double" Name="porcentaje" Nullable="false" />
+          <Property Type="Int32" Name="idTipoPoliza" Nullable="false" />
+          <Property Type="String" Name="nombreTipoPoliza" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="detalles" Nullable="false" MaxLength="100" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1223,7 +1246,6 @@
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="pa_ClienteDelete" FunctionName="aseguradorarjsModel.Store.pa_ClienteDelete" />
           <FunctionImportMapping FunctionImportName="pa_ClienteInsert" FunctionName="aseguradorarjsModel.Store.pa_ClienteInsert" />
-          <FunctionImportMapping FunctionImportName="pa_CoberturaPolizaUpdate" FunctionName="aseguradorarjsModel.Store.pa_CoberturaPolizaUpdate" />
           <FunctionImportMapping FunctionImportName="pa_EmpleadoInsert" FunctionName="aseguradorarjsModel.Store.pa_EmpleadoInsert" />
           <FunctionImportMapping FunctionImportName="pa_EmpleadoSelect" FunctionName="aseguradorarjsModel.Store.pa_EmpleadoSelect">
             <ResultMapping>
@@ -1420,6 +1442,29 @@
                 <ScalarProperty Name="genero" ColumnName="genero" />
                 <ScalarProperty Name="direccionFisica" ColumnName="direccionFisica" />
                 <ScalarProperty Name="pTelefono" ColumnName="pTelefono" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaCoberturaPolizaID" FunctionName="aseguradorarjsModel.Store.pa_RetornaCoberturaPolizaID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaCoberturaPolizaID_Result">
+                <ScalarProperty Name="idCoberturaPoliza" ColumnName="idCoberturaPoliza" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaCoberturaPoliza" FunctionName="aseguradorarjsModel.Store.pa_RetornaCoberturaPoliza">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaCoberturaPoliza_Result">
+                <ScalarProperty Name="idCoberturaPoliza" ColumnName="idCoberturaPoliza" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+                <ScalarProperty Name="idTipoPoliza" ColumnName="idTipoPoliza" />
+                <ScalarProperty Name="nombreTipoPoliza" ColumnName="nombreTipoPoliza" />
+                <ScalarProperty Name="detalles" ColumnName="detalles" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

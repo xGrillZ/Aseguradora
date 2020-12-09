@@ -99,27 +99,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ClienteInsert", idUsuarioParameter, nomClienteParameter, ape1ClienteParameter, ape2ClienteParameter, numCedulaParameter, generoParameter, direccionFisicaParameter, pTelefonoParameter, sTelefonoParameter, correoElectronicoParameter, ultimoIngresoParameter);
         }
     
-        public virtual int pa_CoberturaPolizaUpdate(string nombre, string descripcion, Nullable<double> porcentaje, Nullable<int> idTipoPoliza)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var descripcionParameter = descripcion != null ?
-                new ObjectParameter("descripcion", descripcion) :
-                new ObjectParameter("descripcion", typeof(string));
-    
-            var porcentajeParameter = porcentaje.HasValue ?
-                new ObjectParameter("porcentaje", porcentaje) :
-                new ObjectParameter("porcentaje", typeof(double));
-    
-            var idTipoPolizaParameter = idTipoPoliza.HasValue ?
-                new ObjectParameter("idTipoPoliza", idTipoPoliza) :
-                new ObjectParameter("idTipoPoliza", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_CoberturaPolizaUpdate", nombreParameter, descripcionParameter, porcentajeParameter, idTipoPolizaParameter);
-        }
-    
         public virtual int pa_EmpleadoInsert(Nullable<int> idUsuario, string nomEmpleado, string ape1Empleado, string ape2Empleado, string numCedula, Nullable<int> idSucursal, Nullable<System.DateTime> ultimoIngreso)
         {
             var idUsuarioParameter = idUsuario.HasValue ?
@@ -502,6 +481,28 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("idCliente", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCliente_Result>("pa_RetornaCliente", idClienteParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaCoberturaPolizaID_Result> pa_RetornaCoberturaPolizaID(Nullable<int> id_CoberturaPoliza)
+        {
+            var id_CoberturaPolizaParameter = id_CoberturaPoliza.HasValue ?
+                new ObjectParameter("id_CoberturaPoliza", id_CoberturaPoliza) :
+                new ObjectParameter("id_CoberturaPoliza", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCoberturaPolizaID_Result>("pa_RetornaCoberturaPolizaID", id_CoberturaPolizaParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaCoberturaPoliza_Result> pa_RetornaCoberturaPoliza(string nombreCobertura, string nombreTipoPoliza)
+        {
+            var nombreCoberturaParameter = nombreCobertura != null ?
+                new ObjectParameter("nombreCobertura", nombreCobertura) :
+                new ObjectParameter("nombreCobertura", typeof(string));
+    
+            var nombreTipoPolizaParameter = nombreTipoPoliza != null ?
+                new ObjectParameter("nombreTipoPoliza", nombreTipoPoliza) :
+                new ObjectParameter("nombreTipoPoliza", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCoberturaPoliza_Result>("pa_RetornaCoberturaPoliza", nombreCoberturaParameter, nombreTipoPolizaParameter);
         }
     }
 }

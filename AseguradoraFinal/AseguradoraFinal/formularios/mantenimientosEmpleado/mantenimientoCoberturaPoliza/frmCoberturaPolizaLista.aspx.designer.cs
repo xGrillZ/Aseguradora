@@ -7,56 +7,74 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace AseguradoraFinal.PaginaMaestra
+namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCoberturaPoliza
 {
 
 
-    public partial class AseguradoraPagMaestra
+    public partial class frmCoberturaPolizaLista
     {
 
         /// <summary>
-        /// Control head.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control navbarEmpleado.
+        /// Control Label1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl navbarEmpleado;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Control navbarCliente.
+        /// Control txtCobertura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl navbarCliente;
+        protected global::System.Web.UI.WebControls.TextBox txtCobertura;
 
         /// <summary>
-        /// Control ContenidoPrincipal.
+        /// Control Label2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContenidoPrincipal;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Control scriptsPersonalizados.
+        /// Control txtTipoPoliza.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder scriptsPersonalizados;
+        protected global::System.Web.UI.WebControls.TextBox txtTipoPoliza;
+
+        /// <summary>
+        /// Control btnMostrarDatos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMostrarDatos;
+
+        /// <summary>
+        /// Control grdListaCoberturaPoliza.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdListaCoberturaPoliza;
     }
 }
