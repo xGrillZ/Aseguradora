@@ -8,7 +8,8 @@
         <section class="contenido-header">
             <div class="container">
                     <div class="texto">
-                        <asp:Label ID="lblDatosUsuario" runat="server"></asp:Label>
+                        <asp:Label ID="lblDatosUsuario" runat="server"></asp:Label><br />
+                        <asp:Label ID="lblDatosUsuarioLog" runat="server"></asp:Label>
                         <h1>Seguros, El equipo del Siglo XXI</h1>
                         <h2>¡Nos preocupamos por tu salud!</h2>
                         <asp:HyperLink ID="contactoAseguradora" runat="server" class="contactoAseguradora">Contacto</asp:HyperLink>

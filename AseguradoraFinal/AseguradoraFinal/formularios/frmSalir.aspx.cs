@@ -30,5 +30,13 @@ namespace AseguradoraFinal.formularios
             ///Redireccionamiento a la página principal
             this.Response.Redirect("~/formularios/frmPrincipal.aspx");
         }
+
+        void actualizaUltimaSesion()
+        {
+            ///Variable que almacena el IDUsuario a la hora de iniciar sesión
+            int dataUser = int.Parse(Session["idusuario"].ToString());
+
+            string fechaActual = DateTime.Now.ToString();
+        }
     }
 }
