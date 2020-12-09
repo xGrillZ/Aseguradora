@@ -39,6 +39,24 @@ namespace AseguradoraFinal.BL
             ///Retornación del resultado
             return resultado;
         }
+
+        /// <summary>
+        /// Método que modifica la última sesión de un empleado
+        /// </summary>
+        /// <param name="pIdUsuario"></param>
+        /// <param name="pUltimaSesion"></param>
+        /// <returns></returns>
+        public bool ModificaSesionEmpleado(int pIdUsuario, DateTime pUltimaSesion)
+        {
+            ///Variable que posee la cantidad de registros afectados
+            int registrosAfectados = 0;
+
+            ///Invocar al procedimiento almacenado
+            registrosAfectados = this.modeloBD.pa_ModificaUltimaSesionEmpleado(pIdUsuario, pUltimaSesion);
+
+            ///Retorna la variable de registros afectados
+            return registrosAfectados > 0;
+        }
         #endregion Métodos y funciones
 
     }

@@ -308,30 +308,200 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioEmpleadoID_Result>("pa_RetornaUsuarioEmpleadoID", idUsuarioParameter);
         }
     
-        public virtual int sp_ModificaUltimaSesionCliente(Nullable<int> idCliente, Nullable<System.DateTime> ultimoIngreso)
+        public virtual int pa_ModificaUltimaSesionCliente(Nullable<int> idUsuario, Nullable<System.DateTime> ultimoIngreso)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            var ultimoIngresoParameter = ultimoIngreso.HasValue ?
+                new ObjectParameter("ultimoIngreso", ultimoIngreso) :
+                new ObjectParameter("ultimoIngreso", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaUltimaSesionCliente", idUsuarioParameter, ultimoIngresoParameter);
+        }
+    
+        public virtual int pa_ModificaUltimaSesionEmpleado(Nullable<int> idUsuario, Nullable<System.DateTime> ultimoIngreso)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            var ultimoIngresoParameter = ultimoIngreso.HasValue ?
+                new ObjectParameter("ultimoIngreso", ultimoIngreso) :
+                new ObjectParameter("ultimoIngreso", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaUltimaSesionEmpleado", idUsuarioParameter, ultimoIngresoParameter);
+        }
+    
+        public virtual int pa_EliminaAdiccionesDelete(string nombre, Nullable<int> codigo, Nullable<int> idCategoriaAdicion)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("codigo", codigo) :
+                new ObjectParameter("codigo", typeof(int));
+    
+            var idCategoriaAdicionParameter = idCategoriaAdicion.HasValue ?
+                new ObjectParameter("idCategoriaAdicion", idCategoriaAdicion) :
+                new ObjectParameter("idCategoriaAdicion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaAdiccionesDelete", nombreParameter, codigoParameter, idCategoriaAdicionParameter);
+        }
+    
+        public virtual int pa_EliminaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idCliente)
+        {
+            var idAdiccionParameter = idAdiccion.HasValue ?
+                new ObjectParameter("idAdiccion", idAdiccion) :
+                new ObjectParameter("idAdiccion", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaAdiccionesxCliente", idAdiccionParameter, idClienteParameter);
+        }
+    
+        public virtual int pa_InsertaAdicciones(string nombre, Nullable<int> codigo, Nullable<int> idCategoriaAdiccion)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("codigo", codigo) :
+                new ObjectParameter("codigo", typeof(int));
+    
+            var idCategoriaAdiccionParameter = idCategoriaAdiccion.HasValue ?
+                new ObjectParameter("idCategoriaAdiccion", idCategoriaAdiccion) :
+                new ObjectParameter("idCategoriaAdiccion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdicciones", nombreParameter, codigoParameter, idCategoriaAdiccionParameter);
+        }
+    
+        public virtual int pa_InsertaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idCliente)
+        {
+            var idAdiccionParameter = idAdiccion.HasValue ?
+                new ObjectParameter("idAdiccion", idAdiccion) :
+                new ObjectParameter("idAdiccion", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdiccionesxCliente", idAdiccionParameter, idClienteParameter);
+        }
+    
+        public virtual int pa_ModificaAdicciones(string nombre, Nullable<int> codigo, Nullable<int> idCategoriaAdicion)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("codigo", codigo) :
+                new ObjectParameter("codigo", typeof(int));
+    
+            var idCategoriaAdicionParameter = idCategoriaAdicion.HasValue ?
+                new ObjectParameter("idCategoriaAdicion", idCategoriaAdicion) :
+                new ObjectParameter("idCategoriaAdicion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaAdicciones", nombreParameter, codigoParameter, idCategoriaAdicionParameter);
+        }
+    
+        public virtual int pa_ModificaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idCliente)
+        {
+            var idAdiccionParameter = idAdiccion.HasValue ?
+                new ObjectParameter("idAdiccion", idAdiccion) :
+                new ObjectParameter("idAdiccion", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaAdiccionesxCliente", idAdiccionParameter, idClienteParameter);
+        }
+    
+        public virtual int pa_ModificaCliente(Nullable<int> idCliente, string nomCliente, string ape1Cliente, string ape2Cliente, string numCedula, string genero, string direccionFisica, string pTelefono, string sTelefono)
         {
             var idClienteParameter = idCliente.HasValue ?
                 new ObjectParameter("idCliente", idCliente) :
                 new ObjectParameter("idCliente", typeof(int));
     
-            var ultimoIngresoParameter = ultimoIngreso.HasValue ?
-                new ObjectParameter("ultimoIngreso", ultimoIngreso) :
-                new ObjectParameter("ultimoIngreso", typeof(System.DateTime));
+            var nomClienteParameter = nomCliente != null ?
+                new ObjectParameter("nomCliente", nomCliente) :
+                new ObjectParameter("nomCliente", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificaUltimaSesionCliente", idClienteParameter, ultimoIngresoParameter);
+            var ape1ClienteParameter = ape1Cliente != null ?
+                new ObjectParameter("ape1Cliente", ape1Cliente) :
+                new ObjectParameter("ape1Cliente", typeof(string));
+    
+            var ape2ClienteParameter = ape2Cliente != null ?
+                new ObjectParameter("ape2Cliente", ape2Cliente) :
+                new ObjectParameter("ape2Cliente", typeof(string));
+    
+            var numCedulaParameter = numCedula != null ?
+                new ObjectParameter("numCedula", numCedula) :
+                new ObjectParameter("numCedula", typeof(string));
+    
+            var generoParameter = genero != null ?
+                new ObjectParameter("genero", genero) :
+                new ObjectParameter("genero", typeof(string));
+    
+            var direccionFisicaParameter = direccionFisica != null ?
+                new ObjectParameter("direccionFisica", direccionFisica) :
+                new ObjectParameter("direccionFisica", typeof(string));
+    
+            var pTelefonoParameter = pTelefono != null ?
+                new ObjectParameter("pTelefono", pTelefono) :
+                new ObjectParameter("pTelefono", typeof(string));
+    
+            var sTelefonoParameter = sTelefono != null ?
+                new ObjectParameter("sTelefono", sTelefono) :
+                new ObjectParameter("sTelefono", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaCliente", idClienteParameter, nomClienteParameter, ape1ClienteParameter, ape2ClienteParameter, numCedulaParameter, generoParameter, direccionFisicaParameter, pTelefonoParameter, sTelefonoParameter);
         }
     
-        public virtual int sp_ModificaUltimaSesionEmpleado(Nullable<int> idEmpleado, Nullable<System.DateTime> ultimoIngreso)
+        public virtual ObjectResult<pa_RetornaAdicciones_Result> pa_RetornaAdicciones(Nullable<int> codigo, Nullable<int> idCategoriaAdiccion)
         {
-            var idEmpleadoParameter = idEmpleado.HasValue ?
-                new ObjectParameter("idEmpleado", idEmpleado) :
-                new ObjectParameter("idEmpleado", typeof(int));
+            var codigoParameter = codigo.HasValue ?
+                new ObjectParameter("codigo", codigo) :
+                new ObjectParameter("codigo", typeof(int));
     
-            var ultimoIngresoParameter = ultimoIngreso.HasValue ?
-                new ObjectParameter("ultimoIngreso", ultimoIngreso) :
-                new ObjectParameter("ultimoIngreso", typeof(System.DateTime));
+            var idCategoriaAdiccionParameter = idCategoriaAdiccion.HasValue ?
+                new ObjectParameter("idCategoriaAdiccion", idCategoriaAdiccion) :
+                new ObjectParameter("idCategoriaAdiccion", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_ModificaUltimaSesionEmpleado", idEmpleadoParameter, ultimoIngresoParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdicciones_Result>("pa_RetornaAdicciones", codigoParameter, idCategoriaAdiccionParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaAdiccionesxCliente_Result> pa_RetornaAdiccionesxCliente(Nullable<int> idMantAdiccionxCliente, Nullable<int> idAdiccion, Nullable<int> idCliente)
+        {
+            var idMantAdiccionxClienteParameter = idMantAdiccionxCliente.HasValue ?
+                new ObjectParameter("idMantAdiccionxCliente", idMantAdiccionxCliente) :
+                new ObjectParameter("idMantAdiccionxCliente", typeof(int));
+    
+            var idAdiccionParameter = idAdiccion.HasValue ?
+                new ObjectParameter("idAdiccion", idAdiccion) :
+                new ObjectParameter("idAdiccion", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionesxCliente_Result>("pa_RetornaAdiccionesxCliente", idMantAdiccionxClienteParameter, idAdiccionParameter, idClienteParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaCliente_Result> pa_RetornaCliente(Nullable<int> idCliente)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCliente_Result>("pa_RetornaCliente", idClienteParameter);
         }
     }
 }
