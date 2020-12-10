@@ -42,7 +42,7 @@ namespace AseguradoraFinal.formularios
 
             string fechaActual = DateTime.Now.ToString();
 
-            if (fechaActual != null)
+            if (this.IsValid)
             {
                 BLEmpleado oEmpleado = new BLEmpleado();
                 BLCliente oCliente = new BLCliente();

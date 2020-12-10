@@ -22,14 +22,14 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
         /// </summary>
         void cargaListaTipoPoliza()
         {
-            ///Creación de la instancia a la clase BLTipoPoliza
+          /*  ///Creación de la instancia a la clase BLTipoPoliza
             BLTipoPoliza oTipoPoliza = new BLTipoPoliza();
 
             ///indicarle al dropdownlist la fuente de datos
             this.ddlTipoPoliza.DataSource = oTipoPoliza.retornaTipoPoliza(null);
 
             ///indicarle al dropdownlist que se muestre
-            this.ddlTipoPoliza.DataBind();
+            this.ddlTipoPoliza.DataBind();*/
         }
 
         protected void btAceptar_Click(object sender, EventArgs e)

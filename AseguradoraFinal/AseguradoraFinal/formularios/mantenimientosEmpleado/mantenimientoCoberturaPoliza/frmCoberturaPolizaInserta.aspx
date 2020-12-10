@@ -1,8 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/AseguradoraPagMaestra.Master" AutoEventWireup="true" CodeBehind="frmCoberturaPolizaInserta.aspx.cs" Inherits="AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCoberturaPoliza.frmCoberturaPolizaInserta" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="/css/global.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoPrincipal" runat="server">
-    <form id="frmClienteInserta" runat="server" class="form-inline">      
+            <%----<section class="coberturaPoliza-Inserta">
+    <div class="contenidofrm">
+    <form id="frmClienteInserta" runat="server" class="form-inline">
+
       <h1 class="auto-style1">Mantenimiento de Clientes - Insertar</h1>       
 
        <div class="form-group">
@@ -31,8 +35,9 @@
                                                                   
       <br />
       <asp:ValidationSummary ID="vsRegistroPersonas" runat="server" ShowMessageBox="True" ShowSummary="False" />
-        
     </form>
+    </div>
+    </section> ---%>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">
 </asp:Content>

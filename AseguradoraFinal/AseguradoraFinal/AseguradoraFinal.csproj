@@ -119,6 +119,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="css\footer.css" />
+    <Content Include="css\global.css" />
     <Content Include="css\Logeo.css" />
     <Content Include="css\navbar.css" />
     <Content Include="css\Principal.css" />
@@ -155,6 +156,7 @@
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesModifica.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaInserta.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaLista.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaLista.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -616,6 +618,13 @@
     </Compile>
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaLista.aspx.designer.cs">
       <DependentUpon>frmCoberturaPolizaLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaLista.aspx.cs">
+      <DependentUpon>frmTipoPolizaLista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaLista.aspx.designer.cs">
+      <DependentUpon>frmTipoPolizaLista.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
