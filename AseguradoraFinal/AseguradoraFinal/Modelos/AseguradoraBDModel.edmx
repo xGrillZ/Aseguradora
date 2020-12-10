@@ -355,6 +355,10 @@
           <Parameter Name="idAdiccion" Type="int" Mode="In" />
           <Parameter Name="idCliente" Type="int" Mode="In" />
         </Function>
+        <Function Name="pa_InsertaTipoPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="detalles" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="pa_ModificaAdicciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
           <Parameter Name="codigo" Type="int" Mode="In" />
@@ -894,7 +898,11 @@
             <Parameter Name="nombreTipoPoliza" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_RetornaTipoPoliza" ReturnType="Collection(aseguradorarjsModel.pa_RetornaTipoPoliza_Result)">
+          <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_InsertaTipoPoliza">
             <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="detalles" Mode="In" Type="String" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="pa_EmpleadoSelect_Result">
@@ -1488,6 +1496,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_InsertaTipoPoliza" FunctionName="aseguradorarjsModel.Store.pa_InsertaTipoPoliza" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

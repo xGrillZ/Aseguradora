@@ -13,7 +13,7 @@
                  </div>
                       <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" class="btn-success" OnClick="btnMostrarDatos_Click"  /> 
                  &nbsp;
-                     <asp:HyperLink ID="hpNuevoTipo" runat="server" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoCoberturaPoliza/frmCoberturaPolizaInserta.aspx">Ingresar nueva Cobertura</asp:HyperLink>
+                     <asp:HyperLink ID="hpNuevoTipo" runat="server" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoTipoPoliza/frmTipoPolizaInsertar.aspx">Ingresar nuevo Tipo Poliza</asp:HyperLink>
                  <br />
                  <br />
                 <asp:GridView ID="grdTipoPoliza" runat="server" AllowCustomPaging="True" AutoGenerateColumns="False" OnPageIndexChanging="grdTipoPoliza_PageIndexChanging" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">

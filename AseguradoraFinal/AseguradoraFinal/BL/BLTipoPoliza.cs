@@ -27,6 +27,19 @@ namespace AseguradoraFinal.BL
             resultado = this.modeloBD.pa_RetornaTipoPoliza(pNombre).ToList();
             return resultado;
         }
+
+        public bool InsertaTipoPoliza(string pNombre, string pDetalles)
+        {
+            int registrosAfectados = 0;
+
+            registrosAfectados = this.modeloBD.pa_InsertaTipoPoliza(pNombre, pDetalles);
+
+            if (registrosAfectados > 0)
+            {
+                return true;
+            }
+            return false;
+        }
         #endregion Métodos y funciones
     }
 }
