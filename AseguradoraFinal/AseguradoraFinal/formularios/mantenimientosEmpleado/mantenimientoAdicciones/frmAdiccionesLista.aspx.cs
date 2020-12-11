@@ -28,10 +28,10 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             //crear la variable que contiene los datos
             List<pa_RetornaAdicciones_Result> fuenteDatos =
                 blAddiciones.RetornaAdicciones(
-                     Convert.ToInt16(this.txtCodigo.Text),
-                     Convert.ToInt16(this.txtIdCategoriaAdiccion.Text));
+                     Convert.ToInt16(txtCodigo.Text),
+                     Convert.ToInt16(txtIdCategoriaAdiccion.Text));
 
-
+         
             ///Agregar al grid la fuente de datos
             this.grdAdicciones.DataSource = fuenteDatos;
 
