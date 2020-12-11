@@ -39,7 +39,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoTipoP
 
                     ///Asignar a la variable el resultado de invocar el procedimiento
                     ///almacenado que se encuentra en el método
-                    resultado = oTipoPoliza.InsertaTipoPoliza(this.txtNombre.Text, this.txtDesc.Text);
+                    resultado = oTipoPoliza.insertaTipoPoliza(this.txtNombre.Text, this.txtDesc.Text);
 
                 }
                 catch (Exception excepcionCapturada)

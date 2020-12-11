@@ -10,19 +10,11 @@
 namespace AseguradoraFinal.Modelos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Telefono
+    public partial class pa_RetornaTipoPolizaID_Result
     {
-        public Telefono()
-        {
-            this.Sucursal = new HashSet<Sucursal>();
-        }
-    
-        public int idTelefono { get; set; }
-        public string telefono1 { get; set; }
-        public Nullable<int> extension { get; set; }
-    
-        public virtual ICollection<Sucursal> Sucursal { get; set; }
+        public int idTipoPoliza { get; set; }
+        public string nombre { get; set; }
+        public string detalles { get; set; }
     }
 }
