@@ -5,6 +5,10 @@
      <form runat="server" class="form-inline">
 
     <h1>Busqueda de Adicciones</h1>
+
+         
+
+
      <div class="form-group">
           <asp:Label ID="Label1" runat="server" Text=" Código"></asp:Label>
          <asp:TextBox ID="txtCodigo" runat="server" CssClass="form-control" ></asp:TextBox>         
@@ -33,10 +37,12 @@
          <asp:GridView ID="grdAdicciones" runat="server" AutoGenerateColumns="False"  PageIndex="50" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
              <AlternatingRowStyle BackColor="#F7F7F7" />
              <Columns>
+                 <asp:BoundField DataField="idAdiccion" HeaderText="Id" />
                  <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                  <asp:BoundField DataField="codigo" HeaderText="Código" />
                  <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
-                 <asp:HyperLinkField DataNavigateUrlFields="idAdiccion" DataNavigateUrlFormatString="frmAdiccionesModificar.aspx?idAdiccion={0}" Text="Modificar" />
+                 <asp:HyperLinkField Text="Modificar" />
+                 <asp:HyperLinkField Text="Eliminar" />
              </Columns>
              <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
              <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
