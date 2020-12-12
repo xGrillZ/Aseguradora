@@ -30,7 +30,8 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 blAddiciones.RetornaAdicciones(
                      Convert.ToInt16(this.txtCodigo.Text),
                      Convert.ToInt16(this.txtIdCategoriaAdiccion.Text));
-
+                
+            //si es nulo condicionarlo
 
             ///Agregar al grid la fuente de datos
             this.grdAdicciones.DataSource = fuenteDatos;
