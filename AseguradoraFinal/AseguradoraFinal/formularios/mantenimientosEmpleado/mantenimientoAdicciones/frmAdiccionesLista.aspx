@@ -41,8 +41,8 @@
                  <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                  <asp:BoundField DataField="codigo" HeaderText="Código" />
                  <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
-                 <asp:HyperLinkField Text="Modificar" />
-                 <asp:HyperLinkField Text="Eliminar" />
+                 <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="idAdiccion" DataNavigateUrlFormatString="frmAdiccionesModifica.aspx?idAdiccion={0}" />
+                 <asp:HyperLinkField Text="Eliminar" DataNavigateUrlFields="idAdiccion" DataNavigateUrlFormatString="frmAdiccionesElimina.aspx?idAdiccion={0}" />
              </Columns>
              <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
              <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
