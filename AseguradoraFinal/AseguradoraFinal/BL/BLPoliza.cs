@@ -16,8 +16,6 @@ namespace AseguradoraFinal.BL
 
         #region Métodos y funciones
 
-
-
         #endregion Métodos y funciones
     }
 }
