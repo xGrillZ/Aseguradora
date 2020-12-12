@@ -24,33 +24,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         protected global::System.Web.UI.HtmlControls.HtmlForm frmClienteInserta;
 
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// ddlIdAdiccion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlIdAdiccion;
-
-        /// <summary>
-        /// rqvIdAdiccion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvIdAdiccion;
-
-        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -60,49 +33,22 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// ddlNombreAdiccion control.
+        /// txtNombreAdiccion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNombreAdiccion;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreAdiccion;
 
         /// <summary>
-        /// rqvNombre control.
+        /// rqvtxtNombreAdiccion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvNombre;
-
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-
-        /// <summary>
-        /// ddlCodigoAdiccion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCodigoAdiccion;
-
-        /// <summary>
-        /// rqvCodigoAdiccion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvCodigoAdiccion;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvtxtNombreAdiccion;
 
         /// <summary>
         /// Label3 control.

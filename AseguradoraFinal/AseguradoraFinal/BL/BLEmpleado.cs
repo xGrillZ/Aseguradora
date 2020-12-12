@@ -17,7 +17,7 @@ namespace AseguradoraFinal.BL
         #endregion variableModelo
 
         #region Métodos y funciones
-        public List<pa_RetornaAdicciones_Result> RetornaAdicciones(string nombre)
+        public List<pa_RetornaAdicciones_Result> RetornaAdicciones(string nombre) 
         {
             ///Crea variable que retornara
             List<pa_RetornaAdicciones_Result> resultado = new List<pa_RetornaAdicciones_Result>();
@@ -25,6 +25,25 @@ namespace AseguradoraFinal.BL
             resultado = this.modeloBD.pa_RetornaAdicciones(nombre).ToList();
             ///Retornar el valor
             return resultado;
+        }
+
+        public bool InsertaAdicciones(string nombre, int idCategoriaAdiccion)
+        {
+
+            int registrosAfectados = 0;
+
+            ///Invocación del procedimiento almacenado con las variables
+            registrosAfectados = this.modeloBD.pa_InsertaAdicciones(nombre, idCategoriaAdiccion);
+
+            if (registrosAfectados > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
         public pa_RetornaUsuarioEmpleadoID_Result retornaUsuarioEmpleadoID(int pIdUsuarioEmpleado)

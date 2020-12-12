@@ -34,5 +34,6 @@ namespace AseguradoraFinal.Modelos
         public virtual Sucursal Sucursal { get; set; }
         public virtual Cliente Cliente { get; set; }
         public virtual Empleado Empleado { get; set; }
+        public virtual Adicciones1 Adicciones1 { get; set; }
     }
 }

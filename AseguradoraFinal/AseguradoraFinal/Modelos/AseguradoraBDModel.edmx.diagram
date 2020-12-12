@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="81e3fb1545a74a78821d58e705dea91f" Name="Diagram1">
+      <Diagram DiagramId="81e3fb1545a74a78821d58e705dea91f" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="aseguradorarjsModel.Adicciones" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="aseguradorarjsModel.CategoriaAdicciones" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="aseguradorarjsModel.CoberturaPoliza" Width="1.5" PointX="8.25" PointY="14.875" IsExpanded="true" />
@@ -31,6 +31,10 @@
         <EntityTypeShape EntityType="aseguradorarjsModel.MantAddicionxCliente" Width="1.5" PointX="7.5" PointY="7.75" />
         <AssociationConnector Association="aseguradorarjsModel.FK_MantAddicionxCliente_Adicciones" />
         <AssociationConnector Association="aseguradorarjsModel.FK_MantAddicionxCliente_Cliente" />
+        <EntityTypeShape EntityType="aseguradorarjsModel.Adicciones1" Width="1.5" PointX="5.25" PointY="18" />
+        <AssociationConnector Association="aseguradorarjsModel.FK_Adicciones_CategoriaAdicciones1" />
+        <AssociationConnector Association="aseguradorarjsModel.FK_MantAddicionxCliente_Adicciones1" />
+        <AssociationConnector Association="aseguradorarjsModel.FK_RegistroPoliza_Adicciones1" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

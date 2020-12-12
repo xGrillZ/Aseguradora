@@ -40,6 +40,7 @@ namespace AseguradoraFinal.Modelos
         public DbSet<Empleado> Empleado { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<MantAddicionxCliente> MantAddicionxCliente { get; set; }
+        public DbSet<Adicciones1> Adicciones1Set { get; set; }
     
         public virtual int pa_ClienteDelete(string numCedula)
         {
@@ -313,21 +314,17 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaUltimaSesionEmpleado", idUsuarioParameter, ultimoIngresoParameter);
         }
     
-        public virtual int pa_EliminaAdiccionesDelete(string nombre, Nullable<int> codigo, Nullable<int> idCategoriaAdicion)
+        public virtual int pa_EliminaAdiccionesDelete(string nombre, Nullable<int> idCategoriaAdicion)
         {
             var nombreParameter = nombre != null ?
                 new ObjectParameter("nombre", nombre) :
                 new ObjectParameter("nombre", typeof(string));
-    
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("codigo", codigo) :
-                new ObjectParameter("codigo", typeof(int));
-    
+        
             var idCategoriaAdicionParameter = idCategoriaAdicion.HasValue ?
                 new ObjectParameter("idCategoriaAdicion", idCategoriaAdicion) :
                 new ObjectParameter("idCategoriaAdicion", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaAdiccionesDelete", nombreParameter, codigoParameter, idCategoriaAdicionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaAdiccionesDelete", nombreParameter,  idCategoriaAdicionParameter);
         }
     
         public virtual int pa_EliminaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idCliente)
@@ -343,23 +340,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaAdiccionesxCliente", idAdiccionParameter, idClienteParameter);
         }
     
-        public virtual int pa_InsertaAdicciones(string nombre, Nullable<int> codigo, Nullable<int> idCategoriaAdiccion)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("codigo", codigo) :
-                new ObjectParameter("codigo", typeof(int));
-    
-            var idCategoriaAdiccionParameter = idCategoriaAdiccion.HasValue ?
-                new ObjectParameter("idCategoriaAdiccion", idCategoriaAdiccion) :
-                new ObjectParameter("idCategoriaAdiccion", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdicciones", nombreParameter, codigoParameter, idCategoriaAdiccionParameter);
-        }
-    
         public virtual int pa_InsertaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idCliente)
         {
             var idAdiccionParameter = idAdiccion.HasValue ?
@@ -373,21 +353,19 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdiccionesxCliente", idAdiccionParameter, idClienteParameter);
         }
     
-        public virtual int pa_ModificaAdicciones(string nombre, Nullable<int> codigo, Nullable<int> idCategoriaAdicion)
+        public virtual int pa_ModificaAdicciones(string nombre, Nullable<int> idCategoriaAdicion)
         {
             var nombreParameter = nombre != null ?
                 new ObjectParameter("nombre", nombre) :
                 new ObjectParameter("nombre", typeof(string));
     
-            var codigoParameter = codigo.HasValue ?
-                new ObjectParameter("codigo", codigo) :
-                new ObjectParameter("codigo", typeof(int));
+            
     
             var idCategoriaAdicionParameter = idCategoriaAdicion.HasValue ?
                 new ObjectParameter("idCategoriaAdicion", idCategoriaAdicion) :
                 new ObjectParameter("idCategoriaAdicion", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaAdicciones", nombreParameter, codigoParameter, idCategoriaAdicionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaAdicciones", nombreParameter, idCategoriaAdicionParameter);
         }
     
         public virtual int pa_ModificaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idCliente)
@@ -552,6 +530,19 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("nombre", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdicciones_Result>("pa_RetornaAdicciones", nombreParameter);
+        }
+    
+        public virtual int pa_InsertaAdicciones(string nombre, Nullable<int> idCategoriaAdiccion)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var idCategoriaAdiccionParameter = idCategoriaAdiccion.HasValue ?
+                new ObjectParameter("idCategoriaAdiccion", idCategoriaAdiccion) :
+                new ObjectParameter("idCategoriaAdiccion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdicciones", nombreParameter, idCategoriaAdiccionParameter);
         }
     }
 }

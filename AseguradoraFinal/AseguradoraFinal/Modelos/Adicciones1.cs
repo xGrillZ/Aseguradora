@@ -12,19 +12,20 @@ namespace AseguradoraFinal.Modelos
     using System;
     using System.Collections.Generic;
     
-    public partial class CategoriaAdicciones
+    public partial class Adicciones1
     {
-        public CategoriaAdicciones()
+        public Adicciones1()
         {
-            this.Adicciones = new HashSet<Adicciones>();
-            this.Adicciones1 = new HashSet<Adicciones1>();
+            this.MantAddicionxCliente = new HashSet<MantAddicionxCliente>();
+            this.RegistroPoliza = new HashSet<RegistroPoliza>();
         }
     
+        public int idAdiccion { get; set; }
+        public string nombre { get; set; }
         public int idCategoriaAdiccion { get; set; }
-        public string nombreCategoria { get; set; }
-        public string descripcion { get; set; }
     
-        public virtual ICollection<Adicciones> Adicciones { get; set; }
-        public virtual ICollection<Adicciones1> Adicciones1 { get; set; }
+        public virtual CategoriaAdicciones CategoriaAdicciones { get; set; }
+        public virtual ICollection<MantAddicionxCliente> MantAddicionxCliente { get; set; }
+        public virtual ICollection<RegistroPoliza> RegistroPoliza { get; set; }
     }
 }

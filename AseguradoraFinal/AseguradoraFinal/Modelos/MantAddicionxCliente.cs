@@ -20,5 +20,6 @@ namespace AseguradoraFinal.Modelos
     
         public virtual Adicciones Adicciones { get; set; }
         public virtual Cliente Cliente { get; set; }
+        public virtual Adicciones1 Adicciones1 { get; set; }
     }
 }

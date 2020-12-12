@@ -656,6 +656,9 @@
     <Compile Include="Modelos\Adicciones.cs">
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\Adicciones1.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\AseguradoraBDModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
