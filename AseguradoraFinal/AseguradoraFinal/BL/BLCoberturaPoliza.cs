@@ -21,7 +21,6 @@ namespace AseguradoraFinal.BL
         /// </summary>
         /// <param name="pNombreCobertura"></param>
         /// <param name="pNombreTipoPoliza"></param>
-        /// <param name="pPorcentajeCobertura"></param>
         /// <returns></returns>
         public List<pa_RetornaCoberturaPoliza_Result> retornaCoberturaPoliza(string pNombreCobertura = null, 
                                                                              string pNombreTipoPoliza = null)

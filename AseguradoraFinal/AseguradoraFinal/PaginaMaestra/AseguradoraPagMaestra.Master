@@ -7,11 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <%-- Definicion de hojas de estilo para todas las páginas --%>
-    <link href="../css/navbar.css" rel="stylesheet" />
-    <link href="../css/footer.css" rel="stylesheet" />
+    <link href="/css/navbar.css" rel="stylesheet" />
+    <link href="/css/footer.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <link href="../lib/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="../lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <%-- Content Place Holder para que las páginas que utilicen la plantilla incluyan hojas de estilos propias--%>
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -86,8 +86,8 @@
             </asp:ContentPlaceHolder>
 
     <%-- Scripts para todas las páginas--%>
-    <script src="../Scripts/jquery-3.4.1.min.js"></script>
-    <script src="../lib/twitter-bootstrap/js/bootstrap.min.js"></script>
+    <script src="/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="/lib/twitter-bootstrap/js/bootstrap.min.js"></script>
 
     <%-- Content Place Holder para que las páginas que utilicen la plantilla incluyan scripts propios--%>
             <asp:ContentPlaceHolder ID="scriptsPersonalizados" runat="server">

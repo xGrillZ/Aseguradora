@@ -9,14 +9,14 @@ namespace AseguradoraFinal.BL
     public class BLTipoPoliza
     {
         #region variableModelo
-        #endregion variableModelo
-
-        #region Métodos y funciones
         /// <summary>
         /// Variable del modelo de EF, contiene todos los objetos
         /// seleccionados de la base de datos
         /// </summary>
         aseguradorarjsEntities modeloBD = new aseguradorarjsEntities();
+        #endregion variableModelo
+
+        #region Métodos y funciones
 
         public List<pa_RetornaTipoPoliza_Result> retornaTipoPoliza(string pNombre = null)
         {
