@@ -14,7 +14,6 @@ namespace AseguradoraFinal.Modelos
     public partial class pa_RetornaAdicciones_Result
     {
         public string nombre { get; set; }
-        public int codigo { get; set; }
         public int idAdiccion { get; set; }
         public string descripcion { get; set; }
     }

@@ -4,38 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="81e3fb1545a74a78821d58e705dea91f" Name="Diagram1" ZoomLevel="64">
-        <EntityTypeShape EntityType="aseguradorarjsModel.Adicciones" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="aseguradorarjsModel.CategoriaAdicciones" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="aseguradorarjsModel.CoberturaPoliza" Width="1.5" PointX="8.25" PointY="14.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="aseguradorarjsModel.RegistroPoliza" Width="1.5" PointX="10.5" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="aseguradorarjsModel.Sucursal" Width="1.5" PointX="6" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="aseguradorarjsModel.Telefono" Width="1.5" PointX="3.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="aseguradorarjsModel.TipoPoliza" Width="1.5" PointX="6" PointY="15.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="aseguradorarjsModel.TipoUsuario" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_Adicciones_CategoriaAdicciones" ManuallyRouted="false" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_RegistroPoliza_Adicciones" ManuallyRouted="false" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_CoberturaPoliza_TipoPoliza" ManuallyRouted="false" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_RegistroPoliza_CoberturaPoliza" ManuallyRouted="false" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_RegistroPoliza_Sucursal" ManuallyRouted="false" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_Sucursal_Telefono" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="aseguradorarjsModel.Cliente" Width="1.5" PointX="5.25" PointY="5.125" />
-        <EntityTypeShape EntityType="aseguradorarjsModel.Empleado" Width="1.5" PointX="8.25" PointY="1.5" />
-        <EntityTypeShape EntityType="aseguradorarjsModel.Usuario" Width="1.5" PointX="3" PointY="5.875" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_Cliente_Usuario" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_RegistroPoliza_Cliente" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_Empleado_Sucursal" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_Empleado_Usuario" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_RegistroPoliza_Empleado" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_Usuario_TipoUsuario" />
-        <EntityTypeShape EntityType="aseguradorarjsModel.MantAddicionxCliente" Width="1.5" PointX="7.5" PointY="7.75" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_MantAddicionxCliente_Adicciones" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_MantAddicionxCliente_Cliente" />
-        <EntityTypeShape EntityType="aseguradorarjsModel.Adicciones1" Width="1.5" PointX="5.25" PointY="18" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_Adicciones_CategoriaAdicciones1" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_MantAddicionxCliente_Adicciones1" />
-        <AssociationConnector Association="aseguradorarjsModel.FK_RegistroPoliza_Adicciones1" />
-        </Diagram>
+      <Diagram DiagramId="9098d0e0cda64af5914de2074f0fe1e5" Name="Diagram1">
+        <EntityTypeShape EntityType="AseguradoraBDModel.Adicciones" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="AseguradoraBDModel.CategoriaAdicciones" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AseguradoraBDModel.Cliente" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AseguradoraBDModel.CoberturaPoliza" Width="1.5" PointX="8.25" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AseguradoraBDModel.Empleado" Width="1.5" PointX="8.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AseguradoraBDModel.MantAddicionxCliente" Width="1.5" PointX="7.5" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="AseguradoraBDModel.RegistroPoliza" Width="1.5" PointX="10.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AseguradoraBDModel.Sucursal" Width="1.5" PointX="6" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AseguradoraBDModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AseguradoraBDModel.Telefono" Width="1.5" PointX="3.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AseguradoraBDModel.TipoPoliza" Width="1.5" PointX="6" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AseguradoraBDModel.TipoUsuario" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AseguradoraBDModel.Usuario" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="AseguradoraBDModel.FK_Adicciones_CategoriaAdicciones" ManuallyRouted="false" />
+        <AssociationConnector Association="AseguradoraBDModel.FK_MantAddicionxCliente_Adicciones" ManuallyRouted="false" />
+        <AssociationConnector Association="AseguradoraBDModel.FK_RegistroPoliza_Adicciones" ManuallyRouted="false" />
+        <AssociationConnector Association="AseguradoraBDModel.FK_Cliente_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="AseguradoraBDModel.FK_MantAddicionxCliente_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="AseguradoraBDModel.FK_RegistroPoliza_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="AseguradoraBDModel.FK_CoberturaPoliza_TipoPoliza" ManuallyRouted="false" />
+        <AssociationConnector Association="AseguradoraBDModel.FK_RegistroPoliza_CoberturaPoliza" ManuallyRouted="false" />
+        <AssociationConnector Association="AseguradoraBDModel.FK_Empleado_Sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="AseguradoraBDModel.FK_Empleado_Usuario" ManuallyRouted="false" />
+        <AssociationConnector Association="AseguradoraBDModel.FK_RegistroPoliza_Empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="AseguradoraBDModel.FK_RegistroPoliza_Sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="AseguradoraBDModel.FK_Sucursal_Telefono" ManuallyRouted="false" />
+        <AssociationConnector Association="AseguradoraBDModel.FK_Usuario_TipoUsuario" ManuallyRouted="false" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

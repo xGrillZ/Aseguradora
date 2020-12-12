@@ -224,8 +224,8 @@
     <Content Include="lib\twitter-bootstrap\js\bootstrap.min.js" />
     <Content Include="Modelos\AseguradoraBDModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AseguradoraBDModel.Context.cs</LastGenOutput>
       <DependentUpon>AseguradoraBDModel.edmx</DependentUpon>
+      <LastGenOutput>AseguradoraBDModel.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Modelos\AseguradoraBDModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -233,13 +233,6 @@
       <LastGenOutput>AseguradoraBDModel.cs</LastGenOutput>
     </Content>
     <Content Include="PaginaMaestra\AseguradoraPagMaestra.Master" />
-    <EntityDeploy Include="Modelos\AseguradoraBDModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AseguradoraBDModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Modelos\AseguradoraBDModel.edmx.diagram">
-      <DependentUpon>AseguradoraBDModel.edmx</DependentUpon>
-    </Content>
     <Content Include="libman.json" />
     <Content Include="lib\font-awesome\webfonts\fa-brands-400.eot" />
     <Content Include="lib\font-awesome\webfonts\fa-brands-400.ttf" />
@@ -353,6 +346,13 @@
     <Content Include="lib\twitter-bootstrap\scss\utilities\_text.scss" />
     <Content Include="lib\twitter-bootstrap\scss\utilities\_visibility.scss" />
     <Content Include="lib\twitter-bootstrap\scss\vendor\_rfs.scss" />
+    <EntityDeploy Include="Modelos\AseguradoraBDModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AseguradoraBDModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Modelos\AseguradoraBDModel.edmx.diagram">
+      <DependentUpon>AseguradoraBDModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -656,9 +656,6 @@
     <Compile Include="Modelos\Adicciones.cs">
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Modelos\Adicciones1.cs">
-      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Modelos\AseguradoraBDModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -744,6 +741,9 @@
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Sucursal.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\sysdiagrams.cs">
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\Telefono.cs">

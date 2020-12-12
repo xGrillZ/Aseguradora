@@ -30,10 +30,9 @@ namespace AseguradoraFinal.Modelos
         public double porcentajePrima { get; set; }
     
         public virtual Adicciones Adicciones { get; set; }
-        public virtual CoberturaPoliza CoberturaPoliza { get; set; }
-        public virtual Sucursal Sucursal { get; set; }
         public virtual Cliente Cliente { get; set; }
+        public virtual CoberturaPoliza CoberturaPoliza { get; set; }
         public virtual Empleado Empleado { get; set; }
-        public virtual Adicciones1 Adicciones1 { get; set; }
+        public virtual Sucursal Sucursal { get; set; }
     }
 }

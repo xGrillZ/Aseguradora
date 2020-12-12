@@ -16,8 +16,8 @@ namespace AseguradoraFinal.Modelos
     {
         public Cliente()
         {
-            this.RegistroPoliza = new HashSet<RegistroPoliza>();
             this.MantAddicionxCliente = new HashSet<MantAddicionxCliente>();
+            this.RegistroPoliza = new HashSet<RegistroPoliza>();
         }
     
         public int idCliente { get; set; }
@@ -33,7 +33,7 @@ namespace AseguradoraFinal.Modelos
         public System.DateTime ultimoIngreso { get; set; }
     
         public virtual Usuario Usuario { get; set; }
-        public virtual ICollection<RegistroPoliza> RegistroPoliza { get; set; }
         public virtual ICollection<MantAddicionxCliente> MantAddicionxCliente { get; set; }
+        public virtual ICollection<RegistroPoliza> RegistroPoliza { get; set; }
     }
 }

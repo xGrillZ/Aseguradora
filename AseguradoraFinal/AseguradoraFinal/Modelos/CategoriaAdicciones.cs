@@ -17,7 +17,6 @@ namespace AseguradoraFinal.Modelos
         public CategoriaAdicciones()
         {
             this.Adicciones = new HashSet<Adicciones>();
-            this.Adicciones1 = new HashSet<Adicciones1>();
         }
     
         public int idCategoriaAdiccion { get; set; }
@@ -25,6 +24,5 @@ namespace AseguradoraFinal.Modelos
         public string descripcion { get; set; }
     
         public virtual ICollection<Adicciones> Adicciones { get; set; }
-        public virtual ICollection<Adicciones1> Adicciones1 { get; set; }
     }
 }

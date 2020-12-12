@@ -12,13 +12,12 @@ namespace AseguradoraFinal.Modelos
     using System;
     using System.Collections.Generic;
     
-    public partial class MantAddicionxCliente
+    public partial class sysdiagrams
     {
-        public int idMantAdiccionxCliente { get; set; }
-        public int idAdiccion { get; set; }
-        public int idCliente { get; set; }
-    
-        public virtual Adicciones Adicciones { get; set; }
-        public virtual Cliente Cliente { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }
