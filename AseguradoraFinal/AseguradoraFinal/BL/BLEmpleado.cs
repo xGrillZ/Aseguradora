@@ -17,12 +17,12 @@ namespace AseguradoraFinal.BL
         #endregion variableModelo
 
         #region Métodos y funciones
-        public List<pa_RetornaAdicciones_Result> RetornaAdicciones(int codigo, int idCategoriaAdiccion)
+        public List<pa_RetornaAdicciones_Result> RetornaAdicciones(string nombre)
         {
             ///Crea variable que retornara
             List<pa_RetornaAdicciones_Result> resultado = new List<pa_RetornaAdicciones_Result>();
             ///Asignar a la variable el resultado del llamado del PA
-            resultado = this.modeloBD.pa_RetornaAdicciones(codigo, idCategoriaAdiccion).ToList();
+            resultado = this.modeloBD.pa_RetornaAdicciones(nombre).ToList();
             ///Retornar el valor
             return resultado;
         }

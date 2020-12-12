@@ -27,7 +27,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
             BLEmpleado oAdiccion = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
-            this.ddlIdAdiccion.DataSource = oAdiccion.RetornaAdicciones(0,0);
+            this.ddlIdAdiccion.DataSource = oAdiccion.RetornaAdicciones(null);
 
 
             ///indicarle al dropdownlist que se muestre
@@ -43,7 +43,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
             BLEmpleado oNombreAdiccion = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
-            this.ddlNombreAdiccion.DataSource = oNombreAdiccion.RetornaAdicciones(0,0);
+            this.ddlNombreAdiccion.DataSource = oNombreAdiccion.RetornaAdicciones(null);
 
 
             ///indicarle al dropdownlist que se muestre
@@ -56,7 +56,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
             BLEmpleado oCodigoAdiccion = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
-            this.ddlCodigoAdiccion.DataSource = oCodigoAdiccion.RetornaAdicciones(0,0);
+            this.ddlCodigoAdiccion.DataSource = oCodigoAdiccion.RetornaAdicciones(null);
 
 
             ///indicarle al dropdownlist que se muestre
@@ -69,7 +69,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
             BLEmpleado oIdCategoria = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
-            this.ddlIdCategoria.DataSource = oIdCategoria.RetornaAdicciones(0,0);
+            this.ddlIdCategoria.DataSource = oIdCategoria.RetornaAdicciones(null);
 
 
             ///indicarle al dropdownlist que se muestre

@@ -10,16 +10,11 @@
 
 
      <div class="form-group">
-          <asp:Label ID="Label1" runat="server" Text=" Código"></asp:Label>
-         <asp:TextBox ID="txtCodigo" runat="server" CssClass="form-control" ></asp:TextBox>         
+          <asp:Label ID="Label1" runat="server" Text=" Nombre de la Adicción"></asp:Label>
+         <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" ></asp:TextBox>         
        </div>
        
-                   
-
-       <div class="form-group">
-            <asp:Label ID="Label2" runat="server" Text="Categoria Adiccion"></asp:Label>
-          <asp:TextBox ID="txtIdCategoriaAdiccion" runat="server" CssClass="form-control" ></asp:TextBox>       
-       </div>           
+                          
        
 
         <div class="form-group">
