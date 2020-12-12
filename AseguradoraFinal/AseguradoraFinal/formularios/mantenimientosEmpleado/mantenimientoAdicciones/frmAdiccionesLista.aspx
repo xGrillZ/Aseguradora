@@ -34,7 +34,6 @@
              <Columns>
                  <asp:BoundField DataField="idAdiccion" HeaderText="Id" />
                  <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                 <asp:BoundField DataField="codigo" HeaderText="Código" />
                  <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
                  <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="idAdiccion" DataNavigateUrlFormatString="frmAdiccionesModifica.aspx?idAdiccion={0}" />
                  <asp:HyperLinkField Text="Eliminar" DataNavigateUrlFields="idAdiccion" DataNavigateUrlFormatString="frmAdiccionesElimina.aspx?idAdiccion={0}" />
