@@ -334,6 +334,9 @@
           <Parameter Name="idAdiccion" Type="int" Mode="In" />
           <Parameter Name="idCliente" Type="int" Mode="In" />
         </Function>
+        <Function Name="pa_EliminaTipoPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_TipoPoliza" Type="int" Mode="In" />
+        </Function>
         <Function Name="pa_EmpleadoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idUsuario" Type="int" Mode="In" />
           <Parameter Name="nomEmpleado" Type="nvarchar" Mode="In" />
@@ -379,6 +382,10 @@
           <Parameter Name="pTelefono" Type="varchar" Mode="In" />
           <Parameter Name="sTelefono" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="pa_ModificaTipoPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_TipoPoliza" Type="int" Mode="In" />
+          <Parameter Name="detalles" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="pa_ModificaUltimaSesionCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idUsuario" Type="int" Mode="In" />
           <Parameter Name="ultimoIngreso" Type="datetime" Mode="In" />
@@ -411,6 +418,9 @@
         </Function>
         <Function Name="pa_RetornaTipoPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="pa_RetornaTipoPolizaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_TipoPoliza" Type="int" Mode="In" />
         </Function>
         <Function Name="pa_RetornaTipoUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="rol" Type="nvarchar" Mode="In" />
@@ -897,12 +907,22 @@
             <Parameter Name="nombreCobertura" Mode="In" Type="String" />
             <Parameter Name="nombreTipoPoliza" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="pa_RetornaTipoPoliza" ReturnType="Collection(aseguradorarjsModel.pa_RetornaTipoPoliza_Result)">
-          <Parameter Name="nombre" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="pa_InsertaTipoPoliza">
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="detalles" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_EliminaTipoPoliza">
+          <Parameter Name="id_TipoPoliza" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_ModificaTipoPoliza">
+            <Parameter Name="id_TipoPoliza" Mode="In" Type="Int32" />
+            <Parameter Name="detalles" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaTipoPoliza" ReturnType="Collection(aseguradorarjsModel.pa_RetornaTipoPoliza_Result)">
+          <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaTipoPolizaID" ReturnType="Collection(aseguradorarjsModel.pa_RetornaTipoPolizaID_Result)">
+            <Parameter Name="id_TipoPoliza" Mode="In" Type="Int32" />
           </FunctionImport>
           </EntityContainer>
         <ComplexType Name="pa_EmpleadoSelect_Result">
@@ -1167,6 +1187,11 @@
           <Property Type="String" Name="detalles" Nullable="false" MaxLength="100" />
         </ComplexType>
         <ComplexType Name="pa_RetornaTipoPoliza_Result">
+          <Property Type="Int32" Name="idTipoPoliza" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="detalles" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaTipoPolizaID_Result">
           <Property Type="Int32" Name="idTipoPoliza" Nullable="false" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="detalles" Nullable="false" MaxLength="100" />
@@ -1487,6 +1512,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_InsertaTipoPoliza" FunctionName="aseguradorarjsModel.Store.pa_InsertaTipoPoliza" />
+          <FunctionImportMapping FunctionImportName="pa_EliminaTipoPoliza" FunctionName="aseguradorarjsModel.Store.pa_EliminaTipoPoliza" />
+          <FunctionImportMapping FunctionImportName="pa_ModificaTipoPoliza" FunctionName="aseguradorarjsModel.Store.pa_ModificaTipoPoliza" />
           <FunctionImportMapping FunctionImportName="pa_RetornaTipoPoliza" FunctionName="aseguradorarjsModel.Store.pa_RetornaTipoPoliza">
             <ResultMapping>
               <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaTipoPoliza_Result">
@@ -1496,7 +1524,15 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_InsertaTipoPoliza" FunctionName="aseguradorarjsModel.Store.pa_InsertaTipoPoliza" />
+          <FunctionImportMapping FunctionImportName="pa_RetornaTipoPolizaID" FunctionName="aseguradorarjsModel.Store.pa_RetornaTipoPolizaID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaTipoPolizaID_Result">
+                <ScalarProperty Name="idTipoPoliza" ColumnName="idTipoPoliza" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="detalles" ColumnName="detalles" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
