@@ -1194,7 +1194,6 @@
         <ComplexType Name="pa_RetornaAdicciones_Result">
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="codigo" Nullable="false" />
-          <Property Type="Int32" Name="idAdiccion" Nullable="false" />
           <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
         </ComplexType>
         </Schema>
@@ -1530,7 +1529,6 @@
               <ComplexTypeMapping TypeName="aseguradorarjsModel.pa_RetornaAdicciones_Result">
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
-                <ScalarProperty Name="idAdiccion" ColumnName="idAdiccion" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
               </ComplexTypeMapping>
             </ResultMapping>

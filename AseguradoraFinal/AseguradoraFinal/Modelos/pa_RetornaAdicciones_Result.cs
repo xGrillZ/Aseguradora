@@ -15,7 +15,6 @@ namespace AseguradoraFinal.Modelos
     {
         public string nombre { get; set; }
         public int codigo { get; set; }
-        public int idAdiccion { get; set; }
         public string descripcion { get; set; }
     }
 }
