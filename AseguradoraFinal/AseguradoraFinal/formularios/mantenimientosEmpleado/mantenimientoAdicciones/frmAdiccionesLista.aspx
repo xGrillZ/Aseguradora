@@ -9,10 +9,11 @@
          
 
 
-     <div class="form-group">
-          <asp:Label ID="Label1" runat="server" Text=" Nombre de la Adicción"></asp:Label>
-         <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" ></asp:TextBox>         
-       </div>
+      <div class="form-group">
+          <asp:Label ID="Label3" runat="server" Text="Nombre de la Adicción"></asp:Label>
+          <asp:DropDownList ID="ddlNombre" runat="server" CssClass="form-control" DataValueField="nombre" DataTextField="nombre" Enabled="True"  ></asp:DropDownList>
+        <asp:RequiredFieldValidator ID="rqvNombre" runat="server"  ControlToValidate="ddlNombre" ErrorMessage="Debe ingresar el nombre de la adicción" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+        </div>
        
                           
        

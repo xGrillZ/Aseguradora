@@ -15,7 +15,7 @@
        
         <div class="form-group">
           <asp:Label ID="Label3" runat="server" Text="Identificador Categoría"></asp:Label>
-          <asp:DropDownList ID="ddlIdCategoria" runat="server" CssClass="form-control" DataValueField="id_Categoria" DataTextField="categoria" Enabled="False"  ></asp:DropDownList>
+          <asp:DropDownList ID="ddlIdCategoria" runat="server" CssClass="form-control" DataValueField="idAdiccion" DataTextField="descripcion" Enabled="True"  ></asp:DropDownList>
         <asp:RequiredFieldValidator ID="rqvIdCategoria" runat="server"  ControlToValidate="ddlIdCategoria" ErrorMessage="Debe ingresar el identificador de categoría" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
         </div>
        <div class="form-group">
@@ -27,7 +27,8 @@
                                                                   
       <br />
       <asp:ValidationSummary ID="vsRegistroPersonas" runat="server" ShowMessageBox="True" ShowSummary="False" />
-        
+     
+     <asp:Label ID="lblMensaje" runat="server"></asp:Label> 
     </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">

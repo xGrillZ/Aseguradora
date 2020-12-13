@@ -19,11 +19,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
         }
         
-
-      
-
-        
-
         void cargaListaIdCategoriaAdiccion()
         {
 
@@ -33,7 +28,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
 
             ///indicarle al dropdownlist que se muestre
-            this.ddlIdCategoria.DataBind(); 
+            this.ddlIdCategoria.DataBind();
 
         }
         
@@ -61,13 +56,13 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                     ///obtener los valores seleccionados por el usuario
                     ///se toman de la propiedad datavaluefield
                     ///tanto del dropdown menu 
-                    int id_Categoria = Convert.ToInt16(this.ddlIdCategoria.SelectedValue);
+                    int idCategoriaAdiccion = Convert.ToInt16(this.ddlIdCategoria.SelectedValue);
                     
 
                     ///asignar a la variable el resultado de
                     ///invocar el procedimiento almacenado que se encuentra en el metodo
 
-                    resultado = oAdiccion.InsertaAdicciones(this.txtNombreAdiccion.Text, id_Categoria);
+                    resultado = oAdiccion.InsertaAdicciones(this.txtNombreAdiccion.Text, idCategoriaAdiccion);
                 }
                 ///catch se ejecuta en el caso de que haya una excepcion    
                 ///excepcionCapturada posee los datos de la excepcion
@@ -90,7 +85,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 }
 
                 ///mostrar el mensaje
-                //this.lblMensaje.Text = mensaje;
+                this.lblMensaje.Text = mensaje;
             }
 
         }
