@@ -2,52 +2,39 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoPrincipal" runat="server">
-     <form runat="server" class="form-inline">
-
-    <h1>Busqueda de Asegurados</h1>
-     <div class="form-group">
-           <asp:Label ID="Label1" runat="server" Text="Primer Apellido:"></asp:Label>
-           <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="form-control" ></asp:TextBox>            
-        </div>
-         <div class="form-group">
-           <asp:Label ID="Label2" runat="server" Text="Nombre:"></asp:Label>
-           <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" ></asp:TextBox>            
-        </div>
-        <div class="form-group">
-             <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" CssClass="btn-success" OnClick="btnMostrarDatos_Click"  />  
-            <asp:HyperLink ID="hpNuevoRegistro" runat="server" CssClass="text-info" NavigateUrl="~/formularios/mantenimientoClientes/frmClientesInserta.aspx">Nuevo Registro</asp:HyperLink>
-        </div>
-        
-    
-    <br />
-    <br />
-    
-    <br />
-    
-    <asp:GridView ID="grdListaClientes" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowPaging="True" PageSize="20" OnPageIndexChanging="grdListaClientes_PageIndexChanging" OnSelectedIndexChanged="grdListaClientes_SelectedIndexChanged">
-        <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-        <Columns>
-            <asp:BoundField DataField="primerApellido" HeaderText="Apellido 1" />
-            <asp:BoundField DataField="segundoApellido" HeaderText="Apellido 2" />
-            <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-            <asp:BoundField />
-            <asp:BoundField DataField="nombrePaisProcedencia" HeaderText="Nacionalidad" />
-            <asp:HyperLinkField DataNavigateUrlFields="id_Cliente" DataNavigateUrlFormatString="frmClienteModifica.aspx?id_Cliente{0}" Text="Modificar" />
-            <asp:HyperLinkField DataNavigateUrlFields="id_Cliente" DataNavigateUrlFormatString="frmClienteElimina.aspx?id_Cliente={0}" Text="Eliminar" />
-        </Columns>
-        <EditRowStyle BackColor="#999999" />
-        <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-        <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#E9E7E2" />
-        <SortedAscendingHeaderStyle BackColor="#506C8C" />
-        <SortedDescendingCellStyle BackColor="#FFFDF8" />
-        <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-    </asp:GridView>
-    
-</form>
+    <section class="clientes-Lista">
+        <div class="contenido-principal">
+            <form runat="server" class="form-inline">
+            <h1>Busqueda de clientes</h1>
+             <div class="form-group">
+                   <asp:Label ID="Label1" runat="server" Text="Primer Apellido:"></asp:Label>
+                   <asp:TextBox ID="txtPrimerApellido" runat="server" class="form-control" ></asp:TextBox>            
+                </div>
+                 <div class="form-group">
+                   <asp:Label ID="Label2" runat="server" Text="Nombre:"></asp:Label>
+                   <asp:TextBox ID="txtNombre" runat="server" class="form-control" ></asp:TextBox>            
+                </div>
+                 <div class="form-group">
+                   <asp:Label ID="Label3" runat="server" Text="Cédula:"></asp:Label>
+                   <asp:TextBox ID="txtCedula" runat="server" class="form-control" ></asp:TextBox>            
+                </div>
+                 <div class="form-group">
+                   <asp:Label ID="Label4" runat="server" Text="Género:"></asp:Label>
+                   <asp:TextBox ID="txtGenero" runat="server" class="form-control" ></asp:TextBox>            
+                </div>
+                <div class="form-group">
+                    <br />
+                    <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos." class="btn-success" OnClick="btnMostrarDatos_Click"  />  
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                    <asp:HyperLink ID="hpNuevoRegistro" runat="server" class="text-info" NavigateUrl="~/formularios/mantenimientoClientes/frmClientesInserta.aspx">Nuevo registro clientes.</asp:HyperLink>
+                    <br />
+                    <br />
+                    <asp:GridView ID="grdListaClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False">
+                    </asp:GridView>
+                </div>
+             </form>
+           </div>
+        </section>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">
 </asp:Content>

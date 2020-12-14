@@ -28,7 +28,6 @@ namespace AseguradoraFinal.Modelos
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<Adicciones> Adicciones { get; set; }
         public DbSet<CategoriaAdicciones> CategoriaAdicciones { get; set; }
         public DbSet<Cliente> Cliente { get; set; }
         public DbSet<CoberturaPoliza> CoberturaPoliza { get; set; }
@@ -40,6 +39,7 @@ namespace AseguradoraFinal.Modelos
         public DbSet<TipoPoliza> TipoPoliza { get; set; }
         public DbSet<TipoUsuario> TipoUsuario { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Adicciones> Adicciones { get; set; }
     
         public virtual ObjectResult<pa_AdiccionesxClienteSelect_Result> pa_AdiccionesxClienteSelect(string adiccion, string nombreCliente, string numCedula, string genero)
         {

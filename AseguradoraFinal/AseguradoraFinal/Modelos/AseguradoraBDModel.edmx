@@ -547,17 +547,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AseguradoraBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Adicciones">
-          <Key>
-            <PropertyRef Name="idAdiccion" />
-          </Key>
-          <Property Name="idAdiccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="idCategoriaAdiccion" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CategoriaAdicciones" Relationship="Self.FK_Adicciones_CategoriaAdicciones" FromRole="Adicciones" ToRole="CategoriaAdicciones" />
-          <NavigationProperty Name="MantAddicionxCliente" Relationship="Self.FK_MantAddicionxCliente_Adicciones" FromRole="Adicciones" ToRole="MantAddicionxCliente" />
-          <NavigationProperty Name="RegistroPoliza" Relationship="Self.FK_RegistroPoliza_Adicciones" FromRole="Adicciones" ToRole="RegistroPoliza" />
-        </EntityType>
         <EntityType Name="CategoriaAdicciones">
           <Key>
             <PropertyRef Name="idCategoriaAdiccion" />
@@ -565,7 +554,7 @@
           <Property Name="idCategoriaAdiccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombreCategoria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Adicciones" Relationship="Self.FK_Adicciones_CategoriaAdicciones" FromRole="CategoriaAdicciones" ToRole="Adicciones" />
+          <NavigationProperty Name="Adicciones" Relationship="AseguradoraBDModel.FK_Adicciones_CategoriaAdicciones" FromRole="CategoriaAdicciones" ToRole="Adicciones" />
         </EntityType>
         <EntityType Name="Cliente">
           <Key>
@@ -621,8 +610,8 @@
           <Property Name="idMantAdiccionxCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idAdiccion" Type="Int32" Nullable="false" />
           <Property Name="idCliente" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Adicciones" Relationship="Self.FK_MantAddicionxCliente_Adicciones" FromRole="MantAddicionxCliente" ToRole="Adicciones" />
           <NavigationProperty Name="Cliente" Relationship="Self.FK_MantAddicionxCliente_Cliente" FromRole="MantAddicionxCliente" ToRole="Cliente" />
+          <NavigationProperty Name="Adicciones" Relationship="AseguradoraBDModel.FK_MantAddicionxCliente_Adicciones" FromRole="MantAddicionxCliente" ToRole="Adicciones" />
         </EntityType>
         <EntityType Name="RegistroPoliza">
           <Key>
@@ -642,11 +631,11 @@
           <Property Name="fechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="idSucursal" Type="Int32" Nullable="false" />
           <Property Name="porcentajePrima" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Adicciones" Relationship="Self.FK_RegistroPoliza_Adicciones" FromRole="RegistroPoliza" ToRole="Adicciones" />
           <NavigationProperty Name="Cliente" Relationship="Self.FK_RegistroPoliza_Cliente" FromRole="RegistroPoliza" ToRole="Cliente" />
           <NavigationProperty Name="CoberturaPoliza" Relationship="Self.FK_RegistroPoliza_CoberturaPoliza" FromRole="RegistroPoliza" ToRole="CoberturaPoliza" />
           <NavigationProperty Name="Empleado" Relationship="Self.FK_RegistroPoliza_Empleado" FromRole="RegistroPoliza" ToRole="Empleado" />
           <NavigationProperty Name="Sucursal" Relationship="Self.FK_RegistroPoliza_Sucursal" FromRole="RegistroPoliza" ToRole="Sucursal" />
+          <NavigationProperty Name="Adicciones" Relationship="AseguradoraBDModel.FK_RegistroPoliza_Adicciones" FromRole="RegistroPoliza" ToRole="Adicciones" />
         </EntityType>
         <EntityType Name="Sucursal">
           <Key>
@@ -698,42 +687,6 @@
           <NavigationProperty Name="Empleado" Relationship="Self.FK_Empleado_Usuario" FromRole="Usuario" ToRole="Empleado" />
           <NavigationProperty Name="TipoUsuario" Relationship="Self.FK_Usuario_TipoUsuario" FromRole="Usuario" ToRole="TipoUsuario" />
         </EntityType>
-        <Association Name="FK_Adicciones_CategoriaAdicciones">
-          <End Role="CategoriaAdicciones" Type="Self.CategoriaAdicciones" Multiplicity="1" />
-          <End Role="Adicciones" Type="Self.Adicciones" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CategoriaAdicciones">
-              <PropertyRef Name="idCategoriaAdiccion" />
-            </Principal>
-            <Dependent Role="Adicciones">
-              <PropertyRef Name="idCategoriaAdiccion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_MantAddicionxCliente_Adicciones">
-          <End Role="Adicciones" Type="Self.Adicciones" Multiplicity="1" />
-          <End Role="MantAddicionxCliente" Type="Self.MantAddicionxCliente" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Adicciones">
-              <PropertyRef Name="idAdiccion" />
-            </Principal>
-            <Dependent Role="MantAddicionxCliente">
-              <PropertyRef Name="idAdiccion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_RegistroPoliza_Adicciones">
-          <End Role="Adicciones" Type="Self.Adicciones" Multiplicity="1" />
-          <End Role="RegistroPoliza" Type="Self.RegistroPoliza" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Adicciones">
-              <PropertyRef Name="idAdiccion" />
-            </Principal>
-            <Dependent Role="RegistroPoliza">
-              <PropertyRef Name="idAdiccion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Cliente_Usuario">
           <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
           <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
@@ -867,7 +820,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="aseguradorarjsEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Adicciones" EntityType="Self.Adicciones" />
           <EntitySet Name="CategoriaAdicciones" EntityType="Self.CategoriaAdicciones" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="CoberturaPoliza" EntityType="Self.CoberturaPoliza" />
@@ -879,18 +831,6 @@
           <EntitySet Name="TipoPoliza" EntityType="Self.TipoPoliza" />
           <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" />
           <EntitySet Name="Usuario" EntityType="Self.Usuario" />
-          <AssociationSet Name="FK_Adicciones_CategoriaAdicciones" Association="Self.FK_Adicciones_CategoriaAdicciones">
-            <End Role="CategoriaAdicciones" EntitySet="CategoriaAdicciones" />
-            <End Role="Adicciones" EntitySet="Adicciones" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MantAddicionxCliente_Adicciones" Association="Self.FK_MantAddicionxCliente_Adicciones">
-            <End Role="Adicciones" EntitySet="Adicciones" />
-            <End Role="MantAddicionxCliente" EntitySet="MantAddicionxCliente" />
-          </AssociationSet>
-          <AssociationSet Name="FK_RegistroPoliza_Adicciones" Association="Self.FK_RegistroPoliza_Adicciones">
-            <End Role="Adicciones" EntitySet="Adicciones" />
-            <End Role="RegistroPoliza" EntitySet="RegistroPoliza" />
-          </AssociationSet>
           <AssociationSet Name="FK_Cliente_Usuario" Association="Self.FK_Cliente_Usuario">
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Cliente" EntitySet="Cliente" />
@@ -1110,8 +1050,21 @@
           <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_EliminaCoberturaPoliza">
-            <Parameter Name="idCoberturaPoliza" Mode="In" Type="Int32" />
+          <Parameter Name="idCoberturaPoliza" Mode="In" Type="Int32" />
           </FunctionImport>
+          <EntitySet Name="Adicciones" EntityType="AseguradoraBDModel.Adicciones" />
+          <AssociationSet Name="FK_Adicciones_CategoriaAdicciones" Association="AseguradoraBDModel.FK_Adicciones_CategoriaAdicciones">
+            <End Role="CategoriaAdicciones" EntitySet="CategoriaAdicciones" />
+            <End Role="Adicciones" EntitySet="Adicciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MantAddicionxCliente_Adicciones" Association="AseguradoraBDModel.FK_MantAddicionxCliente_Adicciones">
+            <End Role="Adicciones" EntitySet="Adicciones" />
+            <End Role="MantAddicionxCliente" EntitySet="MantAddicionxCliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegistroPoliza_Adicciones" Association="AseguradoraBDModel.FK_RegistroPoliza_Adicciones">
+            <End Role="Adicciones" EntitySet="Adicciones" />
+            <End Role="RegistroPoliza" EntitySet="RegistroPoliza" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
           <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
@@ -1232,21 +1185,59 @@
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="detalles" Nullable="false" MaxLength="100" />
         </ComplexType>
+        <EntityType Name="Adicciones">
+          <Key>
+            <PropertyRef Name="idAdiccion" />
+          </Key>
+          <Property Name="idAdiccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="idCategoriaAdiccion" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CategoriaAdicciones" Relationship="AseguradoraBDModel.FK_Adicciones_CategoriaAdicciones" FromRole="Adicciones" ToRole="CategoriaAdicciones" />
+          <NavigationProperty Name="MantAddicionxCliente" Relationship="AseguradoraBDModel.FK_MantAddicionxCliente_Adicciones" FromRole="Adicciones" ToRole="MantAddicionxCliente" />
+          <NavigationProperty Name="RegistroPoliza" Relationship="AseguradoraBDModel.FK_RegistroPoliza_Adicciones" FromRole="Adicciones" ToRole="RegistroPoliza" />
+        </EntityType>
+        <Association Name="FK_Adicciones_CategoriaAdicciones">
+          <End Type="AseguradoraBDModel.CategoriaAdicciones" Role="CategoriaAdicciones" Multiplicity="1" />
+          <End Type="AseguradoraBDModel.Adicciones" Role="Adicciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriaAdicciones">
+              <PropertyRef Name="idCategoriaAdiccion" />
+            </Principal>
+            <Dependent Role="Adicciones">
+              <PropertyRef Name="idCategoriaAdiccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MantAddicionxCliente_Adicciones">
+          <End Type="AseguradoraBDModel.Adicciones" Role="Adicciones" Multiplicity="1" />
+          <End Type="AseguradoraBDModel.MantAddicionxCliente" Role="MantAddicionxCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adicciones">
+              <PropertyRef Name="idAdiccion" />
+            </Principal>
+            <Dependent Role="MantAddicionxCliente">
+              <PropertyRef Name="idAdiccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegistroPoliza_Adicciones">
+          <End Type="AseguradoraBDModel.Adicciones" Role="Adicciones" Multiplicity="1" />
+          <End Type="AseguradoraBDModel.RegistroPoliza" Role="RegistroPoliza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adicciones">
+              <PropertyRef Name="idAdiccion" />
+            </Principal>
+            <Dependent Role="RegistroPoliza">
+              <PropertyRef Name="idAdiccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AseguradoraBDModelStoreContainer" CdmEntityContainer="aseguradorarjsEntities">
-          <EntitySetMapping Name="Adicciones">
-            <EntityTypeMapping TypeName="AseguradoraBDModel.Adicciones">
-              <MappingFragment StoreEntitySet="Adicciones">
-                <ScalarProperty Name="idAdiccion" ColumnName="idAdiccion" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="idCategoriaAdiccion" ColumnName="idCategoriaAdiccion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="CategoriaAdicciones">
             <EntityTypeMapping TypeName="AseguradoraBDModel.CategoriaAdicciones">
               <MappingFragment StoreEntitySet="CategoriaAdicciones">
@@ -1581,6 +1572,15 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_EliminaCoberturaPoliza" FunctionName="AseguradoraBDModel.Store.pa_EliminaCoberturaPoliza" />
+          <EntitySetMapping Name="Adicciones">
+            <EntityTypeMapping TypeName="AseguradoraBDModel.Adicciones">
+              <MappingFragment StoreEntitySet="Adicciones">
+                <ScalarProperty Name="idCategoriaAdiccion" ColumnName="idCategoriaAdiccion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idAdiccion" ColumnName="idAdiccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
