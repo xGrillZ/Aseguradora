@@ -17,5 +17,6 @@ namespace AseguradoraFinal.Modelos
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public double porcentaje { get; set; }
+        public int idTipoPoliza { get; set; }
     }
 }

@@ -420,15 +420,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCoberturaPoliza_Result>("pa_RetornaCoberturaPoliza", nombreCoberturaParameter, nombreTipoPolizaParameter);
         }
     
-        public virtual ObjectResult<pa_RetornaCoberturaPolizaID_Result> pa_RetornaCoberturaPolizaID(Nullable<int> id_CoberturaPoliza)
-        {
-            var id_CoberturaPolizaParameter = id_CoberturaPoliza.HasValue ?
-                new ObjectParameter("id_CoberturaPoliza", id_CoberturaPoliza) :
-                new ObjectParameter("id_CoberturaPoliza", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCoberturaPolizaID_Result>("pa_RetornaCoberturaPolizaID", id_CoberturaPolizaParameter);
-        }
-    
         public virtual ObjectResult<pa_RetornaTipoPoliza_Result> pa_RetornaTipoPoliza(string nombre)
         {
             var nombreParameter = nombre != null ?
@@ -600,6 +591,40 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("idTipoPoliza", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaCoberturaPoliza", nombreParameter, descParameter, porcentajeParameter, idTipoPolizaParameter);
+        }
+    
+        public virtual int pa_ModificaCoberturaPoliza(Nullable<int> idCoberturaPoliza, string nombre, string descripcion, Nullable<double> porcentaje, Nullable<int> idTipoPoliza)
+        {
+            var idCoberturaPolizaParameter = idCoberturaPoliza.HasValue ?
+                new ObjectParameter("idCoberturaPoliza", idCoberturaPoliza) :
+                new ObjectParameter("idCoberturaPoliza", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("descripcion", descripcion) :
+                new ObjectParameter("descripcion", typeof(string));
+    
+            var porcentajeParameter = porcentaje.HasValue ?
+                new ObjectParameter("porcentaje", porcentaje) :
+                new ObjectParameter("porcentaje", typeof(double));
+    
+            var idTipoPolizaParameter = idTipoPoliza.HasValue ?
+                new ObjectParameter("idTipoPoliza", idTipoPoliza) :
+                new ObjectParameter("idTipoPoliza", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaCoberturaPoliza", idCoberturaPolizaParameter, nombreParameter, descripcionParameter, porcentajeParameter, idTipoPolizaParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaCoberturaPolizaID_Result> pa_RetornaCoberturaPolizaID(Nullable<int> id_CoberturaPoliza)
+        {
+            var id_CoberturaPolizaParameter = id_CoberturaPoliza.HasValue ?
+                new ObjectParameter("id_CoberturaPoliza", id_CoberturaPoliza) :
+                new ObjectParameter("id_CoberturaPoliza", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCoberturaPolizaID_Result>("pa_RetornaCoberturaPolizaID", id_CoberturaPolizaParameter);
         }
     }
 }
