@@ -324,6 +324,7 @@
           <Parameter Name="porcentaje" Type="float" Mode="In" />
           <Parameter Name="idTipoPoliza" Type="int" Mode="In" />
         </Function>
+
         <Function Name="pa_EliminaAdicciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idAdiccion" Type="int" Mode="In" />
         </Function>
@@ -1248,6 +1249,7 @@
         <ComplexType Name="pa_RetornaPoliza_Result">
           <Property Type="Int32" Name="idRegistroPoliza" Nullable="false" />
           <Property Type="Int32" Name="idCoberturaPoliza" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="idCliente" Nullable="false" />
           <Property Type="String" Name="ape1Cliente" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="ape2Cliente" Nullable="false" MaxLength="50" />
@@ -1622,6 +1624,7 @@
               <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaPoliza_Result">
                 <ScalarProperty Name="idRegistroPoliza" ColumnName="idRegistroPoliza" />
                 <ScalarProperty Name="idCoberturaPoliza" ColumnName="idCoberturaPoliza" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
                 <ScalarProperty Name="ape1Cliente" ColumnName="ape1Cliente" />
                 <ScalarProperty Name="ape2Cliente" ColumnName="ape2Cliente" />
