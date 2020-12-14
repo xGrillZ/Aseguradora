@@ -9,7 +9,7 @@ using AseguradoraFinal.Modelos;
 
 namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCoberturaPoliza
 {
-    public partial class frmCoberturaPolizaModifica : System.Web.UI.Page
+    public partial class frmCoberturaPolizaElimina : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,13 +19,11 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
                 this.cargaListaTipoPoliza();
                 this.cargaDatosRegistro();
             }
-
         }
 
         protected void btAceptar_Click(object sender, EventArgs e)
         {
-            ///Carga del método para modificar el registro mostrado en pantalla
-            this.AlmacenarDatos();
+            this.AlmacenarDatos();   
         }
 
         void cargaListaTipoPoliza()
@@ -82,7 +80,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
                     this.txtPorcentajeCobertura.Text = Convert.ToString(datosCoberturaPoliza.porcentaje);
 
                     ///Asignar al hidden field el valor de llave primaria
-                    this.hdidCoberturaPoliza.Value = datosCoberturaPoliza.idCoberturaPoliza.ToString();
+                    this.hdIdCoberturaPoliza.Value = datosCoberturaPoliza.idCoberturaPoliza.ToString();
                 }
             }
         }
@@ -95,56 +93,30 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
         {
             if (this.IsValid)
             {
-                ///Creación instancia de la clase BLCoberturaPoliza
+                ///Creación de la instancia de la clase BLCoberturaPoliza
                 BLCoberturaPoliza oCoberturaPoliza = new BLCoberturaPoliza();
 
-                ///Creación de la variable el cuál verifica el resultado de la accion a realizar
+                ///Creación de la variable el cuál verificará el resultado de la acción
                 bool resultado = false;
 
                 ///Creación de la variable el cuál almacenará el mensaje a mostrar
                 string mensaje = "";
-
-                ///Creación de una lista el cuál contiene el resultado de datos
-                List<pa_RetornaCoberturaPoliza_Result> listaRetornaCoberturaPoliza = oCoberturaPoliza.retornaCoberturaPoliza(null);
-
-                ///Contador para el resultado
-                int contadorCobertura = 0;
                 try
                 {
-                    ///Recorrido de la lista que contiene todos los datos de la CoberturaPoliza
-                    for (int i = 0; i < listaRetornaCoberturaPoliza.Count; i++)
-                    {
-                        ///Verificar si el nombre de la cobertura existe o no
-                        if (listaRetornaCoberturaPoliza[i].nombre.Equals(this.txtNombreCobertura.Text))
-                        {
-                            contadorCobertura = 1;
-                            ///Generación del mensaje de error
-                            mensaje = "Esta cobertura ya se encuentra registrada";
-                            ///Mostrar mensaje
-                            Response.Write("<script>alert('" + mensaje + "')</script>");
-                        }
-                        else
-                        {
-                            ///obtener los valores seleccionados por el usuario
-                            ///se toman de la propiedad datavaluefield
-                            ///tanto del dropdownlist como del listbox
-                            int id_TipoPoliza = Convert.ToInt16(this.ddl_TipoPoliza.SelectedValue);
-                            //obtener el valor del hidden field 
-                            int id_CoberturaPoliza = Convert.ToInt16(this.hdidCoberturaPoliza.Value);
-                            ///asignar a la variable el resultado de 
-                            ///invocar el procedimiento almacenado
-                            resultado = oCoberturaPoliza.modificaCoberturaPoliza(id_CoberturaPoliza, this.txtNombreCobertura.Text,
-                                                                                 this.txtDescCobertura.Text, float.Parse(this.txtPorcentajeCobertura.Text),
-                                                                                 id_TipoPoliza);
-                        }
-                    }
+                    ///Obtener el ID del registro a Eliminar
+                    int id_CoberturaPoliza = Convert.ToInt16(this.hdIdCoberturaPoliza.Value);
 
+                    ///Asignar a la variable el resultado de la invocacion del procedimiento almacenado
+                    resultado = oCoberturaPoliza.eliminaCoberturaPoliza(id_CoberturaPoliza);
                 }
                 ///catch: se ejecuta en el caso de que haya una excepcion
                 ///excepcionCapturada: posee los datos de la excepción
                 catch (Exception excepcionCapturada)
                 {
+                    ///Generación mensaje
                     mensaje += $"Ocurrió un error: {excepcionCapturada.Message}";
+                    ///Mostrar mensaje
+                    Response.Write("<script>alert('" + mensaje + "')</script>");
                 }
                 ///finally: siempre se ejecuta (se atrape o no la excepción)
                 finally
@@ -153,17 +125,12 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
                     ///el procedimiento no retornó errores
                     if (resultado)
                     {
-                        ///Generación del mensaje
-                        mensaje += "El registro fue modificado";
-                        ////mostrar el mensaje
+                        ///Generación mensaje
+                        mensaje += "El registro fue eliminado";
+                        ///Mostrar mensaje
                         Response.Write("<script>alert('" + mensaje + "')</script>");
-
-                        ///Redireccionamiento a la página principal de CoberturaPoliza una vez finalizada la modificación
-                        Response.Redirect("/formularios/mantenimientosEmpleado/mantenimientoCoberturaPoliza/frmCoberturaPolizaLista.aspx");
                     }
                 }
-                ///mostrar el mensaje
-                Response.Write("<script>alert('" + mensaje + "')</script>");
             }
         }
     }

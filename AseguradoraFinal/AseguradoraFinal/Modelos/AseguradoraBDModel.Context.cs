@@ -393,15 +393,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCliente_Result>("pa_RetornaCliente", idClienteParameter);
         }
     
-        public virtual ObjectResult<pa_RetornaTipoPoliza_Result> pa_RetornaTipoPoliza(string nombre)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaTipoPoliza_Result>("pa_RetornaTipoPoliza", nombreParameter);
-        }
-    
         public virtual ObjectResult<pa_RetornaTipoPolizaID_Result> pa_RetornaTipoPolizaID(Nullable<int> id_TipoPoliza)
         {
             var id_TipoPolizaParameter = id_TipoPoliza.HasValue ?
@@ -624,6 +615,24 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("idCategoriaAdiccion", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdicciones", nombreParameter, idCategoriaAdiccionParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaTipoPoliza_Result> pa_RetornaTipoPoliza(string nombre)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaTipoPoliza_Result>("pa_RetornaTipoPoliza", nombreParameter);
+        }
+    
+        public virtual int pa_EliminaCoberturaPoliza(Nullable<int> idCoberturaPoliza)
+        {
+            var idCoberturaPolizaParameter = idCoberturaPoliza.HasValue ?
+                new ObjectParameter("idCoberturaPoliza", idCoberturaPoliza) :
+                new ObjectParameter("idCoberturaPoliza", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaCoberturaPoliza", idCoberturaPolizaParameter);
         }
     }
 }

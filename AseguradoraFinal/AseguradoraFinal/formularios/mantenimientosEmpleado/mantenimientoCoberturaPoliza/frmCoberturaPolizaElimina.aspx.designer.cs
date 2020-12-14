@@ -11,7 +11,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
 {
 
 
-    public partial class frmCoberturaPolizaModifica
+    public partial class frmCoberturaPolizaElimina
     {
 
         /// <summary>
@@ -42,13 +42,13 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtNombreConbertura;
 
         /// <summary>
-        /// Control hdidCoberturaPoliza.
+        /// Control hdIdCoberturaPoliza.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdidCoberturaPoliza;
+        protected global::System.Web.UI.WebControls.HiddenField hdIdCoberturaPoliza;
 
         /// <summary>
         /// Control Label4.
@@ -150,12 +150,12 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
         protected global::System.Web.UI.WebControls.HyperLink hpListaCoberturaPoliza;
 
         /// <summary>
-        /// Control vsModificaCoberturaPoliza.
+        /// Control vsEliminaCoberturaPoliza.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary vsModificaCoberturaPoliza;
+        protected global::System.Web.UI.WebControls.ValidationSummary vsEliminaCoberturaPoliza;
     }
 }
