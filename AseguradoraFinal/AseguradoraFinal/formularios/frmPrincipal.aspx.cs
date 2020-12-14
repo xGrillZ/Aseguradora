@@ -54,12 +54,12 @@ namespace AseguradoraFinal.formularios
                     if (Convert.ToInt16(this.Session["tipousuario"]) == 2)
                     {
                         lblDatosUsuario.Text = $"Bienvenido: {retornaEmpleadoID.nomEmpleado} {retornaEmpleadoID.ape1Empleado} {retornaEmpleadoID.ape2Empleado}";
-                        lblDatosUsuarioLog.Text = $"Su última conexión fué: {retornaEmpleadoID.ultimoIngreso}";
+                        lblDatosUsuarioLog.Text = $"Su última conexión fue: {retornaEmpleadoID.ultimoIngreso}";
                     }
                     else
                     {
                         lblDatosUsuario.Text = $"Bienvenido: {retornaClienteID.nomCliente} {retornaClienteID.ape1Cliente} {retornaClienteID.ape2Cliente}";
-                        lblDatosUsuarioLog.Text = $"Su última conexión fué: {retornaClienteID.ultimoIngreso}";
+                        lblDatosUsuarioLog.Text = $"Su última conexión fue: {retornaClienteID.ultimoIngreso}";
                     }
                 }
                 catch (Exception capturaExcepcion)

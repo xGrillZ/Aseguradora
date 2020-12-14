@@ -366,6 +366,12 @@
           <Parameter Name="idAdiccion" Type="int" Mode="In" />
           <Parameter Name="idCliente" Type="int" Mode="In" />
         </Function>
+        <Function Name="pa_InsertaCoberturaPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
+          <Parameter Name="desc" Type="nvarchar" Mode="In" />
+          <Parameter Name="porcentaje" Type="float" Mode="In" />
+          <Parameter Name="idTipoPoliza" Type="int" Mode="In" />
+        </Function>
         <Function Name="pa_InsertaTipoPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
           <Parameter Name="detalles" Type="varchar" Mode="In" />
@@ -1100,7 +1106,13 @@
             <Parameter Name="detalles" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_RetornaAdicciones" ReturnType="Collection(AseguradoraBDModel.pa_RetornaAdicciones_Result)">
+          <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_InsertaCoberturaPoliza">
             <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="desc" Mode="In" Type="String" />
+            <Parameter Name="porcentaje" Mode="In" Type="Double" />
+            <Parameter Name="idTipoPoliza" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1577,6 +1589,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_InsertaCoberturaPoliza" FunctionName="AseguradoraBDModel.Store.pa_InsertaCoberturaPoliza" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

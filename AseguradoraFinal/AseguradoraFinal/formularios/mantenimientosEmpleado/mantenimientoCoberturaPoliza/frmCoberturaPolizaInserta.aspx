@@ -17,7 +17,7 @@
                <div class="form-group">
                    <asp:Label ID="Label4" runat="server" Text="Descripción Cobertura"></asp:Label>                 
                    <asp:TextBox ID="txtDescCobertura" runat="server" class="form-control"></asp:TextBox>
-                   <asp:RequiredFieldValidator ID="rqVtxtDescCobertura" runat="server"  ControlToValidate="txtSegundoApellido" ErrorMessage="Debe ingresar la descripción de cobertura" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+                   <asp:RequiredFieldValidator ID="rqVtxtDescCobertura" runat="server"  ControlToValidate="txtDescCobertura" ErrorMessage="Debe ingresar la descripción de cobertura" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
                </div>           
                <div class="form-group">
                     <asp:Label ID="Label5" runat="server" Text="Porcentaje Cobertura"></asp:Label>

@@ -35,6 +35,26 @@ namespace AseguradoraFinal.BL
             return resultado;
         }
 
+        public bool insertaCoberturaPoliza(string pNombre, string pDesc, float pPorcentaje, int pIdTipoPoliza)
+        {
+            ///Variable que posee la cantidad de registros afectados
+            ///al realizar insert/update/delete la cantidad de registros
+            ///afectados debe ser mayor a 0
+            int registrosAfectados = 0;
+
+            ///Invocación del procedimiento almacenado con las variables
+            registrosAfectados = this.modeloBD.pa_InsertaCoberturaPoliza(pNombre, pDesc, pPorcentaje, pIdTipoPoliza);
+
+            if (registrosAfectados > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
         #endregion Métodos y funciones
     }
 }

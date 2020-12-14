@@ -42,7 +42,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
         /// </summary>
         void AlmacenarDatos()
         {
-            /*if (this.IsValid)
+            if (this.IsValid)
             {
                 ///Variable que contiene el mensaje a visualizar
                 string mensaje = "";
@@ -51,13 +51,37 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
                 BLCoberturaPoliza oCoberturaPoliza = new BLCoberturaPoliza();
                 bool resultado = false;
 
+                ///Creación de una lista el cuál contiene el resultado de datos
+                List<pa_RetornaCoberturaPoliza_Result> listaRetornaCoberturaPoliza = oCoberturaPoliza.retornaCoberturaPoliza(null);
+
+                ///Contador para el resultado
+                int contadorCobertura = 0;
+
                 try
                 {
+                    ///Recorrido de la lista que contiene todos los datos de la CoberturaPoliza
+                    for (int i = 0; i < listaRetornaCoberturaPoliza.Count; i++)
+                    {
+                        ///Verificar si el nombre de la cobertura existe o no
+                        if (listaRetornaCoberturaPoliza[i].nombre.Equals(this.txtNombreCobertura.Text))
+                        {
+                            contadorCobertura = 1;
+                            ///Generación del mensaje de error
+                            mensaje = "Esta cobertura ya se encuentra registrada";
+                            ///Mostrar mensaje
+                            Response.Write("<script>alert('" + mensaje + "')</script>");
+                        }
+                        else
+                        {
+                            ///Asignar a la variable el resultado de invocar el procedimiento
+                            ///almacenado que se encuentra en el método
+                            int idTipoPoliza = Convert.ToInt16(ddlTipoPoliza.SelectedValue);
+                            float pPorcentaje = float.Parse(this.txtPorcentaje.Text);
 
-                    ///Asignar a la variable el resultado de invocar el procedimiento
-                    ///almacenado que se encuentra en el método
-                    resultado = oTipoPoliza.insertaTipoPoliza(this.txtNombre.Text, this.txtDesc.Text);
-
+                            resultado = oCoberturaPoliza.insertaCoberturaPoliza(this.txtNombreCobertura.Text, this.txtDescCobertura.Text,
+                                                                                pPorcentaje, idTipoPoliza);
+                        }
+                    }
                 }
                 catch (Exception excepcionCapturada)
                 {
@@ -73,15 +97,14 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
                     {
                         ///Generación del mensaje de inserción
                         mensaje += "El registro fue insertado";
-
-                        ///Redireccionamiento a la lista de Tipo Polizas
-                        this.Response.Redirect("/formularios/mantenimientosEmpleado/mantenimientoTipoPoliza/frmTipoPolizaLista.aspx");
-
                         ///Mostrar mensaje
                         Response.Write("<script>alert('" + mensaje + "')</script>");
+
+                        ///Redireccionamiento a la lista de Tipo Polizas
+                        this.Response.Redirect("/formularios/mantenimientosEmpleado/mantenimientoCoberturaPoliza/frmCoberturaPolizaLista.aspx");
                     }
                 }
-            }*/
+            }
         }
     }
 }
