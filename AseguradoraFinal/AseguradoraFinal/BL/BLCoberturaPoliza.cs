@@ -32,7 +32,7 @@ namespace AseguradoraFinal.BL
             resultado = this.modeloBD.pa_RetornaCoberturaPoliza(pNombreCobertura, pNombreTipoPoliza).ToList();
 
             ///Retona el valor
-            return resultado;
+            return resultado; //Prueba Pull
         }
 
         /// <summary>
