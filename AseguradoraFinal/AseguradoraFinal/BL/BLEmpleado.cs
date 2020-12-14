@@ -54,7 +54,7 @@ namespace AseguradoraFinal.BL
             int registrosAfectados = 0;
             ///invocar al procedimiento almacenado
             registrosAfectados =
-                this.modeloBD.pa_EliminaAdicciones(idAdiccion);
+                this.modeloBD.pa_EliminaAdicciones(idAdiccion); //test
 
             return registrosAfectados > 0;
 
