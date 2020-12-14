@@ -429,6 +429,12 @@
         <Function Name="pa_RetornaCoberturaPolizaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_CoberturaPoliza" Type="int" Mode="In" />
         </Function>
+        <Function Name="pa_RetornaPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="primerApellidoCliente" Type="nvarchar" Mode="In" />
+          <Parameter Name="numCedulaCliente" Type="nvarchar" Mode="In" />
+          <Parameter Name="nombreCoberturaPoliza" Type="nvarchar" Mode="In" />
+          <Parameter Name="cantAdicciones" Type="int" Mode="In" />
+        </Function>
         <Function Name="pa_RetornaTipoPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
         </Function>
@@ -1056,6 +1062,12 @@
             <End Role="CategoriaAdicciones" EntitySet="CategoriaAdicciones" />
             <End Role="Adicciones" EntitySet="Adicciones" />
           </AssociationSet>
+          <FunctionImport Name="pa_RetornaPoliza" ReturnType="Collection(AseguradoraBDModel.pa_RetornaPoliza_Result)">
+            <Parameter Name="primerApellidoCliente" Mode="In" Type="String" />
+            <Parameter Name="numCedulaCliente" Mode="In" Type="String" />
+            <Parameter Name="nombreCoberturaPoliza" Mode="In" Type="String" />
+            <Parameter Name="cantAdicciones" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
           <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
@@ -1232,6 +1244,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="pa_RetornaPoliza_Result">
+          <Property Type="Int32" Name="idRegistroPoliza" Nullable="false" />
+          <Property Type="Int32" Name="idCoberturaPoliza" Nullable="false" />
+          <Property Type="Int32" Name="idCliente" Nullable="false" />
+          <Property Type="String" Name="ape1Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape2Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="numCedula" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="idEmpleado" Nullable="false" />
+          <Property Type="String" Name="ape1Empleado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape2Empleado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nomEmpleado" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idAdiccion" Nullable="false" />
+          <Property Type="Double" Name="montoAsegurado" Nullable="false" />
+          <Property Type="Int32" Name="cantAdicciones" Nullable="false" />
+          <Property Type="Double" Name="montoAsegurado1" Nullable="false" />
+          <Property Type="Double" Name="primaAntesImpuestos" Nullable="false" />
+          <Property Type="Double" Name="impuestos" Nullable="false" />
+          <Property Type="Double" Name="primaFinal" Nullable="false" />
+          <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="idSucursal" Nullable="false" />
+          <Property Type="String" Name="nomSucursal" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="porcentajePrima" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1581,6 +1617,34 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaPoliza" FunctionName="AseguradoraBDModel.Store.pa_RetornaPoliza">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaPoliza_Result">
+                <ScalarProperty Name="idRegistroPoliza" ColumnName="idRegistroPoliza" />
+                <ScalarProperty Name="idCoberturaPoliza" ColumnName="idCoberturaPoliza" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="ape1Cliente" ColumnName="ape1Cliente" />
+                <ScalarProperty Name="ape2Cliente" ColumnName="ape2Cliente" />
+                <ScalarProperty Name="nomCliente" ColumnName="nomCliente" />
+                <ScalarProperty Name="numCedula" ColumnName="numCedula" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="ape1Empleado" ColumnName="ape1Empleado" />
+                <ScalarProperty Name="ape2Empleado" ColumnName="ape2Empleado" />
+                <ScalarProperty Name="nomEmpleado" ColumnName="nomEmpleado" />
+                <ScalarProperty Name="idAdiccion" ColumnName="idAdiccion" />
+                <ScalarProperty Name="montoAsegurado" ColumnName="montoAsegurado" />
+                <ScalarProperty Name="cantAdicciones" ColumnName="cantAdicciones" />
+                <ScalarProperty Name="montoAsegurado1" ColumnName="montoAsegurado1" />
+                <ScalarProperty Name="primaAntesImpuestos" ColumnName="primaAntesImpuestos" />
+                <ScalarProperty Name="impuestos" ColumnName="impuestos" />
+                <ScalarProperty Name="primaFinal" ColumnName="primaFinal" />
+                <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+                <ScalarProperty Name="nomSucursal" ColumnName="nomSucursal" />
+                <ScalarProperty Name="porcentajePrima" ColumnName="porcentajePrima" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

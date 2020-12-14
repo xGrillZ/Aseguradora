@@ -707,6 +707,9 @@
     <Compile Include="Modelos\pa_RetornaCoberturaPoliza_Result.cs">
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\pa_RetornaPoliza_Result.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\pa_RetornaTipoPolizaID_Result.cs">
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
