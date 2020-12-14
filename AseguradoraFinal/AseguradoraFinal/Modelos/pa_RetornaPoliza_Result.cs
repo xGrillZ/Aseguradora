@@ -15,6 +15,7 @@ namespace AseguradoraFinal.Modelos
     {
         public int idRegistroPoliza { get; set; }
         public int idCoberturaPoliza { get; set; }
+        public string nombre { get; set; }
         public int idCliente { get; set; }
         public string ape1Cliente { get; set; }
         public string ape2Cliente { get; set; }

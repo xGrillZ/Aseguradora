@@ -15,15 +15,33 @@
                       <asp:TextBox ID="txtNumCedula" runat="server" class="form-control" ></asp:TextBox>            
                   </div>
                   <div class="form-group">
+                      <asp:Label ID="Label4" runat="server" Text="Nombre cobertura:"></asp:Label>
+                      <asp:TextBox ID="txtNombreCobertura" runat="server" class="form-control" ></asp:TextBox>            
+                  </div>
+                  <div class="form-group">
                       <asp:Label ID="Label3" runat="server" Text="Número adicciones:"></asp:Label>
                       <asp:TextBox ID="txtNumAdicciones" runat="server" class="form-control" ></asp:TextBox>            
                   </div>
+                      <br />
                       <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" class="btn-success" OnClick="btnMostrarDatos_Click"  /> 
                  &nbsp;
                      <asp:HyperLink ID="hpNuevaPoliza" runat="server" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoCoberturaPoliza/frmCoberturaPolizaInserta.aspx">Ingresar nueva póliza</asp:HyperLink>
                  <br />
                  <br />
-                 <asp:GridView ID="grdListaPoliza" runat="server">
+                 <asp:GridView ID="grdListaPoliza" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" OnPageIndexChanging="grdListaPoliza_PageIndexChanging">
+                     <AlternatingRowStyle BackColor="#F7F7F7" />
+                     <Columns>
+                         <asp:BoundField DataField="nombre" HeaderText="Cobertura" />
+                     </Columns>
+                     <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
+                     <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
+                     <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
+                     <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
+                     <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
+                     <SortedAscendingCellStyle BackColor="#F4F4FD" />
+                     <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
+                     <SortedDescendingCellStyle BackColor="#D8D8F0" />
+                     <SortedDescendingHeaderStyle BackColor="#3E3277" />
                  </asp:GridView>
                  <br />
             </form>

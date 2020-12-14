@@ -324,11 +324,6 @@
           <Parameter Name="porcentaje" Type="float" Mode="In" />
           <Parameter Name="idTipoPoliza" Type="int" Mode="In" />
         </Function>
-        <Function Name="pa_EliminaAdiccionesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="nombre" Type="varchar" Mode="In" />
-          <Parameter Name="codigo" Type="int" Mode="In" />
-          <Parameter Name="idCategoriaAdicion" Type="int" Mode="In" />
-        </Function>
         <Function Name="pa_EliminaAdiccionesxCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idAdiccion" Type="int" Mode="In" />
           <Parameter Name="idCliente" Type="int" Mode="In" />
@@ -1247,6 +1242,7 @@
         <ComplexType Name="pa_RetornaPoliza_Result">
           <Property Type="Int32" Name="idRegistroPoliza" Nullable="false" />
           <Property Type="Int32" Name="idCoberturaPoliza" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="idCliente" Nullable="false" />
           <Property Type="String" Name="ape1Cliente" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="ape2Cliente" Nullable="false" MaxLength="50" />
@@ -1409,7 +1405,6 @@
           <FunctionImportMapping FunctionImportName="pa_ClienteDelete" FunctionName="AseguradoraBDModel.Store.pa_ClienteDelete" />
           <FunctionImportMapping FunctionImportName="pa_ClienteInsert" FunctionName="AseguradoraBDModel.Store.pa_ClienteInsert" />
           <FunctionImportMapping FunctionImportName="pa_CoberturaPolizaUpdate" FunctionName="AseguradoraBDModel.Store.pa_CoberturaPolizaUpdate" />
-          <FunctionImportMapping FunctionImportName="pa_EliminaAdiccionesDelete" FunctionName="AseguradoraBDModel.Store.pa_EliminaAdiccionesDelete" />
           <FunctionImportMapping FunctionImportName="pa_EliminaAdiccionesxCliente" FunctionName="AseguradoraBDModel.Store.pa_EliminaAdiccionesxCliente" />
           <FunctionImportMapping FunctionImportName="pa_EliminaTipoPoliza" FunctionName="AseguradoraBDModel.Store.pa_EliminaTipoPoliza" />
           <FunctionImportMapping FunctionImportName="pa_EmpleadoInsert" FunctionName="AseguradoraBDModel.Store.pa_EmpleadoInsert" />
@@ -1622,6 +1617,7 @@
               <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaPoliza_Result">
                 <ScalarProperty Name="idRegistroPoliza" ColumnName="idRegistroPoliza" />
                 <ScalarProperty Name="idCoberturaPoliza" ColumnName="idCoberturaPoliza" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
                 <ScalarProperty Name="ape1Cliente" ColumnName="ape1Cliente" />
                 <ScalarProperty Name="ape2Cliente" ColumnName="ape2Cliente" />
