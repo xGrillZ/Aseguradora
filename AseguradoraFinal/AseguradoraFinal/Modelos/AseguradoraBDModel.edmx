@@ -547,15 +547,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AseguradoraBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="CategoriaAdicciones">
-          <Key>
-            <PropertyRef Name="idCategoriaAdiccion" />
-          </Key>
-          <Property Name="idCategoriaAdiccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="nombreCategoria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Adicciones" Relationship="AseguradoraBDModel.FK_Adicciones_CategoriaAdicciones" FromRole="CategoriaAdicciones" ToRole="Adicciones" />
-        </EntityType>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="idCliente" />
@@ -820,7 +811,6 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="aseguradorarjsEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CategoriaAdicciones" EntityType="Self.CategoriaAdicciones" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" />
           <EntitySet Name="CoberturaPoliza" EntityType="Self.CoberturaPoliza" />
           <EntitySet Name="Empleado" EntityType="Self.Empleado" />
@@ -1053,10 +1043,6 @@
           <Parameter Name="idCoberturaPoliza" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="Adicciones" EntityType="AseguradoraBDModel.Adicciones" />
-          <AssociationSet Name="FK_Adicciones_CategoriaAdicciones" Association="AseguradoraBDModel.FK_Adicciones_CategoriaAdicciones">
-            <End Role="CategoriaAdicciones" EntitySet="CategoriaAdicciones" />
-            <End Role="Adicciones" EntitySet="Adicciones" />
-          </AssociationSet>
           <AssociationSet Name="FK_MantAddicionxCliente_Adicciones" Association="AseguradoraBDModel.FK_MantAddicionxCliente_Adicciones">
             <End Role="Adicciones" EntitySet="Adicciones" />
             <End Role="MantAddicionxCliente" EntitySet="MantAddicionxCliente" />
@@ -1064,6 +1050,11 @@
           <AssociationSet Name="FK_RegistroPoliza_Adicciones" Association="AseguradoraBDModel.FK_RegistroPoliza_Adicciones">
             <End Role="Adicciones" EntitySet="Adicciones" />
             <End Role="RegistroPoliza" EntitySet="RegistroPoliza" />
+          </AssociationSet>
+          <EntitySet Name="CategoriaAdicciones" EntityType="AseguradoraBDModel.CategoriaAdicciones" />
+          <AssociationSet Name="FK_Adicciones_CategoriaAdicciones" Association="AseguradoraBDModel.FK_Adicciones_CategoriaAdicciones">
+            <End Role="CategoriaAdicciones" EntitySet="CategoriaAdicciones" />
+            <End Role="Adicciones" EntitySet="Adicciones" />
           </AssociationSet>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1192,22 +1183,10 @@
           <Property Name="idAdiccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="idCategoriaAdiccion" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="CategoriaAdicciones" Relationship="AseguradoraBDModel.FK_Adicciones_CategoriaAdicciones" FromRole="Adicciones" ToRole="CategoriaAdicciones" />
           <NavigationProperty Name="MantAddicionxCliente" Relationship="AseguradoraBDModel.FK_MantAddicionxCliente_Adicciones" FromRole="Adicciones" ToRole="MantAddicionxCliente" />
           <NavigationProperty Name="RegistroPoliza" Relationship="AseguradoraBDModel.FK_RegistroPoliza_Adicciones" FromRole="Adicciones" ToRole="RegistroPoliza" />
+          <NavigationProperty Name="CategoriaAdicciones" Relationship="AseguradoraBDModel.FK_Adicciones_CategoriaAdicciones" FromRole="Adicciones" ToRole="CategoriaAdicciones" />
         </EntityType>
-        <Association Name="FK_Adicciones_CategoriaAdicciones">
-          <End Type="AseguradoraBDModel.CategoriaAdicciones" Role="CategoriaAdicciones" Multiplicity="1" />
-          <End Type="AseguradoraBDModel.Adicciones" Role="Adicciones" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CategoriaAdicciones">
-              <PropertyRef Name="idCategoriaAdiccion" />
-            </Principal>
-            <Dependent Role="Adicciones">
-              <PropertyRef Name="idCategoriaAdiccion" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_MantAddicionxCliente_Adicciones">
           <End Type="AseguradoraBDModel.Adicciones" Role="Adicciones" Multiplicity="1" />
           <End Type="AseguradoraBDModel.MantAddicionxCliente" Role="MantAddicionxCliente" Multiplicity="*" />
@@ -1232,21 +1211,33 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="CategoriaAdicciones">
+          <Key>
+            <PropertyRef Name="idCategoriaAdiccion" />
+          </Key>
+          <Property Name="idCategoriaAdiccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreCategoria" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Adicciones" Relationship="AseguradoraBDModel.FK_Adicciones_CategoriaAdicciones" FromRole="CategoriaAdicciones" ToRole="Adicciones" />
+        </EntityType>
+        <Association Name="FK_Adicciones_CategoriaAdicciones">
+          <End Type="AseguradoraBDModel.CategoriaAdicciones" Role="CategoriaAdicciones" Multiplicity="1" />
+          <End Type="AseguradoraBDModel.Adicciones" Role="Adicciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoriaAdicciones">
+              <PropertyRef Name="idCategoriaAdiccion" />
+            </Principal>
+            <Dependent Role="Adicciones">
+              <PropertyRef Name="idCategoriaAdiccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="AseguradoraBDModelStoreContainer" CdmEntityContainer="aseguradorarjsEntities">
-          <EntitySetMapping Name="CategoriaAdicciones">
-            <EntityTypeMapping TypeName="AseguradoraBDModel.CategoriaAdicciones">
-              <MappingFragment StoreEntitySet="CategoriaAdicciones">
-                <ScalarProperty Name="idCategoriaAdiccion" ColumnName="idCategoriaAdiccion" />
-                <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="AseguradoraBDModel.Cliente">
               <MappingFragment StoreEntitySet="Cliente">
@@ -1578,6 +1569,15 @@
                 <ScalarProperty Name="idCategoriaAdiccion" ColumnName="idCategoriaAdiccion" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="idAdiccion" ColumnName="idAdiccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoriaAdicciones">
+            <EntityTypeMapping TypeName="AseguradoraBDModel.CategoriaAdicciones">
+              <MappingFragment StoreEntitySet="CategoriaAdicciones">
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
+                <ScalarProperty Name="idCategoriaAdiccion" ColumnName="idCategoriaAdiccion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

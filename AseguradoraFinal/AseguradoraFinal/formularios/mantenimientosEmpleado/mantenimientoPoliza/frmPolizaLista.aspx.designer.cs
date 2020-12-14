@@ -7,21 +7,12 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace AseguradoraFinal.formularios.mantenimientoCliente.mantenimientoCliente
+namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliza
 {
 
 
-    public partial class frmClienteLista
+    public partial class frmPolizaLista
     {
-
-        /// <summary>
-        /// Control form1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
         /// Control Label1.
@@ -33,13 +24,13 @@ namespace AseguradoraFinal.formularios.mantenimientoCliente.mantenimientoCliente
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Control txtCobertura.
+        /// Control txtPriApeCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCobertura;
+        protected global::System.Web.UI.WebControls.TextBox txtPriApeCliente;
 
         /// <summary>
         /// Control Label2.
@@ -51,13 +42,31 @@ namespace AseguradoraFinal.formularios.mantenimientoCliente.mantenimientoCliente
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Control txtTipoPoliza.
+        /// Control txtNumCedula.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTipoPoliza;
+        protected global::System.Web.UI.WebControls.TextBox txtNumCedula;
+
+        /// <summary>
+        /// Control Label3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
+        /// Control txtNumAdicciones.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNumAdicciones;
 
         /// <summary>
         /// Control btnMostrarDatos.
@@ -69,12 +78,21 @@ namespace AseguradoraFinal.formularios.mantenimientoCliente.mantenimientoCliente
         protected global::System.Web.UI.WebControls.Button btnMostrarDatos;
 
         /// <summary>
-        /// Control hpNuevaCobertura.
+        /// Control hpNuevaPoliza.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hpNuevaCobertura;
+        protected global::System.Web.UI.WebControls.HyperLink hpNuevaPoliza;
+
+        /// <summary>
+        /// Control grdListaPoliza.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdListaPoliza;
     }
 }

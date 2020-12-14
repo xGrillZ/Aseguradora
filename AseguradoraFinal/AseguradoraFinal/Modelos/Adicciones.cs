@@ -24,8 +24,8 @@ namespace AseguradoraFinal.Modelos
         public string nombre { get; set; }
         public int idCategoriaAdiccion { get; set; }
     
-        public virtual CategoriaAdicciones CategoriaAdicciones { get; set; }
         public virtual ICollection<MantAddicionxCliente> MantAddicionxCliente { get; set; }
         public virtual ICollection<RegistroPoliza> RegistroPoliza { get; set; }
+        public virtual CategoriaAdicciones CategoriaAdicciones { get; set; }
     }
 }
