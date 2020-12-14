@@ -13,7 +13,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
             //validar que sea la primera vez que se carga la pagina
             //o bien que no es una  "recarga" de pagina
             //if(!this.IsPostBack)
@@ -21,105 +20,98 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             {
                 this.cargaListaAdicciones();
                 this.cargaDatosRegistro();
-
-
             }
 
 
         }
         /// <summary>
-        /// Carga la lista Adiccion
-        /// </summary>              
+        /// Carga la lista Adicciones
+        /// </summary>
+        void cargaListaAdicciones()
+        {
+            BLEmpleado oAdiccion = new BLEmpleado();
+            ///indicarle al dropdownlist la fuente de datos
+            this.ddlNombreAdiccion.DataSource = oAdiccion.RetornaAdicciones(null);
 
-            void cargaListaAdicciones()
-            {
-                BLEmpleado oAdiccion = new BLEmpleado();
-                ///indicarle al dropdownlist la fuente de datos
-                this.ddlNombreAdiccion.DataSource = oAdiccion.RetornaAdicciones(null);
-                
 
             ///indicarle al dropdownlist que se muestre
 
             this.ddlNombreAdiccion.DataBind();
         }
 
-        
-    }
+       
 
-    void cargaDatosRegistro()
-    {
-        String parametro = this.Request.QueryString["idAdiccion"];
-
-        if (String.IsNullOrEmpty(parametro))
+        void cargaDatosRegistro()
         {
-            this.lblMensaje.Text = "Parámetro nulo";
-        }
-        else
-        {
-            int id_Gasto_Categoria = Convert.ToInt16(parametro);
+            String parametro = this.Request.QueryString["idAdiccion"];
 
-            BLGastoCategoria oBLGastoCategoria = new BLGastoCategoria();
-
-            sp_Retorna_Gasto_Categoria_ID_Result resultDataGastoCategoria = new sp_Retorna_Gasto_Categoria_ID_Result();
-
-            resultDataGastoCategoria = oBLGastoCategoria.Retorna_Gasto_Categoria_ID(id_Gasto_Categoria);
-
-            if (resultDataGastoCategoria == null)
+            if (String.IsNullOrEmpty(parametro))
             {
-                Response.Redirect("frmGastoCategoriaLista.aspx");
+                this.lblMensaje.Text = "Parámetro nulo";
             }
             else
             {
-                this.ddlGasto.SelectedValue = resultDataGastoCategoria.id_Gasto.ToString();
-                this.ddlCategoria.SelectedValue = resultDataGastoCategoria.id_Categoria.ToString();
-                this.txtCantidad.Text = Convert.ToString(resultDataGastoCategoria.cantidad);
+                int idAdiccion = Convert.ToInt16(parametro);
 
-                ///Asignar al hidden field el valor de llave primaria
-                this.hdIdAdiccion.Value = resultDataGastoCategoria.id_Gasto_Categoria.ToString();
-            }
-        }
+                BLEmpleado oAdiccionElimina = new BLEmpleado();
 
-    }
+                pa_RetornaAdicciones_Result resultDataAdiccion = new pa_RetornaAdicciones_Result();
 
-    protected void btEliminar_Click(object sender, EventArgs e)
-    {
-        this.AlmacenarDatos();
-    }
+                resultDataAdiccion = oAdiccionElimina.RetornaAdicciones(idAdiccion);
 
-
-    void AlmacenarDatos()
-    {
-        if (this.IsValid)
-        {
-            BLGastoCategoria oBLGastoCategoria = new BLGastoCategoria();
-            bool resultado = false;
-            string mensaje = "";
-            try
-            {
-                int IdAdiccion = Convert.ToInt16(this.hdIdAdiccion.Value);
-
-                resultado = oBLGastoCategoria.Elimina_Gasto_Categoria(hdIdAdiccion);
-            }
-            ///catch: se ejecuta en el caso de que haya una excepcion
-            ///excepcionCapturada: posee los datos de la excepción
-            catch (Exception e)
-            {
-                mensaje += $"Ocurrió un error al eliminar: {e}";
-            }
-            ///finally: siempre se ejecuta (se atrape o no la excepción)
-            finally
-            {
-                ///si el resultado de la variable es verdadera implica que
-                ///el procedimiento no retornó errores
-                if (resultado)
+                if (resultDataAdiccion == null)
                 {
-                    mensaje += "El registro fue eliminado correctamente";
+                    Response.Redirect("frmAdiccionesLista.aspx");
+                }
+                else
+                {
+                    this.ddlNombreAdiccion.SelectedValue = resultDataAdiccion.idAdiccion.ToString();
+
+
+                    ///Asignar al hidden field el valor de llave primaria
+                    this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
                 }
             }
-            ///mostrar el mensaje
-            this.lblMensaje.Text = mensaje;
+
+        }
+
+        protected void btEliminar_Click(object sender, EventArgs e)
+        {
+            this.AlmacenarDatos();
+        }
+
+        void AlmacenarDatos()
+        {
+            if (this.IsValid)
+            {
+                BLEmpleado oElimina = new BLEmpleado();
+                bool resultado = false;
+                string mensaje = "";
+                try
+                {
+                    int IdAdiccion = Convert.ToInt16(this.hdIdAdiccion.Value);
+
+                    resultado = oElimina.EliminaAdicciones(hdIdAdiccion);
+                }
+                ///catch: se ejecuta en el caso de que haya una excepcion
+                ///excepcionCapturada: posee los datos de la excepción
+                catch (Exception e)
+                {
+                    mensaje += $"Ocurrió un error al eliminar: {e}";
+                }
+                ///finally: siempre se ejecuta (se atrape o no la excepción)
+                finally
+                {
+                    ///si el resultado de la variable es verdadera implica que
+                    ///el procedimiento no retornó errores
+                    if (resultado)
+                    {
+                        mensaje += "El registro fue eliminado correctamente";
+                    }
+                }
+                ///mostrar el mensaje
+                this.lblMensaje.Text = mensaje;
+            }
         }
     }
 }
-}
-
