@@ -12,17 +12,12 @@ namespace AseguradoraFinal.Modelos
     using System;
     using System.Collections.Generic;
     
-    public partial class Telefono
+    public partial class sysdiagrams
     {
-        public Telefono()
-        {
-            this.Sucursal = new HashSet<Sucursal>();
-        }
-    
-        public int idTelefono { get; set; }
-        public string telefono1 { get; set; }
-        public Nullable<int> extension { get; set; }
-    
-        public virtual ICollection<Sucursal> Sucursal { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

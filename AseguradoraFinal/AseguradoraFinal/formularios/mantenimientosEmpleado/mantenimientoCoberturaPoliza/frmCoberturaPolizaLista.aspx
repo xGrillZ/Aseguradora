@@ -27,6 +27,7 @@
                          <asp:BoundField DataField="descripcion" HeaderText="Descripción" />
                          <asp:BoundField DataField="porcentaje" HeaderText="Porcentaje" />
                          <asp:BoundField DataField="nombreTipoPoliza" HeaderText="Tipo Poliza" />
+                         <asp:HyperLinkField DataNavigateUrlFields="idCoberturaPoliza" DataNavigateUrlFormatString="/formularios/mantenimientosEmpleado/mantenimientoCoberturaPoliza/frmCoberturaPolizaModifica?idCoberturaPoliza={0}" Text="Modificar" />
                      </Columns>
                      <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                      <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />

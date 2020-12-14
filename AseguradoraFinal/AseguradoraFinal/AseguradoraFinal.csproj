@@ -156,6 +156,7 @@
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesModifica.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaInserta.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaLista.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaModifica.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaEliminar.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaInsertar.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaLista.aspx" />
@@ -621,6 +622,13 @@
     </Compile>
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaLista.aspx.designer.cs">
       <DependentUpon>frmCoberturaPolizaLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaModifica.aspx.cs">
+      <DependentUpon>frmCoberturaPolizaModifica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaModifica.aspx.designer.cs">
+      <DependentUpon>frmCoberturaPolizaModifica.aspx</DependentUpon>
     </Compile>
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaEliminar.aspx.cs">
       <DependentUpon>frmTipoPolizaEliminar.aspx</DependentUpon>
