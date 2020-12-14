@@ -545,19 +545,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdicciones_Result>("pa_RetornaAdicciones", nombreParameter);
         }
     
-        public virtual int pa_InsertaAdicciones(string nombre, Nullable<int> idCategoriaAdiccion)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var idCategoriaAdiccionParameter = idCategoriaAdiccion.HasValue ?
-                new ObjectParameter("idCategoriaAdiccion", idCategoriaAdiccion) :
-                new ObjectParameter("idCategoriaAdiccion", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdicciones", nombreParameter, idCategoriaAdiccionParameter);
-        }
-    
         public virtual int pa_InsertaCoberturaPoliza(string nombre, string desc, Nullable<double> porcentaje, Nullable<int> idTipoPoliza)
         {
             var nombreParameter = nombre != null ?
@@ -624,6 +611,19 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("id_CoberturaPoliza", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCoberturaPolizaID_Result>("pa_RetornaCoberturaPolizaID", id_CoberturaPolizaParameter);
+        }
+    
+        public virtual int pa_InsertaAdicciones(string nombre, Nullable<int> idCategoriaAdiccion)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var idCategoriaAdiccionParameter = idCategoriaAdiccion.HasValue ?
+                new ObjectParameter("idCategoriaAdiccion", idCategoriaAdiccion) :
+                new ObjectParameter("idCategoriaAdiccion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdicciones", nombreParameter, idCategoriaAdiccionParameter);
         }
     }
 }

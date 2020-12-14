@@ -1082,10 +1082,6 @@
           <FunctionImport Name="pa_RetornaAdicciones" ReturnType="Collection(AseguradoraBDModel.pa_RetornaAdicciones_Result)">
           <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="pa_InsertaAdicciones">
-            <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="idCategoriaAdiccion" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="pa_InsertaCoberturaPoliza">
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="desc" Mode="In" Type="String" />
@@ -1104,7 +1100,11 @@
             <Parameter Name="nombreTipoPoliza" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_RetornaCoberturaPolizaID" ReturnType="Collection(AseguradoraBDModel.pa_RetornaCoberturaPolizaID_Result)">
-            <Parameter Name="id_CoberturaPoliza" Mode="In" Type="Int32" />
+          <Parameter Name="id_CoberturaPoliza" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_InsertaAdicciones">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="idCategoriaAdiccion" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1547,7 +1547,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_InsertaAdicciones" FunctionName="AseguradoraBDModel.Store.pa_InsertaAdicciones" />
           <FunctionImportMapping FunctionImportName="pa_InsertaCoberturaPoliza" FunctionName="AseguradoraBDModel.Store.pa_InsertaCoberturaPoliza" />
           <FunctionImportMapping FunctionImportName="pa_ModificaCoberturaPoliza" FunctionName="AseguradoraBDModel.Store.pa_ModificaCoberturaPoliza" />
           <FunctionImportMapping FunctionImportName="pa_RetornaCoberturaPoliza" FunctionName="AseguradoraBDModel.Store.pa_RetornaCoberturaPoliza">
@@ -1574,6 +1573,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_InsertaAdicciones" FunctionName="AseguradoraBDModel.Store.pa_InsertaAdicciones" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
