@@ -393,19 +393,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCliente_Result>("pa_RetornaCliente", idClienteParameter);
         }
     
-        public virtual ObjectResult<pa_RetornaCoberturaPoliza_Result> pa_RetornaCoberturaPoliza(string nombreCobertura, string nombreTipoPoliza)
-        {
-            var nombreCoberturaParameter = nombreCobertura != null ?
-                new ObjectParameter("nombreCobertura", nombreCobertura) :
-                new ObjectParameter("nombreCobertura", typeof(string));
-    
-            var nombreTipoPolizaParameter = nombreTipoPoliza != null ?
-                new ObjectParameter("nombreTipoPoliza", nombreTipoPoliza) :
-                new ObjectParameter("nombreTipoPoliza", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCoberturaPoliza_Result>("pa_RetornaCoberturaPoliza", nombreCoberturaParameter, nombreTipoPolizaParameter);
-        }
-    
         public virtual ObjectResult<pa_RetornaTipoPoliza_Result> pa_RetornaTipoPoliza(string nombre)
         {
             var nombreParameter = nombre != null ?
@@ -558,23 +545,25 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdicciones_Result>("pa_RetornaAdicciones", nombreParameter);
         }
     
-<<<<<<< HEAD
         public virtual int pa_InsertaAdicciones(string nombre, Nullable<int> idCategoriaAdiccion)
-=======
-        public virtual int pa_InsertaCoberturaPoliza(string nombre, string desc, Nullable<double> porcentaje, Nullable<int> idTipoPoliza)
->>>>>>> 8ab9ccf6659be51bdd3d4c2a196718aca3a9fccd
         {
             var nombreParameter = nombre != null ?
                 new ObjectParameter("nombre", nombre) :
                 new ObjectParameter("nombre", typeof(string));
     
-<<<<<<< HEAD
-            var idCategoriaAdiccionParameter = idCategoriaAdiccion.HasValue ? 
+            var idCategoriaAdiccionParameter = idCategoriaAdiccion.HasValue ?
                 new ObjectParameter("idCategoriaAdiccion", idCategoriaAdiccion) :
                 new ObjectParameter("idCategoriaAdiccion", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdicciones", nombreParameter, idCategoriaAdiccionParameter);
-=======
+        }
+    
+        public virtual int pa_InsertaCoberturaPoliza(string nombre, string desc, Nullable<double> porcentaje, Nullable<int> idTipoPoliza)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
             var descParameter = desc != null ?
                 new ObjectParameter("desc", desc) :
                 new ObjectParameter("desc", typeof(string));
@@ -615,6 +604,19 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaCoberturaPoliza", idCoberturaPolizaParameter, nombreParameter, descripcionParameter, porcentajeParameter, idTipoPolizaParameter);
         }
     
+        public virtual ObjectResult<pa_RetornaCoberturaPoliza_Result> pa_RetornaCoberturaPoliza(string nombreCobertura, string nombreTipoPoliza)
+        {
+            var nombreCoberturaParameter = nombreCobertura != null ?
+                new ObjectParameter("nombreCobertura", nombreCobertura) :
+                new ObjectParameter("nombreCobertura", typeof(string));
+    
+            var nombreTipoPolizaParameter = nombreTipoPoliza != null ?
+                new ObjectParameter("nombreTipoPoliza", nombreTipoPoliza) :
+                new ObjectParameter("nombreTipoPoliza", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCoberturaPoliza_Result>("pa_RetornaCoberturaPoliza", nombreCoberturaParameter, nombreTipoPolizaParameter);
+        }
+    
         public virtual ObjectResult<pa_RetornaCoberturaPolizaID_Result> pa_RetornaCoberturaPolizaID(Nullable<int> id_CoberturaPoliza)
         {
             var id_CoberturaPolizaParameter = id_CoberturaPoliza.HasValue ?
@@ -622,7 +624,6 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("id_CoberturaPoliza", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCoberturaPolizaID_Result>("pa_RetornaCoberturaPolizaID", id_CoberturaPolizaParameter);
->>>>>>> 8ab9ccf6659be51bdd3d4c2a196718aca3a9fccd
         }
     }
 }

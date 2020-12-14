@@ -1035,10 +1035,6 @@
           <FunctionImport Name="pa_RetornaCliente" ReturnType="Collection(AseguradoraBDModel.pa_RetornaCliente_Result)">
           <Parameter Name="idCliente" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="pa_RetornaCoberturaPoliza" ReturnType="Collection(AseguradoraBDModel.pa_RetornaCoberturaPoliza_Result)">
-            <Parameter Name="nombreCobertura" Mode="In" Type="String" />
-            <Parameter Name="nombreTipoPoliza" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="pa_RetornaTipoPoliza" ReturnType="Collection(AseguradoraBDModel.pa_RetornaTipoPoliza_Result)">
           <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
@@ -1086,10 +1082,10 @@
           <FunctionImport Name="pa_RetornaAdicciones" ReturnType="Collection(AseguradoraBDModel.pa_RetornaAdicciones_Result)">
           <Parameter Name="nombre" Mode="In" Type="String" />
           </FunctionImport>
-		  <FunctionImport Name="pa_InsertaAdicciones">
-		    <Parameter Name="nombre" Mode="In" Type="String" />
-		    <Parameter Name="idCategoriaAdiccion" Mode="In" Type="Int32" />
-		  </FunctionImport>
+          <FunctionImport Name="pa_InsertaAdicciones">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="idCategoriaAdiccion" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="pa_InsertaCoberturaPoliza">
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="desc" Mode="In" Type="String" />
@@ -1102,6 +1098,10 @@
             <Parameter Name="descripcion" Mode="In" Type="String" />
             <Parameter Name="porcentaje" Mode="In" Type="Double" />
             <Parameter Name="idTipoPoliza" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaCoberturaPoliza" ReturnType="Collection(AseguradoraBDModel.pa_RetornaCoberturaPoliza_Result)">
+            <Parameter Name="nombreCobertura" Mode="In" Type="String" />
+            <Parameter Name="nombreTipoPoliza" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_RetornaCoberturaPolizaID" ReturnType="Collection(AseguradoraBDModel.pa_RetornaCoberturaPolizaID_Result)">
             <Parameter Name="id_CoberturaPoliza" Mode="In" Type="Int32" />
@@ -1143,15 +1143,6 @@
           <Property Type="String" Name="genero" Nullable="false" MaxLength="1" />
           <Property Type="String" Name="direccionFisica" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="pTelefono" Nullable="false" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="pa_RetornaCoberturaPoliza_Result">
-          <Property Type="Int32" Name="idCoberturaPoliza" Nullable="false" />
-          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
-          <Property Type="Double" Name="porcentaje" Nullable="false" />
-          <Property Type="Int32" Name="idTipoPoliza" Nullable="false" />
-          <Property Type="String" Name="nombreTipoPoliza" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="detalles" Nullable="false" MaxLength="100" />
         </ComplexType>
         <ComplexType Name="pa_RetornaTipoPoliza_Result">
           <Property Type="Int32" Name="idTipoPoliza" Nullable="false" />
@@ -1218,6 +1209,15 @@
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="idAdiccion" Nullable="false" />
           <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaCoberturaPoliza_Result">
+          <Property Type="Int32" Name="idCoberturaPoliza" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
+          <Property Type="Double" Name="porcentaje" Nullable="false" />
+          <Property Type="Int32" Name="idTipoPoliza" Nullable="false" />
+          <Property Type="String" Name="nombreTipoPoliza" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="detalles" Nullable="false" MaxLength="100" />
         </ComplexType>
         <ComplexType Name="pa_RetornaCoberturaPolizaID_Result">
           <Property Type="Int32" Name="idCoberturaPoliza" Nullable="false" />
@@ -1436,19 +1436,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_RetornaCoberturaPoliza" FunctionName="AseguradoraBDModel.Store.pa_RetornaCoberturaPoliza">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaCoberturaPoliza_Result">
-                <ScalarProperty Name="idCoberturaPoliza" ColumnName="idCoberturaPoliza" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
-                <ScalarProperty Name="idTipoPoliza" ColumnName="idTipoPoliza" />
-                <ScalarProperty Name="nombreTipoPoliza" ColumnName="nombreTipoPoliza" />
-                <ScalarProperty Name="detalles" ColumnName="detalles" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_RetornaTipoPoliza" FunctionName="AseguradoraBDModel.Store.pa_RetornaTipoPoliza">
             <ResultMapping>
               <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaTipoPoliza_Result">
@@ -1563,6 +1550,19 @@
           <FunctionImportMapping FunctionImportName="pa_InsertaAdicciones" FunctionName="AseguradoraBDModel.Store.pa_InsertaAdicciones" />
           <FunctionImportMapping FunctionImportName="pa_InsertaCoberturaPoliza" FunctionName="AseguradoraBDModel.Store.pa_InsertaCoberturaPoliza" />
           <FunctionImportMapping FunctionImportName="pa_ModificaCoberturaPoliza" FunctionName="AseguradoraBDModel.Store.pa_ModificaCoberturaPoliza" />
+          <FunctionImportMapping FunctionImportName="pa_RetornaCoberturaPoliza" FunctionName="AseguradoraBDModel.Store.pa_RetornaCoberturaPoliza">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaCoberturaPoliza_Result">
+                <ScalarProperty Name="idCoberturaPoliza" ColumnName="idCoberturaPoliza" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+                <ScalarProperty Name="idTipoPoliza" ColumnName="idTipoPoliza" />
+                <ScalarProperty Name="nombreTipoPoliza" ColumnName="nombreTipoPoliza" />
+                <ScalarProperty Name="detalles" ColumnName="detalles" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_RetornaCoberturaPolizaID" FunctionName="AseguradoraBDModel.Store.pa_RetornaCoberturaPolizaID">
             <ResultMapping>
               <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaCoberturaPolizaID_Result">
