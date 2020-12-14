@@ -42,6 +42,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoTipoP
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtNombre;
 
         /// <summary>
+        /// Control reVtxtNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtNombre;
+
+        /// <summary>
         /// Control Label2.
         /// </summary>
         /// <remarks>
@@ -67,6 +76,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoTipoP
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtDesc;
+
+        /// <summary>
+        /// Control reVtxtDesc.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtDesc;
 
         /// <summary>
         /// Control btAceptar.

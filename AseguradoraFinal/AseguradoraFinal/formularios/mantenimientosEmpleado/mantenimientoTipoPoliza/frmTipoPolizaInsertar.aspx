@@ -12,13 +12,15 @@
                    <asp:Label ID="Label1" runat="server" Text="Nombre:"></asp:Label>
                    <asp:TextBox ID="txtNombre" runat="server" class="form-control"></asp:TextBox>
                    <asp:RequiredFieldValidator ID="rqVtxtNombre" runat="server" ErrorMessage="Debes ingresar un nombre" ControlToValidate="txtNombre" Display="None"></asp:RequiredFieldValidator>
+                   <asp:RegularExpressionValidator ID="reVtxtNombre" runat="server" ErrorMessage="El nombre del tipo de póliza debe ser menor o igual a 50 carácteres." ControlToValidate="txtNombre" Display="None" ValidationExpression="^[\s\S]{1,50}$"></asp:RegularExpressionValidator>
                </div>
        
                <div class="form-group">
                   <asp:Label ID="Label2" runat="server" Text="Descripción:"></asp:Label>   
                   <asp:TextBox ID="txtDesc" runat="server" class="form-control"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="rqVtxtDesc" runat="server" ErrorMessage="Debes ingresar una descripción" Display="None" ControlToValidate="txtDesc"></asp:RequiredFieldValidator>
-                </div>
+                  <asp:RegularExpressionValidator ID="reVtxtDesc" runat="server" ErrorMessage="La descripción del tipo de póliza debe ser menor o igual a 100 carácteres." ControlToValidate="txtDesc" Display="None" ValidationExpression="^[\s\S]{1,100}$"></asp:RegularExpressionValidator>
+               </div>
                <br />
                <br />
 

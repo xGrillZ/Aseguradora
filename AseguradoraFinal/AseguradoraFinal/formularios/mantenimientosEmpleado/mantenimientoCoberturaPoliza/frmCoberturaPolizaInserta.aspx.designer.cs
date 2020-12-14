@@ -51,6 +51,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtNombreCobertura;
 
         /// <summary>
+        /// Control reVtxtNombreCobertura.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtNombreCobertura;
+
+        /// <summary>
         /// Control Label4.
         /// </summary>
         /// <remarks>
@@ -78,6 +87,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtDescCobertura;
 
         /// <summary>
+        /// Control RegularExpressionValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+
+        /// <summary>
         /// Control Label5.
         /// </summary>
         /// <remarks>
@@ -103,6 +121,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtPorcentaje;
+
+        /// <summary>
+        /// Control RegularExpressionValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
 
         /// <summary>
         /// Control Label1.

@@ -7,22 +7,25 @@
         <div class="contenidofrm">
             <form id="frmClienteInserta" runat="server" class="form-inline">
 
-              <h1 class="auto-style1">Mantenimiento de Clientes - Insertar</h1>       
+              <h1 class="auto-style1">Mantenimiento de Cobertura - Insertar</h1>       
 
                <div class="form-group">
                   <asp:Label ID="Label3" runat="server" Text="Nombre Cobertura"></asp:Label>      
                   <asp:TextBox ID="txtNombreCobertura" runat="server" class="form-control"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="rqVtxtNombreCobertura" runat="server"  ControlToValidate="txtNombreCobertura" ErrorMessage="Debes ingresar el nombre de cobertura" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+                  <asp:RegularExpressionValidator ID="reVtxtNombreCobertura" runat="server" ErrorMessage="El nombre de la cobertura debe ser menor o igual a 50 carácteres." ControlToValidate="txtNombreCobertura" Display="None" ValidationExpression="^[\s\S]{1,50}$"></asp:RegularExpressionValidator>
                </div>
                <div class="form-group">
                    <asp:Label ID="Label4" runat="server" Text="Descripción Cobertura"></asp:Label>                 
                    <asp:TextBox ID="txtDescCobertura" runat="server" class="form-control"></asp:TextBox>
                    <asp:RequiredFieldValidator ID="rqVtxtDescCobertura" runat="server"  ControlToValidate="txtDescCobertura" ErrorMessage="Debe ingresar la descripción de cobertura" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="La descripción de la cobertura debe ser menor o igual a 100 carácteres." ControlToValidate="txtDescCobertura" Display="None" ValidationExpression="^[\s\S]{1,100}$"></asp:RegularExpressionValidator>
                </div>           
                <div class="form-group">
                     <asp:Label ID="Label5" runat="server" Text="Porcentaje Cobertura"></asp:Label>
                      <asp:TextBox ID="txtPorcentaje" runat="server" class="form-control"></asp:TextBox>
                      <asp:RequiredFieldValidator ID="rqVtxtPorcentaje" runat="server" ControlToValidate="txtPorcentaje" class="form-control" ErrorMessage="Debe ingresar el porcentaje de cobertura" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+                  <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="El porcentaje de la cobertura debe ser menor o igual a 100%." ControlToValidate="txtPorcentaje" Display="None" ValidationExpression="^[\s\S]{1,100}$"></asp:RegularExpressionValidator>
                </div>
                 <div class="form-group">
                   <asp:Label ID="Label1" runat="server" Text="Tipo Poliza"></asp:Label>
