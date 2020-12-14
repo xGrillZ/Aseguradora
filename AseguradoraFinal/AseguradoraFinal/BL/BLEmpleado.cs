@@ -46,6 +46,8 @@ namespace AseguradoraFinal.BL
 
         }
 
+        
+
         public pa_RetornaUsuarioEmpleadoID_Result retornaUsuarioEmpleadoID(int pIdUsuarioEmpleado)
         {
             ///Creación de la variable que se retornará

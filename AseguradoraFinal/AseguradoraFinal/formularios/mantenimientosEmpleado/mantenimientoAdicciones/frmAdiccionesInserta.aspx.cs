@@ -56,13 +56,13 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                     ///obtener los valores seleccionados por el usuario
                     ///se toman de la propiedad datavaluefield
                     ///tanto del dropdown menu 
-                    int idCategoriaAdiccion = Convert.ToInt16(this.ddlIdCategoria.SelectedValue);
+                    
                     
 
                     ///asignar a la variable el resultado de
                     ///invocar el procedimiento almacenado que se encuentra en el metodo
 
-                    resultado = oAdiccion.InsertaAdicciones(this.txtNombreAdiccion.Text, idCategoriaAdiccion);
+                    resultado = oAdiccion.InsertaAdicciones(this.txtNombreAdiccion.Text, Convert.ToInt16(this.ddlIdCategoria.Text));
                 }
                 ///catch se ejecuta en el caso de que haya una excepcion    
                 ///excepcionCapturada posee los datos de la excepcion

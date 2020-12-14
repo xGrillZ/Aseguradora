@@ -96,16 +96,6 @@
           <Property Name="direccion" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="idTelefono" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
         <EntityType Name="Telefono">
           <Key>
             <PropertyRef Name="idTelefono" />
@@ -476,7 +466,6 @@
           <EntitySet Name="MantAddicionxCliente" EntityType="Self.MantAddicionxCliente" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RegistroPoliza" EntityType="Self.RegistroPoliza" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Telefono" EntityType="Self.Telefono" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoPoliza" EntityType="Self.TipoPoliza" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
@@ -654,16 +643,6 @@
           <NavigationProperty Name="Empleado" Relationship="Self.FK_Empleado_Sucursal" FromRole="Sucursal" ToRole="Empleado" />
           <NavigationProperty Name="RegistroPoliza" Relationship="Self.FK_RegistroPoliza_Sucursal" FromRole="Sucursal" ToRole="RegistroPoliza" />
           <NavigationProperty Name="Telefono" Relationship="Self.FK_Sucursal_Telefono" FromRole="Sucursal" ToRole="Telefono" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Telefono">
           <Key>
@@ -880,7 +859,6 @@
           <EntitySet Name="MantAddicionxCliente" EntityType="Self.MantAddicionxCliente" />
           <EntitySet Name="RegistroPoliza" EntityType="Self.RegistroPoliza" />
           <EntitySet Name="Sucursal" EntityType="Self.Sucursal" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Telefono" EntityType="Self.Telefono" />
           <EntitySet Name="TipoPoliza" EntityType="Self.TipoPoliza" />
           <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" />
@@ -993,10 +971,6 @@
           <FunctionImport Name="pa_EmpleadoSelect" ReturnType="Collection(AseguradoraBDModel.pa_EmpleadoSelect_Result)">
           <Parameter Name="NumCedula" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="pa_InsertaAdicciones">
-            <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="idCategoriaAdiccion" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="pa_InsertaAdiccionesxCliente">
             <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
             <Parameter Name="idCliente" Mode="In" Type="Int32" />
@@ -1100,7 +1074,11 @@
             <Parameter Name="detalles" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_RetornaAdicciones" ReturnType="Collection(AseguradoraBDModel.pa_RetornaAdicciones_Result)">
+          <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_InsertaAdicciones">
             <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="idCategoriaAdiccion" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1326,17 +1304,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="AseguradoraBDModel.sysdiagrams">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Telefono">
             <EntityTypeMapping TypeName="AseguradoraBDModel.Telefono">
               <MappingFragment StoreEntitySet="Telefono">
@@ -1407,7 +1374,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_InsertaAdicciones" FunctionName="AseguradoraBDModel.Store.pa_InsertaAdicciones" />
           <FunctionImportMapping FunctionImportName="pa_InsertaAdiccionesxCliente" FunctionName="AseguradoraBDModel.Store.pa_InsertaAdiccionesxCliente" />
           <FunctionImportMapping FunctionImportName="pa_InsertaTipoPoliza" FunctionName="AseguradoraBDModel.Store.pa_InsertaTipoPoliza" />
           <FunctionImportMapping FunctionImportName="pa_ModificaAdicciones" FunctionName="AseguradoraBDModel.Store.pa_ModificaAdicciones" />
@@ -1577,6 +1543,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_InsertaAdicciones" FunctionName="AseguradoraBDModel.Store.pa_InsertaAdicciones" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

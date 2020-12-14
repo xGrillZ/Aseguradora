@@ -36,7 +36,6 @@ namespace AseguradoraFinal.Modelos
         public DbSet<MantAddicionxCliente> MantAddicionxCliente { get; set; }
         public DbSet<RegistroPoliza> RegistroPoliza { get; set; }
         public DbSet<Sucursal> Sucursal { get; set; }
-        public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<Telefono> Telefono { get; set; }
         public DbSet<TipoPoliza> TipoPoliza { get; set; }
         public DbSet<TipoUsuario> TipoUsuario { get; set; }
@@ -221,19 +220,6 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("NumCedula", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_EmpleadoSelect_Result>("pa_EmpleadoSelect", numCedulaParameter);
-        }
-    
-        public virtual int pa_InsertaAdicciones(string nombre, Nullable<int> idCategoriaAdiccion)
-        {
-            var nombreParameter = nombre != null ?
-                new ObjectParameter("nombre", nombre) :
-                new ObjectParameter("nombre", typeof(string));
-    
-            var idCategoriaAdiccionParameter = idCategoriaAdiccion.HasValue ?
-                new ObjectParameter("idCategoriaAdiccion", idCategoriaAdiccion) :
-                new ObjectParameter("idCategoriaAdiccion", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdicciones", nombreParameter, idCategoriaAdiccionParameter);
         }
     
         public virtual int pa_InsertaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idCliente)
@@ -579,6 +565,19 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("nombre", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdicciones_Result>("pa_RetornaAdicciones", nombreParameter);
+        }
+    
+        public virtual int pa_InsertaAdicciones(string nombre, Nullable<int> idCategoriaAdiccion)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var idCategoriaAdiccionParameter = idCategoriaAdiccion.HasValue ? 
+                new ObjectParameter("idCategoriaAdiccion", idCategoriaAdiccion) :
+                new ObjectParameter("idCategoriaAdiccion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdicciones", nombreParameter, idCategoriaAdiccionParameter);
         }
     }
 }
