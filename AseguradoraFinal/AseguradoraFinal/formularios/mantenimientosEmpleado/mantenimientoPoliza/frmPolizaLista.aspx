@@ -32,6 +32,20 @@
                      <AlternatingRowStyle BackColor="#F7F7F7" />
                      <Columns>
                          <asp:BoundField DataField="nombre" HeaderText="Cobertura" />
+                         <asp:BoundField DataField="nomCliente" HeaderText="Nombre cliente" />
+                         <asp:BoundField DataField="ape1Cliente" HeaderText="Apellido cliente" />
+                         <asp:BoundField DataField="numCedula" HeaderText="Número cédula" />
+                         <asp:BoundField DataField="nomEmpleado" HeaderText="Nombre empleado" />
+                         <asp:BoundField DataField="ape1Empleado" HeaderText="Apellido empleado" />
+                         <asp:BoundField DataField="montoAsegurado" HeaderText="Monto asegurado" />
+                         <asp:BoundField DataField="cantAdicciones" HeaderText="Cantidad adicciones" />
+                         <asp:BoundField DataField="montoAsegurado" HeaderText="Monto asegurado" />
+                         <asp:BoundField DataField="primaAntesImpuestos" HeaderText="Prima antes de impuestos" />
+                         <asp:BoundField DataField="impuestos" HeaderText="Impuestos" />
+                         <asp:BoundField DataField="primaFinal" HeaderText="Prima final" />
+                         <asp:BoundField DataField="fechaRegistro" HeaderText="Fecha registro" />
+                         <asp:BoundField DataField="nomSucursal" HeaderText="Sucursal" />
+                         <asp:BoundField DataField="porcentajePrima" HeaderText="Porcentaje prima" />
                      </Columns>
                      <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                      <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
