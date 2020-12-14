@@ -634,5 +634,26 @@ namespace AseguradoraFinal.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaCoberturaPoliza", idCoberturaPolizaParameter);
         }
+    
+        public virtual ObjectResult<pa_RetornaPoliza_Result> pa_RetornaPoliza(string primerApellidoCliente, string numCedulaCliente, string nombreCoberturaPoliza, Nullable<int> cantAdicciones)
+        {
+            var primerApellidoClienteParameter = primerApellidoCliente != null ?
+                new ObjectParameter("primerApellidoCliente", primerApellidoCliente) :
+                new ObjectParameter("primerApellidoCliente", typeof(string));
+    
+            var numCedulaClienteParameter = numCedulaCliente != null ?
+                new ObjectParameter("numCedulaCliente", numCedulaCliente) :
+                new ObjectParameter("numCedulaCliente", typeof(string));
+    
+            var nombreCoberturaPolizaParameter = nombreCoberturaPoliza != null ?
+                new ObjectParameter("nombreCoberturaPoliza", nombreCoberturaPoliza) :
+                new ObjectParameter("nombreCoberturaPoliza", typeof(string));
+    
+            var cantAdiccionesParameter = cantAdicciones.HasValue ?
+                new ObjectParameter("cantAdicciones", cantAdicciones) :
+                new ObjectParameter("cantAdicciones", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaPoliza_Result>("pa_RetornaPoliza", primerApellidoClienteParameter, numCedulaClienteParameter, nombreCoberturaPolizaParameter, cantAdiccionesParameter);
+        }
     }
 }
