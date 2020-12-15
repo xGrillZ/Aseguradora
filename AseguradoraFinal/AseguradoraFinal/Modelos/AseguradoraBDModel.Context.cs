@@ -740,5 +740,14 @@ namespace AseguradoraFinal.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCategoriaAdicciones_Result>("pa_RetornaCategoriaAdicciones", nombreParameter);
         }
+    
+        public virtual ObjectResult<pa_RetornaPolizaID_Result> pa_RetornaPolizaID(Nullable<int> id_RegistroPoliza)
+        {
+            var id_RegistroPolizaParameter = id_RegistroPoliza.HasValue ?
+                new ObjectParameter("id_RegistroPoliza", id_RegistroPoliza) :
+                new ObjectParameter("id_RegistroPoliza", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaPolizaID_Result>("pa_RetornaPolizaID", id_RegistroPolizaParameter);
+        }
     }
 }

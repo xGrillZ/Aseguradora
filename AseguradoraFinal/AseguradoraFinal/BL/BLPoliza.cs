@@ -43,6 +43,15 @@ namespace AseguradoraFinal.BL
             return resultado;
         }
 
+        public pa_RetornaPolizaID_Result retornaPolizaID(int pIdPoliza)
+        {
+            pa_RetornaPolizaID_Result resultado = new pa_RetornaPolizaID_Result();
+
+            resultado = this.modeloBD.pa_RetornaPolizaID(pIdPoliza).FirstOrDefault();
+
+            return resultado;
+        }
+
         public bool insertaPoliza(int pIdCoberturaPoliza, int pIdCliente, int pIdEmpleado, float pMontoAsegurado,
                                   int pCantAdicciones, float pMontoAdicciones, float pPrimaAntesImpuestos,
                                   float pImpuestos, float pPrimaFinal, DateTime pFechaRegistro, int pIdSucursal, float pPorcentajePrima)

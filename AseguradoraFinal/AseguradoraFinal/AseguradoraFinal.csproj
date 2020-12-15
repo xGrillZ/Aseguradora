@@ -157,6 +157,7 @@
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaModifica.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaInserta.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaLista.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaModifica.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaEliminar.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaInsertar.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaLista.aspx" />
@@ -630,6 +631,13 @@
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaLista.aspx.designer.cs">
       <DependentUpon>frmPolizaLista.aspx</DependentUpon>
     </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaModifica.aspx.cs">
+      <DependentUpon>frmPolizaModifica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaModifica.aspx.designer.cs">
+      <DependentUpon>frmPolizaModifica.aspx</DependentUpon>
+    </Compile>
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaEliminar.aspx.cs">
       <DependentUpon>frmTipoPolizaEliminar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -722,6 +730,9 @@
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\pa_RetornaEmpleadoPoliza_Result.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Modelos\pa_RetornaPolizaID_Result.cs">
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Modelos\pa_RetornaPoliza_Result.cs">

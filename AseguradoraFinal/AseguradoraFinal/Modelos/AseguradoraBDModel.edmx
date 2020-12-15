@@ -442,6 +442,9 @@
           <Parameter Name="numCedulaCliente" Type="nvarchar" Mode="In" />
           <Parameter Name="nombreCoberturaPoliza" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="pa_RetornaPolizaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_RegistroPoliza" Type="int" Mode="In" />
+        </Function>
         <Function Name="pa_RetornaTipoPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
         </Function>
@@ -1018,7 +1021,10 @@
             <Parameter Name="porcentajePrima" Mode="In" Type="Double" />
           </FunctionImport>
           <FunctionImport Name="pa_RetornaCategoriaAdicciones" ReturnType="Collection(AseguradoraBDModel.pa_RetornaCategoriaAdicciones_Result)">
-            <Parameter Name="nombre" Mode="In" Type="String" />
+          <Parameter Name="nombre" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaPolizaID" ReturnType="Collection(AseguradoraBDModel.pa_RetornaPolizaID_Result)">
+            <Parameter Name="id_RegistroPoliza" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1294,6 +1300,30 @@
           <Property Type="Int32" Name="idCategoriaAdiccion" Nullable="false" />
           <Property Type="String" Name="nombreCategoria" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaPolizaID_Result">
+          <Property Type="Int32" Name="idRegistroPoliza" Nullable="false" />
+          <Property Type="Int32" Name="idCoberturaPoliza" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idCliente" Nullable="false" />
+          <Property Type="String" Name="ape1Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape2Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="numCedula" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="idEmpleado" Nullable="false" />
+          <Property Type="String" Name="ape1Empleado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape2Empleado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nomEmpleado" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="montoAsegurado" Nullable="false" />
+          <Property Type="Double" Name="montoAdicciones" Nullable="false" />
+          <Property Type="Int32" Name="cantAdicciones" Nullable="false" />
+          <Property Type="Double" Name="primaAntesImpuestos" Nullable="false" />
+          <Property Type="Double" Name="impuestos" Nullable="false" />
+          <Property Type="Double" Name="primaFinal" Nullable="false" />
+          <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="idSucursal" Nullable="false" />
+          <Property Type="String" Name="nomSucursal" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="porcentajePrima" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1699,6 +1729,34 @@
                 <ScalarProperty Name="idCategoriaAdiccion" ColumnName="idCategoriaAdiccion" />
                 <ScalarProperty Name="nombreCategoria" ColumnName="nombreCategoria" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaPolizaID" FunctionName="AseguradoraBDModel.Store.pa_RetornaPolizaID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaPolizaID_Result">
+                <ScalarProperty Name="idRegistroPoliza" ColumnName="idRegistroPoliza" />
+                <ScalarProperty Name="idCoberturaPoliza" ColumnName="idCoberturaPoliza" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="ape1Cliente" ColumnName="ape1Cliente" />
+                <ScalarProperty Name="ape2Cliente" ColumnName="ape2Cliente" />
+                <ScalarProperty Name="nomCliente" ColumnName="nomCliente" />
+                <ScalarProperty Name="numCedula" ColumnName="numCedula" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="ape1Empleado" ColumnName="ape1Empleado" />
+                <ScalarProperty Name="ape2Empleado" ColumnName="ape2Empleado" />
+                <ScalarProperty Name="nomEmpleado" ColumnName="nomEmpleado" />
+                <ScalarProperty Name="montoAsegurado" ColumnName="montoAsegurado" />
+                <ScalarProperty Name="montoAdicciones" ColumnName="montoAdicciones" />
+                <ScalarProperty Name="cantAdicciones" ColumnName="cantAdicciones" />
+                <ScalarProperty Name="primaAntesImpuestos" ColumnName="primaAntesImpuestos" />
+                <ScalarProperty Name="impuestos" ColumnName="impuestos" />
+                <ScalarProperty Name="primaFinal" ColumnName="primaFinal" />
+                <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+                <ScalarProperty Name="nomSucursal" ColumnName="nomSucursal" />
+                <ScalarProperty Name="porcentajePrima" ColumnName="porcentajePrima" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
