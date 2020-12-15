@@ -12,7 +12,7 @@
                  </div>
                   <div class="form-group">
                       <asp:Label ID="Label2" runat="server" Text="Cobertura poliza:"></asp:Label>
-                      <asp:TextBox ID="txtNumCedula" runat="server" class="form-control" ></asp:TextBox>            
+                      <asp:DropDownList ID="ddlCoberturaPoliza" runat="server"></asp:DropDownList>
                   </div>
                   <div class="form-group">
                       <asp:Label ID="Label4" runat="server" Text="Adicción:"></asp:Label>

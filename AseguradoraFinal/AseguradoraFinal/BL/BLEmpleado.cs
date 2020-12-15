@@ -17,7 +17,7 @@ namespace AseguradoraFinal.BL
         #endregion variableModelo
 
         #region Métodos y funciones
-        public List<pa_RetornaAdicciones_Result> RetornaAdicciones(string nombre ) 
+        public List<pa_RetornaAdicciones_Result> RetornaAdicciones(string nombre=null ) 
         {
             ///Crea variable que retornara
             List<pa_RetornaAdicciones_Result> resultado = new List<pa_RetornaAdicciones_Result>();

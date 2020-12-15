@@ -42,13 +42,13 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Control txtNumCedula.
+        /// Control ddlCoberturaPoliza.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNumCedula;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCoberturaPoliza;
 
         /// <summary>
         /// Control Label4.
