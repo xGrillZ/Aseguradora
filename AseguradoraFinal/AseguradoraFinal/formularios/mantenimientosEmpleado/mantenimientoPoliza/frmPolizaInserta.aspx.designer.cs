@@ -33,6 +33,24 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         protected global::System.Web.UI.WebControls.TextBox txtCedCliente;
 
         /// <summary>
+        /// Control rqVtxtCedCliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtCedCliente;
+
+        /// <summary>
+        /// Control hdIdCliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdIdCliente;
+
+        /// <summary>
         /// Control Label2.
         /// </summary>
         /// <remarks>
@@ -51,6 +69,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         protected global::System.Web.UI.WebControls.DropDownList ddlCoberturaPoliza;
 
         /// <summary>
+        /// Control rqVddlCoberturaPoliza.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVddlCoberturaPoliza;
+
+        /// <summary>
         /// Control Label3.
         /// </summary>
         /// <remarks>
@@ -67,6 +94,24 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMontoAsegurado;
+
+        /// <summary>
+        /// Control rqVtxtMontoAsegurado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtMontoAsegurado;
+
+        /// <summary>
+        /// Control rQtxtMontoAsegurado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator rQtxtMontoAsegurado;
 
         /// <summary>
         /// Control Label5.
@@ -177,6 +222,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         protected global::System.Web.UI.WebControls.TextBox txtFechaRegistro;
 
         /// <summary>
+        /// Control rqVtxtFechaRegistro.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtFechaRegistro;
+
+        /// <summary>
         /// Control Label4.
         /// </summary>
         /// <remarks>
@@ -193,6 +247,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmpleado;
+
+        /// <summary>
+        /// Control hdIdEmpleado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdIdEmpleado;
 
         /// <summary>
         /// Control Label11.
@@ -265,5 +328,14 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hpNuevaPoliza;
+
+        /// <summary>
+        /// Control vsInsertarPoliza.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vsInsertarPoliza;
     }
 }

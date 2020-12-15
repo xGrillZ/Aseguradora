@@ -42,6 +42,30 @@ namespace AseguradoraFinal.BL
 
             return resultado;
         }
+
+        public bool insertaPoliza(int pIdCoberturaPoliza, int pIdCliente, int pIdEmpleado, float pMontoAsegurado,
+                                  int pCantAdicciones, float pMontoAdicciones, float pPrimaAntesImpuestos,
+                                  float pImpuestos, float pPrimaFinal, DateTime pFechaRegistro, int pIdSucursal, float pPorcentajePrima)
+        {
+            ///Variable que posee la cantidad de registros afectados
+            ///al realizar insert/update/delete la cantidad de registros
+            ///afectados debe ser mayor a 0
+            int registrosAfectados = 0;
+
+            ///Invocación del procedimiento almacenado con las variables
+            registrosAfectados = this.modeloBD.pa_InsertaPoliza(pIdCoberturaPoliza, pIdCliente, pIdEmpleado, pMontoAsegurado,
+                                                                pCantAdicciones, pMontoAdicciones, pPrimaAntesImpuestos,
+                                                                pImpuestos, pPrimaFinal, pFechaRegistro, pIdSucursal, pPorcentajePrima);
+
+            if (registrosAfectados > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         #endregion Métodos y funciones
     }
 }

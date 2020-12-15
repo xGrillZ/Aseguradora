@@ -350,6 +350,20 @@
           <Parameter Name="porcentaje" Type="float" Mode="In" />
           <Parameter Name="idTipoPoliza" Type="int" Mode="In" />
         </Function>
+        <Function Name="pa_InsertaPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCoberturaPoliza" Type="int" Mode="In" />
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="idEmpleado" Type="int" Mode="In" />
+          <Parameter Name="montoAsegurado" Type="float" Mode="In" />
+          <Parameter Name="cantAdicciones" Type="int" Mode="In" />
+          <Parameter Name="montoAdicciones" Type="float" Mode="In" />
+          <Parameter Name="primaAntesImpuestos" Type="float" Mode="In" />
+          <Parameter Name="impuestos" Type="float" Mode="In" />
+          <Parameter Name="primaFinal" Type="float" Mode="In" />
+          <Parameter Name="fechaRegistro" Type="datetime" Mode="In" />
+          <Parameter Name="idSucursal" Type="int" Mode="In" />
+          <Parameter Name="porcentajePrima" Type="float" Mode="In" />
+        </Function>
         <Function Name="pa_InsertaTipoPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
           <Parameter Name="detalles" Type="varchar" Mode="In" />
@@ -984,7 +998,21 @@
           <Parameter Name="numCedula" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_RetornaEmpleadoPoliza" ReturnType="Collection(AseguradoraBDModel.pa_RetornaEmpleadoPoliza_Result)">
-            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+          <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_InsertaPoliza">
+            <Parameter Name="idCoberturaPoliza" Mode="In" Type="Int32" />
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="idEmpleado" Mode="In" Type="Int32" />
+            <Parameter Name="montoAsegurado" Mode="In" Type="Double" />
+            <Parameter Name="cantAdicciones" Mode="In" Type="Int32" />
+            <Parameter Name="montoAdicciones" Mode="In" Type="Double" />
+            <Parameter Name="primaAntesImpuestos" Mode="In" Type="Double" />
+            <Parameter Name="impuestos" Mode="In" Type="Double" />
+            <Parameter Name="primaFinal" Mode="In" Type="Double" />
+            <Parameter Name="fechaRegistro" Mode="In" Type="DateTime" />
+            <Parameter Name="idSucursal" Mode="In" Type="Int32" />
+            <Parameter Name="porcentajePrima" Mode="In" Type="Double" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1653,6 +1681,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_InsertaPoliza" FunctionName="AseguradoraBDModel.Store.pa_InsertaPoliza" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

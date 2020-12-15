@@ -678,5 +678,58 @@ namespace AseguradoraFinal.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaEmpleadoPoliza_Result>("pa_RetornaEmpleadoPoliza", idUsuarioParameter);
         }
+    
+        public virtual int pa_InsertaPoliza(Nullable<int> idCoberturaPoliza, Nullable<int> idCliente, Nullable<int> idEmpleado, Nullable<double> montoAsegurado, Nullable<int> cantAdicciones, Nullable<double> montoAdicciones, Nullable<double> primaAntesImpuestos, Nullable<double> impuestos, Nullable<double> primaFinal, Nullable<System.DateTime> fechaRegistro, Nullable<int> idSucursal, Nullable<double> porcentajePrima)
+        {
+            var idCoberturaPolizaParameter = idCoberturaPoliza.HasValue ?
+                new ObjectParameter("idCoberturaPoliza", idCoberturaPoliza) :
+                new ObjectParameter("idCoberturaPoliza", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var idEmpleadoParameter = idEmpleado.HasValue ?
+                new ObjectParameter("idEmpleado", idEmpleado) :
+                new ObjectParameter("idEmpleado", typeof(int));
+    
+            var montoAseguradoParameter = montoAsegurado.HasValue ?
+                new ObjectParameter("montoAsegurado", montoAsegurado) :
+                new ObjectParameter("montoAsegurado", typeof(double));
+    
+            var cantAdiccionesParameter = cantAdicciones.HasValue ?
+                new ObjectParameter("cantAdicciones", cantAdicciones) :
+                new ObjectParameter("cantAdicciones", typeof(int));
+    
+            var montoAdiccionesParameter = montoAdicciones.HasValue ?
+                new ObjectParameter("montoAdicciones", montoAdicciones) :
+                new ObjectParameter("montoAdicciones", typeof(double));
+    
+            var primaAntesImpuestosParameter = primaAntesImpuestos.HasValue ?
+                new ObjectParameter("primaAntesImpuestos", primaAntesImpuestos) :
+                new ObjectParameter("primaAntesImpuestos", typeof(double));
+    
+            var impuestosParameter = impuestos.HasValue ?
+                new ObjectParameter("impuestos", impuestos) :
+                new ObjectParameter("impuestos", typeof(double));
+    
+            var primaFinalParameter = primaFinal.HasValue ?
+                new ObjectParameter("primaFinal", primaFinal) :
+                new ObjectParameter("primaFinal", typeof(double));
+    
+            var fechaRegistroParameter = fechaRegistro.HasValue ?
+                new ObjectParameter("fechaRegistro", fechaRegistro) :
+                new ObjectParameter("fechaRegistro", typeof(System.DateTime));
+    
+            var idSucursalParameter = idSucursal.HasValue ?
+                new ObjectParameter("idSucursal", idSucursal) :
+                new ObjectParameter("idSucursal", typeof(int));
+    
+            var porcentajePrimaParameter = porcentajePrima.HasValue ?
+                new ObjectParameter("porcentajePrima", porcentajePrima) :
+                new ObjectParameter("porcentajePrima", typeof(double));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaPoliza", idCoberturaPolizaParameter, idClienteParameter, idEmpleadoParameter, montoAseguradoParameter, cantAdiccionesParameter, montoAdiccionesParameter, primaAntesImpuestosParameter, impuestosParameter, primaFinalParameter, fechaRegistroParameter, idSucursalParameter, porcentajePrimaParameter);
+        }
     }
 }
