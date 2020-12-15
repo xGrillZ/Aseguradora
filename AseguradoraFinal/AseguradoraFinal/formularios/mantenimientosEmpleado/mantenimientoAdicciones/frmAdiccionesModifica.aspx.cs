@@ -77,15 +77,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
         }
 
-        /*  protected void btAceptar_Click(object sender, EventArgs e)
+          protected void btAceptar_Click(object sender, EventArgs e)
           {
-              this.AlmacenarDatos();
+             // this.AlmacenarDatos();
           }
           /// <summary>
           /// Valida que todas las reglas del formulario se hayan cumplido y procede
           /// a insertar el registro utilizando el procedimiento sp_InsertaCliente
           /// </summary>
-          void AlmacenarDatos()
+        /*  void AlmacenarDatos()
           {
               if (this.IsValid)
               {
