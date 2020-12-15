@@ -105,5 +105,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 this.lblMensaje.Text = mensaje;
             }
         }
+
+       
     }
 }

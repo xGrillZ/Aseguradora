@@ -8,7 +8,7 @@
 
       
        <div class="form-group">
-            <asp:Label ID="Label2" runat="server" Text="Nombre"></asp:Label>
+            <asp:Label ID="Label2" runat="server" Text="Adicción"></asp:Label>
            <asp:DropDownList ID="ddlNombreAdiccion" runat="server" CssClass="form-control" DataValueField="idAdiccion" DataTextField="nombre" Enabled="False"  ></asp:DropDownList>        
       <asp:RequiredFieldValidator ID="rqvNombre" runat="server"  ControlToValidate="ddlNombreAdiccion" ErrorMessage="Debe ingresar el nombre" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
            </div>           
