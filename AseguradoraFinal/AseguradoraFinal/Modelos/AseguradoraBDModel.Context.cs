@@ -749,5 +749,14 @@ namespace AseguradoraFinal.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaPolizaID_Result>("pa_RetornaPolizaID", id_RegistroPolizaParameter);
         }
+    
+        public virtual ObjectResult<pa_RetornaClienteCed_Result> pa_RetornaClienteCed(string numCedula)
+        {
+            var numCedulaParameter = numCedula != null ?
+                new ObjectParameter("numCedula", numCedula) :
+                new ObjectParameter("numCedula", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaClienteCed_Result>("pa_RetornaClienteCed", numCedulaParameter);
+        }
     }
 }

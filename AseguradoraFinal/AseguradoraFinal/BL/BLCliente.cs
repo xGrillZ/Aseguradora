@@ -51,11 +51,20 @@ namespace AseguradoraFinal.BL
             return registrosAfectados > 0;
         }
 
-        public pa_RetornaCliente_Result retornaClientePoliza(string pNumCedula = null)
+        public List<pa_RetornaCliente_Result> retornaClientePoliza(string pNumCedula = null)
         {
-            pa_RetornaCliente_Result resultado = new pa_RetornaCliente_Result();
+            List<pa_RetornaCliente_Result> resultado = new List<pa_RetornaCliente_Result>();
 
-            resultado = this.modeloBD.pa_RetornaCliente(pNumCedula).FirstOrDefault();
+            resultado = this.modeloBD.pa_RetornaCliente(pNumCedula).ToList();
+
+            return resultado;
+        }
+
+        public pa_RetornaClienteCed_Result retornaClienteCedPoliza(string pNumCedula = null)
+        {
+            pa_RetornaClienteCed_Result resultado = new pa_RetornaClienteCed_Result();
+
+            resultado = this.modeloBD.pa_RetornaClienteCed(pNumCedula).FirstOrDefault();
 
             return resultado;
         }

@@ -69,7 +69,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
             BLCliente oCliente = new BLCliente();
 
             ///Creación de la variable que almacena el resultado del procedimiento almacenado
-            pa_RetornaCliente_Result resultadoCliente = oCliente.retornaClientePoliza(this.txtCedCliente.Text);
+            pa_RetornaClienteCed_Result resultadoCliente = oCliente.retornaClienteCedPoliza(this.txtCedCliente.Text);
             ///Creación de la variable que almacena el resultado del procedimiento almacenado
             pa_RetornaAdiccionesCantidad_Result resultadoCantidad = oPoliza.retornaAdiccionesCantidad(resultadoCliente.idCliente);
             ///Inserción del dato obtenido por el procedimiento almacenado
@@ -134,8 +134,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
             this.txtImpuestos.Text = impuestos.ToString();
             float primaFinal = primaAntesImpuestos + impuestos;
             this.txtPrimaFinal.Text = primaFinal.ToString();
-
-
         }
 
         protected void btnPruebaDatos_Click(object sender, EventArgs e)
