@@ -324,7 +324,6 @@
           <Parameter Name="porcentaje" Type="float" Mode="In" />
           <Parameter Name="idTipoPoliza" Type="int" Mode="In" />
         </Function>
-
         <Function Name="pa_EliminaAdicciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idAdiccion" Type="int" Mode="In" />
         </Function>
@@ -432,7 +431,6 @@
           <Parameter Name="primerApellidoCliente" Type="nvarchar" Mode="In" />
           <Parameter Name="numCedulaCliente" Type="nvarchar" Mode="In" />
           <Parameter Name="nombreCoberturaPoliza" Type="nvarchar" Mode="In" />
-          <Parameter Name="cantAdicciones" Type="int" Mode="In" />
         </Function>
         <Function Name="pa_RetornaTipoPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
@@ -1061,14 +1059,13 @@
             <End Role="CategoriaAdicciones" EntitySet="CategoriaAdicciones" />
             <End Role="Adicciones" EntitySet="Adicciones" />
           </AssociationSet>
+          <FunctionImport Name="pa_EliminaAdicciones">
+          <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="pa_RetornaPoliza" ReturnType="Collection(AseguradoraBDModel.pa_RetornaPoliza_Result)">
             <Parameter Name="primerApellidoCliente" Mode="In" Type="String" />
             <Parameter Name="numCedulaCliente" Mode="In" Type="String" />
             <Parameter Name="nombreCoberturaPoliza" Mode="In" Type="String" />
-            <Parameter Name="cantAdicciones" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="pa_EliminaAdicciones">
-            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1619,6 +1616,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="pa_EliminaAdicciones" FunctionName="AseguradoraBDModel.Store.pa_EliminaAdicciones" />
           <FunctionImportMapping FunctionImportName="pa_RetornaPoliza" FunctionName="AseguradoraBDModel.Store.pa_RetornaPoliza">
             <ResultMapping>
               <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaPoliza_Result">
@@ -1648,7 +1646,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_EliminaAdicciones" FunctionName="AseguradoraBDModel.Store.pa_EliminaAdicciones" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
