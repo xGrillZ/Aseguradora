@@ -36,7 +36,8 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
             ///indicarle al dropdownlist que se muestre
 
-            this.ddlNombreAdiccion.DataBind();
+            
+            this.hdIdAdiccion.DataBind();
         }
 
        
@@ -58,10 +59,10 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
                 pa_RetornaAdicciones_Result resultDataAdiccion = new pa_RetornaAdicciones_Result();
 
-                this.ddlNombreAdiccion.SelectedValue = resultDataAdiccion.idAdiccion.ToString();
-
-                ///Asignar al hidden field el valor de llave primaria
                 this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
+
+               
+
 
             }
 
@@ -71,6 +72,8 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         {
             this.AlmacenarDatos();
         }
+
+       
 
         void AlmacenarDatos()
         {
