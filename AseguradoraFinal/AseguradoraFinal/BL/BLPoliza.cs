@@ -24,6 +24,24 @@ namespace AseguradoraFinal.BL
 
             return resultadoPoliza;
         }
+
+        public pa_RetornaAdiccionesCantidad_Result retornaAdiccionesCantidad(int pIdCliente)
+        {
+            pa_RetornaAdiccionesCantidad_Result resultado = new pa_RetornaAdiccionesCantidad_Result();
+
+            resultado = this.modeloBD.pa_RetornaAdiccionesCantidad(pIdCliente).FirstOrDefault();
+
+            return resultado;
+        }
+
+        public pa_RetornaEmpleadoPoliza_Result retornaEmpleadoPoliza(int pIdUsuario)
+        {
+            pa_RetornaEmpleadoPoliza_Result resultado = new pa_RetornaEmpleadoPoliza_Result();
+
+            resultado = this.modeloBD.pa_RetornaEmpleadoPoliza(pIdUsuario).FirstOrDefault();
+
+            return resultado;
+        }
         #endregion Métodos y funciones
     }
 }

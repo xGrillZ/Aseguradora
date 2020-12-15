@@ -51,7 +51,7 @@ namespace AseguradoraFinal.BL
             return registrosAfectados > 0;
         }
 
-        public pa_RetornaCliente_Result retornaClientePoliza(string pNumCedula)
+        public pa_RetornaCliente_Result retornaClientePoliza(string pNumCedula = null)
         {
             pa_RetornaCliente_Result resultado = new pa_RetornaCliente_Result();
 

@@ -21,7 +21,7 @@
                   </div>
                   <div class="form-group">
                       <asp:Label ID="Label5" runat="server" Text="Cantidad adicciones:"></asp:Label>
-                      <asp:TextBox ID="txtCantidadAdicciones" runat="server" class="form-control" ></asp:TextBox>         
+                      <asp:TextBox ID="txtCantidadAdicciones" runat="server" class="form-control" ReadOnly="True" ></asp:TextBox>         
                   </div>
                   <div class="form-group">
                       <asp:Label ID="Label6" runat="server" Text="Monto adicciones:"></asp:Label>
@@ -44,12 +44,18 @@
                       <asp:TextBox ID="txtFechaRegistro" runat="server" class="form-control" ></asp:TextBox>         
                   </div>
                   <div class="form-group">
-                      <asp:Label ID="Label11" runat="server" Text="Sucursal:"></asp:Label>
-                      <asp:TextBox ID="txtSucursal" runat="server" class="form-control" ></asp:TextBox>         
+                      <asp:Label ID="Label4" runat="server" Text="Empleado:"></asp:Label>
+                      <asp:TextBox ID="txtEmpleado" runat="server" class="form-control" ReadOnly="True" ></asp:TextBox>         
                   </div>
                   <div class="form-group">
+                      <asp:Label ID="Label11" runat="server" Text="Sucursal:"></asp:Label>
+                      <asp:TextBox ID="txtSucursal" runat="server" class="form-control" ReadOnly="True" ></asp:TextBox> 
+                  </div>
+                  <div class="form-group">
+                      <asp:HiddenField ID="hdIdSucursal" runat="server" />
+                      <br />
                       <asp:Label ID="Label12" runat="server" Text="Porcentaje cobertura:"></asp:Label>
-                      <asp:TextBox ID="txtPorcentajeCobertura" runat="server" class="form-control" ></asp:TextBox>         
+                      <asp:TextBox ID="txtPorcentajeCobertura" runat="server" class="form-control" ReadOnly="True" ></asp:TextBox>         
                   </div>
                       <br />
                       <asp:Button ID="btnIngresarDatos" runat="server"  Text="Ingresar" class="btn-success" OnClick="btnIngresarDatos_Click"  /> 

@@ -635,15 +635,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaAdicciones", idAdiccionParameter);
         }
     
-        public virtual ObjectResult<pa_RetornaCliente_Result> pa_RetornaCliente(string numCedula)
-        {
-            var numCedulaParameter = numCedula != null ?
-                new ObjectParameter("numCedula", numCedula) :
-                new ObjectParameter("numCedula", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCliente_Result>("pa_RetornaCliente", numCedulaParameter);
-        }
-    
         public virtual ObjectResult<pa_RetornaPoliza_Result> pa_RetornaPoliza(string primerApellidoCliente, string numCedulaCliente, string nombreCoberturaPoliza)
         {
             var primerApellidoClienteParameter = primerApellidoCliente != null ?
@@ -668,6 +659,24 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("idCliente", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionesCantidad_Result>("pa_RetornaAdiccionesCantidad", idClienteParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaCliente_Result> pa_RetornaCliente(string numCedula)
+        {
+            var numCedulaParameter = numCedula != null ?
+                new ObjectParameter("numCedula", numCedula) :
+                new ObjectParameter("numCedula", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCliente_Result>("pa_RetornaCliente", numCedulaParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaEmpleadoPoliza_Result> pa_RetornaEmpleadoPoliza(Nullable<int> idUsuario)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaEmpleadoPoliza_Result>("pa_RetornaEmpleadoPoliza", idUsuarioParameter);
         }
     }
 }

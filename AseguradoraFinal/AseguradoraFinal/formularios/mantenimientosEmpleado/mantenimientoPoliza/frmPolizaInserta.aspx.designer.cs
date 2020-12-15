@@ -177,6 +177,24 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         protected global::System.Web.UI.WebControls.TextBox txtFechaRegistro;
 
         /// <summary>
+        /// Control Label4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+
+        /// <summary>
+        /// Control txtEmpleado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEmpleado;
+
+        /// <summary>
         /// Control Label11.
         /// </summary>
         /// <remarks>
@@ -193,6 +211,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSucursal;
+
+        /// <summary>
+        /// Control hdIdSucursal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdIdSucursal;
 
         /// <summary>
         /// Control Label12.

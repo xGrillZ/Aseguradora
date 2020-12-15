@@ -17,6 +17,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
             {
                 this.cargaListaCoberturaPoliza();
                 this.cargaDocCoberturaPoliza();
+                this.cargaDocEmpleado();
             }
         }
 
@@ -59,23 +60,39 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         /// </summary>
         void cargaDocAdicciones()
         {
-            ///Creación de la instancia a la clase BLAdicciones
-            BLEmpleado oAdicciones = new BLEmpleado();
-
+            ///Creación de la instancia a la clase BLPoliza
+            BLPoliza oPoliza = new BLPoliza();
+            ///Creación de la instancia a la clase BLCliente
             BLCliente oCliente = new BLCliente();
 
+            ///Creación de la variable que almacena el resultado del procedimiento almacenado
+            pa_RetornaCliente_Result resultadoCliente = oCliente.retornaClientePoliza(this.txtCedCliente.Text);
+            ///Creación de la variable que almacena el resultado del procedimiento almacenado
+            pa_RetornaAdiccionesCantidad_Result resultadoCantidad = oPoliza.retornaAdiccionesCantidad(resultadoCliente.idCliente);
+            ///Inserción del dato obtenido por el procedimiento almacenado
+            this.txtCantidadAdicciones.Text = resultadoCantidad.cantAdiccion.ToString();
 
-
-
+            if (resultadoCliente == null)
+            {
+                this.txtCantidadAdicciones.Text = "0";
+            }
         }
 
         /// <summary>
         /// Carga la información de cliente
         /// </summary>
-        void cargaDocCliente()
+        void cargaDocEmpleado()
         {
-            ///Creación de la instancia a la clase BLAdicciones
-            BLEmpleado oAdicciones = new BLEmpleado();
+            ///Creación de la instancia a la clase BLEmpleado
+            BLPoliza oEmpleado = new BLPoliza();
+
+            int dataUser = int.Parse(Session["idusuario"].ToString());
+
+            pa_RetornaEmpleadoPoliza_Result resultadoEmpleado = oEmpleado.retornaEmpleadoPoliza(dataUser);
+
+            this.txtEmpleado.Text = resultadoEmpleado.nomEmpleado;
+            this.txtSucursal.Text = resultadoEmpleado.nomSucursal;
+            this.hdIdSucursal.Value = resultadoEmpleado.idSucursal.ToString();
 
 
         }
@@ -83,6 +100,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         protected void btnPruebaDatos_Click(object sender, EventArgs e)
         {
             this.cargaDocCoberturaPoliza();
+            this.cargaDocAdicciones();
         }
     }
 }
