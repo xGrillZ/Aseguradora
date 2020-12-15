@@ -53,24 +53,16 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             {
                 int idAdiccion = Convert.ToInt16(parametro);
 
+
                 BLEmpleado oAdiccionElimina = new BLEmpleado();
 
                 pa_RetornaAdicciones_Result resultDataAdiccion = new pa_RetornaAdicciones_Result();
 
-                resultDataAdiccion = oAdiccionElimina.RetornaAdicciones(idAdiccion);
+                this.ddlNombreAdiccion.SelectedValue = resultDataAdiccion.idAdiccion.ToString();
 
-                if (resultDataAdiccion == null)
-                {
-                    Response.Redirect("frmAdiccionesLista.aspx");
-                }
-                else
-                {
-                    this.ddlNombreAdiccion.SelectedValue = resultDataAdiccion.idAdiccion.ToString();
+                ///Asignar al hidden field el valor de llave primaria
+                this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
 
-
-                    ///Asignar al hidden field el valor de llave primaria
-                    this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
-                }
             }
 
         }
@@ -89,9 +81,9 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 string mensaje = "";
                 try
                 {
-                    int IdAdiccion = Convert.ToInt16(this.hdIdAdiccion.Value);
+                    int idAdiccion = Convert.ToInt16(this.hdIdAdiccion.Value);
 
-                    resultado = oElimina.EliminaAdicciones(hdIdAdiccion);
+                    resultado = oElimina.EliminaAdicciones(idAdiccion);
                 }
                 ///catch: se ejecuta en el caso de que haya una excepcion
                 ///excepcionCapturada: posee los datos de la excepción
