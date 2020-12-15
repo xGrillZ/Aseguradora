@@ -11,12 +11,8 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
     public partial class frmAdiccionesInserta : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-            
-                      
+        {        
             this.cargaListaIdCategoriaAdiccion();
-
         }
         
         void cargaListaIdCategoriaAdiccion()
