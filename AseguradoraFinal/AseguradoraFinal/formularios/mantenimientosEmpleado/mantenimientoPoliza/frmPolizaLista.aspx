@@ -38,8 +38,7 @@
                          <asp:BoundField DataField="nomEmpleado" HeaderText="Nombre empleado" />
                          <asp:BoundField DataField="ape1Empleado" HeaderText="Apellido empleado" />
                          <asp:BoundField DataField="montoAsegurado" HeaderText="Monto asegurado" />
-                         <asp:BoundField DataField="cantAdicciones" HeaderText="Cantidad adicciones" />
-                         <asp:BoundField DataField="montoAsegurado" HeaderText="Monto asegurado" />
+                         <asp:BoundField DataField="cantidadAdicciones" HeaderText="Cantidad adicciones" />
                          <asp:BoundField DataField="primaAntesImpuestos" HeaderText="Prima antes de impuestos" />
                          <asp:BoundField DataField="impuestos" HeaderText="Impuestos" />
                          <asp:BoundField DataField="primaFinal" HeaderText="Prima final" />

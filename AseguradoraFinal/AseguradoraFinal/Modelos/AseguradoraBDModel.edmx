@@ -1258,8 +1258,7 @@
           <Property Type="String" Name="nomEmpleado" Nullable="false" MaxLength="50" />
           <Property Type="Int32" Name="idAdiccion" Nullable="false" />
           <Property Type="Double" Name="montoAsegurado" Nullable="false" />
-          <Property Type="Int32" Name="cantAdicciones" Nullable="false" />
-          <Property Type="Double" Name="montoAsegurado1" Nullable="false" />
+          <Property Type="Int32" Name="cantidadAdicciones" Nullable="true" />
           <Property Type="Double" Name="primaAntesImpuestos" Nullable="false" />
           <Property Type="Double" Name="impuestos" Nullable="false" />
           <Property Type="Double" Name="primaFinal" Nullable="false" />
@@ -1634,8 +1633,7 @@
                 <ScalarProperty Name="nomEmpleado" ColumnName="nomEmpleado" />
                 <ScalarProperty Name="idAdiccion" ColumnName="idAdiccion" />
                 <ScalarProperty Name="montoAsegurado" ColumnName="montoAsegurado" />
-                <ScalarProperty Name="cantAdicciones" ColumnName="cantAdicciones" />
-                <ScalarProperty Name="montoAsegurado1" ColumnName="montoAsegurado1" />
+                <ScalarProperty Name="cantidadAdicciones" ColumnName="cantidadAdicciones" />
                 <ScalarProperty Name="primaAntesImpuestos" ColumnName="primaAntesImpuestos" />
                 <ScalarProperty Name="impuestos" ColumnName="impuestos" />
                 <ScalarProperty Name="primaFinal" ColumnName="primaFinal" />

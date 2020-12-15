@@ -27,7 +27,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
             BLPoliza oPoliza = new BLPoliza();
             ///Creación de la variable, la cuál obtendrá los datos
             List<pa_RetornaPoliza_Result> fuenteDatos = oPoliza.retornaPoliza(this.txtPriApeCliente.Text, this.txtNumCedula.Text,
-                                                                              this.txtNombreCobertura.Text, Convert.ToInt16(this.txtNumAdicciones.Text));
+                                                                              this.txtNombreCobertura.Text);
 
             ///Agregar al GridView una fuente de datos
             this.grdListaPoliza.DataSource = fuenteDatos;
