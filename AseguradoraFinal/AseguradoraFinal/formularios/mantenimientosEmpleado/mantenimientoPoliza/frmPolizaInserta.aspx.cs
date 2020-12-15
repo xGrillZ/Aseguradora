@@ -16,7 +16,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
             if (!this.IsPostBack)
             {
                 this.cargaListaCoberturaPoliza();
-                this.cargaListaAdicciones();
                 this.cargaDocCoberturaPoliza();
             }
         }
@@ -42,21 +41,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         }
 
         /// <summary>
-        /// Carga la lista de adicciones
-        /// </summary>
-        void cargaListaAdicciones()
-        {
-            ///Creación de la instancia a la clase BLEmpleado
-            BLEmpleado oAdicciones = new BLEmpleado();
-
-            ///indicarle al dropdownlist la fuente de datos
-            this.ddlAdiccion.DataSource = oAdicciones.RetornaAdicciones();
-
-            ///indicarle al dropdownlist que se muestre
-            this.ddlAdiccion.DataBind();
-        }
-
-        /// <summary>
         /// Carga la información de cobertura póliza
         /// </summary>
         void cargaDocCoberturaPoliza()
@@ -64,7 +48,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
             ///Creación de la instancia a la clase BLCoberturaPoliza
             BLCoberturaPoliza oCoberturaPoliza = new BLCoberturaPoliza();
 
-            pa_RetornaCoberturaPolizaID_Result resultado = oCoberturaPoliza.retornaCoberturaPolizaID(Convert.ToInt32(this.ddlCoberturaPoliza.SelectedValue));
+            pa_RetornaCoberturaPolizaID_Result resultado = oCoberturaPoliza.retornaCoberturaPolizaID(Convert.ToInt16(this.ddlCoberturaPoliza.SelectedValue));
 
             this.txtPorcentajeCobertura.Text = resultado.porcentaje.ToString();
 
@@ -94,6 +78,11 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
             BLEmpleado oAdicciones = new BLEmpleado();
 
 
+        }
+
+        protected void btnPruebaDatos_Click(object sender, EventArgs e)
+        {
+            this.cargaDocCoberturaPoliza();
         }
     }
 }

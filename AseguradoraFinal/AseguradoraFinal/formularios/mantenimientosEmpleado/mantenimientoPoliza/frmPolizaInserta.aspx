@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/AseguradoraPagMaestra.Master" AutoEventWireup="true" CodeBehind="frmPolizaInserta.aspx.cs" Inherits="AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliza.frmPolizaInserta" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoPrincipal" runat="server">
     <section class="poliza-Inserta">
@@ -12,11 +13,7 @@
                  </div>
                   <div class="form-group">
                       <asp:Label ID="Label2" runat="server" Text="Cobertura poliza:"></asp:Label>
-                      <asp:DropDownList ID="ddlCoberturaPoliza" runat="server"></asp:DropDownList>
-                  </div>
-                  <div class="form-group">
-                      <asp:Label ID="Label4" runat="server" Text="Adicción:"></asp:Label>
-                      <asp:DropDownList ID="ddlAdiccion" runat="server"></asp:DropDownList>           
+                      <asp:DropDownList ID="ddlCoberturaPoliza" runat="server" DataTextField="nombre" DataValueField="idCoberturaPoliza"></asp:DropDownList>
                   </div>
                   <div class="form-group">
                       <asp:Label ID="Label3" runat="server" Text="Monto asegurado:"></asp:Label>
@@ -56,8 +53,9 @@
                   </div>
                       <br />
                       <asp:Button ID="btnIngresarDatos" runat="server"  Text="Ingresar" class="btn-success" OnClick="btnIngresarDatos_Click"  /> 
+                      <asp:Button ID="btnTestDatos" runat="server"  Text="Test" class="btn-success" OnClick="btnPruebaDatos_Click"  /> 
                  &nbsp;
-                     <asp:HyperLink ID="hpNuevaPoliza" runat="server" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoCoberturaPoliza/frmCoberturaPolizaInserta.aspx">Ingresar nueva póliza</asp:HyperLink>
+                     <asp:HyperLink ID="hpNuevaPoliza" runat="server" NavigateUrl="/formularios/mantenimientosEmpleado/mantenimientoPoliza/frmPolizaInserta.aspx">Ingresar nueva póliza</asp:HyperLink>
                  <br />
                  <br />
                  <br />

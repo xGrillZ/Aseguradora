@@ -644,15 +644,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCliente_Result>("pa_RetornaCliente", numCedulaParameter);
         }
     
-        public virtual ObjectResult<Nullable<int>> pa_RetornaAdiccionesxClienteCantidad(Nullable<int> idCliente)
-        {
-            var idClienteParameter = idCliente.HasValue ?
-                new ObjectParameter("idCliente", idCliente) :
-                new ObjectParameter("idCliente", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pa_RetornaAdiccionesxClienteCantidad", idClienteParameter);
-        }
-    
         public virtual ObjectResult<pa_RetornaPoliza_Result> pa_RetornaPoliza(string primerApellidoCliente, string numCedulaCliente, string nombreCoberturaPoliza)
         {
             var primerApellidoClienteParameter = primerApellidoCliente != null ?
@@ -668,6 +659,24 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("nombreCoberturaPoliza", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaPoliza_Result>("pa_RetornaPoliza", primerApellidoClienteParameter, numCedulaClienteParameter, nombreCoberturaPolizaParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> pa_RetornaAdiccionesxClienteCantidad(Nullable<int> idCliente)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pa_RetornaAdiccionesxClienteCantidad", idClienteParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> pa_RetornaAdiccionClienteCantidad(Nullable<int> idCliente)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pa_RetornaAdiccionClienteCantidad", idClienteParameter);
         }
     }
 }
