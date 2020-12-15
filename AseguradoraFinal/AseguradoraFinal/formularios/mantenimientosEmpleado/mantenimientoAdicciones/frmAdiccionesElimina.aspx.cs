@@ -37,7 +37,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             ///indicarle al dropdownlist que se muestre
 
             
-            this.hdIdAdiccion.DataBind();
+            this.ddlNombreAdiccion.DataBind();
         }
 
        
