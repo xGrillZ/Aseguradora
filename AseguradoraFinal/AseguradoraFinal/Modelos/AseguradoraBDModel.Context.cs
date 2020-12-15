@@ -731,5 +731,14 @@ namespace AseguradoraFinal.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaPoliza", idCoberturaPolizaParameter, idClienteParameter, idEmpleadoParameter, montoAseguradoParameter, cantAdiccionesParameter, montoAdiccionesParameter, primaAntesImpuestosParameter, impuestosParameter, primaFinalParameter, fechaRegistroParameter, idSucursalParameter, porcentajePrimaParameter);
         }
+    
+        public virtual ObjectResult<pa_RetornaCategoriaAdicciones_Result> pa_RetornaCategoriaAdicciones(string nombre)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCategoriaAdicciones_Result>("pa_RetornaCategoriaAdicciones", nombreParameter);
+        }
     }
 }

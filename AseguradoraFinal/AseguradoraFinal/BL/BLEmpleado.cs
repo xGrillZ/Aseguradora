@@ -27,6 +27,15 @@ namespace AseguradoraFinal.BL
             return resultado;
         }
 
+        public List<pa_RetornaCategoriaAdicciones_Result> retornaCategoriaAdicciones(string pNombre = null)
+        {
+            List<pa_RetornaCategoriaAdicciones_Result> resultado = new List<pa_RetornaCategoriaAdicciones_Result>();
+
+            resultado = this.modeloBD.pa_RetornaCategoriaAdicciones(pNombre).ToList();
+
+            return resultado;
+        }
+
         public bool InsertaAdicciones(string nombre, int idCategoriaAdiccion)
         {
 

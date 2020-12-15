@@ -12,15 +12,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
     {
         protected void Page_Load(object sender, EventArgs e)
         {        
-            this.cargaListaIdCategoriaAdiccion();
+            this.cargaListCategoriaAdicciones();
         }
         
-        void cargaListaIdCategoriaAdiccion()
+        void cargaListCategoriaAdicciones()
         {
 
             BLEmpleado oIdCategoria = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
-            this.ddlIdCategoria.DataSource = oIdCategoria.RetornaAdicciones(null);
+            this.ddlIdCategoria.DataSource = oIdCategoria.retornaCategoriaAdicciones(null);
 
 
             ///indicarle al dropdownlist que se muestre
