@@ -14,9 +14,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         {
 
             this.cargaListaIdAdiccion();
-            this.cargaListaNombre();
-            this.cargaListaCodigo();
-            this.cargaListaIdCategoriaAdiccion();
+            
 
         }
         /// <summary>
@@ -35,47 +33,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
         }
 
-        /// <summary>
-        /// Carga la lista de Nombre de adicción
-        /// </summary>
-        void cargaListaNombre()
-        {
-
-            BLEmpleado oNombreAdiccion = new BLEmpleado();
-            ///indicarle al dropdownlist la fuente de datos
-            this.ddlNombreAdiccion.DataSource = oNombreAdiccion.RetornaAdicciones(null);
-
-
-            ///indicarle al dropdownlist que se muestre
-            this.ddlNombreAdiccion.DataBind();
-
-        }
-
-        void cargaListaCodigo()
-        {
-
-            BLEmpleado oCodigoAdiccion = new BLEmpleado();
-            ///indicarle al dropdownlist la fuente de datos
-            this.ddlCodigoAdiccion.DataSource = oCodigoAdiccion.RetornaAdicciones(null);
-
-
-            ///indicarle al dropdownlist que se muestre
-            this.ddlCodigoAdiccion.DataBind();
-
-        }
-
-        void cargaListaIdCategoriaAdiccion()
-        {
-
-            BLEmpleado oIdCategoria = new BLEmpleado();
-            ///indicarle al dropdownlist la fuente de datos
-            this.ddlIdCategoria.DataSource = oIdCategoria.RetornaAdicciones(null);
-
-
-            ///indicarle al dropdownlist que se muestre
-            this.ddlIdCategoria.DataBind();
-
-        }
+             
 
           protected void btAceptar_Click(object sender, EventArgs e)
           {
