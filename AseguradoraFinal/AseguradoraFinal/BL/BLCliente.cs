@@ -50,6 +50,15 @@ namespace AseguradoraFinal.BL
             ///Retorna la variable de registros afectados
             return registrosAfectados > 0;
         }
+
+        public pa_RetornaCliente_Result retornaClientePoliza(string pNumCedula)
+        {
+            pa_RetornaCliente_Result resultado = new pa_RetornaCliente_Result();
+
+            resultado = this.modeloBD.pa_RetornaCliente(pNumCedula).FirstOrDefault();
+
+            return resultado;
+        }
         #endregion Métodos y funciones
     }
 }

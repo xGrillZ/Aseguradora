@@ -13,6 +13,7 @@ namespace AseguradoraFinal.Modelos
     
     public partial class pa_RetornaCliente_Result
     {
+        public int idCliente { get; set; }
         public string nomCliente { get; set; }
         public string ape1Cliente { get; set; }
         public string ape2Cliente { get; set; }

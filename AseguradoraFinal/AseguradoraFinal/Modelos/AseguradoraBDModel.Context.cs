@@ -32,14 +32,14 @@ namespace AseguradoraFinal.Modelos
         public DbSet<CoberturaPoliza> CoberturaPoliza { get; set; }
         public DbSet<Empleado> Empleado { get; set; }
         public DbSet<MantAddicionxCliente> MantAddicionxCliente { get; set; }
-        public DbSet<RegistroPoliza> RegistroPoliza { get; set; }
         public DbSet<Sucursal> Sucursal { get; set; }
         public DbSet<Telefono> Telefono { get; set; }
         public DbSet<TipoPoliza> TipoPoliza { get; set; }
         public DbSet<TipoUsuario> TipoUsuario { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
-        public DbSet<Adicciones> Adicciones { get; set; }
         public DbSet<CategoriaAdicciones> CategoriaAdicciones { get; set; }
+        public DbSet<Adicciones> Adicciones { get; set; }
+        public DbSet<RegistroPoliza> RegistroPoliza { get; set; }
     
         public virtual ObjectResult<pa_AdiccionesxClienteSelect_Result> pa_AdiccionesxClienteSelect(string adiccion, string nombreCliente, string numCedula, string genero)
         {
@@ -635,6 +635,24 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaAdicciones", idAdiccionParameter);
         }
     
+        public virtual ObjectResult<pa_RetornaCliente_Result> pa_RetornaCliente(string numCedula)
+        {
+            var numCedulaParameter = numCedula != null ?
+                new ObjectParameter("numCedula", numCedula) :
+                new ObjectParameter("numCedula", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCliente_Result>("pa_RetornaCliente", numCedulaParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> pa_RetornaAdiccionesxClienteCantidad(Nullable<int> idCliente)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pa_RetornaAdiccionesxClienteCantidad", idClienteParameter);
+        }
+    
         public virtual ObjectResult<pa_RetornaPoliza_Result> pa_RetornaPoliza(string primerApellidoCliente, string numCedulaCliente, string nombreCoberturaPoliza)
         {
             var primerApellidoClienteParameter = primerApellidoCliente != null ?
@@ -650,15 +668,6 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("nombreCoberturaPoliza", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaPoliza_Result>("pa_RetornaPoliza", primerApellidoClienteParameter, numCedulaClienteParameter, nombreCoberturaPolizaParameter);
-        }
-    
-        public virtual ObjectResult<pa_RetornaCliente_Result> pa_RetornaCliente(string numCedula)
-        {
-            var numCedulaParameter = numCedula != null ?
-                new ObjectParameter("numCedula", numCedula) :
-                new ObjectParameter("numCedula", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaCliente_Result>("pa_RetornaCliente", numCedulaParameter);
         }
     }
 }

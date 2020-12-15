@@ -26,7 +26,7 @@ namespace AseguradoraFinal.Modelos
         public int idTelefono { get; set; }
     
         public virtual ICollection<Empleado> Empleado { get; set; }
-        public virtual ICollection<RegistroPoliza> RegistroPoliza { get; set; }
         public virtual Telefono Telefono { get; set; }
+        public virtual ICollection<RegistroPoliza> RegistroPoliza { get; set; }
     }
 }

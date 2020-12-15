@@ -78,6 +78,21 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
             ///Creación de la instancia a la clase BLAdicciones
             BLEmpleado oAdicciones = new BLEmpleado();
 
+            BLCliente oCliente = new BLCliente();
+
+
+
+
+        }
+
+        /// <summary>
+        /// Carga la información de cliente
+        /// </summary>
+        void cargaDocCliente()
+        {
+            ///Creación de la instancia a la clase BLAdicciones
+            BLEmpleado oAdicciones = new BLEmpleado();
+
 
         }
     }
