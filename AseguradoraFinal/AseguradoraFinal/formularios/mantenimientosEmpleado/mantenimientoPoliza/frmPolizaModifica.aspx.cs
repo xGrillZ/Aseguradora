@@ -21,11 +21,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
             }
         }
 
-        protected void btnIngresarDatos_Click(object sender, EventArgs e)
-        {
-
-        }
-
         /// <summary>
         /// Valida que todas las reglas del formulario se hayan cumplido y procede
         /// a insertar el registro utilizando el procedimiento sp_ModificaPoliza
@@ -46,6 +41,11 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
 
                 ///Creación de una lista el cuál contiene el resultado de datos
                 List<pa_RetornaCliente_Result> listaRetornaCliente = oCliente.retornaClientePoliza(null);
+                pa_RetornaPolizaID_Result resultadoPolizaID = new pa_RetornaPolizaID_Result();
+
+                int pPolizaID = Convert.ToInt16(hdIdRegistroPoliza.Value);
+
+                resultadoPolizaID = oPoliza.retornaPolizaID(pPolizaID);
 
                 ///Contador para el resultado
                 int contadorCobertura = 0;
@@ -65,17 +65,38 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
                         }
                         else
                         {
-                         /*   ///obtener los valores seleccionados por el usuario
-                            ///se toman de la propiedad datavaluefield
-                            ///tanto del dropdownlist como del listbox
-                            int id_TipoPoliza = Convert.ToInt16(this.ddl_TipoPoliza.SelectedValue);
-                            //obtener el valor del hidden field 
-                            int id_CoberturaPoliza = Convert.ToInt16(this.hdidCoberturaPoliza.Value);
-                            ///asignar a la variable el resultado de 
-                            ///invocar el procedimiento almacenado
-                            resultado = oCoberturaPoliza.modificaCoberturaPoliza(id_CoberturaPoliza, this.txtNombreCobertura.Text,
-                                                                                 this.txtDescCobertura.Text, float.Parse(this.txtPorcentajeCobertura.Text),
-                                                                                 id_TipoPoliza);*/
+                            if (DateTime.Now < resultadoPolizaID.fechaRegistro)
+                            {
+                                ///obtener los valores seleccionados por el usuario
+                                ///se toman de la propiedad datavaluefield
+                                ///tanto del dropdownlist como del listbox
+                                int idCoberturaPoliza = Convert.ToInt16(this.ddlCoberturaPoliza.SelectedValue);
+                                int idCliente = Convert.ToInt16(this.hdIdCliente.Value);
+                                int idEmpleado = Convert.ToInt16(this.hdIdEmpleado.Value);
+                                float montoAsegurado = float.Parse(this.txtMontoAsegurado.Text);
+                                float primaAntesImpuestos = float.Parse(this.txtPrimaAntesImpuestos.Text);
+                                float impuestos = float.Parse(this.txtImpuestos.Text);
+                                float primaFinal = float.Parse(this.txtPrimaFinal.Text);
+                                DateTime fecha = Convert.ToDateTime(txtFechaRegistro.Text);
+                                int idSucursal = Convert.ToInt16(this.hdIdSucursal.Value);
+                                float porcentajePrima = float.Parse(this.txtPorcentajeCobertura.Text);
+                                int cantAdicciones = Convert.ToInt16(this.txtCantidadAdicciones.Text);
+                                float montoAdicciones = float.Parse(this.txtMontoAdicciones.Text);
+                                //obtener el valor del hidden field 
+                                int id_RegistroPoliza = Convert.ToInt16(this.hdIdRegistroPoliza.Value);
+                                ///asignar a la variable el resultado de 
+                                ///invocar el procedimiento almacenado
+                                resultado = oPoliza.modificaPoliza(id_RegistroPoliza, idCoberturaPoliza, idCliente, idEmpleado,
+                                                                   montoAsegurado, cantAdicciones, montoAdicciones, primaAntesImpuestos,
+                                                                   impuestos, primaFinal, fecha, idSucursal, porcentajePrima);
+                            }
+                            else
+                            {
+                                ///Generación del mensaje de error
+                                mensaje = "La fecha de la póliza se encuentra vencida, no puede ser modificada.";
+                                ///Mostrar mensaje
+                                Response.Write("<script>alert('" + mensaje + "')</script>");
+                            }
                         }
                     }
 
@@ -84,7 +105,10 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
                 ///excepcionCapturada: posee los datos de la excepción
                 catch (Exception excepcionCapturada)
                 {
+                    ///Generación del mensaje
                     mensaje += $"Ocurrió un error: {excepcionCapturada.Message}";
+                    ////mostrar el mensaje
+                    Response.Write("<script>alert('" + mensaje + "')</script>");
                 }
                 ///finally: siempre se ejecuta (se atrape o no la excepción)
                 finally
@@ -99,8 +123,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
                         Response.Write("<script>alert('" + mensaje + "')</script>");
                     }
                 }
-                ///mostrar el mensaje
-                Response.Write("<script>alert('" + mensaje + "')</script>");
             }
         }
 
@@ -274,6 +296,11 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
                 }
             }
 
+        }
+
+        protected void btnModificarDatos_Click(object sender, EventArgs e)
+        {
+            this.AlmacenarDatos();
         }
     }
 }

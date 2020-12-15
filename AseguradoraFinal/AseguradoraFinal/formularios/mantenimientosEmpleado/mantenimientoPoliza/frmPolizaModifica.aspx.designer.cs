@@ -321,13 +321,13 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         protected global::System.Web.UI.WebControls.TextBox txtPorcentajeCobertura;
 
         /// <summary>
-        /// Control btnIngresarDatos.
+        /// Control btnModificarDatos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnIngresarDatos;
+        protected global::System.Web.UI.WebControls.Button btnModificarDatos;
 
         /// <summary>
         /// Control btnCacularDatos.

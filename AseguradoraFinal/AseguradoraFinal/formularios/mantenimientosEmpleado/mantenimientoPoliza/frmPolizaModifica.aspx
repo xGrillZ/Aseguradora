@@ -67,7 +67,7 @@
                       <asp:TextBox ID="txtPorcentajeCobertura" runat="server" class="form-control" ReadOnly="True" ></asp:TextBox>         
                   </div>
                       <br />
-                      <asp:Button ID="btnIngresarDatos" runat="server"  Text="Ingresar" class="btn-success" OnClick="btnIngresarDatos_Click"  /> 
+                      <asp:Button ID="btnModificarDatos" runat="server"  Text="Modificar" class="btn-success" OnClick="btnModificarDatos_Click"  /> 
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                       <asp:Button ID="btnCacularDatos" runat="server"  Text="Calcular" class="btn-success" OnClick="btnCalcularDatos_Click"  /> 
                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
