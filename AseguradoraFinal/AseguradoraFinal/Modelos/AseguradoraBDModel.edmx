@@ -371,6 +371,11 @@
           <Parameter Name="nombre" Type="varchar" Mode="In" />
           <Parameter Name="detalles" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="pa_InsertaUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="contrasena" Type="nvarchar" Mode="In" />
+          <Parameter Name="idTipoUsuario" Type="int" Mode="In" />
+          <Parameter Name="correoElectronico" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="pa_ModificaAdicciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idAdiccion" Type="int" Mode="In" />
           <Parameter Name="nombre" Type="nvarchar" Mode="In" />
@@ -502,6 +507,9 @@
         </Function>
         <Function Name="pa_RetornaUsuarioClienteID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idUsuario" Type="int" Mode="In" />
+        </Function>
+        <Function Name="pa_RetornaUsuarioCorreo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="correoElectronico" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="pa_RetornaUsuarioCorreoPwd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="contrasena" Type="varchar" Mode="In" />
@@ -1096,7 +1104,15 @@
             <Parameter Name="generoCliente" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_RetornaTipoUsuario" ReturnType="Collection(AseguradoraBDModel.pa_RetornaTipoUsuario_Result)">
-            <Parameter Name="rol" Mode="In" Type="String" />
+          <Parameter Name="rol" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_InsertaUsuario">
+            <Parameter Name="contrasena" Mode="In" Type="String" />
+            <Parameter Name="idTipoUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="correoElectronico" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaUsuarioCorreo" ReturnType="Collection(AseguradoraBDModel.pa_RetornaUsuarioCorreo_Result)">
+            <Parameter Name="correoElectronico" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1427,6 +1443,12 @@
         <ComplexType Name="pa_RetornaTipoUsuario_Result">
           <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
           <Property Type="String" Name="rol" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaUsuarioCorreo_Result">
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="String" Name="contrasena" Nullable="false" MaxLength="15" />
+          <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1906,6 +1928,17 @@
               <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaTipoUsuario_Result">
                 <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
                 <ScalarProperty Name="rol" ColumnName="rol" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_InsertaUsuario" FunctionName="AseguradoraBDModel.Store.pa_InsertaUsuario" />
+          <FunctionImportMapping FunctionImportName="pa_RetornaUsuarioCorreo" FunctionName="AseguradoraBDModel.Store.pa_RetornaUsuarioCorreo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaUsuarioCorreo_Result">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

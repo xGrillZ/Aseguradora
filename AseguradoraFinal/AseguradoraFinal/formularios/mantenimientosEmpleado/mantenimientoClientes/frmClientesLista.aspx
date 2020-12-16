@@ -31,7 +31,7 @@
                     <br />
                     <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos." class="btn-success" OnClick="btnMostrarDatos_Click"  />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-                    <asp:HyperLink ID="hpNuevoRegistro" runat="server" class="text-info" NavigateUrl="~/formularios/mantenimientoClientes/frmClientesInserta.aspx">Nuevo registro clientes.</asp:HyperLink>
+                    <asp:HyperLink ID="hpNuevoRegistro" runat="server" class="text-info" NavigateUrl="/formularios/mantenimientosEmpleado/mantenimientoUsuario/frmUsuarioInserta.aspx">Nuevo registro clientes.</asp:HyperLink>
                     <br />
                     <br />
                     <asp:GridView ID="grdListaClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
