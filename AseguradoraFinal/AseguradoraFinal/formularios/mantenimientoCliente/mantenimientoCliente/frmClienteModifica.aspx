@@ -3,20 +3,24 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoPrincipal" runat="server">
     <section class="cliente-Modifica">
-        <div class="contenido-principal">
-            <form id="form1" runat="server" class="form-inline">
+        <div class="contenidofrm">
+            <form id="frmClienteModifica" runat="server" class="form-inline">      
                  <h1>Modificación de datos personales.</h1>
-                 <div class="form-group">
-                     <asp:Label ID="Label1" runat="server" Text="Nombre Cobertura:"></asp:Label>
-                     <asp:TextBox ID="txtCobertura" runat="server" class="form-control" ></asp:TextBox>            
-                 </div>
                   <div class="form-group">
-                      <asp:Label ID="Label2" runat="server" Text="Nombre Tipo Poliza:"></asp:Label>
-                      <asp:TextBox ID="txtTipoPoliza" runat="server" class="form-control" ></asp:TextBox>            
+                      <asp:Label ID="Label4" runat="server" Text="Dirección física:"></asp:Label>
+                      <asp:TextBox ID="txtDireccion" runat="server" class="form-control" ></asp:TextBox>            
                   </div>
-                      <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" class="btn-success" OnClick="btnMostrarDatos_Click"  /> 
+                  <div class="form-group">
+                      <asp:Label ID="Label5" runat="server" Text="Primer teléfono:"></asp:Label>
+                      <asp:TextBox ID="txtPriTel" runat="server" class="form-control" ></asp:TextBox>            
+                  </div>
+                  <div class="form-group">
+                      <asp:Label ID="Label6" runat="server" Text="Segundo teléfono:"></asp:Label>
+                      <asp:TextBox ID="txtSecTel" runat="server" class="form-control" ></asp:TextBox>            
+                  </div>
+                      <br />
+                      <asp:Button ID="btnModificarDatos" runat="server"  Text="Modificar" class="btn-success" OnClick="btnModificarDatos_Click"  /> 
                  &nbsp;
-                     <asp:HyperLink ID="hpNuevaCobertura" runat="server" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoCoberturaPoliza/frmCoberturaPolizaInserta.aspx">Ingresar nueva Cobertura</asp:HyperLink>
                  <br />
                  <br />
             </form>

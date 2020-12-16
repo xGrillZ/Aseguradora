@@ -9,7 +9,7 @@ using AseguradoraFinal.Modelos;
 
 namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliza
 {
-    public partial class frmPolizaModifica : System.Web.UI.Page
+    public partial class frmPolizaElimina : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,7 +18,13 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
                 this.cargaListaCoberturaPoliza();
                 this.cargaDatosRegistro();
                 this.cargaDocCoberturaPoliza();
+                this.cargaDocAdicciones();
             }
+        }
+
+        protected void btnEliminarDatos_Click(object sender, EventArgs e)
+        {
+            this.AlmacenarDatos();
         }
 
         /// <summary>
@@ -78,49 +84,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
             this.hdIdSucursal.Value = resultadoEmpleado.idSucursal.ToString();
 
 
-        }
-
-        void calculoAdicciones()
-        {
-            float montoAsegurado = float.Parse(this.txtMontoAsegurado.Text);
-
-            if (Convert.ToInt16(this.txtCantidadAdicciones.Text) == 1)
-            {
-                float cantidadUno = montoAsegurado * (float)0.05;
-                this.txtMontoAdicciones.Text = cantidadUno.ToString();
-
-            }
-            else if (Convert.ToInt16(this.txtCantidadAdicciones.Text) == 2 || Convert.ToInt16(this.txtCantidadAdicciones.Text) == 3)
-            {
-                float cantidadDos = montoAsegurado * (float)0.1;
-                this.txtMontoAdicciones.Text = cantidadDos.ToString();
-
-            }
-            else if (Convert.ToInt16(this.txtCantidadAdicciones.Text) > 3)
-            {
-                float cantidadTres = montoAsegurado * (float)0.15;
-                this.txtMontoAdicciones.Text = cantidadTres.ToString();
-            }
-        }
-
-        void calculoDinero()
-        {
-            float montoAsegurado = float.Parse(this.txtMontoAsegurado.Text);
-            float montoAdicciones = float.Parse(this.txtMontoAdicciones.Text);
-            float primaAntesImpuestos = montoAsegurado + montoAdicciones;
-            this.txtPrimaAntesImpuestos.Text = primaAntesImpuestos.ToString();
-            float impuestos = primaAntesImpuestos * (float)0.13;
-            this.txtImpuestos.Text = impuestos.ToString();
-            float primaFinal = primaAntesImpuestos + impuestos;
-            this.txtPrimaFinal.Text = primaFinal.ToString();
-        }
-
-        protected void btnCalcularDatos_Click(object sender, EventArgs e)
-        {
-            this.cargaDocCoberturaPoliza();
-            this.cargaDocAdicciones();
-            this.calculoAdicciones();
-            this.calculoDinero();
         }
 
         /// <summary>
@@ -195,98 +158,48 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
 
         }
 
-        protected void btnModificarDatos_Click(object sender, EventArgs e)
-        {
-            this.AlmacenarDatos();
-        }
-
         /// <summary>
         /// Valida que todas las reglas del formulario se hayan cumplido y procede
-        /// a insertar el registro utilizando el procedimiento sp_ModificaPoliza
+        /// a insertar el registro utilizando el procedimiento sp_InsertaCliente
         /// </summary>
         void AlmacenarDatos()
         {
             if (this.IsValid)
             {
-                ///Creación instancia de la clase BLPoliza
                 BLPoliza oPoliza = new BLPoliza();
-                BLCliente oCliente = new BLCliente();
-
-                ///Creación de la variable el cuál verifica el resultado de la accion a realizar
                 bool resultado = false;
-
-                ///Creación de la variable el cuál almacenará el mensaje a mostrar
                 string mensaje = "";
 
-                ///Creación de una lista el cuál contiene el resultado de datos
-                List<pa_RetornaCliente_Result> listaRetornaCliente = oCliente.retornaClientePoliza(null);
                 pa_RetornaPolizaID_Result resultadoPolizaID = new pa_RetornaPolizaID_Result();
 
                 int pPolizaID = Convert.ToInt16(hdIdRegistroPoliza.Value);
 
                 resultadoPolizaID = oPoliza.retornaPolizaID(pPolizaID);
 
-                ///Contador para el resultado
-                int contadorCobertura = 0;
                 try
                 {
-                    ///Recorrido de la lista que contiene todos los datos de la CoberturaPoliza
-                    for (int i = 0; i < listaRetornaCliente.Count; i++)
+                    if (DateTime.Now < resultadoPolizaID.fechaRegistro)
                     {
-                        ///Verificar si el nombre de la cobertura existe o no
-                        if (!listaRetornaCliente[i].numCedula.Equals(this.txtCedCliente.Text))
-                        {
-                            contadorCobertura = 1;
-                            ///Generación del mensaje de error
-                            mensaje = "El número de cédula no existe, ingrésalo de nuevo";
-                            ///Mostrar mensaje
-                            Response.Write("<script>alert('" + mensaje + "')</script>");
-                        }
-                        else
-                        {
-                            if (DateTime.Now < resultadoPolizaID.fechaRegistro)
-                            {
-                                ///obtener los valores seleccionados por el usuario
-                                ///se toman de la propiedad datavaluefield
-                                ///tanto del dropdownlist como del listbox
-                                int idCoberturaPoliza = Convert.ToInt16(this.ddlCoberturaPoliza.SelectedValue);
-                                int idCliente = Convert.ToInt16(this.hdIdCliente.Value);
-                                int idEmpleado = Convert.ToInt16(this.hdIdEmpleado.Value);
-                                float montoAsegurado = float.Parse(this.txtMontoAsegurado.Text);
-                                int cantAdicciones = Convert.ToInt16(this.txtCantidadAdicciones.Text);
-                                float montoAdicciones = float.Parse(this.txtMontoAdicciones.Text);
-                                float primaAntesImpuestos = float.Parse(this.txtPrimaAntesImpuestos.Text);
-                                float impuestos = float.Parse(this.txtImpuestos.Text);
-                                float primaFinal = float.Parse(this.txtPrimaFinal.Text);
-                                DateTime fechaRegistro = Convert.ToDateTime(this.txtFechaRegistro.Text);
-                                int idSucursal = Convert.ToInt16(this.hdIdSucursal.Value);
-                                float porcentajePrima = float.Parse(this.txtPorcentajeCobertura.Text);
-                                //obtener el valor del hidden field 
-                                int id_RegistroPoliza = Convert.ToInt16(this.hdIdRegistroPoliza.Value);
-                                ///asignar a la variable el resultado de 
-                                ///invocar el procedimiento almacenado
-                                resultado = oPoliza.modificaPoliza(id_RegistroPoliza, idCoberturaPoliza, idCliente, idEmpleado,
-                                                                   montoAsegurado, cantAdicciones, montoAdicciones, primaAntesImpuestos,
-                                                                   impuestos, primaFinal, fechaRegistro, idSucursal, porcentajePrima);
-                            }
-                            else
-                            {
-                                ///Generación del mensaje de error
-                                mensaje = "La fecha de la póliza se encuentra vencida, no puede ser modificada.";
-                                ///Mostrar mensaje
-                                Response.Write("<script>alert('" + mensaje + "')</script>");
-                            }
-                        }
+                        ///obtener el valor del hidden field 
+                        int id_RegistroPoliza = Convert.ToInt16(this.hdIdRegistroPoliza.Value);
+                        ///asignar a la variable el resultado de 
+                        ///invocar el procedimiento almacenado
+                        resultado = oPoliza.eliminaPoliza(id_RegistroPoliza);
                     }
-
+                    else
+                    {
+                        ///Generación del mensaje de error
+                        mensaje = "La fecha de la póliza se encuentra vencida, no puede ser eliminada.";
+                        ///Mostrar mensaje
+                        Response.Write("<script>alert('" + mensaje + "')</script>");
+                    }
                 }
                 ///catch: se ejecuta en el caso de que haya una excepcion
                 ///excepcionCapturada: posee los datos de la excepción
                 catch (Exception excepcionCapturada)
                 {
-                    ///Generación del mensaje
                     mensaje += $"Ocurrió un error: {excepcionCapturada.Message}";
-                    ////mostrar el mensaje
+                    ///Mostrar mensaje
                     Response.Write("<script>alert('" + mensaje + "')</script>");
                 }
                 ///finally: siempre se ejecuta (se atrape o no la excepción)
@@ -296,9 +209,8 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
                     ///el procedimiento no retornó errores
                     if (resultado)
                     {
-                        ///Generación del mensaje
-                        mensaje += "El registro fue modificado";
-                        ////mostrar el mensaje
+                        mensaje += "El registro fue eliminado";
+                        ///Mostrar mensaje
                         Response.Write("<script>alert('" + mensaje + "')</script>");
                     }
                 }

@@ -56,9 +56,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoTipoP
                     {
                         ///Generación del mensaje de inserción
                         mensaje += "El registro fue insertado";
-
-                        ///Redireccionamiento a la lista de Tipo Polizas
-                        this.Response.Redirect("/formularios/mantenimientosEmpleado/mantenimientoTipoPoliza/frmTipoPolizaLista.aspx");
                         
                         ///Mostrar mensaje
                         Response.Write("<script>alert('" + mensaje + "')</script>");

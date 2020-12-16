@@ -99,9 +99,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
                         mensaje += "El registro fue insertado";
                         ///Mostrar mensaje
                         Response.Write("<script>alert('" + mensaje + "')</script>");
-
-                        ///Redireccionamiento a la lista de Tipo Polizas
-                        this.Response.Redirect("/formularios/mantenimientosEmpleado/mantenimientoCoberturaPoliza/frmCoberturaPolizaLista.aspx");
                     }
                 }
             }

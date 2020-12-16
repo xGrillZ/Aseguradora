@@ -46,6 +46,7 @@
                          <asp:BoundField DataField="nomSucursal" HeaderText="Sucursal" />
                          <asp:BoundField DataField="porcentajePrima" HeaderText="Porcentaje prima" />
                          <asp:HyperLinkField DataNavigateUrlFields="idRegistroPoliza" DataNavigateUrlFormatString="/formularios/mantenimientosEmpleado/mantenimientoPoliza/frmPolizaModifica.aspx?idRegistroPoliza={0}" Text="Modificar" />
+                         <asp:HyperLinkField DataNavigateUrlFields="idRegistroPoliza" DataNavigateUrlFormatString="/formularios/mantenimientosEmpleado/mantenimientoPoliza/frmPolizaElimina?idRegistroPoliza={0}" Text="Eliminar" />
                      </Columns>
                      <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                      <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />

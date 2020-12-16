@@ -100,9 +100,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoTipoP
                     if (resultado)
                     {
                         mensaje += "El registro fue eliminado";
-
-                        ///Redireccionamiento a la lista de Tipo Polizas
-                        this.Response.Redirect("/formularios/mantenimientosEmpleado/mantenimientoTipoPoliza/frmTipoPolizaLista.aspx");
                     }
                 }
                 ///Mostrar mensaje
