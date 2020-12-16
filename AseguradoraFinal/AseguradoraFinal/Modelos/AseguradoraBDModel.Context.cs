@@ -436,15 +436,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioCliente_Result>("pa_RetornaUsuarioCliente", idUsuarioParameter, correoElectronicoParameter, nombreClienteParameter, primerApellidoClienteParameter, segundoApellidoClienteParameter);
         }
     
-        public virtual ObjectResult<pa_RetornaUsuarioClienteID_Result> pa_RetornaUsuarioClienteID(Nullable<int> idUsuario)
-        {
-            var idUsuarioParameter = idUsuario.HasValue ?
-                new ObjectParameter("idUsuario", idUsuario) :
-                new ObjectParameter("idUsuario", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioClienteID_Result>("pa_RetornaUsuarioClienteID", idUsuarioParameter);
-        }
-    
         public virtual ObjectResult<pa_RetornaUsuarioCorreoPwd_Result> pa_RetornaUsuarioCorreoPwd(string contrasena, string correoElectronico)
         {
             var contrasenaParameter = contrasena != null ?
@@ -823,6 +814,15 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("id_RegistroPoliza", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaPoliza", id_RegistroPolizaParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaUsuarioClienteID_Result> pa_RetornaUsuarioClienteID(Nullable<int> idUsuario)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioClienteID_Result>("pa_RetornaUsuarioClienteID", idUsuarioParameter);
         }
     }
 }

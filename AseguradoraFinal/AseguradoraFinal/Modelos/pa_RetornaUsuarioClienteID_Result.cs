@@ -18,5 +18,8 @@ namespace AseguradoraFinal.Modelos
         public string ape1Cliente { get; set; }
         public string ape2Cliente { get; set; }
         public System.DateTime ultimoIngreso { get; set; }
+        public string direccionFisica { get; set; }
+        public string pTelefono { get; set; }
+        public string sTelefono { get; set; }
     }
 }
