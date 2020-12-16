@@ -208,6 +208,24 @@ namespace AseguradoraFinal.BL
             ///Retorna la variable de registros afectados
             return registrosAfectados > 0;
         }
+        /// <summary>
+        /// Método para eliminar una cuenta de un cliente
+        /// </summary>
+        /// <param name="pId_Gasto_Categoria"></param>
+        /// <returns></returns>
+        public bool eliminaCliente(int pId_Cliente)
+        {
+            ///variable que posee la cantidad de registros afectados
+            ///al realizar insert/update/delete la cantidad de 
+            ///registros afectados debe ser mayor a 0
+            int registrosAfectados = 0;
+            ///invocar al procedimiento almacenado
+            registrosAfectados =
+                this.modeloBD.pa_EliminaCliente(pId_Cliente);
+
+            return registrosAfectados > 0;
+
+        }
         #endregion Métodos y funciones
     }
 }

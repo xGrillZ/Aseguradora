@@ -318,6 +318,9 @@
           <Parameter Name="idAdiccion" Type="int" Mode="In" />
           <Parameter Name="idCliente" Type="int" Mode="In" />
         </Function>
+        <Function Name="pa_EliminaCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_Cliente" Type="int" Mode="In" />
+        </Function>
         <Function Name="pa_EliminaCoberturaPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCoberturaPoliza" Type="int" Mode="In" />
         </Function>
@@ -1149,6 +1152,9 @@
             <Parameter Name="direccionFisica" Mode="In" Type="String" />
             <Parameter Name="pTelefono" Mode="In" Type="String" />
             <Parameter Name="sTelefono" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_EliminaCliente">
+            <Parameter Name="id_Cliente" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -2023,6 +2029,7 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_ModificaCliente" FunctionName="AseguradoraBDModel.Store.pa_ModificaCliente" />
+          <FunctionImportMapping FunctionImportName="pa_EliminaCliente" FunctionName="AseguradoraBDModel.Store.pa_EliminaCliente" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

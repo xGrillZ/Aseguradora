@@ -13,7 +13,10 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.cargaDatosRegistro();
+            if (!this.IsPostBack)
+            {
+                this.cargaDatosRegistro();
+            }
         }
 
         protected void btModificar_Click(object sender, EventArgs e)
