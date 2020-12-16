@@ -64,7 +64,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 BLEmpleado oAdiccionElimina = new BLEmpleado();
 
                 ///Creación de la variable el cual obtendrá los datos del procedimiento almacenado ///Creación de la variable el cual obtendrá los datos del procedimiento almacenado
-                pa_RetornaAdiccionesID_Result resultDataAdiccion = new pa_RetornaAdiccionesID_Result();
+                pa_RetornaAdiccionesID_Result resultDataAdiccion = new pa_RetornaAdiccionesID_Result(); //edit PA
 
                 this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
 
