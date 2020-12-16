@@ -77,6 +77,41 @@ namespace AseguradoraFinal.BL
             ///Retorno del resultado
             return resultado;
         }
+
+        /// <summary>
+        /// Retrona el registro de Adicciones por cliente por medio del procedimiento almacenado
+        /// </summary>
+        /// <param name="pIdAdiccionCliente"></param>
+        /// <returns></returns>
+        public pa_RetornaAdiccionClienteID_Result retornaAdiccionClienteID(int pIdAdiccionCliente)
+        {
+            ///Variabla la cual retornará
+            pa_RetornaAdiccionClienteID_Result resultado = new pa_RetornaAdiccionClienteID_Result();
+
+            ///Asignacion del resultado del procedimiento almacenado a la variable
+            resultado = this.modeloBD.pa_RetornaAdiccionClienteID(pIdAdiccionCliente).FirstOrDefault();
+
+            return resultado;
+        }
+        /// <summary>
+        /// Método para modificar la adiccion por cliente
+        /// </summary>
+        /// <param name="pIdAdiccion"></param>
+        /// <param name="pIdAdiccionCliente"></param>
+        /// <returns></returns>
+        public bool modificaAdiccionCliente(int pIdAdiccion, int pIdAdiccionCliente)
+        {
+            ///variable que posee la cantidad de registros afectados
+            ///al realizar insert/update/delete la cantidad de 
+            ///registros afectados debe ser mayor a 0
+            int registrosAfectados = 0;
+            ///invocar al procedimiento almacenado
+            registrosAfectados =
+                this.modeloBD.pa_ModificaAdiccionesxCliente(pIdAdiccion, pIdAdiccionCliente);
+
+            return registrosAfectados > 0;
+
+        }
         #endregion Métodos y funciones
     }
 }

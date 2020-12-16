@@ -398,7 +398,7 @@
         </Function>
         <Function Name="pa_ModificaAdiccionesxCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idAdiccion" Type="int" Mode="In" />
-          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="idAdiccionCliente" Type="int" Mode="In" />
         </Function>
         <Function Name="pa_ModificaCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCliente" Type="int" Mode="In" />
@@ -919,10 +919,6 @@
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="detalles" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="pa_ModificaAdiccionesxCliente">
-            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
-            <Parameter Name="idCliente" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="pa_ModificaTipoPoliza">
             <Parameter Name="id_TipoPoliza" Mode="In" Type="Int32" />
             <Parameter Name="detalles" Mode="In" Type="String" />
@@ -1174,6 +1170,10 @@
           <Parameter Name="idCliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="pa_RetornaAdiccionClienteID" ReturnType="Collection(AseguradoraBDModel.pa_RetornaAdiccionClienteID_Result)">
+          <Parameter Name="idAdiccionCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_ModificaAdiccionesxCliente">
+            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
             <Parameter Name="idAdiccionCliente" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
@@ -1558,7 +1558,7 @@
           <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="idAdiccion1" Nullable="false" />
+          <Property Type="Int32" Name="adiccionID" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1697,7 +1697,6 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_InsertaTipoPoliza" FunctionName="AseguradoraBDModel.Store.pa_InsertaTipoPoliza" />
-          <FunctionImportMapping FunctionImportName="pa_ModificaAdiccionesxCliente" FunctionName="AseguradoraBDModel.Store.pa_ModificaAdiccionesxCliente" />
           <FunctionImportMapping FunctionImportName="pa_ModificaTipoPoliza" FunctionName="AseguradoraBDModel.Store.pa_ModificaTipoPoliza" />
           <FunctionImportMapping FunctionImportName="pa_ModificaUltimaSesionCliente" FunctionName="AseguradoraBDModel.Store.pa_ModificaUltimaSesionCliente" />
           <FunctionImportMapping FunctionImportName="pa_ModificaUltimaSesionEmpleado" FunctionName="AseguradoraBDModel.Store.pa_ModificaUltimaSesionEmpleado" />
@@ -2114,10 +2113,11 @@
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="idAdiccion1" ColumnName="idAdiccion1" />
+                <ScalarProperty Name="adiccionID" ColumnName="adiccionID" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_ModificaAdiccionesxCliente" FunctionName="AseguradoraBDModel.Store.pa_ModificaAdiccionesxCliente" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
