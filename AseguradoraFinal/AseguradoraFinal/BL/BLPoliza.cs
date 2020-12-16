@@ -76,7 +76,7 @@ namespace AseguradoraFinal.BL
             }
         }
 
-        public bool modificaPoliza(int pIdeRegistroPoliza, int pIdCoberturaPoliza, int pIdCliente, int pIdEmpleado,
+        public bool modificaPoliza(int pIdRegistroPoliza, int pIdCoberturaPoliza, int pIdCliente, int pIdEmpleado,
                                    float pMontoAsegurado, int pCantAdicciones, float pMontoAdicciones, float pPrimaAntesImpuestos,
                                    float pImpuestos, float pPrimaFinal, DateTime pFechaRegistro, int pIdSucursal, float pPorcentajePrima)
         {
@@ -86,13 +86,25 @@ namespace AseguradoraFinal.BL
             int registrosAfectados = 0;
             ///invocar al procedimiento almacenado
             registrosAfectados =
-                this.modeloBD.pa_ModificaPoliza(pIdCoberturaPoliza, pIdCoberturaPoliza, pIdCliente, pIdEmpleado, pMontoAsegurado, pCantAdicciones,
-                                                pMontoAdicciones, pPrimaAntesImpuestos, pImpuestos, pPrimaFinal, pFechaRegistro, pIdSucursal, pPorcentajePrima);
+                this.modeloBD.pa_ModificaPoliza(pIdRegistroPoliza, pIdCoberturaPoliza, pIdCliente, pIdEmpleado, pMontoAsegurado,
+                                                pCantAdicciones, pMontoAdicciones, pPrimaAntesImpuestos, pImpuestos,
+                                                pPrimaFinal, pFechaRegistro, pIdSucursal, pPorcentajePrima);
 
             return registrosAfectados > 0;
-
-
-            #endregion Métodos y funciones
         }
+
+        public bool eliminaPoliza(int pIdRegistroPoliza)
+        {
+            ///variable que posee la cantidad de registros afectados
+            ///al realizar insert/update/delete la cantidad de 
+            ///registros afectados debe ser mayor a 0
+            int registrosAfectados = 0;
+            ///invocar al procedimiento almacenado
+            registrosAfectados =
+                this.modeloBD.pa_EliminaPoliza(pIdRegistroPoliza);
+
+            return registrosAfectados > 0;
+        }
+        #endregion Métodos y funciones
     }
 }

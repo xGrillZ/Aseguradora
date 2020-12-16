@@ -179,10 +179,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
                     resultado = oPoliza.insertaPoliza(idCoberturaPoliza, idCliente, idEmpleado, montoAsegurado, cantAdicciones,
                                                       montoAdicciones, primaAntesImpuestos, impuestos, primaFinal, fecha, idSucursal, porcentajePrima);
 
-                    ///Generación del mensaje de error
-                    mensaje += $"El registro fue insertado";
-                    ///Mostrar mensaje
-                    Response.Write("<script>alert('" + mensaje + "')</script>");
                 }
                 catch (Exception excepcionCapturada)
                 {
@@ -196,11 +192,10 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
                     ///Si el resultado de la variable es verdadero, significa que no dió errores
                     if (resultado)
                     {
+                        ///Generación del mensaje de error
+                        mensaje += $"El registro fue insertado";
                         ///Mostrar mensaje
                         Response.Write("<script>alert('" + mensaje + "')</script>");
-
-                        ///Redireccionamiento a la lista de Tipo Polizas
-                        this.Response.Redirect("/formularios/mantenimientosEmpleado/mantenimientoPoliza/frmPolizaLista.aspx");
                     }
                 }
             }

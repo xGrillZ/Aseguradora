@@ -321,6 +321,9 @@
         <Function Name="pa_EliminaCoberturaPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCoberturaPoliza" Type="int" Mode="In" />
         </Function>
+        <Function Name="pa_EliminaPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_RegistroPoliza" Type="int" Mode="In" />
+        </Function>
         <Function Name="pa_EliminaTipoPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_TipoPoliza" Type="int" Mode="In" />
         </Function>
@@ -1061,6 +1064,9 @@
             <Parameter Name="fechaRegistro" Mode="In" Type="DateTime" />
             <Parameter Name="idSucursal" Mode="In" Type="Int32" />
             <Parameter Name="porcentajePrima" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="pa_EliminaPoliza">
+            <Parameter Name="id_RegistroPoliza" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1821,6 +1827,7 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_ModificaPoliza" FunctionName="AseguradoraBDModel.Store.pa_ModificaPoliza" />
+          <FunctionImportMapping FunctionImportName="pa_EliminaPoliza" FunctionName="AseguradoraBDModel.Store.pa_EliminaPoliza" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

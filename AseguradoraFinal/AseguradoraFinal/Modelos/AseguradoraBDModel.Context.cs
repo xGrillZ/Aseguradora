@@ -815,5 +815,14 @@ namespace AseguradoraFinal.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaPoliza", idRegistroPolizaParameter, idCoberturaPolizaParameter, idClienteParameter, idEmpleadoParameter, montoAseguradoParameter, cantAdiccionesParameter, montoAdiccionesParameter, primaAntesImpuestosParameter, impuestosParameter, primaFinalParameter, fechaRegistroParameter, idSucursalParameter, porcentajePrimaParameter);
         }
+    
+        public virtual int pa_EliminaPoliza(Nullable<int> id_RegistroPoliza)
+        {
+            var id_RegistroPolizaParameter = id_RegistroPoliza.HasValue ?
+                new ObjectParameter("id_RegistroPoliza", id_RegistroPoliza) :
+                new ObjectParameter("id_RegistroPoliza", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaPoliza", id_RegistroPolizaParameter);
+        }
     }
 }

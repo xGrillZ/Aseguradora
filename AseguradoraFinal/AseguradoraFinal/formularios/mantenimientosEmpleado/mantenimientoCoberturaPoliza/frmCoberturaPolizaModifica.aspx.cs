@@ -157,9 +157,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
                         mensaje += "El registro fue modificado";
                         ////mostrar el mensaje
                         Response.Write("<script>alert('" + mensaje + "')</script>");
-
-                        ///Redireccionamiento a la página principal de CoberturaPoliza una vez finalizada la modificación
-                        Response.Redirect("/formularios/mantenimientosEmpleado/mantenimientoCoberturaPoliza/frmCoberturaPolizaLista.aspx");
                     }
                 }
                 ///mostrar el mensaje
