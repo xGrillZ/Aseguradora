@@ -461,6 +461,9 @@
           <Parameter Name="nombreAdiccion" Type="nvarchar" Mode="In" />
           <Parameter Name="descCategoria" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="pa_RetornaAdiccionClienteID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idAdiccionCliente" Type="int" Mode="In" />
+        </Function>
         <Function Name="pa_RetornaAdicciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombre" Type="varchar" Mode="In" />
         </Function>
@@ -1168,7 +1171,10 @@
             <Parameter Name="idCliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="pa_RetornaAdiccionesCantidad" ReturnType="Collection(AseguradoraBDModel.pa_RetornaAdiccionesCantidad_Result)">
-            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+          <Parameter Name="idCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaAdiccionClienteID" ReturnType="Collection(AseguradoraBDModel.pa_RetornaAdiccionClienteID_Result)">
+            <Parameter Name="idAdiccionCliente" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1540,6 +1546,19 @@
         <ComplexType Name="pa_RetornaAdiccionesCantidad_Result">
           <Property Type="Int32" Name="idCliente" Nullable="false" />
           <Property Type="Int32" Name="cantAdiccion" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaAdiccionClienteID_Result">
+          <Property Type="Int32" Name="idAdiccion" Nullable="false" />
+          <Property Type="Int32" Name="idCliente" Nullable="false" />
+          <Property Type="Int32" Name="idMantAdiccionxCliente" Nullable="false" />
+          <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape1Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape2Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="numCedula" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idAdiccion1" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -2079,6 +2098,23 @@
               <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaAdiccionesCantidad_Result">
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
                 <ScalarProperty Name="cantAdiccion" ColumnName="cantAdiccion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaAdiccionClienteID" FunctionName="AseguradoraBDModel.Store.pa_RetornaAdiccionClienteID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaAdiccionClienteID_Result">
+                <ScalarProperty Name="idAdiccion" ColumnName="idAdiccion" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="idMantAdiccionxCliente" ColumnName="idMantAdiccionxCliente" />
+                <ScalarProperty Name="nomCliente" ColumnName="nomCliente" />
+                <ScalarProperty Name="ape1Cliente" ColumnName="ape1Cliente" />
+                <ScalarProperty Name="ape2Cliente" ColumnName="ape2Cliente" />
+                <ScalarProperty Name="numCedula" ColumnName="numCedula" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idAdiccion1" ColumnName="idAdiccion1" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

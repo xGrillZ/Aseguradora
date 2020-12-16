@@ -15,13 +15,13 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
     {
 
         /// <summary>
-        /// Control frmClienteInserta.
+        /// Control frmAdiccionClienteInserta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frmClienteInserta;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frmAdiccionClienteInserta;
 
         /// <summary>
         /// Control Label3.
