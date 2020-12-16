@@ -170,6 +170,30 @@ namespace AseguradoraFinal.BL
             return resultado;
         }
         /// <summary>
+        /// Método para verificar el numero de cedula
+        /// </summary>
+        /// <param name="pNumCedula">Variable a capturar</param>
+        /// <returns></returns>
+        public bool verificaCedulaNegativo(string pNumCedula)
+        {
+            ///Resultado de la operación
+            bool resultado = true;
+            try
+            {
+                ///Variable que almacenará el dato solicitado
+                string ced = pNumCedula;
+                ///Resultado de la operación
+                resultado = this.modeloBD.Cliente.Count(cliente => cliente.numCedula != ced) <= 0;
+            }
+            catch
+            {
+                ///Mensaje de error
+                string mensaje = "Error al verificar la cédula.";
+            }
+            ///Retorno del resultado
+            return resultado;
+        }
+        /// <summary>
         /// Método para obtener datos de la tabla Cliente por medio del ID
         /// </summary>
         /// <param name="pIdCliente">Variable a capturar</param>

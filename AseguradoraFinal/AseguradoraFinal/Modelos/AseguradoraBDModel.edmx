@@ -912,10 +912,6 @@
           <FunctionImport Name="pa_EmpleadoSelect" ReturnType="Collection(AseguradoraBDModel.pa_EmpleadoSelect_Result)">
           <Parameter Name="NumCedula" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="pa_InsertaAdiccionesxCliente">
-            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
-            <Parameter Name="idCliente" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="pa_InsertaTipoPoliza">
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="detalles" Mode="In" Type="String" />
@@ -1169,6 +1165,10 @@
             <Parameter Name="nombreCliente" Mode="In" Type="String" />
             <Parameter Name="nombreAdiccion" Mode="In" Type="String" />
             <Parameter Name="descCategoria" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_InsertaAdiccionesxCliente">
+            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1677,7 +1677,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_InsertaAdiccionesxCliente" FunctionName="AseguradoraBDModel.Store.pa_InsertaAdiccionesxCliente" />
           <FunctionImportMapping FunctionImportName="pa_InsertaTipoPoliza" FunctionName="AseguradoraBDModel.Store.pa_InsertaTipoPoliza" />
           <FunctionImportMapping FunctionImportName="pa_ModificaAdiccionesxCliente" FunctionName="AseguradoraBDModel.Store.pa_ModificaAdiccionesxCliente" />
           <FunctionImportMapping FunctionImportName="pa_ModificaTipoPoliza" FunctionName="AseguradoraBDModel.Store.pa_ModificaTipoPoliza" />
@@ -2082,6 +2081,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_InsertaAdiccionesxCliente" FunctionName="AseguradoraBDModel.Store.pa_InsertaAdiccionesxCliente" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
