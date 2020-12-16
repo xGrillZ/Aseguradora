@@ -1035,9 +1035,6 @@
             <Parameter Name="numCedulaCliente" Mode="In" Type="String" />
             <Parameter Name="nombreCoberturaPoliza" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="pa_RetornaAdiccionesCantidad" ReturnType="Collection(AseguradoraBDModel.pa_RetornaAdiccionesCantidad_Result)">
-          <Parameter Name="idCliente" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="pa_RetornaCliente" ReturnType="Collection(AseguradoraBDModel.pa_RetornaCliente_Result)">
           <Parameter Name="numCedula" Mode="In" Type="String" />
           </FunctionImport>
@@ -1168,6 +1165,9 @@
           </FunctionImport>
           <FunctionImport Name="pa_InsertaAdiccionesxCliente">
             <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaAdiccionesCantidad" ReturnType="Collection(AseguradoraBDModel.pa_RetornaAdiccionesCantidad_Result)">
             <Parameter Name="idCliente" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
@@ -1388,10 +1388,6 @@
           <Property Type="String" Name="nomSucursal" Nullable="false" MaxLength="50" />
           <Property Type="Double" Name="porcentajePrima" Nullable="false" />
         </ComplexType>
-        <ComplexType Name="pa_RetornaAdiccionesCantidad_Result">
-          <Property Type="Int32" Name="idMantAdiccionxCliente" Nullable="false" />
-          <Property Type="Int32" Name="cantAdiccion" Nullable="true" />
-        </ComplexType>
         <ComplexType Name="pa_RetornaCliente_Result">
           <Property Type="Int32" Name="idCliente" Nullable="false" />
           <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
@@ -1540,6 +1536,10 @@
           <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaAdiccionesCantidad_Result">
+          <Property Type="Int32" Name="idCliente" Nullable="false" />
+          <Property Type="Int32" Name="cantAdiccion" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1855,14 +1855,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_RetornaAdiccionesCantidad" FunctionName="AseguradoraBDModel.Store.pa_RetornaAdiccionesCantidad">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaAdiccionesCantidad_Result">
-                <ScalarProperty Name="idMantAdiccionxCliente" ColumnName="idMantAdiccionxCliente" />
-                <ScalarProperty Name="cantAdiccion" ColumnName="cantAdiccion" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_RetornaCliente" FunctionName="AseguradoraBDModel.Store.pa_RetornaCliente">
             <ResultMapping>
               <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaCliente_Result">
@@ -2082,6 +2074,14 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_InsertaAdiccionesxCliente" FunctionName="AseguradoraBDModel.Store.pa_InsertaAdiccionesxCliente" />
+          <FunctionImportMapping FunctionImportName="pa_RetornaAdiccionesCantidad" FunctionName="AseguradoraBDModel.Store.pa_RetornaAdiccionesCantidad">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaAdiccionesCantidad_Result">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="cantAdiccion" ColumnName="cantAdiccion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
