@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
+using Microsoft.Reporting.WebForms;
+using AseguradoraFinal.Modelos;
 
 namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliza
 {
