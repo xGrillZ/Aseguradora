@@ -376,15 +376,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaTipoPolizaID_Result>("pa_RetornaTipoPolizaID", id_TipoPolizaParameter);
         }
     
-        public virtual ObjectResult<pa_RetornaTipoUsuario_Result> pa_RetornaTipoUsuario(string rol)
-        {
-            var rolParameter = rol != null ?
-                new ObjectParameter("rol", rol) :
-                new ObjectParameter("rol", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaTipoUsuario_Result>("pa_RetornaTipoUsuario", rolParameter);
-        }
-    
         public virtual ObjectResult<pa_RetornaTipoUsuarioID_Result> pa_RetornaTipoUsuarioID(Nullable<int> idTipoUsuario)
         {
             var idTipoUsuarioParameter = idTipoUsuario.HasValue ?
@@ -874,6 +865,15 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("generoCliente", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaClienteEmpleado_Result>("pa_RetornaClienteEmpleado", primerApellidoParameter, nombreClienteParameter, cedClienteParameter, generoClienteParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaTipoUsuario_Result> pa_RetornaTipoUsuario(string rol)
+        {
+            var rolParameter = rol != null ?
+                new ObjectParameter("rol", rol) :
+                new ObjectParameter("rol", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaTipoUsuario_Result>("pa_RetornaTipoUsuario", rolParameter);
         }
     }
 }

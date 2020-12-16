@@ -33,22 +33,31 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Control txtPrimerApellido.
+        /// Control txtNombreCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrimerApellido;
+        protected global::System.Web.UI.WebControls.TextBox txtNombreCliente;
 
         /// <summary>
-        /// Control rqvPrimerApellido.
+        /// Control rqVtxtNombreCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvPrimerApellido;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtNombreCliente;
+
+        /// <summary>
+        /// Control reVtxtNombreCliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtNombreCliente;
 
         /// <summary>
         /// Control Label4.
@@ -60,22 +69,31 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// Control txtSegundoApellido.
+        /// Control txtPriApellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSegundoApellido;
+        protected global::System.Web.UI.WebControls.TextBox txtPriApellido;
 
         /// <summary>
-        /// Control rqvTxtSegundoApellido.
+        /// Control rqVtxtPriApellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvTxtSegundoApellido;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtPriApellido;
+
+        /// <summary>
+        /// Control reVtxtPriApellido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtPriApellido;
 
         /// <summary>
         /// Control Label5.
@@ -87,22 +105,31 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// Control txtNombre.
+        /// Control txtSegApellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.TextBox txtSegApellido;
 
         /// <summary>
-        /// Control rqvTxtNombre.
+        /// Control rqVtxtSegApellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvTxtNombre;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtSegApellido;
+
+        /// <summary>
+        /// Control reVtxtSegApellido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtSegApellido;
 
         /// <summary>
         /// Control Label6.
@@ -114,22 +141,31 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
         protected global::System.Web.UI.WebControls.Label Label6;
 
         /// <summary>
-        /// Control txtTelefono1.
+        /// Control txtNumCedula.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefono1;
+        protected global::System.Web.UI.WebControls.TextBox txtNumCedula;
 
         /// <summary>
-        /// Control rqvTxtTelefono1.
+        /// Control rqVtxtNumCedula.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvTxtTelefono1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtNumCedula;
+
+        /// <summary>
+        /// Control reVtxtNumCedula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtNumCedula;
 
         /// <summary>
         /// Control Label7.
@@ -141,13 +177,31 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
         protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
-        /// Control txtTelefono2.
+        /// Control txtGenero.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefono2;
+        protected global::System.Web.UI.WebControls.TextBox txtGenero;
+
+        /// <summary>
+        /// Control rqVtxtGenero.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtGenero;
+
+        /// <summary>
+        /// Control reVtxtGenero.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtGenero;
 
         /// <summary>
         /// Control Label1.
@@ -159,22 +213,31 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Control ddlTipoCliente.
+        /// Control txtDireccionFisica.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoCliente;
+        protected global::System.Web.UI.WebControls.TextBox txtDireccionFisica;
 
         /// <summary>
-        /// Control rqvddlTipoCliente.
+        /// Control rqVtxtDireccionFisica.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvddlTipoCliente;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtDireccionFisica;
+
+        /// <summary>
+        /// Control reVtxtDireccionFisica.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtDireccionFisica;
 
         /// <summary>
         /// Control Label2.
@@ -186,22 +249,58 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Control lstPaisProcedencia.
+        /// Control txtPriTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList lstPaisProcedencia;
+        protected global::System.Web.UI.WebControls.TextBox txtPriTelefono;
 
         /// <summary>
-        /// Control rqvlstPaisProcedencia.
+        /// Control rqVtxtPriTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqvlstPaisProcedencia;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtPriTelefono;
+
+        /// <summary>
+        /// Control reVtxtPriTelefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtPriTelefono;
+
+        /// <summary>
+        /// Control Label8.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label8;
+
+        /// <summary>
+        /// Control txtSegTelefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSegTelefono;
+
+        /// <summary>
+        /// Control reVtxtSegTelefono.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtSegTelefono;
 
         /// <summary>
         /// Control btAceptar.
@@ -211,6 +310,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btAceptar;
+
+        /// <summary>
+        /// Control btBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btBuscar;
 
         /// <summary>
         /// Control hpRegresarLista.

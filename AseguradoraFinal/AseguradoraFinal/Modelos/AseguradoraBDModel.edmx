@@ -922,9 +922,6 @@
           <FunctionImport Name="pa_RetornaTipoPolizaID" ReturnType="Collection(AseguradoraBDModel.pa_RetornaTipoPolizaID_Result)">
           <Parameter Name="id_TipoPoliza" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="pa_RetornaTipoUsuario" ReturnType="Collection(AseguradoraBDModel.pa_RetornaTipoUsuario_Result)">
-          <Parameter Name="rol" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="pa_RetornaTipoUsuarioID" ReturnType="Collection(AseguradoraBDModel.pa_RetornaTipoUsuarioID_Result)">
           <Parameter Name="idTipoUsuario" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1098,6 +1095,9 @@
             <Parameter Name="cedCliente" Mode="In" Type="String" />
             <Parameter Name="generoCliente" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="pa_RetornaTipoUsuario" ReturnType="Collection(AseguradoraBDModel.pa_RetornaTipoUsuario_Result)">
+            <Parameter Name="rol" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
           <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
@@ -1131,10 +1131,6 @@
           <Property Type="Int32" Name="idTipoPoliza" Nullable="false" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="detalles" Nullable="false" MaxLength="100" />
-        </ComplexType>
-        <ComplexType Name="pa_RetornaTipoUsuario_Result">
-          <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
-          <Property Type="String" Name="rol" Nullable="false" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="pa_RetornaTipoUsuarioID_Result">
           <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
@@ -1428,6 +1424,10 @@
           <Property Type="Int32" Name="idUsuario" Nullable="false" />
           <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="50" />
         </ComplexType>
+        <ComplexType Name="pa_RetornaTipoUsuario_Result">
+          <Property Type="Int32" Name="idTipoUsuario" Nullable="false" />
+          <Property Type="String" Name="rol" Nullable="false" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1591,14 +1591,6 @@
                 <ScalarProperty Name="idTipoPoliza" ColumnName="idTipoPoliza" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="detalles" ColumnName="detalles" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_RetornaTipoUsuario" FunctionName="AseguradoraBDModel.Store.pa_RetornaTipoUsuario">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaTipoUsuario_Result">
-                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
-                <ScalarProperty Name="rol" ColumnName="rol" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -1906,6 +1898,14 @@
                 <ScalarProperty Name="sTelefono" ColumnName="sTelefono" />
                 <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
                 <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaTipoUsuario" FunctionName="AseguradoraBDModel.Store.pa_RetornaTipoUsuario">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaTipoUsuario_Result">
+                <ScalarProperty Name="idTipoUsuario" ColumnName="idTipoUsuario" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

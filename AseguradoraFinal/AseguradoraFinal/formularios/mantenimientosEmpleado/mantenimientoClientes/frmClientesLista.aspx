@@ -42,6 +42,7 @@
                             <asp:BoundField DataField="ape2Cliente" HeaderText="Segundo apellido" />
                             <asp:BoundField DataField="numCedula" HeaderText="Cédula" />
                             <asp:BoundField DataField="genero" HeaderText="Género" />
+                            <asp:BoundField DataField="correoElectronico" HeaderText="Correo electrónico" />
                             <asp:BoundField DataField="direccionFisica" HeaderText="Dirección física" />
                             <asp:BoundField DataField="pTelefono" HeaderText="Teléfono primario" />
                             <asp:BoundField DataField="sTelefono" HeaderText="Teléfono secundario" />

@@ -163,6 +163,7 @@
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaInsertar.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaLista.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaModificar.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoUsuario\frmUsuarioInserta.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -673,6 +674,13 @@
     </Compile>
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaModificar.aspx.designer.cs">
       <DependentUpon>frmTipoPolizaModificar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoUsuario\frmUsuarioInserta.aspx.cs">
+      <DependentUpon>frmUsuarioInserta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoUsuario\frmUsuarioInserta.aspx.designer.cs">
+      <DependentUpon>frmUsuarioInserta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

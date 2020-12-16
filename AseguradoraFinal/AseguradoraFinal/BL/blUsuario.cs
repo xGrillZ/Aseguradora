@@ -38,6 +38,15 @@ namespace AseguradoraFinal.BL
             return resultado;
         }
 
+        public List<pa_RetornaTipoUsuario_Result> retornaTipoUsuario(string pRol = null)
+        {
+            List<pa_RetornaTipoUsuario_Result> resultado = new List<pa_RetornaTipoUsuario_Result>();
+
+            resultado = this.modeloBD.pa_RetornaTipoUsuario(pRol).ToList();
+
+            return resultado;
+        }
+
         #endregion Métodos y funciones
     }
 }
