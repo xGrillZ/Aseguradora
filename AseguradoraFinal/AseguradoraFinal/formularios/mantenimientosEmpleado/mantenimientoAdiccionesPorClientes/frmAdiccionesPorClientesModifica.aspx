@@ -10,6 +10,7 @@
                   <asp:Label ID="Label3" runat="server" Text="Adicción:"></asp:Label>      
                   <asp:DropDownList ID="ddlAdiccion" runat="server" DataTextField="nombre" DataValueField="idAdiccion"></asp:DropDownList>
                   <asp:RequiredFieldValidator ID="rqVddlAdiccion" runat="server"  ControlToValidate="ddlAdiccion" ErrorMessage="Debes ingresa una adicción." ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+                   <asp:HiddenField ID="hdIdAdiccionCliente" runat="server" />
                    <asp:HiddenField ID="hdIdCliente" runat="server" />
                </div>
                <div class="form-group">

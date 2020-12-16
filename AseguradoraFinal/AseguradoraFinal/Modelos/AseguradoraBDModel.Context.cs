@@ -235,19 +235,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaTipoPoliza", nombreParameter, detallesParameter);
         }
     
-        public virtual int pa_ModificaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idCliente)
-        {
-            var idAdiccionParameter = idAdiccion.HasValue ?
-                new ObjectParameter("idAdiccion", idAdiccion) :
-                new ObjectParameter("idAdiccion", typeof(int));
-    
-            var idClienteParameter = idCliente.HasValue ?
-                new ObjectParameter("idCliente", idCliente) :
-                new ObjectParameter("idCliente", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaAdiccionesxCliente", idAdiccionParameter, idClienteParameter);
-        }
-    
         public virtual int pa_ModificaTipoPoliza(Nullable<int> id_TipoPoliza, string detalles)
         {
             var id_TipoPolizaParameter = id_TipoPoliza.HasValue ?
@@ -1006,6 +993,19 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("idAdiccionCliente", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionClienteID_Result>("pa_RetornaAdiccionClienteID", idAdiccionClienteParameter);
+        }
+    
+        public virtual int pa_ModificaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idAdiccionCliente)
+        {
+            var idAdiccionParameter = idAdiccion.HasValue ?
+                new ObjectParameter("idAdiccion", idAdiccion) :
+                new ObjectParameter("idAdiccion", typeof(int));
+    
+            var idAdiccionClienteParameter = idAdiccionCliente.HasValue ?
+                new ObjectParameter("idAdiccionCliente", idAdiccionCliente) :
+                new ObjectParameter("idAdiccionCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaAdiccionesxCliente", idAdiccionParameter, idAdiccionClienteParameter);
         }
     }
 }
