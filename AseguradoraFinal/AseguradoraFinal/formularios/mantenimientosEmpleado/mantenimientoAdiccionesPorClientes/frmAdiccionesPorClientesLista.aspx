@@ -7,26 +7,33 @@
         <div class="contenido-principal">
              <form runat="server" class="form-inline">
             <h1>Busqueda de adicciones por cliente</h1>
+            <div class="principal">
+            <div class="grupo-principal">
                  <div class="form-group">
                    <asp:Label ID="Label3" runat="server" Text="Correo electrónico:"></asp:Label>
                    <asp:TextBox ID="txtCorreoElectrónico" runat="server" class="form-control" ></asp:TextBox>  
                 </div>
+                <br />
                  <div class="form-group">
                    <asp:Label ID="Label1" runat="server" Text="Primer apellido:"></asp:Label>
                    <asp:TextBox ID="txtPriApellido" runat="server" class="form-control" ></asp:TextBox>  
                 </div>
+                <br />
                  <div class="form-group">
                    <asp:Label ID="Label2" runat="server" Text="Nombre cliente:"></asp:Label>
                    <asp:TextBox ID="txtNombreCliente" runat="server" class="form-control" ></asp:TextBox>  
                 </div>
+                <br />
                  <div class="form-group">
                    <asp:Label ID="Label4" runat="server" Text="Nombre adicción:"></asp:Label>
                    <asp:TextBox ID="txtAdiccion" runat="server" class="form-control" ></asp:TextBox>  
                 </div>
+                <br />
                  <div class="form-group">
                    <asp:Label ID="Label5" runat="server" Text="Categoría:"></asp:Label>
                    <asp:TextBox ID="txtCategoria" runat="server" class="form-control" ></asp:TextBox>  
                 </div>
+                <br />
                 <div class="form-group">
                      <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" class="btn-success" OnClick="btnMostrarDatos_Click"  />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
@@ -57,6 +64,8 @@
                      <SortedDescendingHeaderStyle BackColor="#3E3277" />
                  </asp:GridView>
             <br />
+                </div>
+                </div>
             </form>
         </div>
    </section>

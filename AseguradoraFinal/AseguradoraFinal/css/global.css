@@ -1,5 +1,33 @@
-﻿.footer-top {
+﻿/*.footer-top {
     width: 100%;
     bottom: 0;
     position: fixed;
+}*/
+
+/*.form-inline {
+    max-width: 500px;
+    margin: 2rem auto;
+    border: 2px solid;
+    padding: 2rem;
+}*/
+
+.contenido-principal {
+    width: 500px;
+    text-align: center;
 }
+
+.principal {
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+.grupo-principal {
+    text-align: center;
+    margin: 1rem;
+    display: grid;
+    justify-content: center;
+}
+
+

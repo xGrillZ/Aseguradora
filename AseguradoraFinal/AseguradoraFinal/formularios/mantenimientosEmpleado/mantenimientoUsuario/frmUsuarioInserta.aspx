@@ -6,13 +6,15 @@
         <div class="contenido-principal">
             <form id="frmClienteInserta" runat="server" class="form-inline">      
               <h1 class="auto-style1">Ingreso de nuevos usuarios.</h1>       
-
+            <div class="principal">
+            <div class="grupo-principal">
                <div class="form-group">
                   <asp:Label ID="Label3" runat="server" Text="Contraseña:"></asp:Label>      
                   <asp:TextBox ID="txtContrasena" runat="server" class="form-control"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="rqVtxtContrasena" runat="server"  ControlToValidate="txtContrasena" ErrorMessage="Debes ingresar una contraseña." ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
                   <asp:RegularExpressionValidator ID="reVtxtContrasena" runat="server" ErrorMessage="La contraseña debe ser menor o igual a 15 carácteres." ControlToValidate="txtContrasena" Display="None" ValidationExpression="^[\s\S]{1,15}$"></asp:RegularExpressionValidator>
                </div>
+                <br />
                <div class="form-group">
                    <asp:Label ID="Label4" runat="server" Text="Correo electrónico:"></asp:Label>                 
                    <asp:TextBox ID="txtCorreo" runat="server" class="form-control"></asp:TextBox>
@@ -20,11 +22,13 @@
                    <asp:RegularExpressionValidator ID="reVtxtCorreo" runat="server" ErrorMessage="El correo electrónico debe ser menor o igual a 50 carácteres." ControlToValidate="txtCorreo" Display="None" ValidationExpression="^[\s\S]{1,50}$"></asp:RegularExpressionValidator>
                    <asp:RegularExpressionValidator ID="reVtxtCorreoDos" runat="server" ErrorMessage="Debes de ingresar un correo electrónico válido" ControlToValidate="txtCorreo" Display="None" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                </div>  
+                <br />
                <div class="form-group">
                    <asp:Label ID="Label1" runat="server" Text="Tipo usuario:"></asp:Label>                 
                    <asp:DropDownList ID="ddlTipoUsuario" runat="server" DataTextField="rol" DataValueField="idTipoUsuario"></asp:DropDownList>
                    <asp:RequiredFieldValidator ID="rqVddlTipoUsuario" runat="server"  ControlToValidate="ddlTipoUsuario" ErrorMessage="Debes seleccionar el tipo de usuario." ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
                </div>
+                <br />
                <div class="form-group">
                    <asp:Button ID="btAceptar" runat="server"  Text="Insertar" class="btn-success" OnClick="btInsertar_Click" /> 
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
@@ -32,6 +36,8 @@
                </div>                                                             
               <br />
               <asp:ValidationSummary ID="vsInsertaUsuario" runat="server" ShowMessageBox="True" ShowSummary="False" />
+            </div>
+            </div>
             </form>
         </div>
     </section>

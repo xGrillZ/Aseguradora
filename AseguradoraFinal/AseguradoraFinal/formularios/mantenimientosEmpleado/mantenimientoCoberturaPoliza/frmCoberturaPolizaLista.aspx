@@ -7,18 +7,24 @@
         <div class="contenido-principal">
             <form id="form1" runat="server" class="form-inline">
                  <h1>Lista Cobertura Poliza</h1>
+                <div class="principal">
+                <div class="grupo-principal">
                  <div class="form-group">
                      <asp:Label ID="Label1" runat="server" Text="Nombre Cobertura:"></asp:Label>
                      <asp:TextBox ID="txtCobertura" runat="server" class="form-control" ></asp:TextBox>            
                  </div>
+                    <br />
                   <div class="form-group">
                       <asp:Label ID="Label2" runat="server" Text="Nombre Tipo Poliza:"></asp:Label>
                       <asp:TextBox ID="txtTipoPoliza" runat="server" class="form-control" ></asp:TextBox>            
                   </div>
+                    <br />
+                  <div class="form-group">
                       <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" class="btn-success" OnClick="btnMostrarDatos_Click"  /> 
                  &nbsp;
                      <asp:HyperLink ID="hpNuevaCobertura" runat="server" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoCoberturaPoliza/frmCoberturaPolizaInserta.aspx">Ingresar nueva Cobertura</asp:HyperLink>
-                 <br />
+                  </div>
+                      <br />
                  <br />
                  <asp:GridView ID="grdListaCoberturaPoliza" runat="server" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" AllowPaging="True" AutoGenerateColumns="False" OnPageIndexChanging="grdListaCoberturaPoliza_PageIndexChanging">
                      <AlternatingRowStyle BackColor="#F7F7F7" />
@@ -40,6 +46,8 @@
                      <SortedDescendingCellStyle BackColor="#D8D8F0" />
                      <SortedDescendingHeaderStyle BackColor="#3E3277" />
                  </asp:GridView>
+                </div>
+                </div>
             </form>
         </div>
     </section>

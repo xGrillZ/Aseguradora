@@ -203,6 +203,7 @@
     <Content Include="img\avatar.svg" />
     <Content Include="img\company1.png" />
     <Content Include="img\imgPrincipal.png" />
+    <Content Include="img\logo.png" />
     <Content Include="img\seguroPropiedad.png" />
     <Content Include="img\seguroVehiculo.png" />
     <Content Include="img\seguroViajes.png" />

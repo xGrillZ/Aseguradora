@@ -6,22 +6,28 @@
     <section class="clientes-Inserta">
         <div class="contenido-principal">
             <form id="frmClienteElimina" runat="server" class="form-inline">      
-              <h1 class="auto-style1">Eliminación de Adicciones</h1>       
+              <h1 class="auto-style1">Eliminación de Adicciones</h1>
+            <div class="principal">
+            <div class="grupo-principal">
                    <asp:HiddenField ID="hdIdAdiccion" runat="server" />
-
-      
                <div class="form-group">
                     <asp:Label ID="Label2" runat="server" Text="Adicción"></asp:Label>
                     <asp:DropDownList ID="ddlNombreAdiccion" runat="server" class="form-control" DataValueField="idAdiccion" DataTextField="nombre" Enabled="False"  ></asp:DropDownList>        
                    </div>           
-
+                <br />
                <div class="form-group">
                    <asp:Button ID="btEliminar" runat="server"  Text="Eliminar" class="btn-success" OnClick="btEliminar_Click" />
                    <asp:HyperLink ID="hpRegresar" runat="server" CssClass="text-info" NavigateUrl="/formularios/mantenimientosEmpleado/mantenimientoAdicciones/frmAdiccionesLista.aspx">Regresar a la lista.</asp:HyperLink>
                </div>             
-                                                                  
+                                                         
+              <br />  
+              <br />  
+              <br />  
+              <br />  
               <br />  
               <asp:ValidationSummary ID="vsEliminaAdiccion" runat="server" ShowMessageBox="True" ShowSummary="False" />
+            </div>
+            </div>
             </form>
         </div>
     </section>

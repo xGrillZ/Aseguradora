@@ -6,20 +6,24 @@
     <section class="adiccionesporCliente-Inserta">
         <div class="contenido-principal">
             <form id="frmAdiccionClienteInserta" runat="server" class="form-inline">      
-              <h1 class="auto-style1">Ingreso adicciones por cliente.</h1>       
+              <h1>Ingreso adicciones por cliente.</h1>  
+                <div class="principal">
+                <div class="grupo-principal">
                <div class="form-group">
                   <asp:Label ID="Label3" runat="server" Text="Adicción:"></asp:Label>      
                   <asp:DropDownList ID="ddlAdiccion" runat="server" DataTextField="nombre" DataValueField="idAdiccion"></asp:DropDownList>
                   <asp:RequiredFieldValidator ID="rqVddlAdiccion" runat="server"  ControlToValidate="ddlAdiccion" ErrorMessage="Debes ingresa una adicción." ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
                    <asp:HiddenField ID="hdIdCliente" runat="server" />
                </div>
+                    <br />
                <div class="form-group">
                    <asp:Label ID="Label4" runat="server" Text="Número cédula:"></asp:Label>                 
                    <asp:TextBox ID="txtCedula" runat="server"></asp:TextBox>
                    <asp:RequiredFieldValidator ID="rqVtxtCedula" runat="server"  ControlToValidate="txtCedula" ErrorMessage="Debes ingresar la cédula del cliente" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
                    <asp:RegularExpressionValidator ID="reVtxtCedula" runat="server" ErrorMessage="La cédula debe ser menor o igual a 20 carácteres." ControlToValidate="txtCedula" Display="None" ValidationExpression="^[\s\S]{1,20}$"></asp:RegularExpressionValidator>
                    <br />
-               </div>           
+               </div>    
+                    <br />
                <div class="form-group">
                    <asp:Button ID="btAceptar" runat="server"  Text="Insertar" class="btn-success" OnClick="btInsertar_Click" /> 
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
@@ -28,7 +32,8 @@
                </div>                                                                
               <br />
               <asp:ValidationSummary ID="vsInsertaAdiccionCliente" runat="server" ShowMessageBox="True" ShowSummary="False" />
-        
+            </div>
+           </div>
             </form>
         </div>
     </section>

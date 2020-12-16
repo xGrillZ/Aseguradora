@@ -7,27 +7,34 @@
         <div class="contenido-principal">
             <form id="frmPolizaLista" runat="server" class="form-inline">
                  <h1>Lista pólizas.</h1>
+                <div class="principal">
+                <div class="grupo-principal">
                  <div class="form-group">
                      <asp:Label ID="Label1" runat="server" Text="Primer apellido cliente:"></asp:Label>
                      <asp:TextBox ID="txtPriApeCliente" runat="server" class="form-control" ></asp:TextBox>            
                  </div>
+                    <br />
                   <div class="form-group">
                       <asp:Label ID="Label2" runat="server" Text="Número cédula cliente:"></asp:Label>
                       <asp:TextBox ID="txtNumCedula" runat="server" class="form-control" ></asp:TextBox>            
                   </div>
+                    <br />
                   <div class="form-group">
                       <asp:Label ID="Label4" runat="server" Text="Nombre cobertura:"></asp:Label>
                       <asp:TextBox ID="txtNombreCobertura" runat="server" class="form-control" ></asp:TextBox>            
                   </div>
+                    <br />
                   <div class="form-group">
                       <asp:Label ID="Label3" runat="server" Text="Número adicciones:"></asp:Label>
                       <asp:TextBox ID="txtNumAdicciones" runat="server" class="form-control" ></asp:TextBox>            
                   </div>
                       <br />
+                  <div class="form-group">
                       <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" class="btn-success" OnClick="btnMostrarDatos_Click"  /> 
                  &nbsp;
                      <asp:HyperLink ID="hpNuevaPoliza" runat="server" NavigateUrl="/formularios/mantenimientosEmpleado/mantenimientoPoliza/frmPolizaInserta.aspx">Ingresar nueva póliza</asp:HyperLink>
-                 <br />
+                  </div>
+                      <br />
                  <br />
                  <asp:GridView ID="grdListaPoliza" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" OnPageIndexChanging="grdListaPoliza_PageIndexChanging">
                      <AlternatingRowStyle BackColor="#F7F7F7" />
@@ -60,6 +67,8 @@
                      <SortedDescendingHeaderStyle BackColor="#3E3277" />
                  </asp:GridView>
                  <br />
+                </div>
+                </div>
             </form>
         </div>
     </section>

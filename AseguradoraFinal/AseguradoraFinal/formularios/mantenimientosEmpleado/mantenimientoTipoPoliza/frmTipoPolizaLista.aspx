@@ -7,14 +7,19 @@
         <div class="contenido-principal">
             <form id="form1" runat="server" class="form-inline">
                  <h1>Lista Tipo Poliza</h1>
+                <div class="principal">
+                <div class="grupo-principal">
                  <div class="form-group">
                      <asp:Label ID="Label1" runat="server" Text="Nombre Poliza:"></asp:Label>
                      <asp:TextBox ID="txtPoliza" runat="server" class="form-control" ></asp:TextBox>            
                  </div>
+                    <br />
+                 <div class="form-group">
                       <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" class="btn-success" OnClick="btnMostrarDatos_Click"  /> 
                  &nbsp;
                      <asp:HyperLink ID="hpNuevoTipo" runat="server" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoTipoPoliza/frmTipoPolizaInsertar.aspx">Ingresar nuevo Tipo Poliza</asp:HyperLink>
-                 <br />
+                 </div>
+                     <br />
                  <br />
                 <asp:GridView ID="grdTipoPoliza" runat="server" AllowCustomPaging="True" AutoGenerateColumns="False" OnPageIndexChanging="grdTipoPoliza_PageIndexChanging" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
                     <AlternatingRowStyle BackColor="#F7F7F7" />
@@ -34,6 +39,8 @@
                     <SortedDescendingCellStyle BackColor="#D8D8F0" />
                     <SortedDescendingHeaderStyle BackColor="#3E3277" />
                  </asp:GridView>
+                </div>
+                </div>
             </form>
         </div>
     </section>

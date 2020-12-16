@@ -7,11 +7,19 @@
         <h1>Cierre de la sesión del usuario</h1>
         <p>¿Desea salir de la aplicación?</p>
         <p>&nbsp;</p>
+            <div class="principal">
+            <div class="grupo-principal">
         <p>
+            <div class="form-group">
             <asp:Button ID="btnSi" runat="server" OnClick="btnSi_Click" Text="Sí" />
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnNo" runat="server" OnClick="btnNo_Click" Text="No" />
+            </div>
         </p>
+    </div>
+    </div>
+        <br />
+        <br />
     </form>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="scriptsPersonalizados" runat="server">

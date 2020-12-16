@@ -7,14 +7,15 @@
        <div class="contenido-principal">
          <form id="frmGastoCategoriaEliminar" runat="server" class="form-inline">      
               <h1 class="auto-style1">Mantenimiento Tipo Póliza - Eliminar</h1>       
-          
+                <div class="principal">
+                <div class="grupo-principal">
                <div class="form-group">
                    <asp:Label ID="Label1" runat="server" Text="Nombre:"></asp:Label>
                    <asp:TextBox ID="txtNombre" runat="server" class="form-control" Enabled="False"></asp:TextBox>
                    <asp:RequiredFieldValidator ID="rqVtxtNombre" runat="server" ErrorMessage="Debes de agregar un nombre de póliza" ControlToValidate="txtNombre" Display="None"></asp:RequiredFieldValidator>
                    <asp:HiddenField ID="hdIdTipoPoliza" runat="server" />
                </div>
-
+                    <br />
                <div class="form-group">
                   <asp:Label ID="Label3" runat="server" Text="Descripción:"></asp:Label>   
                   <asp:TextBox ID="txtDesc" runat="server" class="form-control" Enabled="False"></asp:TextBox>
@@ -25,6 +26,8 @@
 
                <div class="form-group">
                    <asp:Button ID="btnEliminar" runat="server"  Text="Eliminar" class="btn-success" OnClick="btAceptar_Click" />
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                   <asp:HyperLink ID="hpListaTipoPoliza" runat="server" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoTipoPoliza/frmTipoPolizaLista.aspx">Lista datos</asp:HyperLink>
                </div>   
                 <br />
                 <asp:Label ID="lblMensaje" runat="server"></asp:Label>
@@ -32,7 +35,8 @@
                                                                   
               <br />
               <asp:ValidationSummary ID="vsEliminarTipoPoliza" runat="server" ShowMessageBox="True" ShowSummary="False" />
-        
+            </div>
+            </div>
             </form>
            </div>
        </section>
