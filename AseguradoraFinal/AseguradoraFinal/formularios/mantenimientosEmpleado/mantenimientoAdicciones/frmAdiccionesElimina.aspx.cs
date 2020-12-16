@@ -53,7 +53,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 string mensaje = "El parámetro es nulo";
                 ///mostrar el mensaje
                 Response.Write("<script>alert('" + mensaje + "')</script>");
-                //this.lblMensaje.Text = "Parámetro nulo";
+                
             }
             else
             {
@@ -64,7 +64,10 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 BLEmpleado oAdiccionElimina = new BLEmpleado();
 
                 ///Creación de la variable el cual obtendrá los datos del procedimiento almacenado ///Creación de la variable el cual obtendrá los datos del procedimiento almacenado
+                pa_RetornaAdiccionesID_Result resultDataAdiccion = new pa_RetornaAdiccionesID_Result();
+                resultDataAdiccion = oAdiccionElimina.RetornaAdiccionesID(idAdiccion);
 
+                this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
 
             }
 
@@ -106,7 +109,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                     }
                 }
                 ///mostrar el mensaje
-                this.lblMensaje.Text = mensaje;
+                Response.Write("<script>alert('" + mensaje + "')</script>");
             }
         }
 

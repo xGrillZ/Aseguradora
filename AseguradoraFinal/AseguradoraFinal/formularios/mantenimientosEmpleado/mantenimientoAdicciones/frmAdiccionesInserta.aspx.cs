@@ -77,11 +77,9 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                         mensaje += "El registro fue insertado correctamente";
                     }
                     ///mostrar el mensaje
-                    Response.Write("<script>alert('" + mensaje + "')</script>"); ;
+                    Response.Write("<script>alert('" + mensaje + "')</script>"); 
                 }
 
-                ///mostrar el mensaje
-                this.lblMensaje.Text = mensaje;
             }
 
         }

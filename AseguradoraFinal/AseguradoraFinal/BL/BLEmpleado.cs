@@ -63,10 +63,26 @@ namespace AseguradoraFinal.BL
             int registrosAfectados = 0;
             ///invocar al procedimiento almacenado
             registrosAfectados =
-                this.modeloBD.pa_EliminaAdicciones(idAdiccion); //test
+                this.modeloBD.pa_EliminaAdicciones(idAdiccion); 
 
             return registrosAfectados > 0;
 
+        }
+
+        /// <summary>
+        /// Retrona el registro de un GastoCategoria por medio del procedimiento almacenado
+        /// </summary>
+        /// <param name="pIdAdiccion"></param>
+        /// <returns></returns>
+        public pa_RetornaAdiccionesID_Result RetornaAdiccionesID(int pIdAdiccion)
+        {
+            ///Variabla la cual retornará
+            pa_RetornaAdiccionesID_Result resultado = new pa_RetornaAdiccionesID_Result();
+
+            ///Asignacion del resultado del procedimiento almacenado a la variable
+            resultado = this.modeloBD.pa_RetornaAdiccionesID(pIdAdiccion).FirstOrDefault();
+
+            return resultado;
         }
 
 
