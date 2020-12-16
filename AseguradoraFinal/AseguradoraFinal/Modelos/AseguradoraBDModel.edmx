@@ -372,8 +372,8 @@
           <Parameter Name="detalles" Type="varchar" Mode="In" />
         </Function>
         <Function Name="pa_ModificaAdicciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="nombre" Type="varchar" Mode="In" />
-          <Parameter Name="codigo" Type="int" Mode="In" />
+          <Parameter Name="idAdiccion" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="nvarchar" Mode="In" />
           <Parameter Name="idCategoriaAdicion" Type="int" Mode="In" />
         </Function>
         <Function Name="pa_ModificaAdiccionesxCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -884,11 +884,6 @@
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="detalles" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="pa_ModificaAdicciones">
-            <Parameter Name="nombre" Mode="In" Type="String" />
-            <Parameter Name="codigo" Mode="In" Type="Int32" />
-            <Parameter Name="idCategoriaAdicion" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="pa_ModificaAdiccionesxCliente">
             <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
             <Parameter Name="idCliente" Mode="In" Type="Int32" />
@@ -1097,6 +1092,11 @@
             <Parameter Name="nombreCliente" Mode="In" Type="String" />
             <Parameter Name="cedCliente" Mode="In" Type="String" />
             <Parameter Name="generoCliente" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_ModificaAdicciones">
+            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="idCategoriaAdicion" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1563,7 +1563,6 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_InsertaAdiccionesxCliente" FunctionName="AseguradoraBDModel.Store.pa_InsertaAdiccionesxCliente" />
           <FunctionImportMapping FunctionImportName="pa_InsertaTipoPoliza" FunctionName="AseguradoraBDModel.Store.pa_InsertaTipoPoliza" />
-          <FunctionImportMapping FunctionImportName="pa_ModificaAdicciones" FunctionName="AseguradoraBDModel.Store.pa_ModificaAdicciones" />
           <FunctionImportMapping FunctionImportName="pa_ModificaAdiccionesxCliente" FunctionName="AseguradoraBDModel.Store.pa_ModificaAdiccionesxCliente" />
           <FunctionImportMapping FunctionImportName="pa_ModificaCliente" FunctionName="AseguradoraBDModel.Store.pa_ModificaCliente" />
           <FunctionImportMapping FunctionImportName="pa_ModificaTipoPoliza" FunctionName="AseguradoraBDModel.Store.pa_ModificaTipoPoliza" />
@@ -1903,6 +1902,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_ModificaAdicciones" FunctionName="AseguradoraBDModel.Store.pa_ModificaAdicciones" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
