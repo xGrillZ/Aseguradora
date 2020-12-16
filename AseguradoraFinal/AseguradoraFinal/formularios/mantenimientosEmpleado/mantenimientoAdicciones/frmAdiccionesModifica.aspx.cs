@@ -54,6 +54,8 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
         void cargaDatosRegistro()
         {
+            ///obtener el parámetro envíado desde el grid
+            ///es CASESENSITIVE
             String parametro = this.Request.QueryString["idAdiccion"];
 
             //validar si el parametro enviado es correcto
@@ -79,7 +81,22 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
                 this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
 
+                if (resultDataAdiccion == null)
+                {
+                    Response.Redirect("frmAdiccionesLista.aspx");
+                }
+                else
+                {
+
+                    //this.ddlIdAdiccion.SelectedValue = resultDataAdiccion.idAdiccion; // broncas con este
+                    this.ddlIdCategoria.SelectedValue = resultDataAdiccion.nombre.ToString();
+                    
+
+                    this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
+                  
+                }
             }
+            //validar si el parametro es correcto
 
         }
 
