@@ -19,7 +19,7 @@
         <asp:Label ID="Label2" runat="server" Text="Primer Apellido:"></asp:Label>
         <asp:TextBox ID="txtPrimerApellido" runat="server"></asp:TextBox>
     &nbsp;&nbsp;
-        <asp:Button ID="btVerReporte" runat="server" OnClick="btBuscar_Click" Text="Ver Reporte" />
+        <asp:Button ID="btVerReporte" runat="server" OnClick="btBuscar_Click" Text="Ver Reporte" style="height: 29px" />
         <br />
         <br />
         <br />

@@ -25,7 +25,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         void contruirReporte()
         {
 
-            ///indicar la ruta del reporte
+            ///indicar la ruta del reporte!
             string rutaReporte = "";
             ///construir la ruta física
             string rutaServidor = "";
