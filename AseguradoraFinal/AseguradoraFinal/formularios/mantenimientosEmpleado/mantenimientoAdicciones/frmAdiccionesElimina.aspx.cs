@@ -27,11 +27,11 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         /// <summary>
         /// Carga la lista Adicciones
         /// </summary>
-       void cargaListaAdicciones()
+        void cargaListaAdicciones()
         {
             BLEmpleado oAdiccion = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
-            this.ddlNombreAdiccion.DataSource = oAdiccion.retornaCategoriaAdicciones(null);
+            this.ddlNombreAdiccion.DataSource = oAdiccion.RetornaAdicciones(null);
 
 
             ///indicarle al dropdownlist que se muestre
@@ -46,25 +46,18 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         {
             String parametro = this.Request.QueryString["idAdiccion"];
 
-            //validar si el parametro es correcto
             if (String.IsNullOrEmpty(parametro))
             {
-                ///Generación mensaje
-                string mensaje = "El parámetro es nulo";
-                ///mostrar el mensaje
-                Response.Write("<script>alert('" + mensaje + "')</script>");
-                //this.lblMensaje.Text = "Parámetro nulo";
+                this.lblMensaje.Text = "Parámetro nulo";
             }
             else
             {
-                ///Creación de variable el cuál almacenará el idAiccion enviada por la variable parametro
                 int idAdiccion = Convert.ToInt16(parametro);
 
-                ///Creación de la instancia a la clase BLEmpleado
+
                 BLEmpleado oAdiccionElimina = new BLEmpleado();
 
-                ///Creación de la variable el cual obtendrá los datos del procedimiento almacenado ///Creación de la variable el cual obtendrá los datos del procedimiento almacenado
-                pa_RetornaAdiccionesID_Result resultDataAdiccion = new pa_RetornaAdiccionesID_Result();
+                pa_RetornaAdicciones_Result resultDataAdiccion = new pa_RetornaAdicciones_Result();
 
                 this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
 
@@ -80,6 +73,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             this.AlmacenarDatos();
         }
 
+       
 
         void AlmacenarDatos()
         {
@@ -115,7 +109,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             }
         }
 
-      
+       
     }
 }
-
