@@ -17,8 +17,9 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
         }
 
-        
+        protected void btnMostrarDatos_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

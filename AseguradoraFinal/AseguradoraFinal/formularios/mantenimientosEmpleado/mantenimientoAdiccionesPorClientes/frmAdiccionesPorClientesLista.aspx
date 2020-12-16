@@ -4,14 +4,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoPrincipal" runat="server">
      <form runat="server" class="form-inline">
 
-    <h1>Busqueda de Asegurados</h1>
-     <div class="form-group">
-           <asp:Label ID="Label1" runat="server" Text="Primer Apellido:"></asp:Label>
-           <asp:TextBox ID="txtPrimerApellido" runat="server" CssClass="form-control" ></asp:TextBox>            
-        </div>
+    <h1>Busqueda de adicciones por cliente</h1>
+     
          <div class="form-group">
-           <asp:Label ID="Label2" runat="server" Text="Nombre:"></asp:Label>
-           <asp:TextBox ID="txtNombre" runat="server" CssClass="form-control" ></asp:TextBox>            
+           <asp:Label ID="Label3" runat="server" Text="Número de Cédula:"></asp:Label>
+           <asp:TextBox ID="txtNumCedula" runat="server" CssClass="form-control" ></asp:TextBox>  
+             <asp:RequiredFieldValidator ID="rqvNumCedula" runat="server"  ControlToValidate="txtNumCedula" ErrorMessage="Debe ingresar el número de cédula" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group">
              <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" CssClass="btn-success" OnClick="btnMostrarDatos_Click"  />  
@@ -24,7 +22,7 @@
     
     <br />
     
-    <asp:GridView ID="grdListaClientes" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowPaging="True" PageSize="20" OnPageIndexChanging="grdListaClientes_PageIndexChanging" OnSelectedIndexChanged="grdListaClientes_SelectedIndexChanged">
+    <asp:GridView ID="grdListaClientes" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" AllowPaging="True" PageSize="20" >
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>
             <asp:BoundField DataField="primerApellido" HeaderText="Apellido 1" />
