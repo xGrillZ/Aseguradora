@@ -10,19 +10,10 @@
 namespace AseguradoraFinal.Modelos
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Telefono
+    public partial class pa_RetornaAdiccionesID_Result
     {
-        public Telefono()
-        {
-            this.Sucursal = new HashSet<Sucursal>();
-        }
-    
-        public int idTelefono { get; set; }
-        public string telefono1 { get; set; }
-        public Nullable<int> extension { get; set; }
-    
-        public virtual ICollection<Sucursal> Sucursal { get; set; }
+        public int idAdiccion { get; set; }
+        public string nombre { get; set; }
     }
 }
