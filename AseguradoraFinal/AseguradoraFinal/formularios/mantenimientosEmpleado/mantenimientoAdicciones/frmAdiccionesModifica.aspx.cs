@@ -57,8 +57,9 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
         protected void btModificar_Click(object sender, EventArgs e)
           {
-              this.AlmacenarDatos();
-          }
+            ///Carga del método para modificar el registro mostrado en pantalla
+            this.AlmacenarDatos();
+        }
 
         void cargaDatosRegistro()
         {
@@ -91,15 +92,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
                 if (resultDataAdiccion == null)
                 {
-                    Response.Redirect("frmAdiccionesLista.aspx");
+                    Response.Redirect("formularios/mantenimientosEmpleado/mantenimientoAdicciones/frmAdiccionesLista.aspx"); 
                 }
                 else
                 {
+                    ///Asginación de cada una de las etiquetas sus valores respectivos en la invocacion del procedimiento almacenado
                     this.ddlIdAdiccion.SelectedValue = resultDataAdiccion.nombre.ToString();
-                   // this.ddlIdCategoria.SelectedValue = resultDataAdiccion.idCategoriaAdiccion.Value; issues
-                   
-
-
+                    this.ddlIdCategoria.SelectedValue = resultDataAdiccion.idAdiccion.ToString(); 
+                    
+                        
                     this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
 
                 }
@@ -116,10 +117,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
           {
               if (this.IsValid)
               {
-                  BLEmpleado oModifica = new BLEmpleado();
-                   bool resultado = false;
-                   string mensaje = "";
-                   try
+                ///Creación instancia de la clase BLEmpleado
+                BLEmpleado oModifica = new BLEmpleado();
+                ///Creación de la variable el cuál verifica el resultado de la accion a realizar
+                bool resultado = false;
+                ///Creación de la variable el cuál almacenará el mensaje a mostrar
+                string mensaje = "";
+
+                
+                try
                    {
                     ///obtener los valores seleccionados por el usuario
                     ///se toman de la propiedad datavaluefield
