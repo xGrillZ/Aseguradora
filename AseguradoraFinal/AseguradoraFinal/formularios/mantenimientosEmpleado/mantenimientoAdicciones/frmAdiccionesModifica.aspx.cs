@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AseguradoraFinal.BL;
+using AseguradoraFinal.Modelos;
 
 namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicciones
 {

@@ -10,10 +10,16 @@
              <asp:DropDownList ID="ddlIdAdiccion" runat="server" CssClass="form-control" DataValueField="idAdiccion" DataTextField="nombre" Enabled="False"  ></asp:DropDownList>        
         <asp:RequiredFieldValidator ID="rqvIdAdiccion" runat="server"  ControlToValidate="ddlIdAdiccion" ErrorMessage="Debe ingresar el id de Adicción" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
         </div>
+
+      <div class="form-group">
+          <asp:Label ID="Label3" runat="server" Text="Identificador Categoría"></asp:Label>
+          <asp:DropDownList ID="ddlIdCategoria" runat="server" CssClass="form-control" DataValueField="idCategoriaAdiccion" DataTextField="descripcion" Enabled="True"  ></asp:DropDownList>
+        <asp:RequiredFieldValidator ID="rqvIdCategoria" runat="server"  ControlToValidate="ddlIdCategoria" ErrorMessage="Debe ingresar el identificador de categoría" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+        </div>
       
        
        <div class="form-group">
-           <asp:Button ID="btAceptar" runat="server"  Text="Guardar" CssClass="btn-success" OnClick="btAceptar_Click" />
+           <asp:Button ID="btAceptar" runat="server"  Text="Modificar" CssClass="btn-success" OnClick="btAceptar_Click" />
            <asp:HyperLink ID="hpRegresar" runat="server" CssClass="text-info" NavigateUrl="/formularios/mantenimientosEmpleado/mantenimientoAdicciones/frmAdiccionesLista.aspx">Regresar a la lista</asp:HyperLink>
        </div>             
                                                                   

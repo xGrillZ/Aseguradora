@@ -86,6 +86,20 @@ namespace AseguradoraFinal.BL
         }
 
 
+        public bool ModificaAdicciones (int pIdAdiccion, string pNombre, int pIdCategoriaAdiccion)
+        {
+            ///variable que posee la cantidad de registros afectados
+            ///al realizar insert/update/delete la cantidad de 
+            ///registros afectados debe ser mayor a 0
+            int registrosAfectados = 0;
+            ///invocar al procedimiento almacenado
+            registrosAfectados =
+            this.modeloBD.pa_ModificaAdicciones(pIdAdiccion, pNombre, pIdCategoriaAdiccion);
+
+            return registrosAfectados > 0;
+
+        }
+
 
         public pa_RetornaUsuarioEmpleadoID_Result retornaUsuarioEmpleadoID(int pIdUsuarioEmpleado)
         {
