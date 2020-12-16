@@ -876,6 +876,15 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaTipoUsuario_Result>("pa_RetornaTipoUsuario", rolParameter);
         }
     
+        public virtual ObjectResult<pa_RetornaUsuarioCorreo_Result> pa_RetornaUsuarioCorreo(string correoElectronico)
+        {
+            var correoElectronicoParameter = correoElectronico != null ?
+                new ObjectParameter("correoElectronico", correoElectronico) :
+                new ObjectParameter("correoElectronico", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioCorreo_Result>("pa_RetornaUsuarioCorreo", correoElectronicoParameter);
+        }
+    
         public virtual int pa_InsertaUsuario(string contrasena, Nullable<int> idTipoUsuario, string correoElectronico)
         {
             var contrasenaParameter = contrasena != null ?
@@ -891,15 +900,6 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("correoElectronico", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaUsuario", contrasenaParameter, idTipoUsuarioParameter, correoElectronicoParameter);
-        }
-    
-        public virtual ObjectResult<pa_RetornaUsuarioCorreo_Result> pa_RetornaUsuarioCorreo(string correoElectronico)
-        {
-            var correoElectronicoParameter = correoElectronico != null ?
-                new ObjectParameter("correoElectronico", correoElectronico) :
-                new ObjectParameter("correoElectronico", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioCorreo_Result>("pa_RetornaUsuarioCorreo", correoElectronicoParameter);
         }
     }
 }
