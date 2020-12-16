@@ -73,7 +73,7 @@
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" data-target="dropdown_target" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-folder-plus"></i> Reportes<span class="sr-only">(current)</span></a>
                       <div class="dropdown-menu" aria-labelledby="dropdown-target">
-                        <a class="dropdown-item" href="#"><i class="fas fa-drumstick-bite"></i>  Reporte póliza</a>
+                        <a class="dropdown-item" href="/formularios/mantenimientoCliente/reportePolizaporCliente/frmClientePolizaReporte.aspx"><i class="fas fa-drumstick-bite"></i>  Reporte póliza</a>
                         <a class="dropdown-item" href="#"><i class="fas fa-address-card"></i>  Reporte adicciones</a>
                       </div>
                     </li>

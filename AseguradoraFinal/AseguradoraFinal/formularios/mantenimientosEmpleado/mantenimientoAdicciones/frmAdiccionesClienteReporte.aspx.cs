@@ -12,12 +12,12 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 {
     public partial class frmAdiccionesClienteReporte : System.Web.UI.Page
     {
-        aseguradorarjsEntities modeloBD = aseguradorarjsEntities();
+ /*       aseguradorarjsEntities modeloBD = aseguradorarjsEntities();*/
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
+/*
         protected void btBuscar_Click(object sender, EventArgs e)
         {
             this.contruirReporte();
@@ -69,6 +69,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             return
                   null;
         }
-
+*/
     }
 }
