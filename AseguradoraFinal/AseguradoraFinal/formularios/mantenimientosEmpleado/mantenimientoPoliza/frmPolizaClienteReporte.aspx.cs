@@ -44,7 +44,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
                 ///limpiar los datos de la fuente de datos
                 rpvPolizaClientes.LocalReport.DataSources.Clear();
                 ///obtener los datos del reporte
-                List< pa_RetornaPoliza_Result > datosReporte = this.retornaDatosReporte(this.txtNombre, this.txtPrimerApellido);
+                List< pa_RetornaPoliza_Result > datosReporte = this.retornaDatosReporte(this.txtprimerApellidoCliente.Text, this.txtnumCedulaCliente.Text, this.txtnombreCoberturaPoliza.Text); 
                 ///crear la fuente de datos
                 ReportDataSource fuenteDatos = new ReportDataSource();
                 fuenteDatos.Name = infoFuenteDatos[0];
@@ -62,16 +62,10 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         /// <param name="pPrimerApellido"></param>
         /// <param name="pNombre"></param>
         /// <returns></returns>
-        List<pa_RetornaPoliza_Result> retornaDatosReporte(int idCoberturaPoliza, string nombre, int idCliente, string ape1Cliente,
-            string ape2Cliente, string nomCliente, string numCedula, int idEmpleado, string ape1Empleado, string ape2Empleado,
-            string nomEmpleado, double montoAsegurado, int cantidadAdicciones, double primaAntesImpuestos, double impuestos, double primaFinal,
-            System.DateTime fechaRegistro, int idSucursal, string nomSucursal, double porcentajePrima)
+        List<pa_RetornaPoliza_Result> retornaDatosReporte(string primerApellidoCliente, string numCedulaCliente, string nombreCoberturaPoliza)
         {
             return
-                  this.modeloBD.pa_RetornaPoliza( idCoberturaPoliza,  nombre,  idCliente,  ape1Cliente,
-             ape2Cliente,  nomCliente,  numCedula,  idEmpleado,  ape1Empleado,  ape2Empleado,
-             nomEmpleado,  montoAsegurado,  cantidadAdicciones,  primaAntesImpuestos,  impuestos,  primaFinal,
-             fechaRegistro,  idSucursal,  nomSucursal,  porcentajePrima).ToList;
+                  this.modeloBD.pa_RetornaPoliza( primerApellidoCliente,  numCedulaCliente, nombreCoberturaPoliza).ToList();
         }
     }
 

@@ -12,7 +12,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 {
     public partial class frmAdiccionesClienteReporte : System.Web.UI.Page
     {
-        aseguradorarjsEntities modeloBD = aseguradorarjsEntities();
+        aseguradorarjsEntities modeloBD = new aseguradorarjsEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
 

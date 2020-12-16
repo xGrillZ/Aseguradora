@@ -15,9 +15,12 @@
               <p> Buscar por</p>
         </div>
         <asp:Label ID="Label1" runat="server" Text="Nombre:"></asp:Label>
-        <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
-        <asp:Label ID="Label2" runat="server" Text="Primer Apellido:"></asp:Label>
-        <asp:TextBox ID="txtPrimerApellido" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtprimerApellidoCliente" runat="server"></asp:TextBox>
+        <asp:Label ID="Label2" runat="server" Text="Número Cédula:"></asp:Label>
+        <asp:TextBox ID="txtnumCedulaCliente" runat="server"></asp:TextBox>
+       <asp:Label ID="Label3" runat="server" Text="Nombre Cobertura Poliza:"></asp:Label>
+        <asp:TextBox ID="txtnombreCoberturaPoliza" runat="server"></asp:TextBox>
+    
     &nbsp;&nbsp;
         <asp:Button ID="btVerReporte" runat="server" OnClick="btBuscar_Click" Text="Ver Reporte" style="height: 29px" />
         <br />
