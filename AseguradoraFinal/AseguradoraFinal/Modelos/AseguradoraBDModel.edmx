@@ -1031,11 +1031,6 @@
             <End Role="Sucursal" EntitySet="Sucursal" />
             <End Role="RegistroPoliza" EntitySet="RegistroPoliza" />
           </AssociationSet>
-          <FunctionImport Name="pa_RetornaPoliza" ReturnType="Collection(AseguradoraBDModel.pa_RetornaPoliza_Result)">
-            <Parameter Name="primerApellidoCliente" Mode="In" Type="String" />
-            <Parameter Name="numCedulaCliente" Mode="In" Type="String" />
-            <Parameter Name="nombreCoberturaPoliza" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="pa_RetornaCliente" ReturnType="Collection(AseguradoraBDModel.pa_RetornaCliente_Result)">
           <Parameter Name="numCedula" Mode="In" Type="String" />
           </FunctionImport>
@@ -1186,7 +1181,12 @@
           <Parameter Name="idMantAdiccionCliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="pa_EliminaAdiccionCliente">
-            <Parameter Name="id_AdiccionCliente" Mode="In" Type="Int32" />
+          <Parameter Name="id_AdiccionCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaPoliza" ReturnType="Collection(AseguradoraBDModel.pa_RetornaPoliza_Result)">
+            <Parameter Name="primerApellidoCliente" Mode="In" Type="String" />
+            <Parameter Name="numCedulaCliente" Mode="In" Type="String" />
+            <Parameter Name="nombreCoberturaPoliza" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1383,29 +1383,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <ComplexType Name="pa_RetornaPoliza_Result">
-          <Property Type="Int32" Name="idRegistroPoliza" Nullable="false" />
-          <Property Type="Int32" Name="idCoberturaPoliza" Nullable="false" />
-          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
-          <Property Type="Int32" Name="idCliente" Nullable="false" />
-          <Property Type="String" Name="ape1Cliente" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="ape2Cliente" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="numCedula" Nullable="false" MaxLength="20" />
-          <Property Type="Int32" Name="idEmpleado" Nullable="false" />
-          <Property Type="String" Name="ape1Empleado" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="ape2Empleado" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="nomEmpleado" Nullable="false" MaxLength="50" />
-          <Property Type="Double" Name="montoAsegurado" Nullable="false" />
-          <Property Type="Int32" Name="cantidadAdicciones" Nullable="true" />
-          <Property Type="Double" Name="primaAntesImpuestos" Nullable="false" />
-          <Property Type="Double" Name="impuestos" Nullable="false" />
-          <Property Type="Double" Name="primaFinal" Nullable="false" />
-          <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
-          <Property Type="Int32" Name="idSucursal" Nullable="false" />
-          <Property Type="String" Name="nomSucursal" Nullable="false" MaxLength="50" />
-          <Property Type="Double" Name="porcentajePrima" Nullable="false" />
-        </ComplexType>
         <ComplexType Name="pa_RetornaCliente_Result">
           <Property Type="Int32" Name="idCliente" Nullable="false" />
           <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
@@ -1565,6 +1542,30 @@
           <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaPoliza_Result">
+          <Property Type="Int32" Name="idRegistroPoliza" Nullable="false" />
+          <Property Type="Int32" Name="idCoberturaPoliza" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idCliente" Nullable="false" />
+          <Property Type="String" Name="ape1Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape2Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="numCedula" Nullable="false" MaxLength="20" />
+          <Property Type="Int32" Name="idEmpleado" Nullable="false" />
+          <Property Type="String" Name="ape1Empleado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape2Empleado" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nomEmpleado" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="montoAsegurado" Nullable="false" />
+          <Property Type="Double" Name="montoAdicciones" Nullable="false" />
+          <Property Type="Int32" Name="cantidadAdicciones" Nullable="true" />
+          <Property Type="Double" Name="primaAntesImpuestos" Nullable="false" />
+          <Property Type="Double" Name="impuestos" Nullable="false" />
+          <Property Type="Double" Name="primaFinal" Nullable="false" />
+          <Property Type="DateTime" Name="fechaRegistro" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="idSucursal" Nullable="false" />
+          <Property Type="String" Name="nomSucursal" Nullable="false" MaxLength="50" />
+          <Property Type="Double" Name="porcentajePrima" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1851,33 +1852,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="pa_RetornaPoliza" FunctionName="AseguradoraBDModel.Store.pa_RetornaPoliza">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaPoliza_Result">
-                <ScalarProperty Name="idRegistroPoliza" ColumnName="idRegistroPoliza" />
-                <ScalarProperty Name="idCoberturaPoliza" ColumnName="idCoberturaPoliza" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
-                <ScalarProperty Name="ape1Cliente" ColumnName="ape1Cliente" />
-                <ScalarProperty Name="ape2Cliente" ColumnName="ape2Cliente" />
-                <ScalarProperty Name="nomCliente" ColumnName="nomCliente" />
-                <ScalarProperty Name="numCedula" ColumnName="numCedula" />
-                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
-                <ScalarProperty Name="ape1Empleado" ColumnName="ape1Empleado" />
-                <ScalarProperty Name="ape2Empleado" ColumnName="ape2Empleado" />
-                <ScalarProperty Name="nomEmpleado" ColumnName="nomEmpleado" />
-                <ScalarProperty Name="montoAsegurado" ColumnName="montoAsegurado" />
-                <ScalarProperty Name="cantidadAdicciones" ColumnName="cantidadAdicciones" />
-                <ScalarProperty Name="primaAntesImpuestos" ColumnName="primaAntesImpuestos" />
-                <ScalarProperty Name="impuestos" ColumnName="impuestos" />
-                <ScalarProperty Name="primaFinal" ColumnName="primaFinal" />
-                <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
-                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
-                <ScalarProperty Name="nomSucursal" ColumnName="nomSucursal" />
-                <ScalarProperty Name="porcentajePrima" ColumnName="porcentajePrima" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_RetornaCliente" FunctionName="AseguradoraBDModel.Store.pa_RetornaCliente">
             <ResultMapping>
               <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaCliente_Result">
@@ -2120,6 +2094,34 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_EliminaAdiccionesxCliente" FunctionName="AseguradoraBDModel.Store.pa_EliminaAdiccionesxCliente" />
           <FunctionImportMapping FunctionImportName="pa_EliminaAdiccionCliente" FunctionName="AseguradoraBDModel.Store.pa_EliminaAdiccionCliente" />
+          <FunctionImportMapping FunctionImportName="pa_RetornaPoliza" FunctionName="AseguradoraBDModel.Store.pa_RetornaPoliza">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaPoliza_Result">
+                <ScalarProperty Name="idRegistroPoliza" ColumnName="idRegistroPoliza" />
+                <ScalarProperty Name="idCoberturaPoliza" ColumnName="idCoberturaPoliza" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="ape1Cliente" ColumnName="ape1Cliente" />
+                <ScalarProperty Name="ape2Cliente" ColumnName="ape2Cliente" />
+                <ScalarProperty Name="nomCliente" ColumnName="nomCliente" />
+                <ScalarProperty Name="numCedula" ColumnName="numCedula" />
+                <ScalarProperty Name="idEmpleado" ColumnName="idEmpleado" />
+                <ScalarProperty Name="ape1Empleado" ColumnName="ape1Empleado" />
+                <ScalarProperty Name="ape2Empleado" ColumnName="ape2Empleado" />
+                <ScalarProperty Name="nomEmpleado" ColumnName="nomEmpleado" />
+                <ScalarProperty Name="montoAsegurado" ColumnName="montoAsegurado" />
+                <ScalarProperty Name="montoAdicciones" ColumnName="montoAdicciones" />
+                <ScalarProperty Name="cantidadAdicciones" ColumnName="cantidadAdicciones" />
+                <ScalarProperty Name="primaAntesImpuestos" ColumnName="primaAntesImpuestos" />
+                <ScalarProperty Name="impuestos" ColumnName="impuestos" />
+                <ScalarProperty Name="primaFinal" ColumnName="primaFinal" />
+                <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+                <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
+                <ScalarProperty Name="nomSucursal" ColumnName="nomSucursal" />
+                <ScalarProperty Name="porcentajePrima" ColumnName="porcentajePrima" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

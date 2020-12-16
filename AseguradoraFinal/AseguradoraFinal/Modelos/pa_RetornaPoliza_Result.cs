@@ -26,6 +26,7 @@ namespace AseguradoraFinal.Modelos
         public string ape2Empleado { get; set; }
         public string nomEmpleado { get; set; }
         public double montoAsegurado { get; set; }
+        public double montoAdicciones { get; set; }
         public Nullable<int> cantidadAdicciones { get; set; }
         public double primaAntesImpuestos { get; set; }
         public double impuestos { get; set; }
