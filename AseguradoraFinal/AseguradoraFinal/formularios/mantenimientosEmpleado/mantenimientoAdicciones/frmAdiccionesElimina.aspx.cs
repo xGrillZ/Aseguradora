@@ -57,7 +57,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             }
             else
             {
-                ///Creación de variable el cuál almacenará el idAiccion enviada por la variable parametro
+                ///Creación de variable el cuál almacenará el idAdiccion enviada por la variable parametro
                 int idAdiccion = Convert.ToInt16(parametro);
 
                 ///Creación de la instancia a la clase BLEmpleado
