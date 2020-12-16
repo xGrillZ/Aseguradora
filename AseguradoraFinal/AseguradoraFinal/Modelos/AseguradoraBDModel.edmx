@@ -457,6 +457,12 @@
         <Function Name="pa_RetornaClienteCed" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="numCedula" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="pa_RetornaClienteEmpleado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="primerApellido" Type="nvarchar" Mode="In" />
+          <Parameter Name="nombreCliente" Type="nvarchar" Mode="In" />
+          <Parameter Name="cedCliente" Type="nvarchar" Mode="In" />
+          <Parameter Name="generoCliente" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="pa_RetornaCoberturaPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="nombreCobertura" Type="varchar" Mode="In" />
           <Parameter Name="nombreTipoPoliza" Type="varchar" Mode="In" />
@@ -1084,7 +1090,13 @@
             <Parameter Name="sTelefono" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_RetornaAdiccionesID" ReturnType="Collection(AseguradoraBDModel.pa_RetornaAdiccionesID_Result)">
-            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
+          <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaClienteEmpleado" ReturnType="Collection(AseguradoraBDModel.pa_RetornaClienteEmpleado_Result)">
+            <Parameter Name="primerApellido" Mode="In" Type="String" />
+            <Parameter Name="nombreCliente" Mode="In" Type="String" />
+            <Parameter Name="cedCliente" Mode="In" Type="String" />
+            <Parameter Name="generoCliente" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1402,6 +1414,16 @@
         <ComplexType Name="pa_RetornaAdiccionesID_Result">
           <Property Type="Int32" Name="idAdiccion" Nullable="false" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaClienteEmpleado_Result">
+          <Property Type="Int32" Name="idCliente" Nullable="false" />
+          <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape1Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ape2Cliente" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="numCedula" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="genero" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="direccionFisica" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="pTelefono" Nullable="false" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1864,6 +1886,20 @@
               <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaAdiccionesID_Result">
                 <ScalarProperty Name="idAdiccion" ColumnName="idAdiccion" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_RetornaClienteEmpleado" FunctionName="AseguradoraBDModel.Store.pa_RetornaClienteEmpleado">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaClienteEmpleado_Result">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="nomCliente" ColumnName="nomCliente" />
+                <ScalarProperty Name="ape1Cliente" ColumnName="ape1Cliente" />
+                <ScalarProperty Name="ape2Cliente" ColumnName="ape2Cliente" />
+                <ScalarProperty Name="numCedula" ColumnName="numCedula" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="direccionFisica" ColumnName="direccionFisica" />
+                <ScalarProperty Name="pTelefono" ColumnName="pTelefono" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

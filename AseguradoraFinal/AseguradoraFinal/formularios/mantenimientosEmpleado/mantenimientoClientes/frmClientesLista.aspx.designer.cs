@@ -33,6 +33,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
         protected global::System.Web.UI.WebControls.TextBox txtPrimerApellido;
 
         /// <summary>
+        /// Control reVtxtPrimerApellido.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtPrimerApellido;
+
+        /// <summary>
         /// Control Label2.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
+
+        /// <summary>
+        /// Control reVtxtNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtNombre;
 
         /// <summary>
         /// Control Label3.
@@ -69,6 +87,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
         protected global::System.Web.UI.WebControls.TextBox txtCedula;
 
         /// <summary>
+        /// Control reVtxtCedula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtCedula;
+
+        /// <summary>
         /// Control Label4.
         /// </summary>
         /// <remarks>
@@ -85,6 +112,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGenero;
+
+        /// <summary>
+        /// Control reVtxtGenero.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtGenero;
 
         /// <summary>
         /// Control btnMostrarDatos.

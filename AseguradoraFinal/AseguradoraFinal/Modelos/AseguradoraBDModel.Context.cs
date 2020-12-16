@@ -854,5 +854,26 @@ namespace AseguradoraFinal.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionesID_Result>("pa_RetornaAdiccionesID", idAdiccionParameter);
         }
+    
+        public virtual ObjectResult<pa_RetornaClienteEmpleado_Result> pa_RetornaClienteEmpleado(string primerApellido, string nombreCliente, string cedCliente, string generoCliente)
+        {
+            var primerApellidoParameter = primerApellido != null ?
+                new ObjectParameter("primerApellido", primerApellido) :
+                new ObjectParameter("primerApellido", typeof(string));
+    
+            var nombreClienteParameter = nombreCliente != null ?
+                new ObjectParameter("nombreCliente", nombreCliente) :
+                new ObjectParameter("nombreCliente", typeof(string));
+    
+            var cedClienteParameter = cedCliente != null ?
+                new ObjectParameter("cedCliente", cedCliente) :
+                new ObjectParameter("cedCliente", typeof(string));
+    
+            var generoClienteParameter = generoCliente != null ?
+                new ObjectParameter("generoCliente", generoCliente) :
+                new ObjectParameter("generoCliente", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaClienteEmpleado_Result>("pa_RetornaClienteEmpleado", primerApellidoParameter, nombreClienteParameter, cedClienteParameter, generoClienteParameter);
+        }
     }
 }

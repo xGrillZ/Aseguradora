@@ -734,6 +734,9 @@
     <Compile Include="Modelos\pa_RetornaClienteCed_Result.cs">
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\pa_RetornaClienteEmpleado_Result.cs">
+      <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Modelos\pa_RetornaCliente_Result.cs">
       <DependentUpon>AseguradoraBDModel.tt</DependentUpon>
     </Compile>
