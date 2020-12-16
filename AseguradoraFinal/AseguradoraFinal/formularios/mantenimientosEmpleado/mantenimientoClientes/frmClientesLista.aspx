@@ -35,6 +35,15 @@
                     <br />
                     <asp:GridView ID="grdListaClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
                         <AlternatingRowStyle BackColor="#F7F7F7" />
+                        <Columns>
+                            <asp:BoundField DataField="nomCliente" HeaderText="Nombre" />
+                            <asp:BoundField DataField="ape1Cliente" HeaderText="Primer apellido" />
+                            <asp:BoundField DataField="ape2Cliente" HeaderText="Segundo apellido" />
+                            <asp:BoundField DataField="numCedula" HeaderText="Cédula" />
+                            <asp:BoundField DataField="genero" HeaderText="Género" />
+                            <asp:BoundField DataField="direccionFisica" HeaderText="Dirección física" />
+                            <asp:BoundField DataField="pTelefono" HeaderText="Primer teléfono" />
+                        </Columns>
                         <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                         <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
                         <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
