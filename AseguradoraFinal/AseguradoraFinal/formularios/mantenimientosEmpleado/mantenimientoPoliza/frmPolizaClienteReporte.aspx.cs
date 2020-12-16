@@ -26,7 +26,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         void contruirReporte()
         {
 
-            ///indicar la ruta del reporte
+           /* ///indicar la ruta del reporte
             string rutaReporte = "~/Reportes/RptPolizaCliente.rdlc";
             ///construir la ruta física
             string rutaServidor = Server.MapPath(rutaReporte);
@@ -54,7 +54,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
 
                 /// mostrar los datos en el reporte
                 this.rpvPolizaClientes.LocalReport.Refresh();
-            }
+            }*/
         }
         /// <summary>
         /// Función que retorna la fuente de datos a mostrar en el reporte
@@ -62,11 +62,25 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
         /// <param name="pPrimerApellido"></param>
         /// <param name="pNombre"></param>
         /// <returns></returns>
+
+       /* List<pa_RetornaPoliza_Result> retornaDatosReporte(int idCoberturaPoliza, string nombre, int idCliente, string ape1Cliente,
+            string ape2Cliente, string nomCliente, string numCedula, int idEmpleado, string ape1Empleado, string ape2Empleado,
+            string nomEmpleado, double montoAsegurado, int cantidadAdicciones, double primaAntesImpuestos, double impuestos, double primaFinal,
+            System.DateTime fechaRegistro, int idSucursal, string nomSucursal, double porcentajePrima)
+        {
+            return
+                  this.modeloBD.pa_RetornaPoliza( idCoberturaPoliza,  nombre,  idCliente,  ape1Cliente,
+             ape2Cliente,  nomCliente,  numCedula,  idEmpleado,  ape1Empleado,  ape2Empleado,
+             nomEmpleado,  montoAsegurado,  cantidadAdicciones,  primaAntesImpuestos,  impuestos,  primaFinal,
+             fechaRegistro,  idSucursal,  nomSucursal,  porcentajePrima).ToList;
+        }*/
+
         List<pa_RetornaPoliza_Result> retornaDatosReporte(string primerApellidoCliente, string numCedulaCliente, string nombreCoberturaPoliza)
         {
             return
                   this.modeloBD.pa_RetornaPoliza( primerApellidoCliente,  numCedulaCliente, nombreCoberturaPoliza).ToList();
         }
+
     }
 
 }

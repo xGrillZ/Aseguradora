@@ -159,6 +159,7 @@
     <Content Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteElimina.aspx" />
     <Content Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteLista.aspx" />
     <Content Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteModifica.aspx" />
+    <Content Include="formularios\mantenimientoCliente\reportePolizaporCliente\frmClientePolizaReporte.aspx" />
     <Content Include="formularios\mantenimientoCliente\reportePolizaporCliente\frmPolizaElimina.aspx" />
     <Content Include="formularios\mantenimientoCliente\reportePolizaporCliente\frmPolizaInserta.aspx" />
     <Content Include="formularios\mantenimientoCliente\reportePolizaporCliente\frmPolizaLista.aspx" />
@@ -395,6 +396,17 @@
     <Content Include="aseguradorarjsDataSet.xss">
       <DependentUpon>aseguradorarjsDataSet.xsd</DependentUpon>
     </Content>
+    <Content Include="aseguradorarjsDataSetPoliza.xsc">
+      <DependentUpon>aseguradorarjsDataSetPoliza.xsd</DependentUpon>
+    </Content>
+    <None Include="aseguradorarjsDataSetPoliza.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>aseguradorarjsDataSetPoliza.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="aseguradorarjsDataSetPoliza.xss">
+      <DependentUpon>aseguradorarjsDataSetPoliza.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -458,6 +470,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>aseguradorarjsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="aseguradorarjsDataSetPoliza.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>aseguradorarjsDataSetPoliza.xsd</DependentUpon>
     </Compile>
     <Compile Include="BL\BLAdiccionCliente.cs" />
     <Compile Include="BL\BLCliente.cs" />
@@ -535,6 +552,13 @@
     </Compile>
     <Compile Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteModifica.aspx.designer.cs">
       <DependentUpon>frmReporteModifica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientoCliente\reportePolizaporCliente\frmClientePolizaReporte.aspx.cs">
+      <DependentUpon>frmClientePolizaReporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientoCliente\reportePolizaporCliente\frmClientePolizaReporte.aspx.designer.cs">
+      <DependentUpon>frmClientePolizaReporte.aspx</DependentUpon>
     </Compile>
     <Compile Include="formularios\mantenimientoCliente\reportePolizaporCliente\frmPolizaElimina.aspx.cs">
       <DependentUpon>frmPolizaElimina.aspx</DependentUpon>

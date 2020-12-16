@@ -8,9 +8,9 @@ using System.IO;
 using Microsoft.Reporting.WebForms;
 using AseguradoraFinal.Modelos;
 
-namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicciones
+namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliza
 {
-    public partial class frmAdiccionesClienteReporte : System.Web.UI.Page
+    public partial class frmPolizaClienteReporte : System.Web.UI.Page
     {
         aseguradorarjsEntities modeloBD = new aseguradorarjsEntities();
         protected void Page_Load(object sender, EventArgs e)
@@ -26,8 +26,8 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         void contruirReporte()
         {
 
-            ///indicar la ruta del reporte!
-            string rutaReporte = "~/Reportes/RptAdiccionesCliente.rdlc";
+           /* ///indicar la ruta del reporte
+            string rutaReporte = "~/Reportes/RptPolizaCliente.rdlc";
             ///construir la ruta física
             string rutaServidor = Server.MapPath(rutaReporte);
             ///Validar que la ruta física exista
@@ -39,23 +39,22 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             }
             else
             {
-                rpvAdiccionesClientes.LocalReport.ReportPath = rutaServidor;
-                var infoFuenteDatos = this.rpvAdiccionesClientes.LocalReport.GetDataSourceNames();
+                rpvPolizaClientes.LocalReport.ReportPath = rutaServidor;
+                var infoFuenteDatos = this.rpvPolizaClientes.LocalReport.GetDataSourceNames();
                 ///limpiar los datos de la fuente de datos
-                rpvAdiccionesClientes.LocalReport.DataSources.Clear();
+                rpvPolizaClientes.LocalReport.DataSources.Clear();
                 ///obtener los datos del reporte
-                List<pa_RetornaAdiccionesxCliente_Result> datosReporte =
-                    null;
+                List< pa_RetornaPoliza_Result > datosReporte = this.retornaDatosReporte(this.txtprimerApellidoCliente.Text, this.txtnumCedulaCliente.Text, this.txtnombreCoberturaPoliza.Text); 
                 ///crear la fuente de datos
                 ReportDataSource fuenteDatos = new ReportDataSource();
                 fuenteDatos.Name = infoFuenteDatos[0];
                 fuenteDatos.Value = datosReporte;
                 // agregar la fuente de datos al reporte
-                this.rpvAdiccionesClientes.LocalReport.DataSources.Add(fuenteDatos);
+                this.rpvPolizaClientes.LocalReport.DataSources.Add(fuenteDatos);
 
                 /// mostrar los datos en el reporte
-                this.rpvAdiccionesClientes.LocalReport.Refresh();
-            }
+                this.rpvPolizaClientes.LocalReport.Refresh();
+            }*/
         }
         /// <summary>
         /// Función que retorna la fuente de datos a mostrar en el reporte
@@ -63,12 +62,23 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         /// <param name="pPrimerApellido"></param>
         /// <param name="pNombre"></param>
         /// <returns></returns>
-        List<pa_RetornaAdiccionesxCliente_Result> retornaDatosReporte(
-            string pPrimerApellido, string pNombre)
+       /* List<pa_RetornaPoliza_Result> retornaDatosReporte(int idCoberturaPoliza, string nombre, int idCliente, string ape1Cliente,
+            string ape2Cliente, string nomCliente, string numCedula, int idEmpleado, string ape1Empleado, string ape2Empleado,
+            string nomEmpleado, double montoAsegurado, int cantidadAdicciones, double primaAntesImpuestos, double impuestos, double primaFinal,
+            System.DateTime fechaRegistro, int idSucursal, string nomSucursal, double porcentajePrima)
         {
             return
-                  null;
+                  this.modeloBD.pa_RetornaPoliza( idCoberturaPoliza,  nombre,  idCliente,  ape1Cliente,
+             ape2Cliente,  nomCliente,  numCedula,  idEmpleado,  ape1Empleado,  ape2Empleado,
+             nomEmpleado,  montoAsegurado,  cantidadAdicciones,  primaAntesImpuestos,  impuestos,  primaFinal,
+             fechaRegistro,  idSucursal,  nomSucursal,  porcentajePrima).ToList;
+        }*/
+        List<pa_RetornaPoliza_Result> retornaDatosReporte(string primerApellidoCliente, string numCedulaCliente, string nombreCoberturaPoliza)
+        {
+            return
+                  this.modeloBD.pa_RetornaPoliza( primerApellidoCliente,  numCedulaCliente, nombreCoberturaPoliza).ToList();
         }
-
     }
+
 }
+
