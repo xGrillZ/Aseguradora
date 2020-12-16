@@ -30,7 +30,7 @@
                 <div class="form-group">
                      <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" class="btn-success" OnClick="btnMostrarDatos_Click"  />  
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-                    <asp:HyperLink ID="hpNuevoRegistro" runat="server" class="text-info" NavigateUrl="~/formularios/frmClienteInserta.aspx">Nuevo Registro</asp:HyperLink>
+                    <asp:HyperLink ID="hpNuevoRegistro" runat="server" class="text-info" NavigateUrl="/formularios/mantenimientosEmpleado/mantenimientoAdiccionesPorClientes/frmAdiccionesPorClientesInserta.aspx">Nuevo Registro</asp:HyperLink>
                 </div>
             <br />
             <br />

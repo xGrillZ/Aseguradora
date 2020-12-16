@@ -912,10 +912,6 @@
           <FunctionImport Name="pa_EmpleadoSelect" ReturnType="Collection(AseguradoraBDModel.pa_EmpleadoSelect_Result)">
           <Parameter Name="NumCedula" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="pa_InsertaAdiccionesxCliente">
-            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
-            <Parameter Name="idCliente" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="pa_InsertaTipoPoliza">
             <Parameter Name="nombre" Mode="In" Type="String" />
             <Parameter Name="detalles" Mode="In" Type="String" />
@@ -1038,9 +1034,6 @@
             <Parameter Name="primerApellidoCliente" Mode="In" Type="String" />
             <Parameter Name="numCedulaCliente" Mode="In" Type="String" />
             <Parameter Name="nombreCoberturaPoliza" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="pa_RetornaAdiccionesCantidad" ReturnType="Collection(AseguradoraBDModel.pa_RetornaAdiccionesCantidad_Result)">
-          <Parameter Name="idCliente" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="pa_RetornaCliente" ReturnType="Collection(AseguradoraBDModel.pa_RetornaCliente_Result)">
           <Parameter Name="numCedula" Mode="In" Type="String" />
@@ -1169,6 +1162,13 @@
             <Parameter Name="nombreCliente" Mode="In" Type="String" />
             <Parameter Name="nombreAdiccion" Mode="In" Type="String" />
             <Parameter Name="descCategoria" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_InsertaAdiccionesxCliente">
+            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaAdiccionesCantidad" ReturnType="Collection(AseguradoraBDModel.pa_RetornaAdiccionesCantidad_Result)">
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1388,10 +1388,6 @@
           <Property Type="String" Name="nomSucursal" Nullable="false" MaxLength="50" />
           <Property Type="Double" Name="porcentajePrima" Nullable="false" />
         </ComplexType>
-        <ComplexType Name="pa_RetornaAdiccionesCantidad_Result">
-          <Property Type="Int32" Name="idMantAdiccionxCliente" Nullable="false" />
-          <Property Type="Int32" Name="cantAdiccion" Nullable="true" />
-        </ComplexType>
         <ComplexType Name="pa_RetornaCliente_Result">
           <Property Type="Int32" Name="idCliente" Nullable="false" />
           <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
@@ -1541,6 +1537,10 @@
           <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
         </ComplexType>
+        <ComplexType Name="pa_RetornaAdiccionesCantidad_Result">
+          <Property Type="Int32" Name="idCliente" Nullable="false" />
+          <Property Type="Int32" Name="cantAdiccion" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1677,7 +1677,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_InsertaAdiccionesxCliente" FunctionName="AseguradoraBDModel.Store.pa_InsertaAdiccionesxCliente" />
           <FunctionImportMapping FunctionImportName="pa_InsertaTipoPoliza" FunctionName="AseguradoraBDModel.Store.pa_InsertaTipoPoliza" />
           <FunctionImportMapping FunctionImportName="pa_ModificaAdiccionesxCliente" FunctionName="AseguradoraBDModel.Store.pa_ModificaAdiccionesxCliente" />
           <FunctionImportMapping FunctionImportName="pa_ModificaTipoPoliza" FunctionName="AseguradoraBDModel.Store.pa_ModificaTipoPoliza" />
@@ -1853,14 +1852,6 @@
                 <ScalarProperty Name="idSucursal" ColumnName="idSucursal" />
                 <ScalarProperty Name="nomSucursal" ColumnName="nomSucursal" />
                 <ScalarProperty Name="porcentajePrima" ColumnName="porcentajePrima" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_RetornaAdiccionesCantidad" FunctionName="AseguradoraBDModel.Store.pa_RetornaAdiccionesCantidad">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaAdiccionesCantidad_Result">
-                <ScalarProperty Name="idMantAdiccionxCliente" ColumnName="idMantAdiccionxCliente" />
-                <ScalarProperty Name="cantAdiccion" ColumnName="cantAdiccion" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -2079,6 +2070,15 @@
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_InsertaAdiccionesxCliente" FunctionName="AseguradoraBDModel.Store.pa_InsertaAdiccionesxCliente" />
+          <FunctionImportMapping FunctionImportName="pa_RetornaAdiccionesCantidad" FunctionName="AseguradoraBDModel.Store.pa_RetornaAdiccionesCantidad">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaAdiccionesCantidad_Result">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="cantAdiccion" ColumnName="cantAdiccion" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

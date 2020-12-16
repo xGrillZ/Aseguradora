@@ -29,6 +29,54 @@ namespace AseguradoraFinal.BL
             ///Retornar el valor
             return resultado;
         }
+
+        public bool insertaAdiccionCliente(int pIdAdiccion, int pIdCliente)
+        {
+            ///Variable que posee la cantidad de registros afectados
+            ///al realizar insert/update/delete la cantidad de registros
+            ///afectados debe ser mayor a 0
+            int registrosAfectados = 0;
+
+            ///Invocación del procedimiento almacenado con las variables
+            registrosAfectados = this.modeloBD.pa_InsertaAdiccionesxCliente(pIdAdiccion, pIdCliente);
+
+            if (registrosAfectados > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        /// <summary>
+        /// Método para verificar la adiccion por cliente
+        /// </summary>
+        /// <param name="pIdCliente">Variable a capturar</param>
+        /// <param name="pIdAdiccion">Variable a capturar</param>
+        /// <returns></returns>
+        public bool verificaAdiccion(int pIdCliente, int pIdAdiccion)
+        {
+            ///Resultado de la operación
+            bool resultado = true;
+            try
+            {
+                ///Variable que almacenará el dato solicitado
+                int cliente = pIdCliente;
+                int adiccion = pIdAdiccion;
+                ///Resultado de la operación
+                resultado = this.modeloBD.MantAddicionxCliente.Count(adCliente => adCliente.idCliente == pIdCliente && adCliente.idAdiccion == adiccion ) <= 0;
+            }
+            catch
+            {
+                ///Mensaje de error
+                string mensaje = "Error al verificar la cédula.";
+            }
+            ///Retorno del resultado
+            return resultado;
+        }
         #endregion Métodos y funciones
     }
 }

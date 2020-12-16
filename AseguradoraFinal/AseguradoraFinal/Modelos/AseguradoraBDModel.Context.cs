@@ -222,19 +222,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_EmpleadoSelect_Result>("pa_EmpleadoSelect", numCedulaParameter);
         }
     
-        public virtual int pa_InsertaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idCliente)
-        {
-            var idAdiccionParameter = idAdiccion.HasValue ?
-                new ObjectParameter("idAdiccion", idAdiccion) :
-                new ObjectParameter("idAdiccion", typeof(int));
-    
-            var idClienteParameter = idCliente.HasValue ?
-                new ObjectParameter("idCliente", idCliente) :
-                new ObjectParameter("idCliente", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdiccionesxCliente", idAdiccionParameter, idClienteParameter);
-        }
-    
         public virtual int pa_InsertaTipoPoliza(string nombre, string detalles)
         {
             var nombreParameter = nombre != null ?
@@ -548,15 +535,6 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("nombreCoberturaPoliza", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaPoliza_Result>("pa_RetornaPoliza", primerApellidoClienteParameter, numCedulaClienteParameter, nombreCoberturaPolizaParameter);
-        }
-    
-        public virtual ObjectResult<pa_RetornaAdiccionesCantidad_Result> pa_RetornaAdiccionesCantidad(Nullable<int> idCliente)
-        {
-            var idClienteParameter = idCliente.HasValue ?
-                new ObjectParameter("idCliente", idCliente) :
-                new ObjectParameter("idCliente", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionesCantidad_Result>("pa_RetornaAdiccionesCantidad", idClienteParameter);
         }
     
         public virtual ObjectResult<pa_RetornaCliente_Result> pa_RetornaCliente(string numCedula)
@@ -997,6 +975,28 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("descCategoria", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionCliente_Result>("pa_RetornaAdiccionCliente", correoElectronicoParameter, priApeClienteParameter, nombreClienteParameter, nombreAdiccionParameter, descCategoriaParameter);
+        }
+    
+        public virtual int pa_InsertaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idCliente)
+        {
+            var idAdiccionParameter = idAdiccion.HasValue ?
+                new ObjectParameter("idAdiccion", idAdiccion) :
+                new ObjectParameter("idAdiccion", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdiccionesxCliente", idAdiccionParameter, idClienteParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaAdiccionesCantidad_Result> pa_RetornaAdiccionesCantidad(Nullable<int> idCliente)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionesCantidad_Result>("pa_RetornaAdiccionesCantidad", idClienteParameter);
         }
     }
 }

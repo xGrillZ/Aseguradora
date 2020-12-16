@@ -13,7 +13,7 @@ namespace AseguradoraFinal.Modelos
     
     public partial class pa_RetornaAdiccionesCantidad_Result
     {
-        public int idMantAdiccionxCliente { get; set; }
+        public int idCliente { get; set; }
         public Nullable<int> cantAdiccion { get; set; }
     }
 }
