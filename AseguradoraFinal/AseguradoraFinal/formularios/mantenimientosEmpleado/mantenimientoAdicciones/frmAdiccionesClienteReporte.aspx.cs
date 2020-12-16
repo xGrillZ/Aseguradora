@@ -12,6 +12,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 {
     public partial class frmAdiccionesClienteReporte : System.Web.UI.Page
     {
+        aseguradorarjsEntities modeloBD = aseguradorarjsEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -26,9 +27,9 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         {
 
             ///indicar la ruta del reporte!
-            string rutaReporte = "";
+            string rutaReporte = "~/Reportes/RptAdiccionesCliente.rdlc";
             ///construir la ruta física
-            string rutaServidor = "";
+            string rutaServidor = Server.MapPath(rutaReporte);
             ///Validar que la ruta física exista
             if (!File.Exists(rutaServidor))
             {
