@@ -22,11 +22,13 @@
                </div>  
                <div class="form-group">
                    <asp:Label ID="Label1" runat="server" Text="Tipo usuario:"></asp:Label>                 
-                   <asp:DropDownList ID="ddlTipoUsuario" runat="server" DataSourceID="idTipoUsuario" DataTextField="rol"></asp:DropDownList>
+                   <asp:DropDownList ID="ddlTipoUsuario" runat="server" DataTextField="rol" DataValueField="idTipoUsuario"></asp:DropDownList>
                    <asp:RequiredFieldValidator ID="rqVddlTipoUsuario" runat="server"  ControlToValidate="ddlTipoUsuario" ErrorMessage="Debes seleccionar el tipo de usuario." ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
                </div>
                <div class="form-group">
                    <asp:Button ID="btAceptar" runat="server"  Text="Insertar" class="btn-success" OnClick="btInsertar_Click" /> 
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                   <asp:HyperLink ID="hpClienteInsertar" runat="server" NavigateUrl="/formularios/mantenimientosEmpleado/mantenimientoClientes/frmClientesInserta.aspx">Registrar nuevo cliente</asp:HyperLink>
                </div>                                                             
               <br />
               <asp:ValidationSummary ID="vsInsertaUsuario" runat="server" ShowMessageBox="True" ShowSummary="False" />

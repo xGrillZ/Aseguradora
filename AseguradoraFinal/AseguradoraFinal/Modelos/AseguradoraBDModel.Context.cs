@@ -875,5 +875,31 @@ namespace AseguradoraFinal.Modelos
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaTipoUsuario_Result>("pa_RetornaTipoUsuario", rolParameter);
         }
+    
+        public virtual int pa_InsertaUsuario(string contrasena, Nullable<int> idTipoUsuario, string correoElectronico)
+        {
+            var contrasenaParameter = contrasena != null ?
+                new ObjectParameter("contrasena", contrasena) :
+                new ObjectParameter("contrasena", typeof(string));
+    
+            var idTipoUsuarioParameter = idTipoUsuario.HasValue ?
+                new ObjectParameter("idTipoUsuario", idTipoUsuario) :
+                new ObjectParameter("idTipoUsuario", typeof(int));
+    
+            var correoElectronicoParameter = correoElectronico != null ?
+                new ObjectParameter("correoElectronico", correoElectronico) :
+                new ObjectParameter("correoElectronico", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaUsuario", contrasenaParameter, idTipoUsuarioParameter, correoElectronicoParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaUsuarioCorreo_Result> pa_RetornaUsuarioCorreo(string correoElectronico)
+        {
+            var correoElectronicoParameter = correoElectronico != null ?
+                new ObjectParameter("correoElectronico", correoElectronico) :
+                new ObjectParameter("correoElectronico", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioCorreo_Result>("pa_RetornaUsuarioCorreo", correoElectronicoParameter);
+        }
     }
 }
