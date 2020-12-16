@@ -51,6 +51,18 @@ namespace AseguradoraFinal.BL
             return registrosAfectados > 0;
         }
 
+        public bool modificaClienteUsuario(int pIdCliente, string pDireccion, string pPriTelefono, string pSegTelefono = null)
+        {
+            ///Variable que posee la cantidad de registros afectados
+            int registrosAfectados = 0;
+
+            ///Invocar al procedimiento almacenado
+            registrosAfectados = this.modeloBD.pa_ModificaClienteUsuario(pIdCliente, pDireccion, pPriTelefono, pSegTelefono);
+
+            ///Retorna la variable de registros afectados
+            return registrosAfectados > 0;
+        }
+
         public List<pa_RetornaCliente_Result> retornaClientePoliza(string pNumCedula = null)
         {
             List<pa_RetornaCliente_Result> resultado = new List<pa_RetornaCliente_Result>();
