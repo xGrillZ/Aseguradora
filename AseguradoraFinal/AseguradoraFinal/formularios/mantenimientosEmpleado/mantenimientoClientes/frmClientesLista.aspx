@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PaginaMaestra/AseguradoraPagMaestra.Master" AutoEventWireup="true" CodeBehind="frmClientesLista.aspx.cs" Inherits="AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClientes.frmClientesLista" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="/css/global.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoPrincipal" runat="server">
     <section class="clientes-Lista">
@@ -35,6 +36,16 @@
                     <br />
                     <asp:GridView ID="grdListaClientes" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">
                         <AlternatingRowStyle BackColor="#F7F7F7" />
+                        <Columns>
+                            <asp:BoundField DataField="nomCliente" HeaderText="Nombre" />
+                            <asp:BoundField DataField="ape1Cliente" HeaderText="Primer apellido" />
+                            <asp:BoundField DataField="ape2Cliente" HeaderText="Segundo apellido" />
+                            <asp:BoundField DataField="numCedula" HeaderText="Cédula" />
+                            <asp:BoundField DataField="genero" HeaderText="Género" />
+                            <asp:BoundField DataField="direccionFisica" HeaderText="Dirección física" />
+                            <asp:BoundField DataField="pTelefono" HeaderText="Teléfono primario" />
+                            <asp:BoundField DataField="sTelefono" HeaderText="Teléfono secundario" />
+                        </Columns>
                         <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                         <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
                         <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />

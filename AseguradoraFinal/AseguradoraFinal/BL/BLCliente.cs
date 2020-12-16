@@ -80,6 +80,16 @@ namespace AseguradoraFinal.BL
 
             return resultado;
         }
+
+        public List<pa_RetornaClienteEmpleado_Result> retornaClienteEmpleado(string pPrimerApellido, string pNombreCliente, string pCedCliente, string pGeneroCliente)
+        {
+            ///Creacion de la variable que retornará los datos
+            List<pa_RetornaClienteEmpleado_Result> resultado = new List<pa_RetornaClienteEmpleado_Result>();
+            ///Asignación de los datos a la variable resultado
+            resultado = this.modeloBD.pa_RetornaClienteEmpleado(pPrimerApellido, pNombreCliente, pCedCliente, pGeneroCliente).ToList();
+            ///Retornar el valor
+            return resultado;
+        }
         #endregion Métodos y funciones
     }
 }

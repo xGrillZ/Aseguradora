@@ -18,22 +18,22 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
 
         protected void btnMostrarDatos_Click(object sender, EventArgs e)
         {
-
+            this.CargaDatosGrid();
         }
 
         void CargaDatosGrid()
         {
- /*           ///Creación de la instancia de la clase BLCliente
+            ///Creación de la instancia de la clase BLCliente
             BLCliente oCliente = new BLCliente();
             ///Creación de la variable, la cuál obtendrá los datos
-            List<sp_Retorna_Gasto_Categoria_Result> fuenteDatos =
-                blGastoCategoria.RetornaGastoCategoria(this.txtDescGasto.Text, this.txtDescCategoria.Text);
+            List<pa_RetornaClienteEmpleado_Result> fuenteDatos =
+                oCliente.retornaClienteEmpleado(this.txtPrimerApellido.Text, this.txtNombre.Text, this.txtCedula.Text, this.txtGenero.Text);
 
             ///Agregar al GridView una fuente de datos
-            this.grdListaGastosCategoria.DataSource = fuenteDatos;
+            this.grdListaClientes.DataSource = fuenteDatos;
 
             ///Mostrar el GridView
-            this.grdListaGastosCategoria.DataBind();*/
+            this.grdListaClientes.DataBind();
         }
     }
 }
