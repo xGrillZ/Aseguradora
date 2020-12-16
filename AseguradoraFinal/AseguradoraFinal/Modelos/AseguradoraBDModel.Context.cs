@@ -457,15 +457,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioEmpleadoID_Result>("pa_RetornaUsuarioEmpleadoID", idUsuarioParameter);
         }
     
-        public virtual ObjectResult<pa_RetornaUsuarioID_Result> pa_RetornaUsuarioID(Nullable<int> idUsuario)
-        {
-            var idUsuarioParameter = idUsuario.HasValue ?
-                new ObjectParameter("idUsuario", idUsuario) :
-                new ObjectParameter("idUsuario", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioID_Result>("pa_RetornaUsuarioID", idUsuarioParameter);
-        }
-    
         public virtual int pa_TipoPolizaUpdate(Nullable<int> idTipoPoliza, string nombre, string detalles)
         {
             var idTipoPolizaParameter = idTipoPoliza.HasValue ?
@@ -900,6 +891,69 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("correoElectronico", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioCorreo_Result>("pa_RetornaUsuarioCorreo", correoElectronicoParameter);
+        }
+    
+        public virtual int pa_InsertaCliente(Nullable<int> idUsuario, string nomCliente, string ape1Cliente, string ape2Cliente, string numCedula, string genero, string direccionFisica, string pTelefono, string sTelefono, Nullable<System.DateTime> ultimoIngreso)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            var nomClienteParameter = nomCliente != null ?
+                new ObjectParameter("nomCliente", nomCliente) :
+                new ObjectParameter("nomCliente", typeof(string));
+    
+            var ape1ClienteParameter = ape1Cliente != null ?
+                new ObjectParameter("ape1Cliente", ape1Cliente) :
+                new ObjectParameter("ape1Cliente", typeof(string));
+    
+            var ape2ClienteParameter = ape2Cliente != null ?
+                new ObjectParameter("ape2Cliente", ape2Cliente) :
+                new ObjectParameter("ape2Cliente", typeof(string));
+    
+            var numCedulaParameter = numCedula != null ?
+                new ObjectParameter("numCedula", numCedula) :
+                new ObjectParameter("numCedula", typeof(string));
+    
+            var generoParameter = genero != null ?
+                new ObjectParameter("genero", genero) :
+                new ObjectParameter("genero", typeof(string));
+    
+            var direccionFisicaParameter = direccionFisica != null ?
+                new ObjectParameter("direccionFisica", direccionFisica) :
+                new ObjectParameter("direccionFisica", typeof(string));
+    
+            var pTelefonoParameter = pTelefono != null ?
+                new ObjectParameter("pTelefono", pTelefono) :
+                new ObjectParameter("pTelefono", typeof(string));
+    
+            var sTelefonoParameter = sTelefono != null ?
+                new ObjectParameter("sTelefono", sTelefono) :
+                new ObjectParameter("sTelefono", typeof(string));
+    
+            var ultimoIngresoParameter = ultimoIngreso.HasValue ?
+                new ObjectParameter("ultimoIngreso", ultimoIngreso) :
+                new ObjectParameter("ultimoIngreso", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaCliente", idUsuarioParameter, nomClienteParameter, ape1ClienteParameter, ape2ClienteParameter, numCedulaParameter, generoParameter, direccionFisicaParameter, pTelefonoParameter, sTelefonoParameter, ultimoIngresoParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaUsuarioID_Result> pa_RetornaUsuarioID(Nullable<int> idUsuario)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioID_Result>("pa_RetornaUsuarioID", idUsuarioParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaClienteCorreo_Result> pa_RetornaClienteCorreo(Nullable<int> idUsuario)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaClienteCorreo_Result>("pa_RetornaClienteCorreo", idUsuarioParameter);
         }
     }
 }

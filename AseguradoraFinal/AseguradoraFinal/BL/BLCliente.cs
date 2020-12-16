@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AseguradoraFinal.Modelos;
+using System.Net;
+using System.Net.Mail;
 
 namespace AseguradoraFinal.BL
 {
@@ -88,6 +90,58 @@ namespace AseguradoraFinal.BL
             ///Asignación de los datos a la variable resultado
             resultado = this.modeloBD.pa_RetornaClienteEmpleado(pPrimerApellido, pNombreCliente, pCedCliente, pGeneroCliente).ToList();
             ///Retornar el valor
+            return resultado;
+        }
+
+        public bool insertaCliente(int pIdUsuario, string pNomCliente, string pPriApe, string pSegApe, string pNumCedula, string pGen, string pDireccion, string pPriTel, string pSecTel, DateTime pUltimoIngreso)
+        {
+            ///Variable que posee la cantidad de registros afectados
+            ///al realizar insert/update/delete la cantidad de registros
+            ///afectados debe ser mayor a 0
+            int registrosAfectados = 0;
+
+            ///Invocación del procedimiento almacenado con las variables
+            registrosAfectados = this.modeloBD.pa_InsertaCliente(pIdUsuario, pNomCliente, pPriApe, pSegApe, pNumCedula, pGen, pDireccion, pPriTel, pSecTel, pUltimoIngreso);
+
+            if (registrosAfectados > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void correoElectronicoIngreso(string pPriApellido, string pSecApellido, string pNombre, string pCorreo)
+        {
+            string emailOrigen = "segurosxxiumca@gmail.com";
+            string emailDestino = pCorreo;
+            string contrasena = "CastroCarazoProgra";
+
+            MailMessage oMailMessage = new MailMessage(emailOrigen, emailDestino, "Su Cuenta En Seguros El Equipo Del Siglo XXI",
+                                                       $"Estimado cliente: {pPriApellido} {pSecApellido}" +
+                                                       $" {pNombre}, gracias por confiar en Seguros el Equipo del Siglo XXI." +
+                                                       $" Para nosotros es un placer servirle.");
+            oMailMessage.IsBodyHtml = true;
+
+            SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
+            oSmtpClient.EnableSsl = true;
+            oSmtpClient.UseDefaultCredentials = false;
+            oSmtpClient.Port = 587;
+            oSmtpClient.Credentials = new System.Net.NetworkCredential(emailOrigen, contrasena);
+
+            oSmtpClient.Send(oMailMessage);
+
+            oSmtpClient.Dispose();
+        }
+
+        public pa_RetornaClienteCorreo_Result retornaClienteCorreo(int pIdUsuario)
+        {
+            pa_RetornaClienteCorreo_Result resultado = new pa_RetornaClienteCorreo_Result();
+
+            resultado = this.modeloBD.pa_RetornaClienteCorreo(pIdUsuario).FirstOrDefault();
+
             return resultado;
         }
         #endregion Métodos y funciones

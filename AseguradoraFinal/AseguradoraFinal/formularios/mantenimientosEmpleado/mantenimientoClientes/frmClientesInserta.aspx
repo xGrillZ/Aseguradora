@@ -12,6 +12,7 @@
                   <asp:TextBox ID="txtNombreCliente" runat="server" class="form-control"></asp:TextBox>
                   <asp:RequiredFieldValidator ID="rqVtxtNombreCliente" runat="server"  ControlToValidate="txtNombreCliente" ErrorMessage="Debes ingresar el nombre del cliente." ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
                   <asp:RegularExpressionValidator ID="reVtxtNombreCliente" runat="server" ErrorMessage="El nombre del cliente debe ser menor o igual a 50 carácteres." ControlToValidate="txtNombreCliente" Display="None" ValidationExpression="^[\s\S]{1,50}$"></asp:RegularExpressionValidator>
+                   <asp:HiddenField ID="hdIdUsuario" runat="server" />
                </div>
                <div class="form-group">
                    <asp:Label ID="Label4" runat="server" Text="Primer apellido:"></asp:Label>                 
@@ -61,7 +62,9 @@
                </div>
                <div class="form-group">
                    <asp:Button ID="btAceptar" runat="server"  Text="Insertar" class="btn-success" OnClick="btInsertar_Click" /> 
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                    <asp:Button ID="btBuscar" runat="server"  Text="Buscar" class="btn-success" OnClick="btBuscar_Click" /> 
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                    <asp:HyperLink ID="hpRegresarLista" runat="server" class="text-info" NavigateUrl="/formularios/mantenimientosEmpleado/mantenimientoClientes/frmClientesLista.aspx">Lista de datos.</asp:HyperLink>
                </div>                                                             
               <br />
