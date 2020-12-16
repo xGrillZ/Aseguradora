@@ -158,19 +158,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaAdiccionesDelete", nombreParameter, codigoParameter, idCategoriaAdicionParameter);
         }
     
-        public virtual int pa_EliminaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idCliente)
-        {
-            var idAdiccionParameter = idAdiccion.HasValue ?
-                new ObjectParameter("idAdiccion", idAdiccion) :
-                new ObjectParameter("idAdiccion", typeof(int));
-    
-            var idClienteParameter = idCliente.HasValue ?
-                new ObjectParameter("idCliente", idCliente) :
-                new ObjectParameter("idCliente", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaAdiccionesxCliente", idAdiccionParameter, idClienteParameter);
-        }
-    
         public virtual int pa_EliminaTipoPoliza(Nullable<int> id_TipoPoliza)
         {
             var id_TipoPolizaParameter = id_TipoPoliza.HasValue ?
@@ -939,6 +926,63 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionesxCliente_Result>("pa_RetornaAdiccionesxCliente", correoElectronicoParameter, priApeClienteParameter, nombreClienteParameter);
         }
     
+        public virtual int pa_InsertaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idCliente)
+        {
+            var idAdiccionParameter = idAdiccion.HasValue ?
+                new ObjectParameter("idAdiccion", idAdiccion) :
+                new ObjectParameter("idAdiccion", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdiccionesxCliente", idAdiccionParameter, idClienteParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaAdiccionesCantidad_Result> pa_RetornaAdiccionesCantidad(Nullable<int> idCliente)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionesCantidad_Result>("pa_RetornaAdiccionesCantidad", idClienteParameter);
+        }
+    
+        public virtual int pa_ModificaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idAdiccionCliente)
+        {
+            var idAdiccionParameter = idAdiccion.HasValue ?
+                new ObjectParameter("idAdiccion", idAdiccion) :
+                new ObjectParameter("idAdiccion", typeof(int));
+    
+            var idAdiccionClienteParameter = idAdiccionCliente.HasValue ?
+                new ObjectParameter("idAdiccionCliente", idAdiccionCliente) :
+                new ObjectParameter("idAdiccionCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaAdiccionesxCliente", idAdiccionParameter, idAdiccionClienteParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaAdiccionClienteID_Result> pa_RetornaAdiccionClienteID(Nullable<int> idAdiccionCliente)
+        {
+            var idAdiccionClienteParameter = idAdiccionCliente.HasValue ?
+                new ObjectParameter("idAdiccionCliente", idAdiccionCliente) :
+                new ObjectParameter("idAdiccionCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionClienteID_Result>("pa_RetornaAdiccionClienteID", idAdiccionClienteParameter);
+        }
+    
+        public virtual int pa_ModificaAdiccionCliente(Nullable<int> idAdiccion, Nullable<int> idMantenimientoAdiccion)
+        {
+            var idAdiccionParameter = idAdiccion.HasValue ?
+                new ObjectParameter("idAdiccion", idAdiccion) :
+                new ObjectParameter("idAdiccion", typeof(int));
+    
+            var idMantenimientoAdiccionParameter = idMantenimientoAdiccion.HasValue ?
+                new ObjectParameter("idMantenimientoAdiccion", idMantenimientoAdiccion) :
+                new ObjectParameter("idMantenimientoAdiccion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaAdiccionCliente", idAdiccionParameter, idMantenimientoAdiccionParameter);
+        }
+    
         public virtual ObjectResult<pa_RetornaAdiccionCliente_Result> pa_RetornaAdiccionCliente(string correoElectronico, string priApeCliente, string nombreCliente, string nombreAdiccion, string descCategoria)
         {
             var correoElectronicoParameter = correoElectronico != null ?
@@ -964,48 +1008,22 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionCliente_Result>("pa_RetornaAdiccionCliente", correoElectronicoParameter, priApeClienteParameter, nombreClienteParameter, nombreAdiccionParameter, descCategoriaParameter);
         }
     
-        public virtual int pa_InsertaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idCliente)
+        public virtual int pa_EliminaAdiccionesxCliente(Nullable<int> idMantAdiccionCliente)
         {
-            var idAdiccionParameter = idAdiccion.HasValue ?
-                new ObjectParameter("idAdiccion", idAdiccion) :
-                new ObjectParameter("idAdiccion", typeof(int));
+            var idMantAdiccionClienteParameter = idMantAdiccionCliente.HasValue ?
+                new ObjectParameter("idMantAdiccionCliente", idMantAdiccionCliente) :
+                new ObjectParameter("idMantAdiccionCliente", typeof(int));
     
-            var idClienteParameter = idCliente.HasValue ?
-                new ObjectParameter("idCliente", idCliente) :
-                new ObjectParameter("idCliente", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_InsertaAdiccionesxCliente", idAdiccionParameter, idClienteParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaAdiccionesxCliente", idMantAdiccionClienteParameter);
         }
     
-        public virtual ObjectResult<pa_RetornaAdiccionesCantidad_Result> pa_RetornaAdiccionesCantidad(Nullable<int> idCliente)
+        public virtual int pa_EliminaAdiccionCliente(Nullable<int> id_AdiccionCliente)
         {
-            var idClienteParameter = idCliente.HasValue ?
-                new ObjectParameter("idCliente", idCliente) :
-                new ObjectParameter("idCliente", typeof(int));
+            var id_AdiccionClienteParameter = id_AdiccionCliente.HasValue ?
+                new ObjectParameter("id_AdiccionCliente", id_AdiccionCliente) :
+                new ObjectParameter("id_AdiccionCliente", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionesCantidad_Result>("pa_RetornaAdiccionesCantidad", idClienteParameter);
-        }
-    
-        public virtual ObjectResult<pa_RetornaAdiccionClienteID_Result> pa_RetornaAdiccionClienteID(Nullable<int> idAdiccionCliente)
-        {
-            var idAdiccionClienteParameter = idAdiccionCliente.HasValue ?
-                new ObjectParameter("idAdiccionCliente", idAdiccionCliente) :
-                new ObjectParameter("idAdiccionCliente", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionClienteID_Result>("pa_RetornaAdiccionClienteID", idAdiccionClienteParameter);
-        }
-    
-        public virtual int pa_ModificaAdiccionesxCliente(Nullable<int> idAdiccion, Nullable<int> idAdiccionCliente)
-        {
-            var idAdiccionParameter = idAdiccion.HasValue ?
-                new ObjectParameter("idAdiccion", idAdiccion) :
-                new ObjectParameter("idAdiccion", typeof(int));
-    
-            var idAdiccionClienteParameter = idAdiccionCliente.HasValue ?
-                new ObjectParameter("idAdiccionCliente", idAdiccionCliente) :
-                new ObjectParameter("idAdiccionCliente", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaAdiccionesxCliente", idAdiccionParameter, idAdiccionClienteParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_EliminaAdiccionCliente", id_AdiccionClienteParameter);
         }
     }
 }

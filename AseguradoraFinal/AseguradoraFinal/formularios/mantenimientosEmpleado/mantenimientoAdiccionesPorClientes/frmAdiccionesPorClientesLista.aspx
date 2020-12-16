@@ -43,6 +43,8 @@
                          <asp:BoundField DataField="correoElectronico" HeaderText="Correo electrónico" />
                          <asp:BoundField DataField="nombre" HeaderText="Adicción" />
                          <asp:BoundField DataField="descripcion" HeaderText="Categoría" />
+                         <asp:HyperLinkField DataNavigateUrlFields="idMantAdiccionxCliente" DataNavigateUrlFormatString="/formularios/mantenimientosEmpleado/mantenimientoAdiccionesPorClientes/frmAdiccionesPorClientesModifica.aspx?idMantAdiccionxCliente={0}" Text="Modificar" />
+                         <asp:HyperLinkField Text="Eliminar" DataNavigateUrlFields="idMantAdiccionxCliente" DataNavigateUrlFormatString="/formularios/mantenimientosEmpleado/mantenimientoAdiccionesPorClientes/frmAdiccionesPorClientesElimina.aspx?idMantAdiccionxCliente={0}" />
                      </Columns>
                      <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                      <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />

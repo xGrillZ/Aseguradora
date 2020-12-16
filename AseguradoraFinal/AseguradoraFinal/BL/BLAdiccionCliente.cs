@@ -29,7 +29,12 @@ namespace AseguradoraFinal.BL
             ///Retornar el valor
             return resultado;
         }
-
+        /// <summary>
+        /// Método para insertar una nueva adicción por cliente
+        /// </summary>
+        /// <param name="pIdAdiccion"></param>
+        /// <param name="pIdCliente"></param>
+        /// <returns></returns>
         public bool insertaAdiccionCliente(int pIdAdiccion, int pIdCliente)
         {
             ///Variable que posee la cantidad de registros afectados
@@ -79,27 +84,38 @@ namespace AseguradoraFinal.BL
         }
 
         /// <summary>
-        /// Retrona el registro de Adicciones por cliente por medio del procedimiento almacenado
+        /// Método para verificar la adiccion por cliente
         /// </summary>
-        /// <param name="pIdAdiccionCliente"></param>
+        /// <param name="pIdCliente">Variable a capturar</param>
+        /// <param name="pIdAdiccion">Variable a capturar</param>
         /// <returns></returns>
-        public pa_RetornaAdiccionClienteID_Result retornaAdiccionClienteID(int pIdAdiccionCliente)
+        public bool verificaAdiccionV2(int pIdCliente, int pIdAdiccion)
         {
-            ///Variabla la cual retornará
-            pa_RetornaAdiccionClienteID_Result resultado = new pa_RetornaAdiccionClienteID_Result();
-
-            ///Asignacion del resultado del procedimiento almacenado a la variable
-            resultado = this.modeloBD.pa_RetornaAdiccionClienteID(pIdAdiccionCliente).FirstOrDefault();
-
+            ///Resultado de la operación
+            bool resultado = true;
+            try
+            {
+                ///Variable que almacenará el dato solicitado
+                int cliente = pIdCliente;
+                int adiccion = pIdAdiccion;
+                ///Resultado de la operación
+                resultado = this.modeloBD.MantAddicionxCliente.Count(adCliente => adCliente.idCliente != pIdCliente && adCliente.idAdiccion != adiccion) <= 0;
+            }
+            catch
+            {
+                ///Mensaje de error
+                string mensaje = "Error al verificar la cédula.";
+            }
+            ///Retorno del resultado
             return resultado;
         }
         /// <summary>
         /// Método para modificar la adiccion por cliente
         /// </summary>
         /// <param name="pIdAdiccion"></param>
-        /// <param name="pIdAdiccionCliente"></param>
+        /// <param name="pIdMantAdiccionCliente"></param>
         /// <returns></returns>
-        public bool modificaAdiccionCliente(int pIdAdiccion, int pIdAdiccionCliente)
+        public bool modificaAdiccionCliente(int pIdAdiccion, int pIdMantAdiccionCliente)
         {
             ///variable que posee la cantidad de registros afectados
             ///al realizar insert/update/delete la cantidad de 
@@ -107,7 +123,38 @@ namespace AseguradoraFinal.BL
             int registrosAfectados = 0;
             ///invocar al procedimiento almacenado
             registrosAfectados =
-                this.modeloBD.pa_ModificaAdiccionesxCliente(pIdAdiccion, pIdAdiccionCliente);
+                this.modeloBD.pa_ModificaAdiccionCliente(pIdAdiccion, pIdMantAdiccionCliente);
+
+            return registrosAfectados > 0;
+
+        }
+        /// <summary>
+        /// Método para obtener los datos de adicciones por clientes por medio del ID
+        /// </summary>
+        /// <param name="pIdAdiccionCliente"></param>
+        /// <returns></returns>
+        public pa_RetornaAdiccionClienteID_Result retornaAdiccionPorClienteID(int pIdAdiccionCliente)
+        {
+            pa_RetornaAdiccionClienteID_Result resultado = new pa_RetornaAdiccionClienteID_Result();
+
+            resultado = this.modeloBD.pa_RetornaAdiccionClienteID(pIdAdiccionCliente).FirstOrDefault();
+
+            return resultado;
+        }
+        /// <summary>
+        /// Método para eliminar las adicciones por cliente
+        /// </summary>
+        /// <param name="pIdMantAdiccionCliente"></param>
+        /// <returns></returns>
+        public bool eliminaAdiccionPorCliente(int pIdMantAdiccionCliente)
+        {
+            ///variable que posee la cantidad de registros afectados
+            ///al realizar insert/update/delete la cantidad de 
+            ///registros afectados debe ser mayor a 0
+            int registrosAfectados = 0;
+            ///invocar al procedimiento almacenado
+            registrosAfectados =
+                this.modeloBD.pa_EliminaAdiccionCliente(pIdMantAdiccionCliente);
 
             return registrosAfectados > 0;
 
