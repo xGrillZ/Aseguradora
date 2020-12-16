@@ -13,5 +13,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
         {
 
         }
+
+        protected void btBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btInsertar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

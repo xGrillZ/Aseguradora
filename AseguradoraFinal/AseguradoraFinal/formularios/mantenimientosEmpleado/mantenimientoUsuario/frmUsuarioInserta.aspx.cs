@@ -46,64 +46,47 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoUsuar
         {
             if (this.IsValid)
             {
-                ///Variable que contiene el mensaje a visualizar
                 string mensaje = "";
 
-                ///Creación de la instancia de la clase BLCoberturaPoliza
                 blUsuario oUsuario = new blUsuario();
+
                 bool resultado = false;
-
-                ///Creación de una lista el cuál contiene el resultado de datos
-                List<pa_RetornaUsuarioCorreo_Result> listaRetornaUsuarioCorreo = oUsuario.retornaUsuarioCorreo(null);
-
-                ///Contador para el resultado
-                int contadorUsuario = 0;
 
                 try
                 {
-                    ///Recorrido de la lista que contiene todos los datos de la CoberturaPoliza
-                    for (int i = 0; i < listaRetornaUsuarioCorreo.Count; i++)
-                    {
-                        ///Verificar si el nombre de la cobertura existe o no
-                        if (listaRetornaUsuarioCorreo[i].correoElectronico.Equals(this.txtCorreo.Text))
-                        {
-                            contadorUsuario = 1;
-                            ///Generación del mensaje de error
-                            mensaje = "Este usuario ya se encuentra registrado.";
-                            ///Mostrar mensaje
-                            Response.Write("<script>alert('" + mensaje + "')</script>");
-                        }
-                        else
-                        {
-                            ///Asignar a la variable el resultado de invocar el procedimiento
-                            ///almacenado que se encuentra en el método
-                            int idTipoUsuario = Convert.ToInt16(ddlTipoUsuario.SelectedValue);
-                            string correo = this.txtCorreo.Text;
-                            string contrasena = this.txtContrasena.Text;
+                    ///obtener los valores seleccionados por el usuario
+                    ///se toman de la propiedad datavaluefield
+                    ///tanto del dropdown menu 
 
-                            resultado = oUsuario.insertaUsuario(contrasena, idTipoUsuario, correo);
-                        }
-                    }
+                    int idTipoUsuario = Convert.ToInt16(this.ddlTipoUsuario.SelectedValue);
+
+                    ///asignar a la variable el resultado de
+                    ///invocar el procedimiento almacenado que se encuentra en el metodo
+
+                    resultado = oUsuario.insertaUsuario(this.txtContrasena.Text, idTipoUsuario, this.txtCorreo.Text);
                 }
-                catch (Exception excepcionCapturada)
+                ///catch se ejecuta en el caso de que haya una excepcion    
+                ///excepcionCapturada posee los datos de la excepcion
+                catch (Exception e)
                 {
-                    ///Generación del mensaje de error
-                    mensaje += $"Ha ocurrido un error: {excepcionCapturada.Message}";
-                    ///Mostrar mensaje
-                    Response.Write("<script>alert('" + mensaje + "')</script>");
+                    mensaje += $"Ocurrió un error con la inserción{e}";
                 }
+                /// siempre se ejecuta se atrape o no la excepcion
                 finally
                 {
-                    ///Si el resultado de la variable es verdadero, significa que no dió errores
+                    ///si el resultado de la variable es verdadera implica que
+                    ///el proceimiento no retornó errores
+
                     if (resultado)
                     {
-                        ///Generación del mensaje de inserción
-                        mensaje += "El registro fue insertado, puedes crear un nuevo cliente.";
-                        ///Mostrar mensaje
-                        Response.Write("<script>alert('" + mensaje + "')</script>");
+                        mensaje += "El registro fue insertado correctamente, puedes crear un nuevo cliente.";
                     }
+                    ///mostrar el mensaje
+                    Response.Write("<script>alert('" + mensaje + "')</script>");
                 }
+
             }
+
         }
     }
 }

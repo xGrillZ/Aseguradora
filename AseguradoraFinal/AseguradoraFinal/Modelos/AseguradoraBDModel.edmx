@@ -1106,12 +1106,12 @@
           <FunctionImport Name="pa_RetornaTipoUsuario" ReturnType="Collection(AseguradoraBDModel.pa_RetornaTipoUsuario_Result)">
           <Parameter Name="rol" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="pa_RetornaUsuarioCorreo" ReturnType="Collection(AseguradoraBDModel.pa_RetornaUsuarioCorreo_Result)">
-          <Parameter Name="correoElectronico" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="pa_InsertaUsuario">
             <Parameter Name="contrasena" Mode="In" Type="String" />
             <Parameter Name="idTipoUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="correoElectronico" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaUsuarioCorreo" ReturnType="Collection(AseguradoraBDModel.pa_RetornaUsuarioCorreo_Result)">
             <Parameter Name="correoElectronico" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
@@ -1931,6 +1931,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="pa_InsertaUsuario" FunctionName="AseguradoraBDModel.Store.pa_InsertaUsuario" />
           <FunctionImportMapping FunctionImportName="pa_RetornaUsuarioCorreo" FunctionName="AseguradoraBDModel.Store.pa_RetornaUsuarioCorreo">
             <ResultMapping>
               <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaUsuarioCorreo_Result">
@@ -1941,7 +1942,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="pa_InsertaUsuario" FunctionName="AseguradoraBDModel.Store.pa_InsertaUsuario" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

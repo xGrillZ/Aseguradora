@@ -55,6 +55,11 @@
                   <asp:RegularExpressionValidator ID="reVtxtSegTelefono" runat="server" ErrorMessage="El teléfono secundario debe ser menor o igual a 50 carácteres." ControlToValidate="txtSegTelefono" Display="None" ValidationExpression="^[\s\S]{0,50}$"></asp:RegularExpressionValidator>
                </div>
                <div class="form-group">
+                  <asp:Label ID="Label9" runat="server" Text="Correo electrónico:"></asp:Label>      
+                   <asp:DropDownList ID="ddlCorreoElectronico" runat="server" DataTextField="correoElectronico" DataValueField="idUsuario"></asp:DropDownList>
+                   <asp:RequiredFieldValidator ID="rVddlCorreoElectronico" runat="server" ErrorMessage="Debes seleccionar el correo electrónico." Display="None" ControlToValidate="ddlCorreoElectronico"></asp:RequiredFieldValidator>
+               </div>
+               <div class="form-group">
                    <asp:Button ID="btAceptar" runat="server"  Text="Insertar" class="btn-success" OnClick="btInsertar_Click" /> 
                    <asp:Button ID="btBuscar" runat="server"  Text="Buscar" class="btn-success" OnClick="btBuscar_Click" /> 
                    <asp:HyperLink ID="hpRegresarLista" runat="server" class="text-info" NavigateUrl="/formularios/mantenimientosEmpleado/mantenimientoClientes/frmClientesLista.aspx">Lista de datos.</asp:HyperLink>

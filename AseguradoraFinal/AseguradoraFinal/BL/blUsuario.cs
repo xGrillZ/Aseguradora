@@ -49,7 +49,7 @@ namespace AseguradoraFinal.BL
 
         public List<pa_RetornaUsuarioCorreo_Result> retornaUsuarioCorreo(string pCorreo = null)
         {
-            List<pa_RetornaUsuarioCorreo_Result> resultado = new List<pa_RetornaUsuarioCorreo_Result>();
+           List<pa_RetornaUsuarioCorreo_Result> resultado = new List<pa_RetornaUsuarioCorreo_Result>();
 
             resultado = this.modeloBD.pa_RetornaUsuarioCorreo(pCorreo).ToList();
 
@@ -66,14 +66,12 @@ namespace AseguradoraFinal.BL
             ///Invocación del procedimiento almacenado con las variables
             registrosAfectados = this.modeloBD.pa_InsertaUsuario(pContrasena, pIdTipoUsuario, pCorreo);
 
+            ///Verificar si hay cambios en la variable
             if (registrosAfectados > 0)
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         #endregion Métodos y funciones

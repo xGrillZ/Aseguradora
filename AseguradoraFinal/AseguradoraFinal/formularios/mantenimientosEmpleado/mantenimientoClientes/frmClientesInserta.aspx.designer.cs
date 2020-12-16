@@ -303,6 +303,33 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
         protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtSegTelefono;
 
         /// <summary>
+        /// Control Label9.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label9;
+
+        /// <summary>
+        /// Control ddlCorreoElectronico.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCorreoElectronico;
+
+        /// <summary>
+        /// Control rVddlCorreoElectronico.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rVddlCorreoElectronico;
+
+        /// <summary>
         /// Control btAceptar.
         /// </summary>
         /// <remarks>
