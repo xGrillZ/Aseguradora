@@ -261,47 +261,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaAdiccionesxCliente", idAdiccionParameter, idClienteParameter);
         }
     
-        public virtual int pa_ModificaCliente(Nullable<int> idCliente, string nomCliente, string ape1Cliente, string ape2Cliente, string numCedula, string genero, string direccionFisica, string pTelefono, string sTelefono)
-        {
-            var idClienteParameter = idCliente.HasValue ?
-                new ObjectParameter("idCliente", idCliente) :
-                new ObjectParameter("idCliente", typeof(int));
-    
-            var nomClienteParameter = nomCliente != null ?
-                new ObjectParameter("nomCliente", nomCliente) :
-                new ObjectParameter("nomCliente", typeof(string));
-    
-            var ape1ClienteParameter = ape1Cliente != null ?
-                new ObjectParameter("ape1Cliente", ape1Cliente) :
-                new ObjectParameter("ape1Cliente", typeof(string));
-    
-            var ape2ClienteParameter = ape2Cliente != null ?
-                new ObjectParameter("ape2Cliente", ape2Cliente) :
-                new ObjectParameter("ape2Cliente", typeof(string));
-    
-            var numCedulaParameter = numCedula != null ?
-                new ObjectParameter("numCedula", numCedula) :
-                new ObjectParameter("numCedula", typeof(string));
-    
-            var generoParameter = genero != null ?
-                new ObjectParameter("genero", genero) :
-                new ObjectParameter("genero", typeof(string));
-    
-            var direccionFisicaParameter = direccionFisica != null ?
-                new ObjectParameter("direccionFisica", direccionFisica) :
-                new ObjectParameter("direccionFisica", typeof(string));
-    
-            var pTelefonoParameter = pTelefono != null ?
-                new ObjectParameter("pTelefono", pTelefono) :
-                new ObjectParameter("pTelefono", typeof(string));
-    
-            var sTelefonoParameter = sTelefono != null ?
-                new ObjectParameter("sTelefono", sTelefono) :
-                new ObjectParameter("sTelefono", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaCliente", idClienteParameter, nomClienteParameter, ape1ClienteParameter, ape2ClienteParameter, numCedulaParameter, generoParameter, direccionFisicaParameter, pTelefonoParameter, sTelefonoParameter);
-        }
-    
         public virtual int pa_ModificaTipoPoliza(Nullable<int> id_TipoPoliza, string detalles)
         {
             var id_TipoPolizaParameter = id_TipoPoliza.HasValue ?
@@ -954,6 +913,56 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("idUsuario", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaClienteCorreo_Result>("pa_RetornaClienteCorreo", idUsuarioParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaClienteID_Result> pa_RetornaClienteID(Nullable<int> idCliente)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaClienteID_Result>("pa_RetornaClienteID", idClienteParameter);
+        }
+    
+        public virtual int pa_ModificaCliente(Nullable<int> idCliente, string nomCliente, string ape1Cliente, string ape2Cliente, string numCedula, string genero, string direccionFisica, string pTelefono, string sTelefono)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var nomClienteParameter = nomCliente != null ?
+                new ObjectParameter("nomCliente", nomCliente) :
+                new ObjectParameter("nomCliente", typeof(string));
+    
+            var ape1ClienteParameter = ape1Cliente != null ?
+                new ObjectParameter("ape1Cliente", ape1Cliente) :
+                new ObjectParameter("ape1Cliente", typeof(string));
+    
+            var ape2ClienteParameter = ape2Cliente != null ?
+                new ObjectParameter("ape2Cliente", ape2Cliente) :
+                new ObjectParameter("ape2Cliente", typeof(string));
+    
+            var numCedulaParameter = numCedula != null ?
+                new ObjectParameter("numCedula", numCedula) :
+                new ObjectParameter("numCedula", typeof(string));
+    
+            var generoParameter = genero != null ?
+                new ObjectParameter("genero", genero) :
+                new ObjectParameter("genero", typeof(string));
+    
+            var direccionFisicaParameter = direccionFisica != null ?
+                new ObjectParameter("direccionFisica", direccionFisica) :
+                new ObjectParameter("direccionFisica", typeof(string));
+    
+            var pTelefonoParameter = pTelefono != null ?
+                new ObjectParameter("pTelefono", pTelefono) :
+                new ObjectParameter("pTelefono", typeof(string));
+    
+            var sTelefonoParameter = sTelefono != null ?
+                new ObjectParameter("sTelefono", sTelefono) :
+                new ObjectParameter("sTelefono", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaCliente", idClienteParameter, nomClienteParameter, ape1ClienteParameter, ape2ClienteParameter, numCedulaParameter, generoParameter, direccionFisicaParameter, pTelefonoParameter, sTelefonoParameter);
         }
     }
 }

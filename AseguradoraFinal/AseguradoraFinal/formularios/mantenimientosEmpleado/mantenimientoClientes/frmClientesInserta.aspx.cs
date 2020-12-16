@@ -11,6 +11,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
 {
     public partial class frmClientesInserta : System.Web.UI.Page
     {
+        aseguradorarjsEntities modeloBD = new aseguradorarjsEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -74,50 +75,58 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoClien
                 BLCliente oCliente = new BLCliente();
                 blUsuario oUsuario = new blUsuario();
                 bool resultado = false;
-
-                try
+                if (oCliente.verificaCedula(this.txtNumCedula.Text))
                 {
-                    ///Obtener los valores seleccionados por el usuario
-                    int idUsuario = Convert.ToInt16(this.hdIdUsuario.Value);
-                    string fecha = DateTime.Now.ToString("yyyy-MM-dd");
-                    
-
-                    if (hdIdUsuario.Value == null)
+                    try
                     {
-                        mensaje = "Debes seleccionar un correo electrónico y hacer click en el botón de buscar";
+                        ///Obtener los valores seleccionados por el usuario
+                        int idUsuario = Convert.ToInt16(this.hdIdUsuario.Value);
+                        string fecha = DateTime.Now.ToString("yyyy-MM-dd");
+
+                        if (hdIdUsuario.Value == null)
+                        {
+                            mensaje = "Debes seleccionar un correo electrónico y hacer click en el botón de buscar";
+                        }
+                        else
+                        {
+                            ///Asignar a la variable el resultado de invocar el procedimiento
+                            ///almacenado que se encuentra en el método
+                            resultado = oCliente.insertaCliente(idUsuario, this.txtNombreCliente.Text, this.txtPriApellido.Text,
+                                                                this.txtSegApellido.Text, this.txtNumCedula.Text, this.txtGenero.Text,
+                                                                this.txtDireccionFisica.Text, this.txtPriTelefono.Text, this.txtSegTelefono.Text,
+                                                                DateTime.Parse(fecha));
+
+                            pa_RetornaClienteCorreo_Result resultadoCorreo = oCliente.retornaClienteCorreo(idUsuario);
+
+                            /*resultadoIDUsuario = oUsuario.retornaUsuarioID(idUsuario);*/
+
+                            oCliente.correoElectronicoIngreso(this.txtPriApellido.Text, this.txtSegApellido.Text, this.txtNombreCliente.Text, resultadoCorreo.correoElectronico);
+                        }
+
                     }
-                    else
+                    catch (Exception excepcionCapturada)
                     {
-                        ///Asignar a la variable el resultado de invocar el procedimiento
-                        ///almacenado que se encuentra en el método
-                        resultado = oCliente.insertaCliente(idUsuario, this.txtNombreCliente.Text, this.txtPriApellido.Text,
-                                                            this.txtSegApellido.Text, this.txtNumCedula.Text, this.txtGenero.Text,
-                                                            this.txtDireccionFisica.Text, this.txtPriTelefono.Text, this.txtSegTelefono.Text,
-                                                            DateTime.Parse(fecha));
-
-                        pa_RetornaClienteCorreo_Result resultadoCorreo = oCliente.retornaClienteCorreo(idUsuario);
-
-                        /*resultadoIDUsuario = oUsuario.retornaUsuarioID(idUsuario);*/
-
-                        oCliente.correoElectronicoIngreso(this.txtPriApellido.Text, this.txtSegApellido.Text, this.txtNombreCliente.Text, resultadoCorreo.correoElectronico);
+                        mensaje += $"Ha ocurrido un error: {excepcionCapturada.Message}";
+                    }
+                    finally
+                    {
+                        ///Si el resultado de la variable es verdadero, significa que no dió errores
+                        if (resultado)
+                        {
+                            mensaje += "El registro fue insertado";
+                        }
                     }
 
+                    ///Mostrar mensaje
+                    Response.Write("<script>alert('" + mensaje + "')</script>");
                 }
-                catch (Exception excepcionCapturada)
+                else
                 {
-                    mensaje += $"Ha ocurrido un error: {excepcionCapturada.Message}";
-                }
-                finally
-                {
-                    ///Si el resultado de la variable es verdadero, significa que no dió errores
-                    if (resultado)
-                    {
-                        mensaje += "El registro fue insertado";
-                    }
+                    mensaje = "Esta cédula ya existe, debes ingresar otra.";
+                    ///Mostrar mensaje
+                    Response.Write("<script>alert('" + mensaje + "')</script>");
                 }
 
-                ///Mostrar mensaje
-                Response.Write("<script>alert('" + mensaje + "')</script>");
             }
         }
     }

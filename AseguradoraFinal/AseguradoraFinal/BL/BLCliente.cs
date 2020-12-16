@@ -53,7 +53,7 @@ namespace AseguradoraFinal.BL
             return registrosAfectados > 0;
         }
 
-        public bool modificaClienteUsuario(int pIdCliente, string pDireccion, string pPriTelefono, string pSegTelefono = null)
+        public bool modificaClienteUsuario(int pIdCliente, string pDireccion, string pPriTelefono, string pSegTelefono)
         {
             ///Variable que posee la cantidad de registros afectados
             int registrosAfectados = 0;
@@ -143,6 +143,70 @@ namespace AseguradoraFinal.BL
             resultado = this.modeloBD.pa_RetornaClienteCorreo(pIdUsuario).FirstOrDefault();
 
             return resultado;
+        }
+
+        /// <summary>
+        /// Método para verificar el numero de cedula
+        /// </summary>
+        /// <param name="pNumCedula">Variable a capturar</param>
+        /// <returns></returns>
+        public bool verificaCedula(string pNumCedula)
+        {
+            ///Resultado de la operación
+            bool resultado = true;
+            try
+            {
+                ///Variable que almacenará el dato solicitado
+                string ced = pNumCedula;
+                ///Resultado de la operación
+                resultado = this.modeloBD.Cliente.Count(cliente => cliente.numCedula == ced) <= 0;
+            }
+            catch
+            {
+                ///Mensaje de error
+                string mensaje = "Error al verificar la cédula.";
+            }
+            ///Retorno del resultado
+            return resultado;
+        }
+        /// <summary>
+        /// Método para obtener datos de la tabla Cliente por medio del ID
+        /// </summary>
+        /// <param name="pIdCliente">Variable a capturar</param>
+        /// <returns></returns>
+        public pa_RetornaClienteID_Result retornaClienteID(int pIdCliente)
+        {
+            ///Variabla la cual retornará
+            pa_RetornaClienteID_Result resultado = new pa_RetornaClienteID_Result();
+
+            ///Asignacion del resultado del procedimiento almacenado a la variable
+            resultado = this.modeloBD.pa_RetornaClienteID(pIdCliente).FirstOrDefault();
+
+            return resultado;
+        }
+        /// <summary>
+        /// Método para modificar los datos de un cliente
+        /// </summary>
+        /// <param name="pIdCliente">Variable a capturar</param>
+        /// <param name="pNomCliente">Variable a capturar</param>
+        /// <param name="pPriApe">Variable a capturar</param>
+        /// <param name="pSegApe">Variable a capturar</param>
+        /// <param name="pNumCedula">Variable a capturar</param>
+        /// <param name="pGenero">Variable a capturar</param>
+        /// <param name="pDireccion">Variable a capturar</param>
+        /// <param name="pPriTel">Variable a capturar</param>
+        /// <param name="pSegTel">Variable a capturar</param>
+        /// <returns></returns>
+        public bool modificaCliente(int pIdCliente, string pNomCliente, string pPriApe, string pSegApe, string pNumCedula, string pGenero, string pDireccion, string pPriTel, string pSegTel)
+        {
+            ///Variable que posee la cantidad de registros afectados
+            int registrosAfectados = 0;
+
+            ///Invocar al procedimiento almacenado
+            registrosAfectados = this.modeloBD.pa_ModificaCliente(pIdCliente, pNomCliente, pPriApe, pSegApe, pNumCedula, pGenero, pDireccion, pPriTel, pSegTel);
+
+            ///Retorna la variable de registros afectados
+            return registrosAfectados > 0;
         }
         #endregion Métodos y funciones
     }

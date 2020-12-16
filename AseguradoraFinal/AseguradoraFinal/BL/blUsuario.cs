@@ -76,6 +76,30 @@ namespace AseguradoraFinal.BL
             return false;
         }
 
+        /// <summary>
+        /// Método para verificar el correo electronico
+        /// </summary>
+        /// <param name="pCorreo">Variable a capturar</param>
+        /// <returns></returns>
+        public bool verificaCorreo(string pCorreo)
+        {
+            ///Resultado de la operación
+            bool resultado = true;
+            try
+            {
+                ///Variable que almacenará el dato solicitado
+                string correo = pCorreo;
+                ///Resultado de la operación
+                resultado = this.modeloBD.Usuario.Count(usuario => usuario.correoElectronico == correo) <= 0;
+            }
+            catch
+            {
+                ///Mensaje de error
+                string mensaje = "Error al verificar la cédula.";
+            }
+            ///Retorno del resultado
+            return resultado;
+        }
         #endregion Métodos y funciones
     }
 }

@@ -46,6 +46,7 @@
                             <asp:BoundField DataField="direccionFisica" HeaderText="Dirección física" />
                             <asp:BoundField DataField="pTelefono" HeaderText="Teléfono primario" />
                             <asp:BoundField DataField="sTelefono" HeaderText="Teléfono secundario" />
+                            <asp:HyperLinkField DataNavigateUrlFields="idCliente" DataNavigateUrlFormatString="/formularios/mantenimientosEmpleado/mantenimientoClientes/frmClientesModifica.aspx?idCliente={0}" Text="Modificar" />
                         </Columns>
                         <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
                         <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />

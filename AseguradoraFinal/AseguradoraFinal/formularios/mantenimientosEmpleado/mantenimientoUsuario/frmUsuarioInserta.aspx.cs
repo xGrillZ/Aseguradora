@@ -46,41 +46,55 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoUsuar
         {
             if (this.IsValid)
             {
+                ///Creación de la variable que administra los mensajes
                 string mensaje = "";
 
+                ///Creación de instanciamiento de la clase blUsuario
                 blUsuario oUsuario = new blUsuario();
-
+                ///Variable que administra el resultado de la accion
                 bool resultado = false;
 
-                try
+                ///Verificación de correo electronico
+                if (oUsuario.verificaCorreo(this.txtCorreo.Text))
                 {
-                    ///obtener los valores seleccionados por el usuario
-                    ///se toman de la propiedad datavaluefield
-                    ///tanto del dropdown menu 
-
-                    int idTipoUsuario = Convert.ToInt16(this.ddlTipoUsuario.SelectedValue);
-
-                    ///asignar a la variable el resultado de
-                    ///invocar el procedimiento almacenado que se encuentra en el metodo
-
-                    resultado = oUsuario.insertaUsuario(this.txtContrasena.Text, idTipoUsuario, this.txtCorreo.Text);
-                }
-                ///catch se ejecuta en el caso de que haya una excepcion    
-                ///excepcionCapturada posee los datos de la excepcion
-                catch (Exception e)
-                {
-                    mensaje += $"Ocurrió un error con la inserción{e}";
-                }
-                /// siempre se ejecuta se atrape o no la excepcion
-                finally
-                {
-                    ///si el resultado de la variable es verdadera implica que
-                    ///el proceimiento no retornó errores
-
-                    if (resultado)
+                    try
                     {
-                        mensaje += "El registro fue insertado correctamente, puedes crear un nuevo cliente.";
+                        ///obtener los valores seleccionados por el usuario
+                        ///se toman de la propiedad datavaluefield
+                        ///tanto del dropdown menu 
+
+                        int idTipoUsuario = Convert.ToInt16(this.ddlTipoUsuario.SelectedValue);
+
+                        ///asignar a la variable el resultado de
+                        ///invocar el procedimiento almacenado que se encuentra en el metodo
+
+                        resultado = oUsuario.insertaUsuario(this.txtContrasena.Text, idTipoUsuario, this.txtCorreo.Text);
                     }
+                    ///catch se ejecuta en el caso de que haya una excepcion    
+                    ///excepcionCapturada posee los datos de la excepcion
+                    catch (Exception e)
+                    {
+                        mensaje += $"Ocurrió un error con la inserción{e}";
+                    }
+                    /// siempre se ejecuta se atrape o no la excepcion
+                    finally
+                    {
+                        ///si el resultado de la variable es verdadera implica que
+                        ///el proceimiento no retornó errores
+
+                        if (resultado)
+                        {
+                            ///Mensaje a mostrar
+                            mensaje += "El registro fue insertado correctamente, puedes crear un nuevo cliente.";
+                        }
+                        ///mostrar el mensaje
+                        Response.Write("<script>alert('" + mensaje + "')</script>");
+                    }
+                }
+                else
+                {
+                    ///Mensaje a mostrar
+                    mensaje = "El correo electrónico ya existe, debes ingresar otro.";
                     ///mostrar el mensaje
                     Response.Write("<script>alert('" + mensaje + "')</script>");
                 }
