@@ -15,7 +15,9 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         {
 
             this.cargaListaIdAdiccion();
-            
+            this.cargaDatosRegistro();
+            this.cargaDatosIdCategoria(); 
+
 
         }
         /// <summary>
@@ -34,43 +36,84 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
         }
 
-             
+        /// <summary>
+        /// Carga la lista de id Adiccion
+        /// </summary>
+        void cargaDatosIdCategoria()
+        {
 
-          protected void btAceptar_Click(object sender, EventArgs e)
+            BLEmpleado oCategoria = new BLEmpleado();
+            ///indicarle al dropdownlist la fuente de datos
+            this.ddlIdCategoria.DataSource = oCategoria.RetornaAdicciones(null);
+
+
+            ///indicarle al dropdownlist que se muestre
+            this.ddlIdCategoria.DataBind();
+
+        }
+
+        void cargaDatosRegistro()
+        {
+            String parametro = this.Request.QueryString["idAdiccion"];
+
+            //validar si el parametro es correcto
+            if (String.IsNullOrEmpty(parametro))
+            {
+                ///Generación mensaje
+                string mensaje = "El parámetro es nulo";
+                ///mostrar el mensaje
+                Response.Write("<script>alert('" + mensaje + "')</script>");
+
+            }
+            else
+            {
+                ///Creación de variable el cuál almacenará el idAdiccion enviada por la variable parametro
+                int idAdiccion = Convert.ToInt16(parametro);
+
+                ///Creación de la instancia a la clase BLEmpleado
+                BLEmpleado oAdiccionElimina = new BLEmpleado();
+
+                ///Creación de la variable el cual obtendrá los datos del procedimiento almacenado ///Creación de la variable el cual obtendrá los datos del procedimiento almacenado
+                pa_RetornaAdiccionesID_Result resultDataAdiccion = new pa_RetornaAdiccionesID_Result();
+                resultDataAdiccion = oAdiccionElimina.RetornaAdiccionesID(idAdiccion);
+
+                this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
+
+            }
+
+        }
+
+
+        protected void btAceptar_Click(object sender, EventArgs e)
           {
-             // this.AlmacenarDatos();
+              this.AlmacenarDatos();
           }
-          /// <summary>
-          /// Valida que todas las reglas del formulario se hayan cumplido y procede
-          /// a insertar el registro utilizando el procedimiento sp_InsertaCliente
-          /// </summary>
-        /*  void AlmacenarDatos()
+        /// <summary>
+        /// Valida que todas las reglas del formulario se hayan cumplido y procede
+        /// a modificar el registro utilizando el procedimiento pa_ModificaAdicciones
+        /// </summary>
+        void AlmacenarDatos()
           {
               if (this.IsValid)
               {
-                  BLCliente oCliente = new BLCliente();
+                  BLEmpleado oModifica = new BLEmpleado();
                    bool resultado = false;
                    string mensaje = "";
                    try
                    {
-                       ///obtener los valores seleccionados por el usuario
-                       ///se toman de la propiedad datavaluefield
-                       ///tanto del dropdownlist como del listbox
-                       int id_TipoCliente = Convert.ToInt16(this.ddlTipoCliente.SelectedValue);
-                       int id_PaisProcedencia = Convert.ToInt16(this.lstPaisProcedencia.SelectedValue);
+                    ///obtener los valores seleccionados por el usuario
+                    ///se toman de la propiedad datavaluefield
+                    ///tanto del dropdownlist como del listbox
+                    string nombre = this.ddlIdAdiccion.SelectedValue;
+                    int idCategoriaAdicion = Convert.ToInt16(this.ddlIdCategoria.SelectedValue);
                        //obtener el valor del hidden field 
-                       int id_Cliente = 0;
-                       ///asignar a la variable el resultado de 
-                       ///invocar el procedimiento almacenado
-                       resultado = oCliente.ModificaCliente(
-                           id_Cliente,
-                           id_TipoCliente,
-                           this.txtPrimerApellido.Text,
-                           this.txtSegundoApellido.Text,
-                           this.txtNombre.Text,
-                           id_PaisProcedencia,
-                           this.txtTelefono1.Text,
-                           this.txtTelefono2.Text
+                      int idAdiccion = Convert.ToInt16(this.hdIdAdiccion.Value);
+                    ///asignar a la variable el resultado de 
+                    ///invocar el procedimiento almacenado
+                    resultado = oModifica.ModificaAdicciones( 
+                           idAdiccion,
+                           nombre,
+                           idCategoriaAdicion
                            );
 
                    }
@@ -95,6 +138,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
               }
 
           }
-      }*/
+      }
     }
-}
+

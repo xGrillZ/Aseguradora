@@ -24,6 +24,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         protected global::System.Web.UI.HtmlControls.HtmlForm frmClienteModifica;
 
         /// <summary>
+        /// hdIdAdiccion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdIdAdiccion;
+
+        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
