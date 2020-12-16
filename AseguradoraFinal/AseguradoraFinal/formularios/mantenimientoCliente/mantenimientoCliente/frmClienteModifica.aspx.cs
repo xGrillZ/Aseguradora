@@ -13,7 +13,10 @@ namespace AseguradoraFinal.formularios.mantenimientoCliente.mantenimientoCliente
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!this.IsPostBack)
+            {
+                this.cargaDatosRegistro();
+            }
         }
 
         protected void btnModificarDatos_Click(object sender, EventArgs e)
@@ -26,39 +29,84 @@ namespace AseguradoraFinal.formularios.mantenimientoCliente.mantenimientoCliente
 
             ///Variable que almacena el IDUsuario a la hora de iniciar sesión
             int dataUser = int.Parse(Session["idusuario"].ToString());
-/*
+            string mensaje = "";
+
             //validar si el parametro es correcto
-            if (String.IsNullOrEmpty(parametro))
+            if (String.IsNullOrEmpty(Convert.ToString(dataUser)))
             {
-                this.lblMensaje.Text = "El parámetro es nulo";
+                ///Generar el mensaje
+                mensaje = "El parámetro es nulo";
+                ///mostrar el mensaje
+                Response.Write("<script>alert('" + mensaje + "')</script>");
             }
             else
             {
-                int id_Gasto_Categoria = Convert.ToInt16(parametro);
-                BLGastoCategoria oGastoCategoria = new BLGastoCategoria();
+                BLCliente oCliente = new BLCliente();
 
-                sp_Retorna_Gasto_Categoria_ID_Result datosGastoCategoria = new sp_Retorna_Gasto_Categoria_ID_Result();
+                pa_RetornaUsuarioClienteID_Result resultadoClienteID = new pa_RetornaUsuarioClienteID_Result();
 
-                ///Invocar el procedimiento almacenado por medio del método
-                datosGastoCategoria = oGastoCategoria.RetornaGastoCategoriaID(id_Gasto_Categoria);
+                resultadoClienteID = oCliente.retornaUsuarioClienteID(dataUser);
 
-                ///Verificar que el objeto retornado no sea nulo
-                if (datosGastoCategoria == null)
+                this.txtDireccion.Text = resultadoClienteID.direccionFisica;
+                this.txtPriTel.Text = resultadoClienteID.pTelefono;
+                this.txtSecTel.Text = resultadoClienteID.sTelefono;
+            }
+
+        }
+
+        /// <summary>
+        /// Valida que todas las reglas del formulario se hayan cumplido y procede
+        /// a insertar el registro utilizando el procedimiento sp_InsertaCliente
+        /// </summary>
+        void AlmacenarDatos()
+        {
+            if (this.IsValid)
+            {
+                BLCliente oCliente = new BLCliente();
+                bool resultado = false;
+                string mensaje = "";
+                try
                 {
-                    Response.Redirect("frmGastoCategoriaLista.aspx");
+                    ///obtener los valores seleccionados por el usuario
+                    ///se toman de la propiedad datavaluefield del dropdownlist
+                    string direccion = this.txtDireccion.Text;
+                    string primerTel = this.txtPriTel.Text;
+                    string segTel = this.txtSecTel.Text;
+
+                    ///Variable que almacena el IDUsuario a la hora de iniciar sesión
+                    int dataUser = int.Parse(Session["idusuario"].ToString());
+
+                    pa_RetornaUsuarioClienteID_Result resultadoClienteID = new pa_RetornaUsuarioClienteID_Result();
+
+                    resultadoClienteID = oCliente.retornaUsuarioClienteID(dataUser);
+
+                    int idCliente = resultadoClienteID.idCliente;
+
+                    ///asignar a la variable el resultado de 
+                    ///invocar el procedimiento almacenado
+ /*                   resultado = oGastoCategoria.ModificaGastoCategoria(id_Gasto_Categoria,
+                                                                id_Gasto,
+                                                                id_Categoria,
+                                                                Convert.ToInt16(this.txtCantidad.Text));*/
+
                 }
-                else
+                ///catch: se ejecuta en el caso de que haya una excepcion
+                ///excepcionCapturada: posee los datos de la excepción
+                catch (Exception excepcionCapturada)
                 {
-                    ///Asginación de cada una de las etiquetas sus valores respectivos en la invocacion del procedimiento almacenado
-                    this.ddl_Gastos.SelectedValue = datosGastoCategoria.id_Gasto.ToString();
-                    this.ddl_Categoria.SelectedValue = datosGastoCategoria.id_Categoria.ToString();
-                    this.txtCantidad.Text = Convert.ToString(datosGastoCategoria.cantidad);
-
-                    ///Asignar al hidden field el valor de llave primaria
-                    this.hdIdGastoCategoria.Value = datosGastoCategoria.id_Gasto_Categoria.ToString();
+                    mensaje += $"Ocurrió un error: {excepcionCapturada.Message}";
                 }
-            }*/
-
+                ///finally: siempre se ejecuta (se atrape o no la excepción)
+                finally
+                {
+                    ///si el resultado de la variable es verdadera implica que
+                    ///el procedimiento no retornó errores
+                    if (resultado)
+                    {
+                        mensaje += "El registro fue modificado";
+                    }
+                }
+            }
         }
     }
 }

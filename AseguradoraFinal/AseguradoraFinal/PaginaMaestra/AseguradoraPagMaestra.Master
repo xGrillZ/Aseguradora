@@ -71,7 +71,7 @@
                       </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-utensils"></i> Opción2 Cliente</a>
+                        <a class="nav-link" href="/formularios/mantenimientoCliente/mantenimientoCliente/frmClienteModifica.aspx"><i class="fas fa-utensils"></i> Cuenta</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/formularios/frmSalir.aspx"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>

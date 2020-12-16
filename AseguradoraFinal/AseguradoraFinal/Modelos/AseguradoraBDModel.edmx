@@ -1379,6 +1379,7 @@
           <Property Type="String" Name="direccionFisica" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="pTelefono" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="sTelefono" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="idCliente" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1831,6 +1832,7 @@
                 <ScalarProperty Name="direccionFisica" ColumnName="direccionFisica" />
                 <ScalarProperty Name="pTelefono" ColumnName="pTelefono" />
                 <ScalarProperty Name="sTelefono" ColumnName="sTelefono" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -21,5 +21,6 @@ namespace AseguradoraFinal.Modelos
         public string direccionFisica { get; set; }
         public string pTelefono { get; set; }
         public string sTelefono { get; set; }
+        public int idCliente { get; set; }
     }
 }
