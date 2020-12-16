@@ -431,6 +431,9 @@
         <Function Name="pa_RetornaAdiccionesCantidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCliente" Type="int" Mode="In" />
         </Function>
+        <Function Name="pa_RetornaAdiccionesID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idAdiccion" Type="int" Mode="In" />
+        </Function>
         <Function Name="pa_RetornaAdiccionesxCliente" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idMantAdiccionxCliente" Type="int" Mode="In" />
           <Parameter Name="idAdiccion" Type="int" Mode="In" />
@@ -1061,6 +1064,12 @@
             <Parameter Name="fechaRegistro" Mode="In" Type="DateTime" />
             <Parameter Name="idSucursal" Mode="In" Type="Int32" />
             <Parameter Name="porcentajePrima" Mode="In" Type="Double" />
+          </FunctionImport>
+          <FunctionImport Name="pa_retornaAdiccionesID" ReturnType="Collection(Int32)">
+          <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaAdiccionesID1" ReturnType="Collection(Int32)">
+          <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1821,6 +1830,7 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_ModificaPoliza" FunctionName="AseguradoraBDModel.Store.pa_ModificaPoliza" />
+          <FunctionImportMapping FunctionImportName="pa_RetornaAdiccionesID1" FunctionName="AseguradoraBDModel.Store.pa_RetornaAdiccionesID" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
