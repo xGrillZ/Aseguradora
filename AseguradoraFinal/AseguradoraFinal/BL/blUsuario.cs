@@ -47,6 +47,35 @@ namespace AseguradoraFinal.BL
             return resultado;
         }
 
+        public List<pa_RetornaUsuarioCorreo_Result> retornaUsuarioCorreo(string pCorreo = null)
+        {
+            List<pa_RetornaUsuarioCorreo_Result> resultado = new List<pa_RetornaUsuarioCorreo_Result>();
+
+            resultado = this.modeloBD.pa_RetornaUsuarioCorreo(pCorreo).ToList();
+
+            return resultado;
+        }
+
+        public bool insertaUsuario(string pContrasena, int pIdTipoUsuario, string pCorreo)
+        {
+            ///Variable que posee la cantidad de registros afectados
+            ///al realizar insert/update/delete la cantidad de registros
+            ///afectados debe ser mayor a 0
+            int registrosAfectados = 0;
+
+            ///Invocación del procedimiento almacenado con las variables
+            registrosAfectados = this.modeloBD.pa_InsertaUsuario(pContrasena, pIdTipoUsuario, pCorreo);
+
+            if (registrosAfectados > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         #endregion Métodos y funciones
     }
 }
