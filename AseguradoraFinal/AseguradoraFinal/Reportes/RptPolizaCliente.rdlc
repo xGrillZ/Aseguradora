@@ -57,7 +57,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>num Cedula</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -87,7 +89,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>nombre</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -117,7 +121,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>ape1Cliente</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -147,7 +153,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>ape2Cliente</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -177,7 +185,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>id Empleado</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -207,7 +217,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>id Registro Poliza</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -237,7 +249,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>id Cobertura Poliza</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -267,7 +281,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>fecha Registro</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -297,7 +313,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>nom Sucursal</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
