@@ -52,6 +52,14 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
         }
 
+       
+
+
+        protected void btModificar_Click(object sender, EventArgs e)
+          {
+              this.AlmacenarDatos();
+          }
+
         void cargaDatosRegistro()
         {
             ///obtener el parámetro envíado desde el grid
@@ -87,22 +95,19 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 }
                 else
                 {
+                    this.ddlIdAdiccion.SelectedValue = resultDataAdiccion.nombre.ToString();
+                   // this.ddlIdCategoria.SelectedValue = resultDataAdiccion.idCategoriaAdiccion.Value; issues
+                   
 
-                                     
 
                     this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
-                  
+
                 }
             }
-        
+
 
         }
 
-
-        protected void btAceptar_Click(object sender, EventArgs e)
-          {
-              this.AlmacenarDatos();
-          }
         /// <summary>
         /// Valida que todas las reglas del formulario se hayan cumplido y procede
         /// a modificar el registro utilizando el procedimiento pa_ModificaAdicciones

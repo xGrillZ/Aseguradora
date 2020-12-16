@@ -19,7 +19,7 @@
       
        
        <div class="form-group">
-           <asp:Button ID="btAceptar" runat="server"  Text="Modificar" CssClass="btn-success" OnClick="btAceptar_Click" />
+           <asp:Button ID="btModificar" runat="server"  Text="Modificar" CssClass="btn-success" OnClick="btModificar_Click" />
            <asp:HyperLink ID="hpRegresar" runat="server" CssClass="text-info" NavigateUrl="/formularios/mantenimientosEmpleado/mantenimientoAdicciones/frmAdiccionesLista.aspx">Regresar a la lista</asp:HyperLink>
        </div>             
                                                                   
