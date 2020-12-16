@@ -34,6 +34,8 @@
                 </div>
                <div class="form-group">
                    <asp:Button ID="btAceptar" runat="server"  Text="Guardar" class="btn-success" OnClick="btAceptar_Click" />           
+                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;           
+                   <asp:HyperLink ID="hpListaCobertura" runat="server" NavigateUrl="/formularios/mantenimientosEmpleado/mantenimientoCoberturaPoliza/frmCoberturaPolizaLista.aspx">Lista de datos.</asp:HyperLink>
                </div>             
                                                                   
               <br />

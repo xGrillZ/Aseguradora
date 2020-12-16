@@ -87,6 +87,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtCedula;
 
         /// <summary>
+        /// Control reVtxtCedula.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtCedula;
+
+        /// <summary>
         /// Control btAceptar.
         /// </summary>
         /// <remarks>

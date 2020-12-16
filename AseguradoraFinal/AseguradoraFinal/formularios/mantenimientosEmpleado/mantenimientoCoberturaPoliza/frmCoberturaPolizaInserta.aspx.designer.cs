@@ -168,6 +168,15 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
         protected global::System.Web.UI.WebControls.Button btAceptar;
 
         /// <summary>
+        /// Control hpListaCobertura.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hpListaCobertura;
+
+        /// <summary>
         /// Control vsRegistroPersonas.
         /// </summary>
         /// <remarks>

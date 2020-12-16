@@ -52,7 +52,14 @@ namespace AseguradoraFinal.BL
             ///Retorna la variable de registros afectados
             return registrosAfectados > 0;
         }
-
+        /// <summary>
+        /// Metodo para modificar el cliente por parte del Usuario
+        /// </summary>
+        /// <param name="pIdCliente"></param>
+        /// <param name="pDireccion"></param>
+        /// <param name="pPriTelefono"></param>
+        /// <param name="pSegTelefono"></param>
+        /// <returns></returns>
         public bool modificaClienteUsuario(int pIdCliente, string pDireccion, string pPriTelefono, string pSegTelefono)
         {
             ///Variable que posee la cantidad de registros afectados
@@ -64,25 +71,42 @@ namespace AseguradoraFinal.BL
             ///Retorna la variable de registros afectados
             return registrosAfectados > 0;
         }
-
+        /// <summary>
+        /// Metodo para retornar los datos de la poliza
+        /// </summary>
+        /// <param name="pNumCedula"></param>
+        /// <returns></returns>
         public List<pa_RetornaCliente_Result> retornaClientePoliza(string pNumCedula = null)
         {
+            ///Variable la cual retornará
             List<pa_RetornaCliente_Result> resultado = new List<pa_RetornaCliente_Result>();
-
+            ///Asignacion del resultado del procedimiento almacenado a la variable
             resultado = this.modeloBD.pa_RetornaCliente(pNumCedula).ToList();
 
             return resultado;
         }
-
+        /// <summary>
+        /// Metodo para retornar los datos de la poliza por medio de la cedula
+        /// </summary>
+        /// <param name="pNumCedula"></param>
+        /// <returns></returns>
         public pa_RetornaClienteCed_Result retornaClienteCedPoliza(string pNumCedula = null)
         {
+            ///Creacion de la variable que retornará los datos
             pa_RetornaClienteCed_Result resultado = new pa_RetornaClienteCed_Result();
-
+            ///Asignacion del resultado del procedimiento almacenado a la variable
             resultado = this.modeloBD.pa_RetornaClienteCed(pNumCedula).FirstOrDefault();
 
             return resultado;
         }
-
+        /// <summary>
+        /// Método para retornar los datos del cliente por medio del empleado
+        /// </summary>
+        /// <param name="pPrimerApellido"></param>
+        /// <param name="pNombreCliente"></param>
+        /// <param name="pCedCliente"></param>
+        /// <param name="pGeneroCliente"></param>
+        /// <returns></returns>
         public List<pa_RetornaClienteEmpleado_Result> retornaClienteEmpleado(string pPrimerApellido, string pNombreCliente, string pCedCliente, string pGeneroCliente)
         {
             ///Creacion de la variable que retornará los datos
@@ -92,7 +116,20 @@ namespace AseguradoraFinal.BL
             ///Retornar el valor
             return resultado;
         }
-
+        /// <summary>
+        /// Método para insertar un cliente
+        /// </summary>
+        /// <param name="pIdUsuario"></param>
+        /// <param name="pNomCliente"></param>
+        /// <param name="pPriApe"></param>
+        /// <param name="pSegApe"></param>
+        /// <param name="pNumCedula"></param>
+        /// <param name="pGen"></param>
+        /// <param name="pDireccion"></param>
+        /// <param name="pPriTel"></param>
+        /// <param name="pSecTel"></param>
+        /// <param name="pUltimoIngreso"></param>
+        /// <returns></returns>
         public bool insertaCliente(int pIdUsuario, string pNomCliente, string pPriApe, string pSegApe, string pNumCedula, string pGen, string pDireccion, string pPriTel, string pSecTel, DateTime pUltimoIngreso)
         {
             ///Variable que posee la cantidad de registros afectados
@@ -102,7 +139,7 @@ namespace AseguradoraFinal.BL
 
             ///Invocación del procedimiento almacenado con las variables
             registrosAfectados = this.modeloBD.pa_InsertaCliente(pIdUsuario, pNomCliente, pPriApe, pSegApe, pNumCedula, pGen, pDireccion, pPriTel, pSecTel, pUltimoIngreso);
-
+            ///Verificacion de registros
             if (registrosAfectados > 0)
             {
                 return true;
@@ -112,30 +149,41 @@ namespace AseguradoraFinal.BL
                 return false;
             }
         }
-
+        /// <summary>
+        /// Método para enviar el correo electronico al usuario nuevo
+        /// </summary>
+        /// <param name="pPriApellido"></param>
+        /// <param name="pSecApellido"></param>
+        /// <param name="pNombre"></param>
+        /// <param name="pCorreo"></param>
         public void correoElectronicoIngreso(string pPriApellido, string pSecApellido, string pNombre, string pCorreo)
         {
+            ///Creación de variables con datos
             string emailOrigen = "segurosxxiumca@gmail.com";
             string emailDestino = pCorreo;
             string contrasena = "CastroCarazoProgra";
-
+            ///Creación del cuerpo del mensaje
             MailMessage oMailMessage = new MailMessage(emailOrigen, emailDestino, "Su Cuenta En Seguros El Equipo Del Siglo XXI",
                                                        $"Estimado cliente: {pPriApellido} {pSecApellido}" +
                                                        $" {pNombre}, gracias por confiar en Seguros el Equipo del Siglo XXI." +
                                                        $" Para nosotros es un placer servirle.");
             oMailMessage.IsBodyHtml = true;
-
+            ///Host
             SmtpClient oSmtpClient = new SmtpClient("smtp.gmail.com");
             oSmtpClient.EnableSsl = true;
             oSmtpClient.UseDefaultCredentials = false;
             oSmtpClient.Port = 587;
             oSmtpClient.Credentials = new System.Net.NetworkCredential(emailOrigen, contrasena);
-
+            ///Enviar mensaje
             oSmtpClient.Send(oMailMessage);
-
+            ///Reiniciar mensaje
             oSmtpClient.Dispose();
         }
-
+        /// <summary>
+        /// Metodo para retornar los datos del cliente por medio del correo electronico
+        /// </summary>
+        /// <param name="pIdUsuario"></param>
+        /// <returns></returns>
         public pa_RetornaClienteCorreo_Result retornaClienteCorreo(int pIdUsuario)
         {
             pa_RetornaClienteCorreo_Result resultado = new pa_RetornaClienteCorreo_Result();

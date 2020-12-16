@@ -226,81 +226,72 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
 
                 resultadoPolizaID = oPoliza.retornaPolizaID(pPolizaID);
 
-                ///Contador para el resultado
-                int contadorCobertura = 0;
-                try
+                if (oPoliza.verificaCedula(this.txtCedCliente.Text))
                 {
-                    ///Recorrido de la lista que contiene todos los datos de la CoberturaPoliza
-                    for (int i = 0; i < listaRetornaCliente.Count; i++)
+                    try
                     {
-                        ///Verificar si el nombre de la cobertura existe o no
-                        if (!listaRetornaCliente[i].numCedula.Equals(this.txtCedCliente.Text))
+                        if (DateTime.Now < resultadoPolizaID.fechaRegistro)
                         {
-                            contadorCobertura = 1;
-                            ///Generación del mensaje de error
-                            mensaje = "El número de cédula no existe, ingrésalo de nuevo";
-                            ///Mostrar mensaje
-                            Response.Write("<script>alert('" + mensaje + "')</script>");
+                            ///obtener los valores seleccionados por el usuario
+                            ///se toman de la propiedad datavaluefield
+                            ///tanto del dropdownlist como del listbox
+                            int idCoberturaPoliza = Convert.ToInt16(this.ddlCoberturaPoliza.SelectedValue);
+                            int idCliente = Convert.ToInt16(this.hdIdCliente.Value);
+                            int idEmpleado = Convert.ToInt16(this.hdIdEmpleado.Value);
+                            float montoAsegurado = float.Parse(this.txtMontoAsegurado.Text);
+                            int cantAdicciones = Convert.ToInt16(this.txtCantidadAdicciones.Text);
+                            float montoAdicciones = float.Parse(this.txtMontoAdicciones.Text);
+                            float primaAntesImpuestos = float.Parse(this.txtPrimaAntesImpuestos.Text);
+                            float impuestos = float.Parse(this.txtImpuestos.Text);
+                            float primaFinal = float.Parse(this.txtPrimaFinal.Text);
+                            DateTime fechaRegistro = Convert.ToDateTime(this.txtFechaRegistro.Text);
+                            int idSucursal = Convert.ToInt16(this.hdIdSucursal.Value);
+                            float porcentajePrima = float.Parse(this.txtPorcentajeCobertura.Text);
+                            //obtener el valor del hidden field 
+                            int id_RegistroPoliza = Convert.ToInt16(this.hdIdRegistroPoliza.Value);
+                            ///asignar a la variable el resultado de 
+                            ///invocar el procedimiento almacenado
+                            resultado = oPoliza.modificaPoliza(id_RegistroPoliza, idCoberturaPoliza, idCliente, idEmpleado,
+                                                               montoAsegurado, cantAdicciones, montoAdicciones, primaAntesImpuestos,
+                                                               impuestos, primaFinal, fechaRegistro, idSucursal, porcentajePrima);
                         }
                         else
                         {
-                            if (DateTime.Now < resultadoPolizaID.fechaRegistro)
-                            {
-                                ///obtener los valores seleccionados por el usuario
-                                ///se toman de la propiedad datavaluefield
-                                ///tanto del dropdownlist como del listbox
-                                int idCoberturaPoliza = Convert.ToInt16(this.ddlCoberturaPoliza.SelectedValue);
-                                int idCliente = Convert.ToInt16(this.hdIdCliente.Value);
-                                int idEmpleado = Convert.ToInt16(this.hdIdEmpleado.Value);
-                                float montoAsegurado = float.Parse(this.txtMontoAsegurado.Text);
-                                int cantAdicciones = Convert.ToInt16(this.txtCantidadAdicciones.Text);
-                                float montoAdicciones = float.Parse(this.txtMontoAdicciones.Text);
-                                float primaAntesImpuestos = float.Parse(this.txtPrimaAntesImpuestos.Text);
-                                float impuestos = float.Parse(this.txtImpuestos.Text);
-                                float primaFinal = float.Parse(this.txtPrimaFinal.Text);
-                                DateTime fechaRegistro = Convert.ToDateTime(this.txtFechaRegistro.Text);
-                                int idSucursal = Convert.ToInt16(this.hdIdSucursal.Value);
-                                float porcentajePrima = float.Parse(this.txtPorcentajeCobertura.Text);
-                                //obtener el valor del hidden field 
-                                int id_RegistroPoliza = Convert.ToInt16(this.hdIdRegistroPoliza.Value);
-                                ///asignar a la variable el resultado de 
-                                ///invocar el procedimiento almacenado
-                                resultado = oPoliza.modificaPoliza(id_RegistroPoliza, idCoberturaPoliza, idCliente, idEmpleado,
-                                                                   montoAsegurado, cantAdicciones, montoAdicciones, primaAntesImpuestos,
-                                                                   impuestos, primaFinal, fechaRegistro, idSucursal, porcentajePrima);
-                            }
-                            else
-                            {
-                                ///Generación del mensaje de error
-                                mensaje = "La fecha de la póliza se encuentra vencida, no puede ser modificada.";
-                                ///Mostrar mensaje
-                                Response.Write("<script>alert('" + mensaje + "')</script>");
-                            }
+                            ///Generación del mensaje de error
+                            mensaje = "La fecha de la póliza se encuentra vencida, no puede ser modificada.";
+                            ///Mostrar mensaje
+                            Response.Write("<script>alert('" + mensaje + "')</script>");
                         }
-                    }
 
-                }
-                ///catch: se ejecuta en el caso de que haya una excepcion
-                ///excepcionCapturada: posee los datos de la excepción
-                catch (Exception excepcionCapturada)
-                {
-                    ///Generación del mensaje
-                    mensaje += $"Ocurrió un error: {excepcionCapturada.Message}";
-                    ////mostrar el mensaje
-                    Response.Write("<script>alert('" + mensaje + "')</script>");
-                }
-                ///finally: siempre se ejecuta (se atrape o no la excepción)
-                finally
-                {
-                    ///si el resultado de la variable es verdadera implica que
-                    ///el procedimiento no retornó errores
-                    if (resultado)
+                    }
+                    ///catch: se ejecuta en el caso de que haya una excepcion
+                    ///excepcionCapturada: posee los datos de la excepción
+                    catch (Exception excepcionCapturada)
                     {
                         ///Generación del mensaje
-                        mensaje += "El registro fue modificado";
+                        mensaje += $"Ocurrió un error: {excepcionCapturada.Message}";
                         ////mostrar el mensaje
                         Response.Write("<script>alert('" + mensaje + "')</script>");
                     }
+                    ///finally: siempre se ejecuta (se atrape o no la excepción)
+                    finally
+                    {
+                        ///si el resultado de la variable es verdadera implica que
+                        ///el procedimiento no retornó errores
+                        if (resultado)
+                        {
+                            ///Generación del mensaje
+                            mensaje += "El registro fue modificado";
+                            ////mostrar el mensaje
+                            Response.Write("<script>alert('" + mensaje + "')</script>");
+                        }
+                    }
+                }
+                else
+                {
+                    mensaje = "El número de cédula no existe, ingrésalo de nuevo";
+                    ///Mostrar mensaje
+                    Response.Write("<script>alert('" + mensaje + "')</script>");
                 }
             }
         }

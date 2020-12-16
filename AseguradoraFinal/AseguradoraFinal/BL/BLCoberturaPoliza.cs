@@ -53,7 +53,14 @@ namespace AseguradoraFinal.BL
 
             return resultado;
         }
-
+        /// <summary>
+        /// Método para insertar la cobertura de poliza
+        /// </summary>
+        /// <param name="pNombre"></param>
+        /// <param name="pDesc"></param>
+        /// <param name="pPorcentaje"></param>
+        /// <param name="pIdTipoPoliza"></param>
+        /// <returns></returns>
         public bool insertaCoberturaPoliza(string pNombre, string pDesc, float pPorcentaje, int pIdTipoPoliza)
         {
             ///Variable que posee la cantidad de registros afectados
@@ -63,7 +70,7 @@ namespace AseguradoraFinal.BL
 
             ///Invocación del procedimiento almacenado con las variables
             registrosAfectados = this.modeloBD.pa_InsertaCoberturaPoliza(pNombre, pDesc, pPorcentaje, pIdTipoPoliza);
-
+            ///Verificacion de registro
             if (registrosAfectados > 0)
             {
                 return true;
@@ -74,7 +81,15 @@ namespace AseguradoraFinal.BL
             }
 
         }
-
+        /// <summary>
+        /// Método para modificar la cobertura de poliza
+        /// </summary>
+        /// <param name="pIdCoberturaPoliza"></param>
+        /// <param name="pNombre"></param>
+        /// <param name="pDesc"></param>
+        /// <param name="pPorcentaje"></param>
+        /// <param name="pIdTipoCobertura"></param>
+        /// <returns></returns>
         public bool modificaCoberturaPoliza(int pIdCoberturaPoliza, string pNombre, string pDesc, float pPorcentaje, int pIdTipoCobertura)
         {
             ///variable que posee la cantidad de registros afectados
@@ -88,7 +103,11 @@ namespace AseguradoraFinal.BL
             return registrosAfectados > 0;
 
         }
-
+        /// <summary>
+        /// Metodo para editar la cobertura de poliza
+        /// </summary>
+        /// <param name="pIdCoberturaPoliza"></param>
+        /// <returns></returns>
         public bool eliminaCoberturaPoliza(int pIdCoberturaPoliza)
         {
             ///variable que posee la cantidad de registros afectados
@@ -100,6 +119,30 @@ namespace AseguradoraFinal.BL
 
             return registrosAfectados > 0;
 
+        }
+        /// <summary>
+        /// Método para verificar la cobertura de poliza
+        /// </summary>
+        /// <param name="pNumCobertura">Variable a capturar</param>
+        /// <returns></returns>
+        public bool verificaCobertura(string pNombreCobertura)
+        {
+            ///Resultado de la operación
+            bool resultado = true;
+            try
+            {
+                ///Variable que almacenará el dato solicitado
+                string coberturaNom = pNombreCobertura;
+                ///Resultado de la operación
+                resultado = this.modeloBD.CoberturaPoliza.Count(cobertura => cobertura.nombre == coberturaNom) <= 0;
+            }
+            catch
+            {
+                ///Mensaje de error
+                string mensaje = "Error al verificar la cédula.";
+            }
+            ///Retorno del resultado
+            return resultado;
         }
         #endregion Métodos y funciones
     }

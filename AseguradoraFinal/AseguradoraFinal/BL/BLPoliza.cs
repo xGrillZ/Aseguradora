@@ -15,6 +15,13 @@ namespace AseguradoraFinal.BL
         #endregion variableModelo
 
         #region Métodos y funciones
+        /// <summary>
+        /// Metodo para retornar datos de poliza
+        /// </summary>
+        /// <param name="pPrimerApeCliente"></param>
+        /// <param name="pNumCedCliente"></param>
+        /// <param name="pNomCoberturaPoliza"></param>
+        /// <returns></returns>
         public List<pa_RetornaPoliza_Result> retornaPoliza(string pPrimerApeCliente = null, string pNumCedCliente = null,
                                                            string pNomCoberturaPoliza = null)
         {
@@ -24,7 +31,11 @@ namespace AseguradoraFinal.BL
 
             return resultadoPoliza;
         }
-
+        /// <summary>
+        /// Metodo para retonar la cantidad adicciones
+        /// </summary>
+        /// <param name="pIdCliente"></param>
+        /// <returns></returns>
         public pa_RetornaAdiccionesCantidad_Result retornaAdiccionesCantidad(int pIdCliente)
         {
             pa_RetornaAdiccionesCantidad_Result resultado = new pa_RetornaAdiccionesCantidad_Result();
@@ -33,7 +44,11 @@ namespace AseguradoraFinal.BL
 
             return resultado;
         }
-
+        /// <summary>
+        /// Metodo para retornar poliza empleado
+        /// </summary>
+        /// <param name="pIdUsuario"></param>
+        /// <returns></returns>
         public pa_RetornaEmpleadoPoliza_Result retornaEmpleadoPoliza(int pIdUsuario)
         {
             pa_RetornaEmpleadoPoliza_Result resultado = new pa_RetornaEmpleadoPoliza_Result();
@@ -42,7 +57,11 @@ namespace AseguradoraFinal.BL
 
             return resultado;
         }
-
+        /// <summary>
+        /// Metodo para retornar datos por medio del ID
+        /// </summary>
+        /// <param name="pIdPoliza"></param>
+        /// <returns></returns>
         public pa_RetornaPolizaID_Result retornaPolizaID(int pIdPoliza)
         {
             pa_RetornaPolizaID_Result resultado = new pa_RetornaPolizaID_Result();
@@ -51,7 +70,22 @@ namespace AseguradoraFinal.BL
 
             return resultado;
         }
-
+        /// <summary>
+        /// Metodo para insertar una nueva poliza
+        /// </summary>
+        /// <param name="pIdCoberturaPoliza"></param>
+        /// <param name="pIdCliente"></param>
+        /// <param name="pIdEmpleado"></param>
+        /// <param name="pMontoAsegurado"></param>
+        /// <param name="pCantAdicciones"></param>
+        /// <param name="pMontoAdicciones"></param>
+        /// <param name="pPrimaAntesImpuestos"></param>
+        /// <param name="pImpuestos"></param>
+        /// <param name="pPrimaFinal"></param>
+        /// <param name="pFechaRegistro"></param>
+        /// <param name="pIdSucursal"></param>
+        /// <param name="pPorcentajePrima"></param>
+        /// <returns></returns>
         public bool insertaPoliza(int pIdCoberturaPoliza, int pIdCliente, int pIdEmpleado, float pMontoAsegurado,
                                   int pCantAdicciones, float pMontoAdicciones, float pPrimaAntesImpuestos,
                                   float pImpuestos, float pPrimaFinal, DateTime pFechaRegistro, int pIdSucursal, float pPorcentajePrima)
@@ -75,7 +109,23 @@ namespace AseguradoraFinal.BL
                 return false;
             }
         }
-
+        /// <summary>
+        /// Metodo para modificar la poliza
+        /// </summary>
+        /// <param name="pIdRegistroPoliza"></param>
+        /// <param name="pIdCoberturaPoliza"></param>
+        /// <param name="pIdCliente"></param>
+        /// <param name="pIdEmpleado"></param>
+        /// <param name="pMontoAsegurado"></param>
+        /// <param name="pCantAdicciones"></param>
+        /// <param name="pMontoAdicciones"></param>
+        /// <param name="pPrimaAntesImpuestos"></param>
+        /// <param name="pImpuestos"></param>
+        /// <param name="pPrimaFinal"></param>
+        /// <param name="pFechaRegistro"></param>
+        /// <param name="pIdSucursal"></param>
+        /// <param name="pPorcentajePrima"></param>
+        /// <returns></returns>
         public bool modificaPoliza(int pIdRegistroPoliza, int pIdCoberturaPoliza, int pIdCliente, int pIdEmpleado,
                                    float pMontoAsegurado, int pCantAdicciones, float pMontoAdicciones, float pPrimaAntesImpuestos,
                                    float pImpuestos, float pPrimaFinal, DateTime pFechaRegistro, int pIdSucursal, float pPorcentajePrima)
@@ -92,7 +142,11 @@ namespace AseguradoraFinal.BL
 
             return registrosAfectados > 0;
         }
-
+        /// <summary>
+        /// Metodo para eliminar la poliza
+        /// </summary>
+        /// <param name="pIdRegistroPoliza"></param>
+        /// <returns></returns>
         public bool eliminaPoliza(int pIdRegistroPoliza)
         {
             ///variable que posee la cantidad de registros afectados
@@ -104,6 +158,31 @@ namespace AseguradoraFinal.BL
                 this.modeloBD.pa_EliminaPoliza(pIdRegistroPoliza);
 
             return registrosAfectados > 0;
+        }
+
+        /// <summary>
+        /// Método para verificar el numero de cedula
+        /// </summary>
+        /// <param name="pNumCedula">Variable a capturar</param>
+        /// <returns></returns>
+        public bool verificaCedula(string pNumCedula)
+        {
+            ///Resultado de la operación
+            bool resultado = true;
+            try
+            {
+                ///Variable que almacenará el dato solicitado
+                string ced = pNumCedula;
+                ///Resultado de la operación
+                resultado = this.modeloBD.Cliente.Count(cliente => cliente.numCedula != ced) <= 0;
+            }
+            catch
+            {
+                ///Mensaje de error
+                string mensaje = "Error al verificar la cédula.";
+            }
+            ///Retorno del resultado
+            return resultado;
         }
         #endregion Métodos y funciones
     }

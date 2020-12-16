@@ -104,63 +104,49 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
                 ///Creación de la variable el cuál almacenará el mensaje a mostrar
                 string mensaje = "";
 
-                ///Creación de una lista el cuál contiene el resultado de datos
-                List<pa_RetornaCoberturaPoliza_Result> listaRetornaCoberturaPoliza = oCoberturaPoliza.retornaCoberturaPoliza(null);
-
-                ///Contador para el resultado
-                int contadorCobertura = 0;
-                try
+                if (oCoberturaPoliza.verificaCobertura(this.txtNombreCobertura.Text))
                 {
-                    ///Recorrido de la lista que contiene todos los datos de la CoberturaPoliza
-                    for (int i = 0; i < listaRetornaCoberturaPoliza.Count; i++)
+                    try
                     {
-                        ///Verificar si el nombre de la cobertura existe o no
-                        if (listaRetornaCoberturaPoliza[i].nombre.Equals(this.txtNombreCobertura.Text))
-                        {
-                            contadorCobertura = 1;
-                            ///Generación del mensaje de error
-                            mensaje = "Esta cobertura ya se encuentra registrada";
-                            ///Mostrar mensaje
-                            Response.Write("<script>alert('" + mensaje + "')</script>");
-                        }
-                        else
-                        {
-                            ///obtener los valores seleccionados por el usuario
-                            ///se toman de la propiedad datavaluefield
-                            ///tanto del dropdownlist como del listbox
-                            int id_TipoPoliza = Convert.ToInt16(this.ddl_TipoPoliza.SelectedValue);
-                            //obtener el valor del hidden field 
-                            int id_CoberturaPoliza = Convert.ToInt16(this.hdidCoberturaPoliza.Value);
-                            ///asignar a la variable el resultado de 
-                            ///invocar el procedimiento almacenado
-                            resultado = oCoberturaPoliza.modificaCoberturaPoliza(id_CoberturaPoliza, this.txtNombreCobertura.Text,
+                        ///obtener los valores seleccionados por el usuario
+                        ///se toman de la propiedad datavaluefield
+                        ///tanto del dropdownlist como del listbox
+                        int id_TipoPoliza = Convert.ToInt16(this.ddl_TipoPoliza.SelectedValue);
+                        //obtener el valor del hidden field 
+                        int id_CoberturaPoliza = Convert.ToInt16(this.hdidCoberturaPoliza.Value);
+                        ///asignar a la variable el resultado de 
+                        ///invocar el procedimiento almacenado
+                        resultado = oCoberturaPoliza.modificaCoberturaPoliza(id_CoberturaPoliza, this.txtNombreCobertura.Text,
                                                                                  this.txtDescCobertura.Text, float.Parse(this.txtPorcentajeCobertura.Text),
                                                                                  id_TipoPoliza);
+
+                    }
+                    ///catch: se ejecuta en el caso de que haya una excepcion
+                    ///excepcionCapturada: posee los datos de la excepción
+                    catch (Exception excepcionCapturada)
+                    {
+                        mensaje += $"Ocurrió un error: {excepcionCapturada.Message}";
+                    }
+                    ///finally: siempre se ejecuta (se atrape o no la excepción)
+                    finally
+                    {
+                        ///si el resultado de la variable es verdadera implica que
+                        ///el procedimiento no retornó errores
+                        if (resultado)
+                        {
+                            ///Generación del mensaje
+                            mensaje += "El registro fue modificado";
                         }
                     }
-
+                    ///mostrar el mensaje
+                    Response.Write("<script>alert('" + mensaje + "')</script>");
                 }
-                ///catch: se ejecuta en el caso de que haya una excepcion
-                ///excepcionCapturada: posee los datos de la excepción
-                catch (Exception excepcionCapturada)
+                else
                 {
-                    mensaje += $"Ocurrió un error: {excepcionCapturada.Message}";
+                    mensaje = "Esta cobertura ya se encuentra registrada";
+                    ///Mostrar mensaje
+                    Response.Write("<script>alert('" + mensaje + "')</script>");
                 }
-                ///finally: siempre se ejecuta (se atrape o no la excepción)
-                finally
-                {
-                    ///si el resultado de la variable es verdadera implica que
-                    ///el procedimiento no retornó errores
-                    if (resultado)
-                    {
-                        ///Generación del mensaje
-                        mensaje += "El registro fue modificado";
-                        ////mostrar el mensaje
-                        Response.Write("<script>alert('" + mensaje + "')</script>");
-                    }
-                }
-                ///mostrar el mensaje
-                Response.Write("<script>alert('" + mensaje + "')</script>");
             }
         }
     }

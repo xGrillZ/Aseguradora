@@ -51,55 +51,43 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
                 BLCoberturaPoliza oCoberturaPoliza = new BLCoberturaPoliza();
                 bool resultado = false;
 
-                ///Creación de una lista el cuál contiene el resultado de datos
-                List<pa_RetornaCoberturaPoliza_Result> listaRetornaCoberturaPoliza = oCoberturaPoliza.retornaCoberturaPoliza(null);
-
-                ///Contador para el resultado
-                int contadorCobertura = 0;
-
-                try
+                if (oCoberturaPoliza.verificaCobertura(this.txtNombreCobertura.Text))
                 {
-                    ///Recorrido de la lista que contiene todos los datos de la CoberturaPoliza
-                    for (int i = 0; i < listaRetornaCoberturaPoliza.Count; i++)
+                    try
                     {
-                        ///Verificar si el nombre de la cobertura existe o no
-                        if (listaRetornaCoberturaPoliza[i].nombre.Equals(this.txtNombreCobertura.Text))
-                        {
-                            contadorCobertura = 1;
-                            ///Generación del mensaje de error
-                            mensaje = "Esta cobertura ya se encuentra registrada";
-                            ///Mostrar mensaje
-                            Response.Write("<script>alert('" + mensaje + "')</script>");
-                        }
-                        else
-                        {
-                            ///Asignar a la variable el resultado de invocar el procedimiento
-                            ///almacenado que se encuentra en el método
-                            int idTipoPoliza = Convert.ToInt16(ddlTipoPoliza.SelectedValue);
-                            float pPorcentaje = float.Parse(this.txtPorcentaje.Text);
+                        ///Asignar a la variable el resultado de invocar el procedimiento
+                        ///almacenado que se encuentra en el método
+                        int idTipoPoliza = Convert.ToInt16(ddlTipoPoliza.SelectedValue);
+                        float pPorcentaje = float.Parse(this.txtPorcentaje.Text);
 
-                            resultado = oCoberturaPoliza.insertaCoberturaPoliza(this.txtNombreCobertura.Text, this.txtDescCobertura.Text,
-                                                                                pPorcentaje, idTipoPoliza);
-                        }
+                        resultado = oCoberturaPoliza.insertaCoberturaPoliza(this.txtNombreCobertura.Text, this.txtDescCobertura.Text,
+                                                                                 pPorcentaje, idTipoPoliza);
                     }
-                }
-                catch (Exception excepcionCapturada)
-                {
-                    ///Generación del mensaje de error
-                    mensaje += $"Ha ocurrido un error: {excepcionCapturada.Message}";
-                    ///Mostrar mensaje
-                    Response.Write("<script>alert('" + mensaje + "')</script>");
-                }
-                finally
-                {
-                    ///Si el resultado de la variable es verdadero, significa que no dió errores
-                    if (resultado)
+                    catch (Exception excepcionCapturada)
                     {
-                        ///Generación del mensaje de inserción
-                        mensaje += "El registro fue insertado";
+                        ///Generación del mensaje de error
+                        mensaje += $"Ha ocurrido un error: {excepcionCapturada.Message}";
                         ///Mostrar mensaje
                         Response.Write("<script>alert('" + mensaje + "')</script>");
                     }
+                    finally
+                    {
+                        ///Si el resultado de la variable es verdadero, significa que no dió errores
+                        if (resultado)
+                        {
+                            ///Generación del mensaje de inserción
+                            mensaje += "El registro fue insertado";
+                            ///Mostrar mensaje
+                            Response.Write("<script>alert('" + mensaje + "')</script>");
+                        }
+                    }
+                }
+                else
+                {
+                    ///Generación del mensaje de error
+                    mensaje = "Esta cobertura ya se encuentra registrada";
+                    ///Mostrar mensaje
+                    Response.Write("<script>alert('" + mensaje + "')</script>");
                 }
             }
         }

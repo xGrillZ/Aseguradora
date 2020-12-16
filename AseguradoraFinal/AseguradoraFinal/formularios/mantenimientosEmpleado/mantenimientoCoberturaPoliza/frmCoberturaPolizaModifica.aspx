@@ -25,7 +25,7 @@
                    <asp:Label ID="Label5" runat="server" Text="Porcentaje cobertura:"></asp:Label>
                    <asp:TextBox ID="txtPorcentajeCobertura" runat="server" class="form-control"></asp:TextBox>
                    <asp:RequiredFieldValidator ID="rqVtxtPorcentajeCobertura" runat="server" ControlToValidate="txtPorcentajeCobertura" class="form-control" ErrorMessage="Debes ingresar el porcentaje de la cobertura" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
-                   <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="El porcentaje de la cobertura debe ser menor o igual a 100%." ControlToValidate="txtPorcentaje" Display="None" ValidationExpression="^[\s\S]{1,100}$"></asp:RegularExpressionValidator>
+                   <asp:RegularExpressionValidator ID="reVtxtPorcentajeCobertura" runat="server" ErrorMessage="El porcentaje de la cobertura debe ser menor o igual a 100%." ControlToValidate="txtPorcentajeCobertura" Display="None" ValidationExpression="^[\s\S]{1,100}$"></asp:RegularExpressionValidator>
                </div>
                <div class="form-group">
                    <asp:Label ID="Label6" runat="server" Text="Tipo Poliza"></asp:Label>

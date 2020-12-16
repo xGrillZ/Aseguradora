@@ -17,6 +17,7 @@
                    <asp:Label ID="Label4" runat="server" Text="Número cédula:"></asp:Label>                 
                    <asp:TextBox ID="txtCedula" runat="server"></asp:TextBox>
                    <asp:RequiredFieldValidator ID="rqVtxtCedula" runat="server"  ControlToValidate="txtCedula" ErrorMessage="Debes ingresar la cédula del cliente" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
+                   <asp:RegularExpressionValidator ID="reVtxtCedula" runat="server" ErrorMessage="La cédula debe ser menor o igual a 20 carácteres." ControlToValidate="txtCedula" Display="None" ValidationExpression="^[\s\S]{1,20}$"></asp:RegularExpressionValidator>
                    <br />
                </div>           
                <div class="form-group">

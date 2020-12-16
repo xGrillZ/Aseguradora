@@ -123,13 +123,13 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoCober
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqVtxtPorcentajeCobertura;
 
         /// <summary>
-        /// Control RegularExpressionValidator2.
+        /// Control reVtxtPorcentajeCobertura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator reVtxtPorcentajeCobertura;
 
         /// <summary>
         /// Control Label6.
