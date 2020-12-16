@@ -384,6 +384,17 @@
     <Content Include="Modelos\AseguradoraBDModel.edmx.diagram">
       <DependentUpon>AseguradoraBDModel.edmx</DependentUpon>
     </Content>
+    <Content Include="aseguradorarjsDataSet.xsc">
+      <DependentUpon>aseguradorarjsDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="aseguradorarjsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>aseguradorarjsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="aseguradorarjsDataSet.xss">
+      <DependentUpon>aseguradorarjsDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -443,6 +454,11 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="aseguradorarjsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>aseguradorarjsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="BL\BLAdiccionCliente.cs" />
     <Compile Include="BL\BLCliente.cs" />
     <Compile Include="BL\BLCoberturaPoliza.cs" />
@@ -930,7 +946,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reportes\RptAdiccionesCliente.rdlc" />
+    <EmbeddedResource Include="Reportes\reportePolizaPorCliente.rdlc" />
     <EmbeddedResource Include="Reportes\RptPolizaCliente.rdlc" />
   </ItemGroup>
   <PropertyGroup>
