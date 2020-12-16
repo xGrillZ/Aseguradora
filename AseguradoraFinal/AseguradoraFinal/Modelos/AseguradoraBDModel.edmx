@@ -1096,9 +1096,6 @@
             <Parameter Name="pTelefono" Mode="In" Type="String" />
             <Parameter Name="sTelefono" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="pa_RetornaAdiccionesID" ReturnType="Collection(AseguradoraBDModel.pa_RetornaAdiccionesID_Result)">
-          <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="pa_ModificaAdicciones">
             <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
             <Parameter Name="nombre" Mode="In" Type="String" />
@@ -1154,7 +1151,10 @@
             <Parameter Name="sTelefono" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="pa_EliminaCliente">
-            <Parameter Name="id_Cliente" Mode="In" Type="Int32" />
+          <Parameter Name="id_Cliente" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="pa_RetornaAdiccionesID" ReturnType="Collection(AseguradoraBDModel.pa_RetornaAdiccionesID_Result)">
+            <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1456,10 +1456,6 @@
           <Property Type="String" Name="sTelefono" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="idCliente" Nullable="false" />
         </ComplexType>
-        <ComplexType Name="pa_RetornaAdiccionesID_Result">
-          <Property Type="Int32" Name="idAdiccion" Nullable="false" />
-          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
-        </ComplexType>
         <ComplexType Name="pa_RetornaClienteEmpleado_Result">
           <Property Type="Int32" Name="idCliente" Nullable="false" />
           <Property Type="String" Name="nomCliente" Nullable="false" MaxLength="50" />
@@ -1509,6 +1505,12 @@
           <Property Type="String" Name="direccionFisica" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="pTelefono" Nullable="false" MaxLength="50" />
           <Property Type="String" Name="sTelefono" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="pa_RetornaAdiccionesID_Result">
+          <Property Type="Int32" Name="idAdiccion" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="idCategoriaAdiccion" Nullable="false" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="100" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1943,14 +1945,6 @@
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_ModificaClienteUsuario" FunctionName="AseguradoraBDModel.Store.pa_ModificaClienteUsuario" />
-          <FunctionImportMapping FunctionImportName="pa_RetornaAdiccionesID" FunctionName="AseguradoraBDModel.Store.pa_RetornaAdiccionesID">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaAdiccionesID_Result">
-                <ScalarProperty Name="idAdiccion" ColumnName="idAdiccion" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_ModificaAdicciones" FunctionName="AseguradoraBDModel.Store.pa_ModificaAdicciones" />
           <FunctionImportMapping FunctionImportName="pa_RetornaClienteEmpleado" FunctionName="AseguradoraBDModel.Store.pa_RetornaClienteEmpleado">
             <ResultMapping>
@@ -2030,6 +2024,16 @@
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="pa_ModificaCliente" FunctionName="AseguradoraBDModel.Store.pa_ModificaCliente" />
           <FunctionImportMapping FunctionImportName="pa_EliminaCliente" FunctionName="AseguradoraBDModel.Store.pa_EliminaCliente" />
+          <FunctionImportMapping FunctionImportName="pa_RetornaAdiccionesID" FunctionName="AseguradoraBDModel.Store.pa_RetornaAdiccionesID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AseguradoraBDModel.pa_RetornaAdiccionesID_Result">
+                <ScalarProperty Name="idAdiccion" ColumnName="idAdiccion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="idCategoriaAdiccion" ColumnName="idCategoriaAdiccion" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

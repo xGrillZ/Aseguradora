@@ -13,10 +13,12 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            this.cargaListaIdAdiccion();
-            this.cargaDatosRegistro();
-            this.cargaDatosIdCategoria(); 
+            if (!this.IsPostBack)
+            {
+                this.cargaListaIdAdiccion();
+                this.cargaDatosRegistro();
+                this.cargaDatosIdCategoria();
+            }
 
 
         }
@@ -45,8 +47,6 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             BLEmpleado oCategoria = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
             this.ddlIdCategoria.DataSource = oCategoria.retornaCategoriaAdicciones(null);
-
-
             ///indicarle al dropdownlist que se muestre 
             this.ddlIdCategoria.DataBind();
 
@@ -86,9 +86,8 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
                 ///Creación de la variable el cual obtendrá los datos del procedimiento almacenado ///Creación de la variable el cual obtendrá los datos del procedimiento almacenado
                 pa_RetornaAdiccionesID_Result resultDataAdiccion = new pa_RetornaAdiccionesID_Result();
-                resultDataAdiccion = oAdiccionModifica.RetornaAdiccionesID(idAdiccion);
 
-                this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
+                resultDataAdiccion = oAdiccionModifica.RetornaAdiccionesID(idAdiccion);
 
                 if (resultDataAdiccion == null)
                 {
@@ -97,8 +96,8 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 else
                 {
                     ///Asginación de cada una de las etiquetas sus valores respectivos en la invocacion del procedimiento almacenado
-                    this.ddlIdAdiccion.SelectedValue = resultDataAdiccion.nombre.ToString();
-                    this.ddlIdCategoria.SelectedValue = resultDataAdiccion.idAdiccion.ToString(); 
+                    this.ddlIdAdiccion.SelectedValue = resultDataAdiccion.idAdiccion.ToString();
+                    this.ddlIdCategoria.SelectedValue = resultDataAdiccion.idCategoriaAdiccion.ToString(); 
                     
                         
                     this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
@@ -130,7 +129,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                     ///obtener los valores seleccionados por el usuario
                     ///se toman de la propiedad datavaluefield
                     ///tanto del dropdownlist como del listbox
-                    string nombre = this.ddlIdAdiccion.SelectedValue;
+                    string nombre = this.ddlIdAdiccion.Text;
                     int idCategoriaAdicion = Convert.ToInt16(this.ddlIdCategoria.SelectedValue);
                        //obtener el valor del hidden field 
                       int idAdiccion = Convert.ToInt16(this.hdIdAdiccion.Value);
