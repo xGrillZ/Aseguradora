@@ -11,7 +11,7 @@ namespace AseguradoraFinal.Modelos
 {
     using System;
     
-    public partial class pa_RetornaAdiccionesxCliente_Result
+    public partial class pa_RetornaAdiccionCliente_Result
     {
         public int idAdiccion { get; set; }
         public int idCliente { get; set; }
@@ -19,10 +19,8 @@ namespace AseguradoraFinal.Modelos
         public string nomCliente { get; set; }
         public string ape1Cliente { get; set; }
         public string ape2Cliente { get; set; }
-        public string numCedula { get; set; }
-        public string nombreCategoria { get; set; }
         public string descripcion { get; set; }
-        public string nombre { get; set; }
         public string correoElectronico { get; set; }
+        public string nombre { get; set; }
     }
 }

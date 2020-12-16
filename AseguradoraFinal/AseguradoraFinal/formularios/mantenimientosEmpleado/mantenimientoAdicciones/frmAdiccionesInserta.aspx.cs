@@ -41,43 +41,54 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         {
             if (this.IsValid)
             {
+                ///Variable que administra los mensajes a mostrar
                 string mensaje = "";
-
+                ///Creación de la instancia de la clase BLEmpleado
                 BLEmpleado oAdiccion = new BLEmpleado();
-
+                ///Variable que administra el resultado de la operación
                 bool resultado = false;
-
-                try
+                ///Verificación si el nombre de adicción existe
+                if (oAdiccion.verificaAdiccion(this.txtNombreAdiccion.Text))
                 {
-                    ///obtener los valores seleccionados por el usuario
-                    ///se toman de la propiedad datavaluefield
-                    ///tanto del dropdown menu 
-                    
-                    
-
-                    ///asignar a la variable el resultado de
-                    ///invocar el procedimiento almacenado que se encuentra en el metodo
-
-                    resultado = oAdiccion.InsertaAdicciones(this.txtNombreAdiccion.Text, Convert.ToInt16(this.ddlIdCategoria.Text));
-                }
-                ///catch se ejecuta en el caso de que haya una excepcion    
-                ///excepcionCapturada posee los datos de la excepcion
-                catch (Exception e)
-                {
-                    mensaje += $"Ocurrió un error con la inserción{e}";
-                }
-                /// siempre se ejecuta se atrape o no la excepcion
-                finally
-                {
-                    ///si el resultado de la variable es verdadera implica que
-                    ///el proceimiento no retornó errores
-
-                    if (resultado)
+                    try
                     {
-                        mensaje += "El registro fue insertado correctamente";
+                        ///obtener los valores seleccionados por el usuario
+                        ///se toman de la propiedad datavaluefield
+                        ///tanto del dropdown menu 
+
+
+
+                        ///asignar a la variable el resultado de
+                        ///invocar el procedimiento almacenado que se encuentra en el metodo
+
+                        resultado = oAdiccion.InsertaAdicciones(this.txtNombreAdiccion.Text, Convert.ToInt16(this.ddlIdCategoria.Text));
                     }
+                    ///catch se ejecuta en el caso de que haya una excepcion    
+                    ///excepcionCapturada posee los datos de la excepcion
+                    catch (Exception e)
+                    {
+                        mensaje += $"Ocurrió un error con la inserción{e}";
+                    }
+                    /// siempre se ejecuta se atrape o no la excepcion
+                    finally
+                    {
+                        ///si el resultado de la variable es verdadera implica que
+                        ///el proceimiento no retornó errores
+
+                        if (resultado)
+                        {
+                            mensaje += "El registro fue insertado correctamente";
+                        }
+                        ///mostrar el mensaje
+                        Response.Write("<script>alert('" + mensaje + "')</script>");
+                    }
+                }
+                else
+                {
+                    ///Generador de mensaje
+                    mensaje += "El nombre de la adicción ya existe, ingresa otro.";
                     ///mostrar el mensaje
-                    Response.Write("<script>alert('" + mensaje + "')</script>"); 
+                    Response.Write("<script>alert('" + mensaje + "')</script>");
                 }
 
             }

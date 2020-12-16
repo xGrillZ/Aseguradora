@@ -99,10 +99,30 @@ namespace AseguradoraFinal.BL
             return registrosAfectados > 0;
 
         }
-
-
-
-
+        /// <summary>
+        /// Método para verificar el nombre de adicción
+        /// </summary>
+        /// <param name="pNombreAdiccion">Variable a capturar</param>
+        /// <returns></returns>
+        public bool verificaAdiccion(string pNombreAdiccion)
+        {
+            ///Resultado de la operación
+            bool resultado = true;
+            try
+            {
+                ///Variable que almacenará el dato solicitado
+                string nuevoNombre = pNombreAdiccion;
+                ///Resultado de la operación
+                resultado = this.modeloBD.Adicciones.Count(adiccion => adiccion.nombre == nuevoNombre) <= 0;
+            }
+            catch
+            {
+                ///Mensaje de error
+                string mensaje = "Error al verificar la cédula.";
+            }
+            ///Retorno del resultado
+            return resultado;
+        }
         public pa_RetornaUsuarioEmpleadoID_Result retornaUsuarioEmpleadoID(int pIdUsuarioEmpleado)
         {
             ///Creación de la variable que se retornará

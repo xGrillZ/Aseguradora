@@ -309,23 +309,6 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_RegistroPolizaDelete", numPolizaParameter);
         }
     
-        public virtual ObjectResult<pa_RetornaAdiccionesxCliente_Result> pa_RetornaAdiccionesxCliente(Nullable<int> idMantAdiccionxCliente, Nullable<int> idAdiccion, Nullable<int> idCliente)
-        {
-            var idMantAdiccionxClienteParameter = idMantAdiccionxCliente.HasValue ?
-                new ObjectParameter("idMantAdiccionxCliente", idMantAdiccionxCliente) :
-                new ObjectParameter("idMantAdiccionxCliente", typeof(int));
-    
-            var idAdiccionParameter = idAdiccion.HasValue ?
-                new ObjectParameter("idAdiccion", idAdiccion) :
-                new ObjectParameter("idAdiccion", typeof(int));
-    
-            var idClienteParameter = idCliente.HasValue ?
-                new ObjectParameter("idCliente", idCliente) :
-                new ObjectParameter("idCliente", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionesxCliente_Result>("pa_RetornaAdiccionesxCliente", idMantAdiccionxClienteParameter, idAdiccionParameter, idClienteParameter);
-        }
-    
         public virtual ObjectResult<pa_RetornaTipoPolizaID_Result> pa_RetornaTipoPolizaID(Nullable<int> id_TipoPoliza)
         {
             var id_TipoPolizaParameter = id_TipoPoliza.HasValue ?
@@ -972,6 +955,48 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("idAdiccion", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionesID_Result>("pa_RetornaAdiccionesID", idAdiccionParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaAdiccionesxCliente_Result> pa_RetornaAdiccionesxCliente(string correoElectronico, string priApeCliente, string nombreCliente)
+        {
+            var correoElectronicoParameter = correoElectronico != null ?
+                new ObjectParameter("correoElectronico", correoElectronico) :
+                new ObjectParameter("correoElectronico", typeof(string));
+    
+            var priApeClienteParameter = priApeCliente != null ?
+                new ObjectParameter("priApeCliente", priApeCliente) :
+                new ObjectParameter("priApeCliente", typeof(string));
+    
+            var nombreClienteParameter = nombreCliente != null ?
+                new ObjectParameter("nombreCliente", nombreCliente) :
+                new ObjectParameter("nombreCliente", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionesxCliente_Result>("pa_RetornaAdiccionesxCliente", correoElectronicoParameter, priApeClienteParameter, nombreClienteParameter);
+        }
+    
+        public virtual ObjectResult<pa_RetornaAdiccionCliente_Result> pa_RetornaAdiccionCliente(string correoElectronico, string priApeCliente, string nombreCliente, string nombreAdiccion, string descCategoria)
+        {
+            var correoElectronicoParameter = correoElectronico != null ?
+                new ObjectParameter("correoElectronico", correoElectronico) :
+                new ObjectParameter("correoElectronico", typeof(string));
+    
+            var priApeClienteParameter = priApeCliente != null ?
+                new ObjectParameter("priApeCliente", priApeCliente) :
+                new ObjectParameter("priApeCliente", typeof(string));
+    
+            var nombreClienteParameter = nombreCliente != null ?
+                new ObjectParameter("nombreCliente", nombreCliente) :
+                new ObjectParameter("nombreCliente", typeof(string));
+    
+            var nombreAdiccionParameter = nombreAdiccion != null ?
+                new ObjectParameter("nombreAdiccion", nombreAdiccion) :
+                new ObjectParameter("nombreAdiccion", typeof(string));
+    
+            var descCategoriaParameter = descCategoria != null ?
+                new ObjectParameter("descCategoria", descCategoria) :
+                new ObjectParameter("descCategoria", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaAdiccionCliente_Result>("pa_RetornaAdiccionCliente", correoElectronicoParameter, priApeClienteParameter, nombreClienteParameter, nombreAdiccionParameter, descCategoriaParameter);
         }
     }
 }

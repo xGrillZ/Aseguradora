@@ -3,21 +3,21 @@
     <link href="/css/global.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoPrincipal" runat="server">
-    <section class="clientes-Inserta">
+    <section class="adicciones-Lista">
         <div class="contenido-principal">
              <form runat="server" class="form-inline">
                 <h1>Busqueda de Adicciones</h1>
               <div class="form-group">
                   <asp:Label ID="Label3" runat="server" Text="Nombre de la Adicción"></asp:Label>
-                  <asp:DropDownList ID="ddlNombre" runat="server" CssClass="form-control" DataValueField="nombre" DataTextField="nombre" Enabled="True"  ></asp:DropDownList>
+                  <asp:DropDownList ID="ddlNombre" runat="server" class="form-control" DataValueField="nombre" DataTextField="nombre" Enabled="True"  ></asp:DropDownList>
                 <asp:RequiredFieldValidator ID="rqvNombre" runat="server"  ControlToValidate="ddlNombre" ErrorMessage="Debe ingresar el nombre de la adicción" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
                 </div>
                 <div class="form-group">
                      <br />
                      <asp:Button ID="btnMostrarDatos" runat="server"  Text="Mostrar datos" CssClass="btn-success" OnClick="btnMostrarDatos_Click"  />  
-                    &nbsp;<asp:HyperLink ID="hpNuevoRegistro" runat="server" CssClass="text-info" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoAdicciones/frmAdiccionesInserta.aspx">Nuevo Registro</asp:HyperLink>
+                    &nbsp;<asp:HyperLink ID="hpNuevoRegistro" runat="server" class="text-info" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoAdicciones/frmAdiccionesInserta.aspx">Nuevo Registro</asp:HyperLink>
                 &nbsp;
-                     <asp:HyperLink ID="hpRegresaPrincial" runat="server" CssClass="text-info" NavigateUrl="~/formularios/frmPrincipal.aspx">Regresar a Página Principal</asp:HyperLink>
+                     <asp:HyperLink ID="hpRegresaPrincial" runat="server" class="text-info" NavigateUrl="~/formularios/frmPrincipal.aspx">Regresar a Página Principal</asp:HyperLink>
                 </div>
                  <br />
                  <asp:GridView ID="grdAdicciones" runat="server" AutoGenerateColumns="False"  PageIndex="50" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal">

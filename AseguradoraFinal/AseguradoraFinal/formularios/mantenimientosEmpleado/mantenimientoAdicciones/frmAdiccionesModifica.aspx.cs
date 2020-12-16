@@ -129,7 +129,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                     ///obtener los valores seleccionados por el usuario
                     ///se toman de la propiedad datavaluefield
                     ///tanto del dropdownlist como del listbox
-                    string nombre = this.ddlIdAdiccion.Text;
+                    string nombre = this.ddlIdAdiccion.SelectedValue;
                     int idCategoriaAdicion = Convert.ToInt16(this.ddlIdCategoria.SelectedValue);
                        //obtener el valor del hidden field 
                       int idAdiccion = Convert.ToInt16(this.hdIdAdiccion.Value);
