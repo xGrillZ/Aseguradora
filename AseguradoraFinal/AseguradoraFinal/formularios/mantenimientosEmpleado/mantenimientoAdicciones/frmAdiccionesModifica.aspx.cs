@@ -47,7 +47,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
             this.ddlIdCategoria.DataSource = oCategoria.RetornaAdicciones(null);
 
 
-            ///indicarle al dropdownlist que se muestre
+            ///indicarle al dropdownlist que se muestre 
             this.ddlIdCategoria.DataBind();
 
         }
@@ -56,7 +56,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
         {
             String parametro = this.Request.QueryString["idAdiccion"];
 
-            //validar si el parametro es correcto
+            //validar si el parametro enviado es correcto
             if (String.IsNullOrEmpty(parametro))
             {
                 ///Generación mensaje
