@@ -12,7 +12,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
 {
     public partial class frmPolizaClienteReporte : System.Web.UI.Page
     {
-        aseguradorarjsEntities modeloBD = aseguradorarjsEntities();
+        aseguradorarjsEntities modeloBD = new aseguradorarjsEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -68,7 +68,10 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoPoliz
             System.DateTime fechaRegistro, int idSucursal, string nomSucursal, double porcentajePrima)
         {
             return
-                  this.modeloBD.pa_RetornaPoliza( primerApellidoCliente,  numCedulaCliente,  nombreCoberturaPoliza).ToList;
+                  this.modeloBD.pa_RetornaPoliza( idCoberturaPoliza,  nombre,  idCliente,  ape1Cliente,
+             ape2Cliente,  nomCliente,  numCedula,  idEmpleado,  ape1Empleado,  ape2Empleado,
+             nomEmpleado,  montoAsegurado,  cantidadAdicciones,  primaAntesImpuestos,  impuestos,  primaFinal,
+             fechaRegistro,  idSucursal,  nomSucursal,  porcentajePrima).ToList;
         }
     }
 
