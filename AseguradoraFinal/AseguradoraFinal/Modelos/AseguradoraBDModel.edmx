@@ -391,6 +391,12 @@
           <Parameter Name="pTelefono" Type="varchar" Mode="In" />
           <Parameter Name="sTelefono" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="pa_ModificaClienteUsuario" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="direccionFisica" Type="varchar" Mode="In" />
+          <Parameter Name="pTelefono" Type="varchar" Mode="In" />
+          <Parameter Name="sTelefono" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="pa_ModificaCoberturaPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="idCoberturaPoliza" Type="int" Mode="In" />
           <Parameter Name="nombre" Type="nvarchar" Mode="In" />
@@ -1071,8 +1077,16 @@
           <FunctionImport Name="pa_RetornaUsuarioClienteID" ReturnType="Collection(AseguradoraBDModel.pa_RetornaUsuarioClienteID_Result)">
           <Parameter Name="idUsuario" Mode="In" Type="Int32" />
           </FunctionImport>
+<<<<<<< HEAD
           <FunctionImport Name="pa_RetornaAdiccionesID" ReturnType="Collection(Int32)">
           <Parameter Name="idAdiccion" Mode="In" Type="Int32" />
+=======
+          <FunctionImport Name="pa_ModificaClienteUsuario">
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="direccionFisica" Mode="In" Type="String" />
+            <Parameter Name="pTelefono" Mode="In" Type="String" />
+            <Parameter Name="sTelefono" Mode="In" Type="String" />
+>>>>>>> 5392e4ec4bd84620dfcb6df723df5fe491dfbfdc
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="pa_AdiccionesxClienteSelect_Result">
@@ -1842,7 +1856,11 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+<<<<<<< HEAD
           <FunctionImportMapping FunctionImportName="pa_RetornaAdiccionesID" FunctionName="AseguradoraBDModel.Store.pa_RetornaAdiccionesID" />
+=======
+          <FunctionImportMapping FunctionImportName="pa_ModificaClienteUsuario" FunctionName="AseguradoraBDModel.Store.pa_ModificaClienteUsuario" />
+>>>>>>> 5392e4ec4bd84620dfcb6df723df5fe491dfbfdc
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

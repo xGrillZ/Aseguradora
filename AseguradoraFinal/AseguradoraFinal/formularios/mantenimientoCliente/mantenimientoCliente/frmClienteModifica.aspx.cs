@@ -21,7 +21,7 @@ namespace AseguradoraFinal.formularios.mantenimientoCliente.mantenimientoCliente
 
         protected void btnModificarDatos_Click(object sender, EventArgs e)
         {
-
+            this.AlmacenarDatos();
         }
 
         void cargaDatosRegistro()
@@ -84,10 +84,7 @@ namespace AseguradoraFinal.formularios.mantenimientoCliente.mantenimientoCliente
 
                     ///asignar a la variable el resultado de 
                     ///invocar el procedimiento almacenado
- /*                   resultado = oGastoCategoria.ModificaGastoCategoria(id_Gasto_Categoria,
-                                                                id_Gasto,
-                                                                id_Categoria,
-                                                                Convert.ToInt16(this.txtCantidad.Text));*/
+                    resultado = oCliente.modificaClienteUsuario(idCliente, direccion, primerTel, segTel);
 
                 }
                 ///catch: se ejecuta en el caso de que haya una excepcion
@@ -95,6 +92,8 @@ namespace AseguradoraFinal.formularios.mantenimientoCliente.mantenimientoCliente
                 catch (Exception excepcionCapturada)
                 {
                     mensaje += $"Ocurrió un error: {excepcionCapturada.Message}";
+                    ///mostrar el mensaje
+                    Response.Write("<script>alert('" + mensaje + "')</script>");
                 }
                 ///finally: siempre se ejecuta (se atrape o no la excepción)
                 finally
@@ -104,6 +103,8 @@ namespace AseguradoraFinal.formularios.mantenimientoCliente.mantenimientoCliente
                     if (resultado)
                     {
                         mensaje += "El registro fue modificado";
+                        ///mostrar el mensaje
+                        Response.Write("<script>alert('" + mensaje + "')</script>");
                     }
                 }
             }

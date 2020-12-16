@@ -825,6 +825,7 @@ namespace AseguradoraFinal.Modelos
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<pa_RetornaUsuarioClienteID_Result>("pa_RetornaUsuarioClienteID", idUsuarioParameter);
         }
     
+<<<<<<< HEAD
         public virtual ObjectResult<Nullable<int>> pa_RetornaAdiccionesID(Nullable<int> idAdiccion)
         {
             var idAdiccionParameter = idAdiccion.HasValue ?
@@ -832,6 +833,27 @@ namespace AseguradoraFinal.Modelos
                 new ObjectParameter("idAdiccion", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("pa_RetornaAdiccionesID", idAdiccionParameter);
+=======
+        public virtual int pa_ModificaClienteUsuario(Nullable<int> idCliente, string direccionFisica, string pTelefono, string sTelefono)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var direccionFisicaParameter = direccionFisica != null ?
+                new ObjectParameter("direccionFisica", direccionFisica) :
+                new ObjectParameter("direccionFisica", typeof(string));
+    
+            var pTelefonoParameter = pTelefono != null ?
+                new ObjectParameter("pTelefono", pTelefono) :
+                new ObjectParameter("pTelefono", typeof(string));
+    
+            var sTelefonoParameter = sTelefono != null ?
+                new ObjectParameter("sTelefono", sTelefono) :
+                new ObjectParameter("sTelefono", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("pa_ModificaClienteUsuario", idClienteParameter, direccionFisicaParameter, pTelefonoParameter, sTelefonoParameter);
+>>>>>>> 5392e4ec4bd84620dfcb6df723df5fe491dfbfdc
         }
     }
 }
