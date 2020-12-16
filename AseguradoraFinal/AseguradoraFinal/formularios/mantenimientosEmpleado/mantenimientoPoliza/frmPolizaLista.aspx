@@ -34,6 +34,8 @@
                  &nbsp;
                      <asp:HyperLink ID="hpNuevaPoliza" runat="server" NavigateUrl="/formularios/mantenimientosEmpleado/mantenimientoPoliza/frmPolizaInserta.aspx">Ingresar nueva póliza</asp:HyperLink>
                   </div>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                     <asp:HyperLink ID="hpPolizaReporte" runat="server" NavigateUrl="~/formularios/mantenimientosEmpleado/mantenimientoPoliza/frmPolizaClienteReporte.aspx">Generar Reporte</asp:HyperLink>
                       <br />
                  <br />
                  <asp:GridView ID="grdListaPoliza" runat="server" AllowPaging="True" AutoGenerateColumns="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Horizontal" OnPageIndexChanging="grdListaPoliza_PageIndexChanging">
