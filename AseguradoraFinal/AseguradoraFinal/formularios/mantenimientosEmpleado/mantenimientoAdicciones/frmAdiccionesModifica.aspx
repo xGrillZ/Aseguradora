@@ -13,7 +13,7 @@
 
       <div class="form-group">
           <asp:Label ID="Label3" runat="server" Text="Identificador Categoría"></asp:Label>
-          <asp:DropDownList ID="ddlIdCategoria" runat="server" CssClass="form-control" DataValueField="descripcion" DataTextField="descripcion" Enabled="True"  ></asp:DropDownList>
+          <asp:DropDownList ID="ddlIdCategoria" runat="server" CssClass="form-control" DataValueField="idCategoriaAdiccion" DataTextField="descripcion" Enabled="True"  ></asp:DropDownList>
         <asp:RequiredFieldValidator ID="rqvIdCategoria" runat="server"  ControlToValidate="ddlIdCategoria" ErrorMessage="Debe ingresar el identificador de categoría" ForeColor="Red" Display="None"></asp:RequiredFieldValidator>
         </div>
       

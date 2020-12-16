@@ -44,7 +44,7 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
 
             BLEmpleado oCategoria = new BLEmpleado();
             ///indicarle al dropdownlist la fuente de datos
-            this.ddlIdCategoria.DataSource = oCategoria.RetornaAdicciones(null);
+            this.ddlIdCategoria.DataSource = oCategoria.retornaCategoriaAdicciones(null);
 
 
             ///indicarle al dropdownlist que se muestre 
@@ -73,11 +73,11 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 int idAdiccion = Convert.ToInt16(parametro);
 
                 ///Creación de la instancia a la clase BLEmpleado
-                BLEmpleado oAdiccionElimina = new BLEmpleado();
+                BLEmpleado oAdiccionModifica = new BLEmpleado();
 
                 ///Creación de la variable el cual obtendrá los datos del procedimiento almacenado ///Creación de la variable el cual obtendrá los datos del procedimiento almacenado
                 pa_RetornaAdiccionesID_Result resultDataAdiccion = new pa_RetornaAdiccionesID_Result();
-                resultDataAdiccion = oAdiccionElimina.RetornaAdiccionesID(idAdiccion);
+                resultDataAdiccion = oAdiccionModifica.RetornaAdiccionesID(idAdiccion);
 
                 this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
 
@@ -88,15 +88,13 @@ namespace AseguradoraFinal.formularios.mantenimientosEmpleado.mantenimientoAdicc
                 else
                 {
 
-                    //this.ddlIdAdiccion.SelectedValue = resultDataAdiccion.idAdiccion; // broncas con este
-                    this.ddlIdCategoria.SelectedValue = resultDataAdiccion.nombre.ToString();
-                    
+                                     
 
                     this.hdIdAdiccion.Value = resultDataAdiccion.idAdiccion.ToString();
                   
                 }
             }
-            //validar si el parametro es correcto
+        
 
         }
 
