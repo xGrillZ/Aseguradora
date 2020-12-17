@@ -3,6 +3,7 @@
 <%@ Register assembly="Microsoft.ReportViewer.WebForms" namespace="Microsoft.Reporting.WebForms" tagprefix="rsweb" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoPrincipal" runat="server">
     <section class="adicciones-Lista">
@@ -16,11 +17,11 @@
                       <p> Buscar por</p>
                 </div>
                 <asp:Label ID="Label1" runat="server" Text="Primer apellido:"></asp:Label>
-                <asp:TextBox ID="txtPriApellido" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtPriApellido" runat="server" Enabled="False"></asp:TextBox>
                 <asp:Label ID="Label2" runat="server" Text="Cédula:"></asp:Label>
-                <asp:TextBox ID="txtCedula" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtCedula" runat="server" Enabled="False"></asp:TextBox>
                 <asp:Label ID="Label3" runat="server" Text="Nombre cobertura:"></asp:Label>
-                <asp:TextBox ID="txtNombreCobertura" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtNombreCobertura" runat="server" Enabled="False"></asp:TextBox>
             &nbsp;&nbsp;
                 <asp:Button ID="btVerReporte" runat="server" OnClick="btBuscar_Click" Text="Ver Reporte" />
                 <br />
@@ -30,12 +31,11 @@
        
                 <br />
                 <br />   
-                
+            </div>
+             </div>
                 <rsweb:ReportViewer ID="rpvClientes" runat="server" Width="100%">
                   </rsweb:ReportViewer>
 
-            </div>
-             </div>
             </form>
         </div>
     </section>

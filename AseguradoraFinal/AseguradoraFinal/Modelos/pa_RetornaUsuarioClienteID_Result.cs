@@ -22,5 +22,6 @@ namespace AseguradoraFinal.Modelos
         public string pTelefono { get; set; }
         public string sTelefono { get; set; }
         public int idCliente { get; set; }
+        public string numCedula { get; set; }
     }
 }

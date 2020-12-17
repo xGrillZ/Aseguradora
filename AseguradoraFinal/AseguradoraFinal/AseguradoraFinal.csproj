@@ -155,6 +155,7 @@
     <Content Include="formularios\frmPrincipal.aspx" />
     <Content Include="formularios\frmSalir.aspx" />
     <Content Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteModifica.aspx" />
+    <Content Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteAdiccionesPorCliente.aspx" />
     <Content Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteInserta.aspx" />
     <Content Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteElimina.aspx" />
     <Content Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteLista.aspx" />
@@ -168,11 +169,11 @@
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesInserta.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesLista.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesModifica.aspx" />
-    <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesClienteReporte.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesElimina.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesInserta.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesLista.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesModifica.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmReporteAdicciones.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesElimina.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesInserta.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesLista.aspx" />
@@ -181,11 +182,11 @@
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaInserta.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaLista.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaModifica.aspx" />
-    <Content Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaClienteReporte.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaElimina.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaInserta.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaLista.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaModifica.aspx" />
+    <Content Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmReportePoliza.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaEliminar.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaInsertar.aspx" />
     <Content Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaLista.aspx" />
@@ -399,6 +400,28 @@
     <Content Include="aseguradorarjsDataSetPoliza.xsc">
       <DependentUpon>aseguradorarjsDataSetPoliza.xsd</DependentUpon>
     </Content>
+    <Content Include="aseguradorarjsDataSetAdicciones.xsc">
+      <DependentUpon>aseguradorarjsDataSetAdicciones.xsd</DependentUpon>
+    </Content>
+    <Content Include="aseguradorarjsDataSetAdCliente.xsc">
+      <DependentUpon>aseguradorarjsDataSetAdCliente.xsd</DependentUpon>
+    </Content>
+    <None Include="aseguradorarjsDataSetAdCliente.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>aseguradorarjsDataSetAdCliente.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="aseguradorarjsDataSetAdCliente.xss">
+      <DependentUpon>aseguradorarjsDataSetAdCliente.xsd</DependentUpon>
+    </Content>
+    <None Include="aseguradorarjsDataSetAdicciones.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>aseguradorarjsDataSetAdicciones.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="aseguradorarjsDataSetAdicciones.xss">
+      <DependentUpon>aseguradorarjsDataSetAdicciones.xsd</DependentUpon>
+    </Content>
     <None Include="aseguradorarjsDataSetPoliza.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>aseguradorarjsDataSetPoliza.Designer.cs</LastGenOutput>
@@ -471,6 +494,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>aseguradorarjsDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="aseguradorarjsDataSetAdCliente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>aseguradorarjsDataSetAdCliente.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="aseguradorarjsDataSetAdicciones.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>aseguradorarjsDataSetAdicciones.xsd</DependentUpon>
+    </Compile>
     <Compile Include="aseguradorarjsDataSetPoliza.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -531,6 +564,13 @@
     </Compile>
     <Compile Include="formularios\mantenimientoCliente\mantenimientoCliente\frmClienteModifica.aspx.designer.cs">
       <DependentUpon>frmClienteModifica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteAdiccionesPorCliente.aspx.cs">
+      <DependentUpon>frmReporteAdiccionesPorCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteAdiccionesPorCliente.aspx.designer.cs">
+      <DependentUpon>frmReporteAdiccionesPorCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="formularios\mantenimientoCliente\reporteAdiccionesPorCliente\frmReporteInserta.aspx.cs">
       <DependentUpon>frmReporteInserta.aspx</DependentUpon>
@@ -616,13 +656,6 @@
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdiccionesPorClientes\frmAdiccionesPorClientesModifica.aspx.designer.cs">
       <DependentUpon>frmAdiccionesPorClientesModifica.aspx</DependentUpon>
     </Compile>
-    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesClienteReporte.aspx.cs">
-      <DependentUpon>frmAdiccionesClienteReporte.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesClienteReporte.aspx.designer.cs">
-      <DependentUpon>frmAdiccionesClienteReporte.aspx</DependentUpon>
-    </Compile>
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesElimina.aspx.cs">
       <DependentUpon>frmAdiccionesElimina.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -650,6 +683,13 @@
     </Compile>
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmAdiccionesModifica.aspx.designer.cs">
       <DependentUpon>frmAdiccionesModifica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmReporteAdicciones.aspx.cs">
+      <DependentUpon>frmReporteAdicciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoAdicciones\frmReporteAdicciones.aspx.designer.cs">
+      <DependentUpon>frmReporteAdicciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoClientes\frmClientesElimina.aspx.cs">
       <DependentUpon>frmClientesElimina.aspx</DependentUpon>
@@ -707,13 +747,6 @@
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoCoberturaPoliza\frmCoberturaPolizaModifica.aspx.designer.cs">
       <DependentUpon>frmCoberturaPolizaModifica.aspx</DependentUpon>
     </Compile>
-    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaClienteReporte.aspx.cs">
-      <DependentUpon>frmPolizaClienteReporte.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaClienteReporte.aspx.designer.cs">
-      <DependentUpon>frmPolizaClienteReporte.aspx</DependentUpon>
-    </Compile>
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaElimina.aspx.cs">
       <DependentUpon>frmPolizaElimina.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -741,6 +774,13 @@
     </Compile>
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmPolizaModifica.aspx.designer.cs">
       <DependentUpon>frmPolizaModifica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmReportePoliza.aspx.cs">
+      <DependentUpon>frmReportePoliza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formularios\mantenimientosEmpleado\mantenimientoPoliza\frmReportePoliza.aspx.designer.cs">
+      <DependentUpon>frmReportePoliza.aspx</DependentUpon>
     </Compile>
     <Compile Include="formularios\mantenimientosEmpleado\mantenimientoTipoPoliza\frmTipoPolizaEliminar.aspx.cs">
       <DependentUpon>frmTipoPolizaEliminar.aspx</DependentUpon>
@@ -970,6 +1010,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reportes\RptAdiccionesxCliente.rdlc" />
+    <EmbeddedResource Include="Reportes\reporteAdiccionesPorCliente.rdlc" />
     <EmbeddedResource Include="Reportes\reportePolizaPorCliente.rdlc" />
     <EmbeddedResource Include="Reportes\RptPolizaCliente.rdlc" />
   </ItemGroup>

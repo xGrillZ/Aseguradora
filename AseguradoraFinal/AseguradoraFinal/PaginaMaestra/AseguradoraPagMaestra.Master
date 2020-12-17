@@ -35,8 +35,8 @@
                     <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" data-toggle="dropdown" data-target="dropdown_target" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-folder-plus"></i> Reportes<span class="sr-only">(current)</span></a>
                       <div class="dropdown-menu" aria-labelledby="dropdown-target">
-                        <a class="dropdown-item" href="/formularios/mantenimientosEmpleado/mantenimientoAdicciones/frmAdiccionesLista.aspx"><i class="fas fa-folder-plus"></i>  Reporte póliza por cliente</a>
-                        <a class="dropdown-item" href="/formularios/mantenimientosEmpleado/mantenimientoClientes/frmClientesLista.aspx"><i class="fas fa-folder-plus"></i>  Reporte adicciones por cliente</a>
+                        <a class="dropdown-item" href="/formularios/mantenimientosEmpleado/mantenimientoPoliza/frmReportePoliza.aspx"><i class="fas fa-folder-plus"></i>  Reporte póliza por cliente</a>
+                        <a class="dropdown-item" href="/formularios/mantenimientosEmpleado/mantenimientoAdicciones/frmReporteAdicciones.aspx"><i class="fas fa-folder-plus"></i>  Reporte adicciones por cliente</a>
                       </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -74,7 +74,7 @@
                       <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" data-target="dropdown_target" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-folder-plus"></i> Reportes<span class="sr-only">(current)</span></a>
                       <div class="dropdown-menu" aria-labelledby="dropdown-target">
                         <a class="dropdown-item" href="/formularios/mantenimientoCliente/reportePolizaporCliente/frmClientePolizaReporte.aspx"><i class="fas fa-drumstick-bite"></i>  Reporte póliza</a>
-                        <a class="dropdown-item" href="#"><i class="fas fa-address-card"></i>  Reporte adicciones</a>
+                        <a class="dropdown-item" href="/formularios/mantenimientoCliente/reporteAdiccionesPorCliente/frmReporteAdiccionesPorCliente.aspx"><i class="fas fa-address-card"></i>  Reporte adicciones</a>
                       </div>
                     </li>
                     <li class="nav-item">

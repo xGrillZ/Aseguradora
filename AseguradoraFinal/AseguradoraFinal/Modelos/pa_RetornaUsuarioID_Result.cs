@@ -17,6 +17,7 @@ namespace AseguradoraFinal.Modelos
         public string nomCliente { get; set; }
         public string ape1Cliente { get; set; }
         public string ape2Cliente { get; set; }
+        public string numCedula { get; set; }
         public string correoElectronico { get; set; }
         public string nomEmpleado { get; set; }
         public string ape1Empleado { get; set; }
