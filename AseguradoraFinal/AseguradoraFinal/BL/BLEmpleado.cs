@@ -17,6 +17,11 @@ namespace AseguradoraFinal.BL
         #endregion variableModelo
 
         #region Métodos y funciones
+        /// <summary>
+        /// Metodo para retornar datos de adicciones
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <returns></returns>
         public List<pa_RetornaAdicciones_Result> RetornaAdicciones(string nombre=null ) 
         {
             ///Crea variable que retornara
@@ -26,7 +31,11 @@ namespace AseguradoraFinal.BL
             ///Retornar el valor
             return resultado;
         }
-
+        /// <summary>
+        /// Metodo para retornar la categoria adicciones
+        /// </summary>
+        /// <param name="pNombre"></param>
+        /// <returns></returns>
         public List<pa_RetornaCategoriaAdicciones_Result> retornaCategoriaAdicciones(string pNombre = null)
         {
             List<pa_RetornaCategoriaAdicciones_Result> resultado = new List<pa_RetornaCategoriaAdicciones_Result>();
@@ -35,7 +44,12 @@ namespace AseguradoraFinal.BL
 
             return resultado;
         }
-
+        /// <summary>
+        /// Metodo para insertar adicciones
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="idCategoriaAdiccion"></param>
+        /// <returns></returns>
         public bool InsertaAdicciones(string nombre, int idCategoriaAdiccion)
         {
 
@@ -54,7 +68,11 @@ namespace AseguradoraFinal.BL
             }
 
         }
-
+        /// <summary>
+        /// Metodo para eliminar adicciones
+        /// </summary>
+        /// <param name="idAdiccion"></param>
+        /// <returns></returns>
         public bool EliminaAdicciones(int idAdiccion)
         {
             ///variable que posee la cantidad de registros afectados
@@ -85,7 +103,13 @@ namespace AseguradoraFinal.BL
             return resultado;
         }
 
-
+        /// <summary>
+        /// Metodo para modificar adicciones
+        /// </summary>
+        /// <param name="pIdAdiccion"></param>
+        /// <param name="pNombre"></param>
+        /// <param name="pIdCategoriaAdiccion"></param>
+        /// <returns></returns>
         public bool ModificaAdicciones (int pIdAdiccion, string pNombre, int pIdCategoriaAdiccion)
         {
             ///variable que posee la cantidad de registros afectados
@@ -123,6 +147,11 @@ namespace AseguradoraFinal.BL
             ///Retorno del resultado
             return resultado;
         }
+        /// <summary>
+        /// Metodo para retornar el usuario ID
+        /// </summary>
+        /// <param name="pIdUsuarioEmpleado"></param>
+        /// <returns></returns>
         public pa_RetornaUsuarioEmpleadoID_Result retornaUsuarioEmpleadoID(int pIdUsuarioEmpleado)
         {
             ///Creación de la variable que se retornará

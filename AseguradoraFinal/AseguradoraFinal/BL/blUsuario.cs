@@ -39,7 +39,11 @@ namespace AseguradoraFinal.BL
             ///Retornación del resultado
             return resultado;
         }
-
+        /// <summary>
+        /// Metodo para retonar tipo de usuario
+        /// </summary>
+        /// <param name="pRol"></param>
+        /// <returns></returns>
         public List<pa_RetornaTipoUsuario_Result> retornaTipoUsuario(string pRol = null)
         {
             List<pa_RetornaTipoUsuario_Result> resultado = new List<pa_RetornaTipoUsuario_Result>();
@@ -48,7 +52,11 @@ namespace AseguradoraFinal.BL
 
             return resultado;
         }
-
+        /// <summary>
+        /// Metodo para retornar usuario correo
+        /// </summary>
+        /// <param name="pCorreo"></param>
+        /// <returns></returns>
         public List<pa_RetornaUsuarioCorreo_Result> retornaUsuarioCorreo(string pCorreo = null)
         {
            List<pa_RetornaUsuarioCorreo_Result> resultado = new List<pa_RetornaUsuarioCorreo_Result>();
@@ -57,7 +65,13 @@ namespace AseguradoraFinal.BL
 
             return resultado;
         }
-
+        /// <summary>
+        /// Metodo para insertar usuario
+        /// </summary>
+        /// <param name="pContrasena"></param>
+        /// <param name="pIdTipoUsuario"></param>
+        /// <param name="pCorreo"></param>
+        /// <returns></returns>
         public bool insertaUsuario(string pContrasena, int pIdTipoUsuario, string pCorreo)
         {
             ///Variable que posee la cantidad de registros afectados

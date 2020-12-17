@@ -17,7 +17,11 @@ namespace AseguradoraFinal.BL
         #endregion variableModelo
 
         #region Métodos y funciones
-
+        /// <summary>
+        /// Metodo para retornar tipo poliza
+        /// </summary>
+        /// <param name="pNombre"></param>
+        /// <returns></returns>
         public List<pa_RetornaTipoPoliza_Result> retornaTipoPoliza(string pNombre = null)
         {
             ///Creación de la variable que retornará los datos
