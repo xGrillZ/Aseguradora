@@ -84,7 +84,7 @@ namespace AseguradoraFinal.BL
         }
 
         /// <summary>
-        /// Método para verificar la adiccion por cliente
+        /// Método para verificar la adiccion por cliente, prueba
         /// </summary>
         /// <param name="pIdCliente">Variable a capturar</param>
         /// <param name="pIdAdiccion">Variable a capturar</param>
